@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:soul_of_supersonic"
+    },
+    "title": "You now are as fast as a God",
+    "description": "You are speed",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:soul_of_supersonic"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

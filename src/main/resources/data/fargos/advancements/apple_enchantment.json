@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:apple_enchantment"
+    },
+    "title": "Apple Enchantment",
+    "description": "You crafted an Apple Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:apple_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

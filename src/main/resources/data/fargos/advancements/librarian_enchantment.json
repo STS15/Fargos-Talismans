@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:librarian_enchantment"
+    },
+    "title": "Librarian Enchantment",
+    "description": "You crafted a Librarian Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:librarian_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

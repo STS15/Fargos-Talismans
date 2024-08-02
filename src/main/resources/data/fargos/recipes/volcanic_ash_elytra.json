@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MLM",
+    "LEL",
+    "MLM"
+  ],
+  "key": {
+    "M": { "item": "minecraft:netherrack" },
+    "L": { "item": "minecraft:fire_charge" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "item": "fargos:volcanic_ash_elytra",
+    "count": 1
+  }
+}

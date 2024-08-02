@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:soul_of_colossus"
+    },
+    "title": "You are the size of a God",
+    "description": "You now to take damage like a God. Pathetic weaklings all around you",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:soul_of_colossus"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

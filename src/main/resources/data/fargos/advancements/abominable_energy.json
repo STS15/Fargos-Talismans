@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:abominable_energy"
+    },
+    "title": "Whaa... How'd you get this?",
+    "description": "You looted a Fargos dungeon",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:abominable_energy"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

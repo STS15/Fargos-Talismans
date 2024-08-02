@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DBD",
+    "BEB",
+    "DBD"
+  ],
+  "key": {
+    "D": { "item": "minecraft:dragon_egg" },
+    "B": { "item": "minecraft:blaze_powder" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "item": "fargos:dragon_wings_elytra",
+    "count": 1
+  }
+}

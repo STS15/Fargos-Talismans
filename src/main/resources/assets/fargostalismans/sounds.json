@@ -1,0 +1,18 @@
+{
+  "mutant_boss_music": {
+    "sounds": [
+      {
+        "name": "fargostalismans:mutant_boss_music",
+        "stream": true
+      }
+    ]
+  },
+  "abominationn_boss_music": {
+    "sounds": [
+      {
+        "name": "fargostalismans:abominationn_boss_music",
+        "stream": true
+      }
+    ]
+  }
+}

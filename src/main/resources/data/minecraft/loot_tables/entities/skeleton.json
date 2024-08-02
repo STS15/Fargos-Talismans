@@ -1,0 +1,74 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "fargos:flying_carpet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:sweetheart_necklace"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:amber_horseshoe_balloon"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:bundle_of_horseshoe_balloons"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:shield_of_cthulhu"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:master_ninja_gear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:blessed_apple"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:mechanical_cart"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:ancient_horn"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:reindeer_bells"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:brain_scrambler"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargos:aeolus_boots"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.05,
+          "looting_multiplier": 0.2
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "structure": "fargos:dungeon2"
+          }
+        }
+      ]
+    }
+  ]
+}

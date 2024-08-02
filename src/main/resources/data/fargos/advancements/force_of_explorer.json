@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:force_of_explorer"
+    },
+    "title": "What does this button do?",
+    "description": "Be free little one and explore, but wait take this Force of Explorer",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:force_of_explorer"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:soul_of_flight_mastery"
+    },
+    "title": "You can now fly like a God",
+    "description": "You now have the movement of a God.  Fly high Icarus",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:soul_of_flight_mastery"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

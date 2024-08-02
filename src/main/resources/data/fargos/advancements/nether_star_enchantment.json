@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:nether_star_enchantment"
+    },
+    "title": "Nether Star Enchantment",
+    "description": "You crafted a Nether Star Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:nether_star_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

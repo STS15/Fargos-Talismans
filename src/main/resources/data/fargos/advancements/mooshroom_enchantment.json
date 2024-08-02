@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:mooshroom_enchantment"
+    },
+    "title": "Mooshroom Enchantment",
+    "description": "You crafted a Mooshroom Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:mooshroom_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

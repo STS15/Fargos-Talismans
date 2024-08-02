@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fargostalismans:item/forest_wings_elytra"
+  }
+}

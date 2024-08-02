@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DED",
+    "ESE",
+    "DED"
+  ],
+  "key": {
+    "D": { "item": "minecraft:enchanting_table" },
+    "E": { "item": "minecraft:bookshelf" },
+    "S": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "item": "fargos:enchanted_wings_elytra",
+    "count": 1
+  }
+}

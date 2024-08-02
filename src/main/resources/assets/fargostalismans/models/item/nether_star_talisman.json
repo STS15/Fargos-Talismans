@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "fargostalismans:item/nether_star_talisman"
+  }
+}

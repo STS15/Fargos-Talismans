@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  "ACA",
+  "CBC",
+  "ACA"
+],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_block"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "fargos:amathyst_enchantment",
+    "count": 1
+  }
+}

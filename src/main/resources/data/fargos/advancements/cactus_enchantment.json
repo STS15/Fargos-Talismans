@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:cactus_enchantment"
+    },
+    "title": "Cactus Enchantment",
+    "description": "You crafted a Cactus Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:cactus_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

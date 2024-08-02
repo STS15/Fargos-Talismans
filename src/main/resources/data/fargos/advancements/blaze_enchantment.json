@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:blaze_enchantment"
+    },
+    "title": "Blaze Enchantment",
+    "description": "You crafted a Blaze Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:blaze_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:glowstone_enchantment"
+    },
+    "title": "Glowstone Enchantment",
+    "description": "You crafted a Glowstone Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:glowstone_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

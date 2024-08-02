@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:force_of_rejectors"
+    },
+    "title": "Man is actually going for it..",
+    "description": "I bet this Force of Rejectors too a while to craft...",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:force_of_rejectors"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

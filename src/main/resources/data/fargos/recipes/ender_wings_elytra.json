@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OCO",
+    "CEC",
+    "OCO"
+  ],
+  "key": {
+    "O": { "item": "minecraft:obsidian" },
+    "C": { "item": "minecraft:chorus_fruit" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "item": "fargos:ender_wings_elytra",
+    "count": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  "ABC",
+  "DEF",
+  "GHI"
+],
+  "key": {
+    "A": {
+      "item": "minecraft:glowstone"
+    },
+    "B": {
+      "item": "minecraft:redstone_torch"
+    },
+    "C": {
+      "item": "minecraft:glowstone"
+    },
+    "D": {
+      "item": "minecraft:lantern"
+    },
+    "E": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "minecraft:soul_lantern"
+    },
+    "G": {
+      "item": "minecraft:glowstone"
+    },
+    "H": {
+      "item": "minecraft:torch"
+    },
+    "I": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result": {
+    "item": "fargos:glowstone_enchantment",
+    "count": 1
+  }
+}

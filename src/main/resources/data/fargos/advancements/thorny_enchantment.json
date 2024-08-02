@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:thorny_enchantment"
+    },
+    "title": "Thorny Enchantment",
+    "description": "You crafted a Thorny Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:thorny_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

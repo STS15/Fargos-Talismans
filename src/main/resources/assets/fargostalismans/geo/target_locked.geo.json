@@ -1,0 +1,48 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 6.5,
+				"visible_bounds_offset": [0, 2.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-25, 8, -25], "size": [50, 0.1, 50], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "rocket",
+					"pivot": [25.87591, 80.27057, 0.5],
+					"cubes": [
+						{"origin": [-17, 40, 0], "size": [7, 14, 0], "pivot": [2.5, 68, 0.5], "rotation": [0, 0, -155], "uv": [31, 84], "mirror": true},
+						{"origin": [-1.5, 40, 16.5], "size": [7, 14, 0], "pivot": [2.5, 68, 0.5], "rotation": [0, -90, -155], "uv": [31, 84], "mirror": true}
+					]
+				},
+				{
+					"name": "rocket2",
+					"pivot": [-25.11287, 76.17393, -26.6565],
+					"cubes": [
+						{"origin": [22.37591, 73.27057, 49], "size": [7, 14, 0], "pivot": [25.87591, 80.27057, 22.5], "rotation": [50.41881, 51.44449, -119.76283], "uv": [31, 84], "mirror": true},
+						{"origin": [-1.90874, 74.59418, 33.02398], "size": [7, 14, 0], "pivot": [1.59126, 81.59418, 33.02398], "rotation": [31.56159, -23.39896, -176.88023], "uv": [31, 84], "mirror": true}
+					]
+				},
+				{
+					"name": "rocket3",
+					"pivot": [-25.11287, 76.17393, -26.6565],
+					"cubes": [
+						{"origin": [-28.27926, 79.28847, -21.38062], "size": [7, 14, 0], "pivot": [-24.77926, 86.28847, -21.38062], "rotation": [-32.73978, 53.80532, 129.3725], "uv": [31, 84], "mirror": true},
+						{"origin": [-28.27926, 79.28847, -21.38062], "size": [7, 14, 0], "pivot": [-24.77926, 86.28847, -21.38062], "rotation": [-21.59102, -29.783, 167.91772], "uv": [31, 84], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

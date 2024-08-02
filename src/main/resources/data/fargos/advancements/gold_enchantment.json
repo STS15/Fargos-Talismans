@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:gold_enchantment"
+    },
+    "title": "Gold Enchantment",
+    "description": "You crafted a Gold Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:gold_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

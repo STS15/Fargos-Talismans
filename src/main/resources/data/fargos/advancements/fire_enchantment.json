@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:fire_enchantment"
+    },
+    "title": "Fire Enchantment",
+    "description": "You crafted a Fire Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:fire_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

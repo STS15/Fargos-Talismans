@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GDG",
+    "DED",
+    "GDG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:echo_shard" },
+    "D": { "item": "minecraft:sculk_vein" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "item": "fargos:ancient_wings_elytra",
+    "count": 1
+  }
+}

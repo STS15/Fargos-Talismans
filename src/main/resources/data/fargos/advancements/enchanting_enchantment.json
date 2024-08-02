@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:enchanting_enchantment"
+    },
+    "title": "Enchanting Enchantment",
+    "description": "You crafted an Enchanting Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:enchanting_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

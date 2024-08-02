@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:arctic_enchantment"
+    },
+    "title": "Arctic Enchantment",
+    "description": "You crafted an Arctic Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:arctic_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:lapis_enchantment"
+    },
+    "title": "Lapis Enchantment",
+    "description": "You crafted a Lapis Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:lapis_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

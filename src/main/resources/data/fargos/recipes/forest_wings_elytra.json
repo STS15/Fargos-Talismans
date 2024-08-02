@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OFO",
+    "FEF",
+    "OFO"
+  ],
+  "key": {
+    "O": { "item": "minecraft:oak_leaves" },
+    "F": { "item": "minecraft:poppy" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "item": "fargos:forest_wings_elytra",
+    "count": 1
+  }
+}

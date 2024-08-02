@@ -1,0 +1,27 @@
+{
+  "parent": "fargos:root_enchantment",
+  "display": {
+    "icon": {
+      "item": "fargos:shulker_enchantment"
+    },
+    "title": "Shulker Enchantment",
+    "description": "You crafted a Shulker Enchantment!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargos:shulker_enchantment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
