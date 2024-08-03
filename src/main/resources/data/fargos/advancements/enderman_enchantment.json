@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:enderman_enchantment"
+      "item": "fargostalismans:enderman_enchantment"
     },
     "title": "Enderman Enchantment",
     "description": "You crafted an Enderman Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:enderman_enchantment"
+              "fargostalismans:enderman_enchantment"
             ]
           }
         ]

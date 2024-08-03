@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:iron_golem_enchantment"
+      "item": "fargostalismans:iron_golem_enchantment"
     },
     "title": "Iron Golem Enchantment",
     "description": "You crafted an Iron Golem Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:iron_golem_enchantment"
+              "fargostalismans:iron_golem_enchantment"
             ]
           }
         ]

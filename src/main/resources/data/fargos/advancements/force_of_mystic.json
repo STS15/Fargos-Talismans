@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:force_of_mystic"
+      "item": "fargostalismans:force_of_mystic"
     },
     "title": "Enchanting is like second hand now",
     "description": "Perhaps the closest to godhood now that you have the Force of Mystic, except...",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:force_of_mystic"
+              "fargostalismans:force_of_mystic"
             ]
           }
         ]

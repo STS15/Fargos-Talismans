@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:amathyst_enchantment"
+      "item": "fargostalismans:amathyst_enchantment"
     },
     "title": "Amethyst Enchantment",
     "description": "You crafted an Amethyst Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:amathyst_enchantment"
+              "fargostalismans:amathyst_enchantment"
             ]
           }
         ]

@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:force_of_warrior"
+      "item": "fargostalismans:force_of_warrior"
     },
     "title": "Oh thank the gods",
     "description": "Lets hear your battle cry!  Force of Warrior aquired",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:force_of_warrior"
+              "fargostalismans:force_of_warrior"
             ]
           }
         ]

@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:soul_of_colossus"
+      "item": "fargostalismans:soul_of_colossus"
     },
     "title": "You are the size of a God",
     "description": "You now to take damage like a God. Pathetic weaklings all around you",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:soul_of_colossus"
+              "fargostalismans:soul_of_colossus"
             ]
           }
         ]

@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:ghast_enchantment"
+      "item": "fargostalismans:ghast_enchantment"
     },
     "title": "Ghast Enchantment",
     "description": "You crafted a Ghast Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:ghast_enchantment"
+              "fargostalismans:ghast_enchantment"
             ]
           }
         ]

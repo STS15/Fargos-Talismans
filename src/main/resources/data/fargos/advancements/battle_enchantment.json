@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:battle_enchantment"
+      "item": "fargostalismans:battle_enchantment"
     },
     "title": "Battle Enchantment",
     "description": "You crafted a Battle Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:battle_enchantment"
+              "fargostalismans:battle_enchantment"
             ]
           }
         ]

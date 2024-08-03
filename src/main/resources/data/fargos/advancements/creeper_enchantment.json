@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:creeper_enchantment"
+      "item": "fargostalismans:creeper_enchantment"
     },
     "title": "Creeper Enchantment",
     "description": "You crafted a Creeper Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:creeper_enchantment"
+              "fargostalismans:creeper_enchantment"
             ]
           }
         ]

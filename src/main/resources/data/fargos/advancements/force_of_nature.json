@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:force_of_nature"
+      "item": "fargostalismans:force_of_nature"
     },
     "title": "So you're not going to share?",
     "description": "You're just going to be a god then and keep the Force of Nature to yourself?",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:force_of_nature"
+              "fargostalismans:force_of_nature"
             ]
           }
         ]

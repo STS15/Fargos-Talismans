@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:skeleton_enchantment"
+      "item": "fargostalismans:skeleton_enchantment"
     },
     "title": "Skeleton Enchantment",
     "description": "You crafted a Skeleton Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:skeleton_enchantment"
+              "fargostalismans:skeleton_enchantment"
             ]
           }
         ]

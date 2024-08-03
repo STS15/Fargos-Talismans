@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:arctic_enchantment"
+      "item": "fargostalismans:arctic_enchantment"
     },
     "title": "Arctic Enchantment",
     "description": "You crafted an Arctic Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:arctic_enchantment"
+              "fargostalismans:arctic_enchantment"
             ]
           }
         ]

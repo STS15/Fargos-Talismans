@@ -17,7 +17,7 @@ public class CreativeTabRegistry {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FARGOS_TAB = CREATIVE_MODE_TABS.register("fargos_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("key.categories.fargostalismansmod"))
-            .withTabsBefore(CreativeModeTabs.COMBAT)
+            //.withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> ItemInit.ABOMINABLE_ENERGY.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
             	
@@ -82,8 +82,8 @@ public class CreativeTabRegistry {
 
                 // Add everything else
                 output.accept(ItemInit.ABOMINABLE_ENERGY.get());
-                output.accept(ItemInit.ABOMINATIONNS_CURSE.get());
-                output.accept(ItemInit.ABOMINATIONN_MUSIC_DISC.get());
+//                output.accept(ItemInit.ABOMINATIONNS_CURSE.get());
+//                output.accept(ItemInit.ABOMINATIONN_MUSIC_DISC.get());
                 output.accept(ItemInit.AEOLUS_BOOTS.get());
                 output.accept(ItemInit.AMBER_HORSESHOE_BALLOON.get());
                 output.accept(ItemInit.ANCIENT_HORN.get());
@@ -98,7 +98,7 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.BUNDLE_OF_HORSESHOE_BALLOONS.get());
                 output.accept(ItemInit.CHARM_OF_MYTHS.get());
                 //output.accept(BlockInit.CRUCIBLE_OF_THE_COSMOS.get());
-                output.accept(ItemInit.DRAGONS_DEMISE.get());
+//                output.accept(ItemInit.DRAGONS_DEMISE.get());
                 output.accept(ItemInit.DRAGON_WINGS_ELYTRA.get());
                 output.accept(ItemInit.DUSTY_WINGS_ELYTRA.get());
                 output.accept(ItemInit.ELEMENTAL_ASSEMBLER.get());
@@ -114,9 +114,9 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.MASTER_NINJA_GEAR.get());
                 output.accept(ItemInit.MECHANICAL_CART.get());
                 output.accept(ItemInit.MULTITASK_CENTER.get());
-                output.accept(ItemInit.MUTANTS_CURSE.get());
-                output.accept(ItemInit.MUTANT_MUSIC_DISC.get());
-                output.accept(ItemInit.MUTANT_VOODOO.get());
+//                output.accept(ItemInit.MUTANTS_CURSE.get());
+//                output.accept(ItemInit.MUTANT_MUSIC_DISC.get());
+//                output.accept(ItemInit.MUTANT_VOODOO.get());
                 //output.accept(BlockInit.NETHERITE_ANVIL.get());
                 output.accept(ItemInit.OBSIDIAN_HORSESHOE.get());
                 output.accept(ItemInit.OCEANS_FINS_ELYTRA.get());
@@ -126,9 +126,9 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.SHIELD_OF_CTHULHU.get());
                 output.accept(ItemInit.SHINY_STONE.get());
                 output.accept(ItemInit.STAR_VEIL.get());
-                output.accept(ItemInit.STYX_GAZER.get());
+//                output.accept(ItemInit.STYX_GAZER.get());
                 output.accept(ItemInit.SWEETHEART_NECKLACE.get());
-                output.accept(ItemInit.SWORD_OF_THE_FATES.get());
+//                output.accept(ItemInit.SWORD_OF_THE_FATES.get());
                 output.accept(ItemInit.VOLCANIC_ASH_ELYTRA.get());
             }).build());
 

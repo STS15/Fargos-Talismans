@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:soul_of_flight_mastery"
+      "item": "fargostalismans:soul_of_flight_mastery"
     },
     "title": "You can now fly like a God",
     "description": "You now have the movement of a God.  Fly high Icarus",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:soul_of_flight_mastery"
+              "fargostalismans:soul_of_flight_mastery"
             ]
           }
         ]

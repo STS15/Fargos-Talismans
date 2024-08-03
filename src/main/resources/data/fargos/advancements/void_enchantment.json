@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:void_enchantment"
+      "item": "fargostalismans:void_enchantment"
     },
     "title": "Void Enchantment",
     "description": "You crafted a Void Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:void_enchantment"
+              "fargostalismans:void_enchantment"
             ]
           }
         ]

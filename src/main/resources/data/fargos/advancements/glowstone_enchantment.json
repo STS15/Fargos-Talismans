@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:glowstone_enchantment"
+      "item": "fargostalismans:glowstone_enchantment"
     },
     "title": "Glowstone Enchantment",
     "description": "You crafted a Glowstone Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:glowstone_enchantment"
+              "fargostalismans:glowstone_enchantment"
             ]
           }
         ]

@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:vampiric_enchantment"
+      "item": "fargostalismans:vampiric_enchantment"
     },
     "title": "Vampiric Enchantment",
     "description": "You crafted a Vampiric Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:vampiric_enchantment"
+              "fargostalismans:vampiric_enchantment"
             ]
           }
         ]

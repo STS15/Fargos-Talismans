@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:librarian_enchantment"
+      "item": "fargostalismans:librarian_enchantment"
     },
     "title": "Librarian Enchantment",
     "description": "You crafted a Librarian Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:librarian_enchantment"
+              "fargostalismans:librarian_enchantment"
             ]
           }
         ]

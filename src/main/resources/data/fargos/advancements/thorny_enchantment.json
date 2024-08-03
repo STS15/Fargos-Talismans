@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:thorny_enchantment"
+      "item": "fargostalismans:thorny_enchantment"
     },
     "title": "Thorny Enchantment",
     "description": "You crafted a Thorny Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:thorny_enchantment"
+              "fargostalismans:thorny_enchantment"
             ]
           }
         ]

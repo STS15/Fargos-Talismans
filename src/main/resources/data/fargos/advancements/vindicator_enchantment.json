@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:vindicator_enchantment"
+      "item": "fargostalismans:vindicator_enchantment"
     },
     "title": "Vindicator Enchantment",
     "description": "You crafted a Vindicator Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:vindicator_enchantment"
+              "fargostalismans:vindicator_enchantment"
             ]
           }
         ]

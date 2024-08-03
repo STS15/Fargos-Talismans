@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:water_enchantment"
+      "item": "fargostalismans:water_enchantment"
     },
     "title": "Water Enchantment",
     "description": "You crafted a Water Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:water_enchantment"
+              "fargostalismans:water_enchantment"
             ]
           }
         ]

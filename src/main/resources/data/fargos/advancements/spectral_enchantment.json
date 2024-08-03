@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:spectral_enchantment"
+      "item": "fargostalismans:spectral_enchantment"
     },
     "title": "Spectral Enchantment",
     "description": "You crafted an Spectral Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:spectral_enchantment"
+              "fargostalismans:spectral_enchantment"
             ]
           }
         ]

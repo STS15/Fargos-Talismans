@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:obsidian_enchantment"
+      "item": "fargostalismans:obsidian_enchantment"
     },
     "title": "Obsidian Enchantment",
     "description": "You crafted an Obsidian Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:obsidian_enchantment"
+              "fargostalismans:obsidian_enchantment"
             ]
           }
         ]

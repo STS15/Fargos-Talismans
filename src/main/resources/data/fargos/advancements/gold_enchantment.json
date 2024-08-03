@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:gold_enchantment"
+      "item": "fargostalismans:gold_enchantment"
     },
     "title": "Gold Enchantment",
     "description": "You crafted a Gold Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:gold_enchantment"
+              "fargostalismans:gold_enchantment"
             ]
           }
         ]

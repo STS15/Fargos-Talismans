@@ -1,18 +1,14 @@
 {
-  "mutant_boss_music": {
+  "equip_talisman": {
     "sounds": [
-      {
-        "name": "fargostalismans:mutant_boss_music",
-        "stream": true
-      }
-    ]
+      "fargostalismans:equip_talisman"
+    ],
+    "subtitle": "fargostalismans.subtitle.equip_talisman"
   },
-  "abominationn_boss_music": {
+  "unequip_talisman": {
     "sounds": [
-      {
-        "name": "fargostalismans:abominationn_boss_music",
-        "stream": true
-      }
-    ]
+      "fargostalismans:unequip_talisman"
+    ],
+    "subtitle": "fargostalismans.subtitle.unequip_talisman"
   }
 }

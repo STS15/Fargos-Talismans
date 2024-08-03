@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:apple_enchantment"
+      "item": "fargostalismans:apple_enchantment"
     },
     "title": "Apple Enchantment",
     "description": "You crafted an Apple Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:apple_enchantment"
+              "fargostalismans:apple_enchantment"
             ]
           }
         ]

@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:shulker_enchantment"
+      "item": "fargostalismans:shulker_enchantment"
     },
     "title": "Shulker Enchantment",
     "description": "You crafted a Shulker Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:shulker_enchantment"
+              "fargostalismans:shulker_enchantment"
             ]
           }
         ]

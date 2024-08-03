@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:fire_enchantment"
+      "item": "fargostalismans:fire_enchantment"
     },
     "title": "Fire Enchantment",
     "description": "You crafted a Fire Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:fire_enchantment"
+              "fargostalismans:fire_enchantment"
             ]
           }
         ]

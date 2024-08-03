@@ -1,8 +1,8 @@
 {
-  "parent": "fargos:root_enchantment",
+  "parent": "fargostalismans:root_enchantment",
   "display": {
     "icon": {
-      "item": "fargos:pickaxe_enchantment"
+      "item": "fargostalismans:pickaxe_enchantment"
     },
     "title": "Pickaxe Enchantment",
     "description": "You crafted a Pickaxe Enchantment!",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "fargos:pickaxe_enchantment"
+              "fargostalismans:pickaxe_enchantment"
             ]
           }
         ]
