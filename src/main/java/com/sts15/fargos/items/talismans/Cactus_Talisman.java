@@ -9,15 +9,12 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.monster.AbstractIllager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
@@ -40,18 +37,13 @@ public class Cactus_Talisman extends TalismanItem {
     public static class Events {
         @SubscribeEvent
         public static void onLivingHurt(LivingIncomingDamageEvent event) {
-            // Get the entity causing the damage
             Entity source = event.getSource().getEntity();
-
-            // Check if the entity being damaged is a player
             if (event.getEntity() instanceof Player player) {
-                // Find the equipped Cactus Talisman
                 if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Cactus_Talisman, player).isPresent()) {
-                    // Reflect 25% of the damage back to the attacker
                     float damageToReflect = event.getAmount() * 0.25F;
                     if (damageToReflect > 0 && source != null) {
-                    	DamageSource thornsDamage = player.level().damageSources().thorns(player);
-                        source.hurt(thornsDamage, damageToReflect);
+                    	DamageSource cactusDamage = player.level().damageSources().cactus();
+                        source.hurt(cactusDamage, damageToReflect);
                     }
                 }
             }
