@@ -24,7 +24,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
 
-public class Air_Talisman extends TalismanItem {
+public class Air_Talisman extends TalismanItem implements Air_Talisman_Provider {
 
     public Air_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -53,7 +53,7 @@ public class Air_Talisman extends TalismanItem {
             ResourceKey<DamageType> fallDamageType = DamageTypes.FALL;
 
             if (source.is(fallDamageType)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Air_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Air_Talisman_Provider, player).isPresent()) {
                     event.setCanceled(true);
                 }
             }

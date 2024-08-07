@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import com.sts15.fargos.items.talismans.Spectral_Talisman_Provider;
 
-import com.sts15.fargos.items.talismans.Spectral_Talisman;
 import top.theillusivec4.curios.api.CuriosApi;
 
 @Mixin(targets = "net.minecraft.world.entity.monster.Phantom$PhantomAttackPlayerTargetGoal")
@@ -52,6 +52,6 @@ public abstract class PhantomAttackPlayerTargetGoalMixin {
 
     @SuppressWarnings({ "deprecation", "removal" })
     private boolean hasPhantomTalisman(Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Spectral_Talisman, player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Spectral_Talisman_Provider, player).isPresent();
     }
 }

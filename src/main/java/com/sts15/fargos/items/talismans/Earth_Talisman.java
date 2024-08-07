@@ -27,7 +27,7 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Earth_Talisman extends TalismanItem {
+public class Earth_Talisman extends TalismanItem implements Earth_Talisman_Provider {
 
     public Earth_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -47,7 +47,7 @@ public class Earth_Talisman extends TalismanItem {
             if (!(event.getEntity() instanceof Player player))
                 return;
             
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Earth_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Earth_Talisman_Provider, player).isPresent()) {
     			if(event.getLevel().getBlockState(event.getPos()).is(BlockTags.DIRT)){
     				if(!event.getLevel().isClientSide()){
     					event.getLevel().setBlock(new BlockPos(event.getPos().getX(), event.getPos().getY(), event.getPos().getZ()), Blocks.GRASS_BLOCK.defaultBlockState(), 3);

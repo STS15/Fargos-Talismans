@@ -23,7 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Wither_Talisman extends TalismanItem {
+public class Wither_Talisman extends TalismanItem implements Wither_Talisman_Provider {
 
     public Wither_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -46,7 +46,7 @@ public class Wither_Talisman extends TalismanItem {
             ResourceKey<DamageType> fallDamageType = DamageTypes.WITHER;
 
             if (source.is(fallDamageType)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Wither_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Wither_Talisman_Provider, player).isPresent()) {
                     event.setCanceled(true);
                 }
             }

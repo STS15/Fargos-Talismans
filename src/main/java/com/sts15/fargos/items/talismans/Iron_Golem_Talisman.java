@@ -25,12 +25,13 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Iron_Golem_Talisman extends TalismanItem {
+public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Talisman_Provider {
 
     private static final double HEALTH_BOOST_MULTIPLIER = 2.0;
     private static final Map<UUID, AttributeModifier> healthModifiers = new HashMap<>();
 
-    private static final ResourceLocation IRON_GOLEM_HEALTH_BOOST = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health_boost");
+    //private static final ResourceLocation IRON_GOLEM_HEALTH_BOOST = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health_boost");
+    private static final ResourceLocation HEALTH_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health_boost");
 
     public Iron_Golem_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -43,20 +44,18 @@ public class Iron_Golem_Talisman extends TalismanItem {
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 
-    private static void resetHealth(Player player, UUID playerId) {
+    private static void resetHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
-        if (healthAttribute != null && healthModifiers.containsKey(playerId)) {
-            healthAttribute.removeModifier(healthModifiers.get(playerId));
-            healthModifiers.remove(playerId);
+        if (healthAttribute != null && healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
+            healthAttribute.removeModifier(HEALTH_BOOST_ID);
         }
     }
 
-    private static void increaseHealth(Player player, UUID playerId) {
+    private static void increaseHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
-        if (healthAttribute != null && !healthModifiers.containsKey(playerId)) {
-            AttributeModifier modifier = new AttributeModifier(IRON_GOLEM_HEALTH_BOOST, HEALTH_BOOST_MULTIPLIER, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+        if (healthAttribute != null && !healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
+            AttributeModifier modifier = new AttributeModifier(HEALTH_BOOST_ID, HEALTH_BOOST_MULTIPLIER, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
             healthAttribute.addTransientModifier(modifier);
-            healthModifiers.put(playerId, modifier);
         }
     }
 
@@ -71,10 +70,10 @@ public class Iron_Golem_Talisman extends TalismanItem {
 
             UUID playerUUID = player.getUUID();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman, player).isPresent()) {
-                increaseHealth(player, playerUUID);
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
+                increaseHealth(player);
             } else {
-                resetHealth(player, playerUUID);
+                resetHealth(player);
             }
         }
     }

@@ -13,7 +13,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Item.TooltipContext;
 
-public class Librarian_Talisman extends TalismanItem {
+public class Librarian_Talisman extends TalismanItem implements Librarian_Talisman_Provider {
 
     public Librarian_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));

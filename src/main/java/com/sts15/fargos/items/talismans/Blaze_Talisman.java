@@ -26,7 +26,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Blaze_Talisman extends TalismanItem {
+public class Blaze_Talisman extends TalismanItem implements Blaze_Talisman_Provider {
 
     public Blaze_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -55,7 +55,7 @@ public class Blaze_Talisman extends TalismanItem {
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
         	Player player = event.getEntity();
     	    
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Blaze_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Blaze_Talisman_Provider, player).isPresent()) {
             	int radius = 4;
                 AABB area = player.getBoundingBox().inflate(radius);
                 List<Monster> mobs = player.level().getEntitiesOfClass(Monster.class, area);

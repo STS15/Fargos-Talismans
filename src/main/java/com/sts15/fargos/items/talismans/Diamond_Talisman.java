@@ -19,7 +19,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Diamond_Talisman extends TalismanItem {
+public class Diamond_Talisman extends TalismanItem implements Diamond_Talisman_Provider {
 
     public Diamond_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -41,7 +41,7 @@ public class Diamond_Talisman extends TalismanItem {
         	if (!(event.getEntity() instanceof Player player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Diamond_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Diamond_Talisman_Provider, player).isPresent()) {
                 float reducedDamage = event.getAmount() * 0.8F;
                 event.setAmount(reducedDamage);
             }

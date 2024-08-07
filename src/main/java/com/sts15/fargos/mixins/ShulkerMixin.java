@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import com.sts15.fargos.items.talismans.Shulker_Talisman_Provider;
 
-import com.sts15.fargos.items.talismans.Shulker_Talisman;
 import top.theillusivec4.curios.api.CuriosApi;
 
 @Mixin(ShulkerBullet.class)
@@ -31,7 +31,7 @@ public class ShulkerMixin {
 	
 	@SuppressWarnings({ "deprecation", "removal" })
     private static boolean hasShulkerTalisman(Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman, player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman_Provider, player).isPresent();
     }
 	
 }

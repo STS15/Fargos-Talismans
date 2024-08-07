@@ -20,7 +20,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Cactus_Talisman extends TalismanItem {
+public class Cactus_Talisman extends TalismanItem implements Cactus_Talisman_Provider {
 
     public Cactus_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -35,11 +35,12 @@ public class Cactus_Talisman extends TalismanItem {
     
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
-        @SubscribeEvent
+        @SuppressWarnings({ "deprecation", "removal" })
+		@SubscribeEvent
         public static void onLivingHurt(LivingIncomingDamageEvent event) {
             Entity source = event.getSource().getEntity();
             if (event.getEntity() instanceof Player player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Cactus_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Cactus_Talisman_Provider, player).isPresent()) {
                     float damageToReflect = event.getAmount() * 0.25F;
                     if (damageToReflect > 0 && source != null) {
                     	DamageSource cactusDamage = player.level().damageSources().cactus();

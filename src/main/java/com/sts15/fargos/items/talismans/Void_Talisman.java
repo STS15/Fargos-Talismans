@@ -21,7 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Void_Talisman extends TalismanItem {
+public class Void_Talisman extends TalismanItem implements Void_Talisman_Provider {
 
     public Void_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -42,7 +42,7 @@ public class Void_Talisman extends TalismanItem {
             if (!(event.getEntity() instanceof Player player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Void_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Void_Talisman_Provider, player).isPresent()) {
             	int minY = player.level().dimensionType().minY();
                 int maxY = player.level().dimensionType().logicalHeight();
                 if (player.getY() < (minY - 40)) {

@@ -23,7 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Undying_Talisman extends TalismanItem {
+public class Undying_Talisman extends TalismanItem implements Undying_Talisman_Provider {
 	
     private static Map<UUID, Long> undyingCooldowns = new HashMap<>();
     private static final int UNDYING_COOLDOWN = 24000;
@@ -54,7 +54,7 @@ public class Undying_Talisman extends TalismanItem {
             if (!(event.getEntity() instanceof Player player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Undying_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Undying_Talisman_Provider, player).isPresent()) {
                 	if (player.getHealth() - event.getAmount() <= 0) {
                         long currentTime = player.level().getGameTime();
                         undyingCooldowns.putIfAbsent(player.getUUID(), 0L);

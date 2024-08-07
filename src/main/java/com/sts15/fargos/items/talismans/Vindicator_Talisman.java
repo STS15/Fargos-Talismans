@@ -22,7 +22,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Vindicator_Talisman extends TalismanItem {
+public class Vindicator_Talisman extends TalismanItem implements Vindicator_Talisman_Provider {
 	
 	private static final Map<UUID, ItemStack> lastHeldItems = new HashMap<>();
     private static final Map<UUID, Long> lastWeaponSwitchTimes = new HashMap<>();
@@ -85,7 +85,7 @@ public class Vindicator_Talisman extends TalismanItem {
 
             UUID playerUUID = player.getUUID();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman_Provider, player).isPresent()) {
                 trackWeaponSwitch(player, playerUUID);
             }
         }
@@ -95,7 +95,7 @@ public class Vindicator_Talisman extends TalismanItem {
             if (!(event.getSource().getEntity() instanceof Player player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman_Provider, player).isPresent()) {
                 applyVindicatorBoostIfEligible(player, event);
             }
         }

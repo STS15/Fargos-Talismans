@@ -4,8 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import com.sts15.fargos.items.talismans.Witch_Talisman;
+import com.sts15.fargos.items.talismans.Witch_Talisman_Provider;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -79,6 +78,6 @@ public abstract class WitchMixin extends Entity {
     }
 
     private static boolean hasWitchEnchantment(Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Witch_Talisman, player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Witch_Talisman_Provider, player).isPresent();
     }
 }

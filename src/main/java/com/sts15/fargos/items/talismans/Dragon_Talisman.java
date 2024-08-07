@@ -23,7 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Dragon_Talisman extends TalismanItem {
+public class Dragon_Talisman extends TalismanItem implements Dragon_Talisman_Provider {
 
     public Dragon_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -48,7 +48,7 @@ public class Dragon_Talisman extends TalismanItem {
             ResourceKey<DamageType> DamageTypeIndirect = DamageTypes.INDIRECT_MAGIC;
 
             if (source.is(DamageType)||source.is(DamageTypeIndirect)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Dragon_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Dragon_Talisman_Provider, player).isPresent()) {
                     event.setCanceled(true);
                 }
             }

@@ -19,7 +19,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Creeper_Talisman extends TalismanItem {
+public class Creeper_Talisman extends TalismanItem implements Creeper_Talisman_Provider {
 
     public Creeper_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -37,7 +37,7 @@ public class Creeper_Talisman extends TalismanItem {
         @SubscribeEvent
         public static void onLivingJump(LivingEvent.LivingJumpEvent event) {
             if (event.getEntity() instanceof Player player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Creeper_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Creeper_Talisman_Provider, player).isPresent()) {
                     Level level = player.level();
                     level.explode(player, player.getX(), player.getY(), player.getZ(), 4.0F, false, Level.ExplosionInteraction.NONE);
                 }

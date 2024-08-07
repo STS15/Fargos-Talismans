@@ -34,7 +34,7 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
-public class Emerald_Talisman extends TalismanItem {
+public class Emerald_Talisman extends TalismanItem implements Emerald_Talisman_Provider {
 	
 	private static final long ACTIVE_ABILITY_COOLDOWN = 15000; // 15 seconds
     private long lastActiveAbilityTime = 0;
@@ -95,7 +95,7 @@ public class Emerald_Talisman extends TalismanItem {
             Entity source = event.getSource().getDirectEntity();
 
             if (source instanceof Player player) {
-            	if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Emerald_Talisman, player).isPresent()) {
+            	if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Emerald_Talisman_Provider, player).isPresent()) {
             		if (!(event.getSource().getEntity() instanceof Player))
                         return;
 

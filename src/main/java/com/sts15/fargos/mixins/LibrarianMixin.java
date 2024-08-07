@@ -5,8 +5,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import com.sts15.fargos.items.talismans.Librarian_Talisman;
+import com.sts15.fargos.items.talismans.Librarian_Talisman_Provider;
 
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
@@ -67,6 +66,6 @@ public abstract class LibrarianMixin {
 
     @SuppressWarnings("deprecation")
     private static boolean hasLibrarianEnchantment(Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman, player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, player).isPresent();
     }
 }

@@ -24,7 +24,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Battle_Talisman extends TalismanItem {
+public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Provider {
     
     private static final Map<UUID, Integer> invinciblePlayers = new HashMap<>();
     private static final Logger LOGGER = LogManager.getLogger();
@@ -49,7 +49,7 @@ public class Battle_Talisman extends TalismanItem {
             if (!(event.getEntity() instanceof Player player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Battle_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Battle_Talisman_Provider, player).isPresent()) {
                 UUID playerUUID = player.getUUID();
                 Integer invincibilityTicks = invinciblePlayers.get(playerUUID);
 

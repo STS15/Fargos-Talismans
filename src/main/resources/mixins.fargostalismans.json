@@ -11,9 +11,7 @@
   	"PhantomAttackPlayerTargetGoalMixin",
   	"LibrarianMixin",
   	"EnchantmentTableMixin",
-  	"ShulkerMixin",
-  	"AbstractArrowMixin",
-  	"ArrowMixin"
+  	"ShulkerMixin"
   ],
   "minVersion": "0.8",
   "refmap": "mixins.fargostalismans.refmap.json"

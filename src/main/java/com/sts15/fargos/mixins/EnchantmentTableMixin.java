@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.sts15.fargos.items.talismans.Enchanting_Talisman;
-import com.sts15.fargos.items.talismans.Lapis_Talisman;
+import com.sts15.fargos.items.talismans.Enchanting_Talisman_Provider;
+import com.sts15.fargos.items.talismans.Lapis_Talisman_Provider;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.RegistryAccess;
@@ -110,12 +110,12 @@ public abstract class EnchantmentTableMixin {
     
     @SuppressWarnings({ "deprecation", "removal" })
     private static boolean hasEnchantingEnchantment(Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Enchanting_Talisman, player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Enchanting_Talisman_Provider, player).isPresent();
     }
     
     @SuppressWarnings({ "deprecation", "removal" })
     private static boolean isWearingLapisTalisman(Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Lapis_Talisman, player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Lapis_Talisman_Provider, player).isPresent();
     }
 }
 

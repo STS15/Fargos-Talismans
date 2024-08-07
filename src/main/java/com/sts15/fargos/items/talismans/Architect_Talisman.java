@@ -25,7 +25,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Architect_Talisman extends TalismanItem {
+public class Architect_Talisman extends TalismanItem implements Architect_Talisman_Provider {
     
     private static final double REACH_DISTANCE_BOOST = 59.0;
     private static final Map<UUID, AttributeModifier> reachDistanceModifiers = new HashMap<>();
@@ -47,7 +47,7 @@ public class Architect_Talisman extends TalismanItem {
         if (reachDistanceAttribute != null && reachDistanceModifiers.containsKey(playerId)) {
             reachDistanceAttribute.removeModifier(reachDistanceModifiers.get(playerId));
             reachDistanceModifiers.remove(playerId);
-            System.out.println("Reset reach distance for player " + player.getName().getString() + " (ID: " + playerId + ")");
+            //System.out.println("Reset reach distance for player " + player.getName().getString() + " (ID: " + playerId + ")");
         }
     }
 
@@ -57,7 +57,7 @@ public class Architect_Talisman extends TalismanItem {
             AttributeModifier modifier = new AttributeModifier(ARCHITECT_REACH_DISTANCE_BOOST_ID, REACH_DISTANCE_BOOST, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
             reachDistanceAttribute.addTransientModifier(modifier);
             reachDistanceModifiers.put(playerId, modifier);
-            System.out.println("Increased reach distance for player " + player.getName().getString() + " (ID: " + playerId + ")");
+            //System.out.println("Increased reach distance for player " + player.getName().getString() + " (ID: " + playerId + ")");
         }
     }
 
@@ -72,7 +72,7 @@ public class Architect_Talisman extends TalismanItem {
 
             UUID playerUUID = player.getUUID();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman, player).isPresent()) {
+            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player).isPresent()) {
                 increaseReachDistance(player, playerUUID);
             } else {
                 resetReachDistance(player, playerUUID);

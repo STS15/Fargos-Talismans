@@ -16,13 +16,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Skeleton_Talisman extends TalismanItem {
+public class Skeleton_Talisman extends TalismanItem implements Skeleton_Talisman_Provider {
 
     public Skeleton_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -43,7 +42,7 @@ public class Skeleton_Talisman extends TalismanItem {
             if (directEntity instanceof Arrow arrow) {
                 Entity owner = arrow.getOwner();
                 if (owner instanceof Player player) {
-                    if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Skeleton_Talisman, player).isPresent()) {
+                    if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Skeleton_Talisman_Provider, player).isPresent()) {
                         event.setAmount(event.getAmount() * 1.5F); // 150% the damage
                     }
                 }

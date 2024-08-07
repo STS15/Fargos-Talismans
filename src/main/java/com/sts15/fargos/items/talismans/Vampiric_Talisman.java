@@ -25,7 +25,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Vampiric_Talisman extends TalismanItem {
+public class Vampiric_Talisman extends TalismanItem implements Vampiric_Talisman_Provider {
 
     public Vampiric_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -47,7 +47,7 @@ public class Vampiric_Talisman extends TalismanItem {
             // Check if the entity causing the damage is a player
             if (source instanceof Player player) {
                 // Find the equipped Vampiric Talisman
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vampiric_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vampiric_Talisman_Provider, player).isPresent()) {
                     // Heal the player for 20% of the damage dealt
                     float damageDealt = event.getAmount();
                     float healthToHeal = damageDealt * 0.20F;

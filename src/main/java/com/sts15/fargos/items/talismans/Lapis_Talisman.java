@@ -21,7 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Lapis_Talisman extends TalismanItem {
+public class Lapis_Talisman extends TalismanItem implements Lapis_Talisman_Provider {
 
     public Lapis_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -34,22 +34,4 @@ public class Lapis_Talisman extends TalismanItem {
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
     
-    @EventBusSubscriber(modid = Fargos.MODID)
-    public static class Events {
-    	
-        @SuppressWarnings({ "deprecation", "removal" })
-		@SubscribeEvent
-        public static void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
-            Player player = event.getEntity();
-            if (player.containerMenu instanceof EnchantmentMenu menu && CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Lapis_Talisman, player).isPresent()) {
-                Slot lapisSlot = menu.getSlot(1);
-                if (lapisSlot.getItem().isEmpty()) {
-                    ItemStack lapisStack = new ItemStack(Items.LAPIS_LAZULI, 64);
-                    lapisSlot.set(lapisStack);
-                    lapisSlot.setChanged();
-                    menu.broadcastChanges();
-                }
-            }
-        }
-    }
 }

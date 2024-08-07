@@ -23,7 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Amethyst_Talisman extends TalismanItem {
+public class Amethyst_Talisman extends TalismanItem implements Amethyst_Talisman_Provider {
 
     public Amethyst_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -62,7 +62,7 @@ public class Amethyst_Talisman extends TalismanItem {
             		||source.is(DamageTypeThrown)
             		||source.is(DamageTypeWindCharge)
                ) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Amethyst_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Amethyst_Talisman_Provider, player).isPresent()) {
                     event.setCanceled(true);
                 }
             }

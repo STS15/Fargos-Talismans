@@ -23,7 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Thorny_Talisman extends TalismanItem {
+public class Thorny_Talisman extends TalismanItem implements Thorny_Talisman_Provider {
 
     public Thorny_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -46,7 +46,7 @@ public class Thorny_Talisman extends TalismanItem {
             ResourceKey<DamageType> fallDamageType = DamageTypes.SWEET_BERRY_BUSH;
 
             if (source.is(fallDamageType)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Thorny_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Thorny_Talisman_Provider, player).isPresent()) {
                     event.setCanceled(true);
                 }
             }

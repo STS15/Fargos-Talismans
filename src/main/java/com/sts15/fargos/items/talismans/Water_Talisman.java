@@ -19,7 +19,7 @@ import net.neoforged.neoforge.event.entity.living.LivingBreatheEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import net.minecraft.world.item.Item.TooltipContext;
 
-public class Water_Talisman extends TalismanItem {
+public class Water_Talisman extends TalismanItem implements Water_Talisman_Provider {
 
     public Water_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -38,7 +38,7 @@ public class Water_Talisman extends TalismanItem {
         	if (!(event.getEntity() instanceof Player player))
                 return;
             
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Water_Talisman, player).isPresent()) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Water_Talisman_Provider, player).isPresent()) {
                     event.setConsumeAirAmount(0);
                 }
         }
