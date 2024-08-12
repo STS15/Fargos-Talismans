@@ -85,7 +85,6 @@ Once you've gathered enough power from the Talismans and Forces, you can create 
 | **Soul of Flight Mastery**     | Grants creative flight.                                                              |
 | **Soul of Colossus**          | Grants superhuman defense, health, and immunity to all negative debuffs.              |
 | **Soul of Supersonic**        | Grants supersonic speed for running and flying.                                       |
-| **Soul of Trawler**           | Grants better fishing odds.                                                           |
 | **Soul of Dimensions**        | Combines the abilities of ALL the Souls.                                              |
 
 ---
@@ -114,20 +113,20 @@ Each Talisman requires a specific base (Normal, Advanced, Epic, etc.) and specia
 
 ### 😄 FAQ
 
-**Q:** Can I use this mod in a modpack?
+**Q:** Can I use this mod in a modpack?<br>
 **A:** Absolutely! Just give credit where it's due.
 
-**Q:** Is this mod compatible with other mods?
+**Q:** Is this mod compatible with other mods?<br>
 **A:** Yes, it plays nicely with most other mods, especially those that enhance survival and exploration.
 
-**Q:** Why does my Talisman not work?
+**Q:** Why does my Talisman not work?<br>
 **A:** Make sure it's enabled both on the server and client-side. If you're still having issues, try toggling it off and on again.
 
 ---
 
 ### 📦 Download & Installation
 
-- Head over to the [Releases](https://github.com/yourusername/fargostalismans/releases) page to download the latest version.
+- Head over to the [Releases](https://github.com/STS15/Fargos-Talismans/releases) page to download the latest version.
 - Drop the `.jar` file into your `mods` folder.
 - Fire up Minecraft and enjoy!
 
@@ -136,7 +135,8 @@ Each Talisman requires a specific base (Normal, Advanced, Epic, etc.) and specia
 ### 🎮 Compatibility
 
 - Minecraft Version: 1.21+
-- Forge Version: 40.0.0+
+- NeoForge Version: 21.0.114+
+- Curios API Continuation: 9.0.5+
 
 ---
 
