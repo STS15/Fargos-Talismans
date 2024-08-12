@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:mooshroom_talisman"
+    },
+    "title": "Mooshroom Talisman",
+    "description": "You crafted a Mooshroom Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:mooshroom_talisman"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "=A=",
+    "D#B",
+    "=C="
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_godly"
+    },
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:soul_of_minecraft"
+    },
+    "B": {
+      "item": "fargostalismans:soul_of_supersonic"
+    },
+    "C": {
+      "item": "fargostalismans:soul_of_colossus"
+    },
+    "D": {
+      "item": "fargostalismans:soul_of_flight_mastery"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_dimensions",
+    "count": 1
+  }
+}

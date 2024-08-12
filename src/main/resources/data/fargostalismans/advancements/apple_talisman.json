@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "fargostalismans:apple_talisman"
+    },
+    "title": "Apple Talisman",
+    "description": "You crafted an Apple Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "fargostalismans:root_talisman",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:apple_talisman"
+          }
+        ]
+      }
+    }
+  }
+}

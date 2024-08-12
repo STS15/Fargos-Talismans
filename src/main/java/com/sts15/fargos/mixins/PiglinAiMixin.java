@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.Config;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -34,6 +35,7 @@ public class PiglinAiMixin {
 	
 	@SuppressWarnings({ "deprecation", "removal" })
     private static boolean hasGoldEnchantment(Player player) {
+		if (!Config.isTalismanEnabledOnClientAndServer("gold_talisman")) return false;
         return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Gold_Talisman_Provider, player).isPresent();
     }
 	

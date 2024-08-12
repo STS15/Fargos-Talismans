@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ADA",
+    "B#B",
+    "ADA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:carved_pumpkin"
+    },
+    "B": {
+      "item": "minecraft:ender_eye"
+    },
+    "D": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:enderman_talisman",
+    "count": 1
+  }
+}

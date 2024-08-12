@@ -1,0 +1,16 @@
+{
+  "display": {
+    "icon": {
+      "id": "fargostalismans:abominable_energy"
+    },
+    "title": "Fargo's Talismans",
+    "description": "Begin your journey into Talismans",
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "frame": "task"
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
@@ -25,6 +26,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Provider {
+
+    private static final String talismanName = "battle_talisman";
     
     private static final Map<UUID, Integer> invinciblePlayers = new HashMap<>();
     private static final Logger LOGGER = LogManager.getLogger();
@@ -32,12 +35,22 @@ public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Pro
     public Battle_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
     }
-    
+
     @Override
-    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        pTooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.battle_talisman")
-                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+
+        if (!Config.isTalismanEnabledServer(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else if (!Config.isTalismanEnabledClient(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
     
     @EventBusSubscriber(modid = Fargos.MODID)
@@ -50,6 +63,8 @@ public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Pro
                 return;
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Battle_Talisman_Provider, player).isPresent()) {
+                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
+                    return;
                 UUID playerUUID = player.getUUID();
                 Integer invincibilityTicks = invinciblePlayers.get(playerUUID);
 

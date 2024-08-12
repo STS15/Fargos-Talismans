@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:arctic_talisman"
+    },
+    "title": "Arctic Talisman",
+    "description": "You crafted an Arctic Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:arctic_talisman"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

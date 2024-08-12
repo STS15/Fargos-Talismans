@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:emerald_talisman"
+    },
+    "title": "Emerald Talisman",
+    "description": "You crafted an Emerald Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:emerald_talisman"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

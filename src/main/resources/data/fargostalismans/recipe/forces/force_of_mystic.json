@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACD",
+    "B#E",
+    "=F="
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_legendary"
+    },
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:witch_talisman"
+    },
+    "B": {
+      "item": "fargostalismans:enchanting_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:vampiric_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:librarian_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:undying_talisman"
+    },
+    "F": {
+      "item": "fargostalismans:shulker_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_mystic",
+    "count": 1
+  }
+}

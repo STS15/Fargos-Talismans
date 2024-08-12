@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABD",
+    "N#N",
+    "DHA"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "A": {
+      "item": "minecraft:golden_apple"
+    },
+    "B": {
+      "item": "minecraft:glow_berries"
+    },
+    "D": {
+      "item": "minecraft:golden_carrot"
+    },
+    "H": {
+      "item": "minecraft:honey_bottle"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:talisman_base_normal",
+    "count": 1
+  }
+}

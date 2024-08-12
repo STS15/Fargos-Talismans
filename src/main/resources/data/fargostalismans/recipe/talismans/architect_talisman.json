@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "DEF",
+    "GHI"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:ender_chest"
+    },
+    "B": {
+      "item": "minecraft:ender_eye"
+    },
+    "C": {
+      "item": "minecraft:beacon"
+    },
+    "D": {
+      "item": "minecraft:ender_pearl"
+    },
+    "E": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "F": {
+      "item": "minecraft:ender_pearl"
+    },
+    "G": {
+      "item": "minecraft:beacon"
+    },
+    "H": {
+      "item": "minecraft:ender_eye"
+    },
+    "I": {
+      "item": "minecraft:ender_chest"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:architect_talisman",
+    "count": 1
+  }
+}

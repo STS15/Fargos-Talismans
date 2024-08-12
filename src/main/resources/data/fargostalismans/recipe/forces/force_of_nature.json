@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AB ",
+    "C#D",
+    " EA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "B": {
+      "item": "fargostalismans:air_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:water_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:fire_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:earth_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_nature",
+    "count": 1
+  }
+}

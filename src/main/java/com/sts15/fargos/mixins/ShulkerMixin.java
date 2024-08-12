@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.Config;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -31,6 +32,7 @@ public class ShulkerMixin {
 	
 	@SuppressWarnings({ "deprecation", "removal" })
     private static boolean hasShulkerTalisman(Player player) {
+        if (!Config.isTalismanEnabledOnClientAndServer("shulker_talisman")) return false;
         return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman_Provider, player).isPresent();
     }
 	

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AEA",
+    "#N#",
+    "AEA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_legendary"
+    },
+    "N": {
+      "item": "minecraft:netherite_block"
+    },
+    "E": {
+      "item": "minecraft:end_crystal"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:talisman_base_ultimate",
+    "count": 1
+  }
+}

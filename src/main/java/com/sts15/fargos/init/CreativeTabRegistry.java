@@ -20,6 +20,13 @@ public class CreativeTabRegistry {
             //.withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> ItemInit.ABOMINABLE_ENERGY.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
+
+                output.accept(ItemInit.TALISMAN_BASE_NORMAL.get());
+                output.accept(ItemInit.TALISMAN_BASE_ADVANCED.get());
+                output.accept(ItemInit.TALISMAN_BASE_EPIC.get());
+                output.accept(ItemInit.TALISMAN_BASE_LEGENDARY.get());
+                output.accept(ItemInit.TALISMAN_BASE_ULTIMATE.get());
+                output.accept(ItemInit.TALISMAN_BASE_GODLY.get());
             	
                 // Add talismans
                 output.accept(ItemInit.AIR_TALISMAN.get());
@@ -77,13 +84,18 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.SOUL_OF_COLOSSUS.get());
                 output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY.get());
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC.get());
-                output.accept(ItemInit.SOUL_OF_TRAWLER.get());
+                //output.accept(ItemInit.SOUL_OF_TRAWLER.get());
                 output.accept(ItemInit.SOUL_OF_DIMENSIONS.get());
+
+                output.accept(ItemInit.SOUL_OF_COLOSSUS_1.get());
+                output.accept(ItemInit.SOUL_OF_COLOSSUS_2.get());
+                output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY_1.get());
+                output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY_2.get());
+                output.accept(ItemInit.SOUL_OF_SUPERSONIC_1.get());
+                output.accept(ItemInit.SOUL_OF_SUPERSONIC_2.get());
 
                 // Add everything else
                 output.accept(ItemInit.ABOMINABLE_ENERGY.get());
-//                output.accept(ItemInit.ABOMINATIONNS_CURSE.get());
-//                output.accept(ItemInit.ABOMINATIONN_MUSIC_DISC.get());
                 output.accept(ItemInit.AEOLUS_BOOTS.get());
                 output.accept(ItemInit.AMBER_HORSESHOE_BALLOON.get());
                 output.accept(ItemInit.ANCIENT_HORN.get());
@@ -97,11 +109,9 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.BRAIN_SCRAMBLER.get());
                 output.accept(ItemInit.BUNDLE_OF_HORSESHOE_BALLOONS.get());
                 output.accept(ItemInit.CHARM_OF_MYTHS.get());
-                //output.accept(BlockInit.CRUCIBLE_OF_THE_COSMOS.get());
-//                output.accept(ItemInit.DRAGONS_DEMISE.get());
                 output.accept(ItemInit.DRAGON_WINGS_ELYTRA.get());
                 output.accept(ItemInit.DUSTY_WINGS_ELYTRA.get());
-                output.accept(ItemInit.ELEMENTAL_ASSEMBLER.get());
+                //output.accept(ItemInit.ELEMENTAL_ASSEMBLER.get());
                 output.accept(ItemInit.ENCHANTED_WINGS_ELYTRA.get());
                 output.accept(ItemInit.ENDER_WINGS_ELYTRA.get());
                 output.accept(ItemInit.FLYING_CARPET.get());
@@ -113,11 +123,7 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.HERO_SHIELD.get());
                 output.accept(ItemInit.MASTER_NINJA_GEAR.get());
                 output.accept(ItemInit.MECHANICAL_CART.get());
-                output.accept(ItemInit.MULTITASK_CENTER.get());
-//                output.accept(ItemInit.MUTANTS_CURSE.get());
-//                output.accept(ItemInit.MUTANT_MUSIC_DISC.get());
-//                output.accept(ItemInit.MUTANT_VOODOO.get());
-                //output.accept(BlockInit.NETHERITE_ANVIL.get());
+                //output.accept(ItemInit.MULTITASK_CENTER.get());
                 output.accept(ItemInit.OBSIDIAN_HORSESHOE.get());
                 output.accept(ItemInit.OCEANS_FINS_ELYTRA.get());
                 output.accept(ItemInit.PHANTOM_WINGS_ELYTRA.get());
@@ -126,10 +132,13 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.SHIELD_OF_CTHULHU.get());
                 output.accept(ItemInit.SHINY_STONE.get());
                 output.accept(ItemInit.STAR_VEIL.get());
-//                output.accept(ItemInit.STYX_GAZER.get());
                 output.accept(ItemInit.SWEETHEART_NECKLACE.get());
-//                output.accept(ItemInit.SWORD_OF_THE_FATES.get());
                 output.accept(ItemInit.VOLCANIC_ASH_ELYTRA.get());
+                output.accept(ItemInit.WITHER_WINGS_ELYTRA.get());
+                output.accept(ItemInit.WORM_SCARF.get());
+
+                
+                //output.accept(BlockInit.CRUCIBLE_OF_THE_COSMOS.get());
             }).build());
 
     public static void register(IEventBus modEventBus) {

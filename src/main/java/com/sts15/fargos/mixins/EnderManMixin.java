@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.Config;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.player.Player;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -16,6 +17,8 @@ public class EnderManMixin {
 	@Inject(at = @At(value = "HEAD"), method = "isLookingAtMe", cancellable = true)
     protected void calmEndermans(Player player, CallbackInfoReturnable<Boolean> info) {
         if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Enderman_Talisman_Provider, player).isPresent())
-        	info.setReturnValue(false);
+            if (!Config.isTalismanEnabledOnClientAndServer("enderman_talisman"))
+                return;
+            info.setReturnValue(false);
     }
 }

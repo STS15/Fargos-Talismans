@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A D",
+    "B=E",
+    "C F"
+  ],
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:aeolus_boots"
+    },
+    "B": {
+      "item": "fargostalismans:reindeer_bells"
+    },
+    "C": {
+      "item": "fargostalismans:shield_of_cthulhu"
+    },
+    "D": {
+      "item": "fargostalismans:sweetheart_necklace"
+    },
+    "E": {
+      "item": "fargostalismans:amber_horseshoe_balloon"
+    },
+    "F": {
+      "item": "fargostalismans:ancient_horn"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_supersonic_2",
+    "count": 1
+  }
+}

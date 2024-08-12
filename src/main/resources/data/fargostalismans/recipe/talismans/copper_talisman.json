@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "BEB",
+    "DBF"
+  ],
+  "key": {
+    "E": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:copper_block"
+    },
+    "B": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "minecraft:exposed_copper"
+    },
+    "C": {
+      "item": "minecraft:weathered_copper"
+    },
+    "F": {
+      "item": "minecraft:oxidized_copper"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:copper_talisman",
+    "count": 1
+  }
+}

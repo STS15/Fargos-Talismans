@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ADA",
+    "E#B",
+    "ACA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "B": {
+      "item": "minecraft:crossbow"
+    },
+    "C": {
+      "item": "minecraft:emerald_block"
+    },
+    "D": {
+      "item": "minecraft:black_banner"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:undying_talisman",
+    "count": 1
+  }
+}

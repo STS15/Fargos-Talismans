@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.Config;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Phantom;
@@ -52,6 +53,7 @@ public abstract class PhantomAttackPlayerTargetGoalMixin {
 
     @SuppressWarnings({ "deprecation", "removal" })
     private boolean hasPhantomTalisman(Player player) {
+        if (!Config.isTalismanEnabledOnClientAndServer("spectral_talisman")) return false;
         return CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Spectral_Talisman_Provider, player).isPresent();
     }
 }

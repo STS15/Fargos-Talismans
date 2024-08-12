@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "BEB",
+    "DBF"
+  ],
+  "key": {
+    "E": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:oak_leaves"
+    },
+    "B": {
+      "item": "minecraft:sweet_berries"
+    },
+    "D": {
+      "item": "minecraft:spruce_leaves"
+    },
+    "C": {
+      "item": "minecraft:birch_leaves"
+    },
+    "F": {
+      "item": "minecraft:jungle_leaves"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:thorny_talisman",
+    "count": 1
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:cactus"
+    },
+    "B": {
+      "item": "minecraft:pointed_dripstone"
+    },
+    "C": {
+      "item": "minecraft:wither_rose"
+    },
+    "D": {
+      "item": "minecraft:sand"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:cactus_talisman",
+    "count": 1
+  }
+}

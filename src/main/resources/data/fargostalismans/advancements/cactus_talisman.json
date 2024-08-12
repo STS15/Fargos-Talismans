@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:cactus_talisman"
+    },
+    "title": "Cactus Talisman",
+    "description": "You crafted a Cactus Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:cactus_talisman"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

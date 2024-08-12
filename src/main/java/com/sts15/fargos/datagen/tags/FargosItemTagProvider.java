@@ -73,7 +73,7 @@ public class FargosItemTagProvider extends ItemTagsProvider {
             .add(ItemInit.SOUL_OF_DIMENSIONS.get())
             .add(ItemInit.SOUL_OF_FLIGHT_MASTERY.get())
             .add(ItemInit.SOUL_OF_MINECRAFT.get())
-            .add(ItemInit.SOUL_OF_SUPERSONIC.get())
-            .add(ItemInit.SOUL_OF_TRAWLER.get());
+            .add(ItemInit.SOUL_OF_SUPERSONIC.get());
+            //.add(ItemInit.SOUL_OF_TRAWLER.get());
     }
 }

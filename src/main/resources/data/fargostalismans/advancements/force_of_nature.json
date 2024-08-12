@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:force_of_nature"
+    },
+    "title": "So you're not going to share?",
+    "description": "You're just going to be a god then and keep the Force of Nature to yourself?",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:force_of_nature"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

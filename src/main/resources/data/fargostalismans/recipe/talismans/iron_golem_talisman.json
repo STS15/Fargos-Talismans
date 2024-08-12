@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:iron_block"
+    },
+    "B": {
+      "item": "minecraft:piston"
+    },
+    "C": {
+      "item": "minecraft:carved_pumpkin"
+    },
+    "D": {
+      "item": "minecraft:rose_bush"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:iron_golem_talisman",
+    "count": 1
+  }
+}

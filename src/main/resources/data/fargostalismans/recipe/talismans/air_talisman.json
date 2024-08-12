@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:feather"
+    },
+    "B": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "C": {
+      "item": "minecraft:elytra"
+    },
+    "D": {
+      "item": "minecraft:slime_block"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:air_talisman",
+    "count": 1
+  }
+}

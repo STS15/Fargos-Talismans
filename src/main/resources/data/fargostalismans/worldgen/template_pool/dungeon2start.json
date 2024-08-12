@@ -1,0 +1,15 @@
+{
+  "name": "fargostalismans:dungeon2",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 5,
+      "element": {
+        "location": "fargostalismans:dungeon2/loot_room",
+        "processors": "minecraft:empty",
+		"projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

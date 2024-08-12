@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AGB",
+    "E#E",
+    "BGA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "B": {
+      "item": "minecraft:emerald_block"
+    },
+    "E": {
+      "item": "minecraft:netherite_axe"
+    },
+    "G": {
+      "item": "minecraft:diamond_axe"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:vindicator_talisman",
+    "count": 1
+  }
+}

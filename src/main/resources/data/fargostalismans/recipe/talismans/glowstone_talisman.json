@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ADB",
+    "C#C",
+    "BDA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:soul_lantern"
+    },
+    "B": {
+      "item": "minecraft:lantern"
+    },
+    "C": {
+      "item": "minecraft:soul_torch"
+    },
+    "D": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:glowstone_talisman",
+    "count": 1
+  }
+}

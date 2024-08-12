@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
@@ -28,6 +29,8 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Provider {
 
+    private static final String talismanName = "zombie_talisman";
+
     private static final long INCREASE_ATTACK_SPEED_THRESHOLD = 100;
     private static final double ATTACK_SPEED_BOOST = 5.5;
     private static final int MAX_ATTACKS = 3;
@@ -44,10 +47,20 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        pTooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.zombie_talisman")
-                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+
+        if (!Config.isTalismanEnabledServer(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else if (!Config.isTalismanEnabledClient(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
     private static void resetAttackSpeed(Player player, UUID playerId) {
@@ -86,6 +99,8 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
             long currentTime = player.level().getGameTime();
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Zombie_Talisman_Provider, player).isPresent()) {
+                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
+                    return;
                 Long lastAttackTime = lastAttackTimes.getOrDefault(playerUUID, 0L);
                 if (currentTime - lastAttackTime >= INCREASE_ATTACK_SPEED_THRESHOLD) {
                     increaseAttackSpeed(player, playerUUID);
@@ -104,6 +119,8 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
             UUID playerUUID = player.getUUID();
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Zombie_Talisman_Provider, player).isPresent()) {
+                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
+                    return;
                 int attackCount = attackCounts.getOrDefault(playerUUID, 0);
                 attackCount++;
                 attackCounts.put(playerUUID, attackCount);

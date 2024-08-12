@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BAE",
+    "C#F",
+    "DAG"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "B": {
+      "item": "fargostalismans:lapis_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:redstone_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:amethyst_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:emerald_talisman"
+    },
+    "F": {
+      "item": "fargostalismans:gold_talisman"
+    },
+    "G": {
+      "item": "fargostalismans:diamond_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_overworld",
+    "count": 1
+  }
+}

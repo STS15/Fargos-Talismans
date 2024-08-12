@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACA",
+    "E#E",
+    "ACA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:arrow"
+    },
+    "C": {
+      "item": "minecraft:bone"
+    },
+    "E": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:skeleton_talisman",
+    "count": 1
+  }
+}

@@ -2,6 +2,7 @@ package com.sts15.fargos.mixins;
 
 import java.util.List;
 
+import com.sts15.fargos.Config;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -110,11 +111,13 @@ public abstract class EnchantmentTableMixin {
     
     @SuppressWarnings({ "deprecation", "removal" })
     private static boolean hasEnchantingEnchantment(Player player) {
+        if (!Config.isTalismanEnabledOnClientAndServer("enchanting_talisman")) return false;
         return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Enchanting_Talisman_Provider, player).isPresent();
     }
     
     @SuppressWarnings({ "deprecation", "removal" })
     private static boolean isWearingLapisTalisman(Player player) {
+        if (!Config.isTalismanEnabledOnClientAndServer("lapis_talisman")) return false;
         return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Lapis_Talisman_Provider, player).isPresent();
     }
 }

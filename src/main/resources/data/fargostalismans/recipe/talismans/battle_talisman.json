@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#D",
+    "FGH"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:cooked_beef"
+    },
+    "B": {
+      "item": "minecraft:pumpkin_pie"
+    },
+    "C": {
+      "item": "minecraft:cooked_rabbit"
+    },
+    "D": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "F": {
+      "item": "minecraft:cooked_chicken"
+    },
+    "G": {
+      "item": "minecraft:cake"
+    },
+    "H": {
+      "item": "minecraft:cooked_mutton"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:battle_talisman",
+    "count": 1
+  }
+}

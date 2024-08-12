@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "fargostalismans:block/demon_altar"
-	}
-}

@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.Config;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -66,6 +67,7 @@ public abstract class LibrarianMixin {
 
     @SuppressWarnings("deprecation")
     private static boolean hasLibrarianEnchantment(Player player) {
+        if (!Config.isTalismanEnabledOnClientAndServer("librarian_talisman")) return false;
         return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, player).isPresent();
     }
 }

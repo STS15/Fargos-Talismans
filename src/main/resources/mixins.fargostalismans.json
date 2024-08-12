@@ -4,14 +4,14 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
   	"EnderManMixin",
-  	"PlayerMixin",
   	"PiglinAiMixin",
   	"PiglinBruteAiMixin",
   	"WitchMixin",
   	"PhantomAttackPlayerTargetGoalMixin",
   	"LibrarianMixin",
   	"EnchantmentTableMixin",
-  	"ShulkerMixin"
+  	"ShulkerMixin",
+  	"FishingHookMixin"
   ],
   "minVersion": "0.8",
   "refmap": "mixins.fargostalismans.refmap.json"

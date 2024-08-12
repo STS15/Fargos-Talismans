@@ -46,8 +46,8 @@ public class ItemInit {
             () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> DUSTY_WINGS_ELYTRA = ITEMS.register("dusty_wings_elytra", 
             () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> ELEMENTAL_ASSEMBLER = ITEMS.register("elemental_assembler", 
-            () -> new CraftingItem(new Item.Properties()) {});
+//        public static final DeferredHolder<Item, CraftingItem> ELEMENTAL_ASSEMBLER = ITEMS.register("elemental_assembler",
+//            () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> ENCHANTED_WINGS_ELYTRA = ITEMS.register("enchanted_wings_elytra", 
             () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> ENDER_WINGS_ELYTRA = ITEMS.register("ender_wings_elytra", 
@@ -70,8 +70,8 @@ public class ItemInit {
             () -> new ScavengedItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, ScavengedItem> MECHANICAL_CART = ITEMS.register("mechanical_cart", 
             () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> MULTITASK_CENTER = ITEMS.register("multitask_center", 
-            () -> new CraftingItem(new Item.Properties()) {});
+//        public static final DeferredHolder<Item, CraftingItem> MULTITASK_CENTER = ITEMS.register("multitask_center",
+//            () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, LootedItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe", 
             () -> new LootedItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> OCEANS_FINS_ELYTRA = ITEMS.register("oceans_fins_elytra", 
@@ -96,6 +96,33 @@ public class ItemInit {
             () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, LootedItem> WORM_SCARF = ITEMS.register("worm_scarf", 
             () -> new LootedItem(new Item.Properties()) {});
+
+    public static final DeferredHolder<Item, CraftingItem1> SOUL_OF_FLIGHT_MASTERY_1 = ITEMS.register("soul_of_flight_mastery_1",
+            () -> new CraftingItem1(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem2> SOUL_OF_FLIGHT_MASTERY_2 = ITEMS.register("soul_of_flight_mastery_2",
+            () -> new CraftingItem2(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem1> SOUL_OF_SUPERSONIC_1 = ITEMS.register("soul_of_supersonic_1",
+            () -> new CraftingItem1(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem2> SOUL_OF_SUPERSONIC_2 = ITEMS.register("soul_of_supersonic_2",
+            () -> new CraftingItem2(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem1> SOUL_OF_COLOSSUS_1 = ITEMS.register("soul_of_colossus_1",
+            () -> new CraftingItem1(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem2> SOUL_OF_COLOSSUS_2 = ITEMS.register("soul_of_colossus_2",
+            () -> new CraftingItem2(new Item.Properties()) {});
+
+        // Talisman Bases
+        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_NORMAL = ITEMS.register("talisman_base_normal",
+            () -> new CraftingItem(new Item.Properties()) {});
+        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_ADVANCED = ITEMS.register("talisman_base_advanced",
+            () -> new CraftingItem(new Item.Properties()) {});
+        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_EPIC = ITEMS.register("talisman_base_epic",
+            () -> new CraftingItem(new Item.Properties()) {});
+        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_LEGENDARY = ITEMS.register("talisman_base_legendary",
+            () -> new CraftingItem(new Item.Properties()) {});
+        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_ULTIMATE = ITEMS.register("talisman_base_ultimate",
+            () -> new CraftingItem(new Item.Properties()) {});
+        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_GODLY = ITEMS.register("talisman_base_godly",
+            () -> new CraftingItem(new Item.Properties()) {});
 
     // Talisman Items
     public static final DeferredHolder<Item, TalismanItem> AIR_TALISMAN = ITEMS.register("air_talisman", Air_Talisman::new);
@@ -154,7 +181,7 @@ public class ItemInit {
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_FLIGHT_MASTERY = ITEMS.register("soul_of_flight_mastery", Soul_of_Flight_Mastery::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_MINECRAFT = ITEMS.register("soul_of_minecraft", Soul_of_Minecraft::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_SUPERSONIC = ITEMS.register("soul_of_supersonic", Soul_of_Supersonic::new);
-    public static final DeferredHolder<Item, TalismanItem> SOUL_OF_TRAWLER = ITEMS.register("soul_of_trawler", Soul_of_Trawler::new);
+    //public static final DeferredHolder<Item, TalismanItem> SOUL_OF_TRAWLER = ITEMS.register("soul_of_trawler", Soul_of_Trawler::new);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

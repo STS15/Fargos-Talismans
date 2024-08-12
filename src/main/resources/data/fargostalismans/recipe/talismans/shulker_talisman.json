@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#D",
+    "CEA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:elytra"
+    },
+    "B": {
+      "item": "minecraft:feather"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    },
+    "D": {
+      "item": "minecraft:slime_ball"
+    },
+    "E": {
+      "item": "minecraft:slime_block"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:shulker_talisman",
+    "count": 1
+  }
+}

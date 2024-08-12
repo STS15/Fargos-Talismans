@@ -1,0 +1,79 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:flying_carpet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:sweetheart_necklace"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:amber_horseshoe_balloon"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:bundle_of_horseshoe_balloons"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:shield_of_cthulhu"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:master_ninja_gear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:blessed_apple"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:mechanical_cart"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:ancient_horn"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:reindeer_bells"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:brain_scrambler"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "fargostalismans:aeolus_boots"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "condition": "minecraft:random_chance_with_enchanted_bonus",
+          "enchantment": "minecraft:looting",
+          "unenchanted_chance": 0.05,
+          "enchanted_chance": {
+            "type": "minecraft:linear",
+            "base": 0.07,
+            "per_level_above_first": 0.02
+          }
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "structures": "fargostalismans:dungeon2"
+          }
+        }
+      ]
+    }
+  ]
+}

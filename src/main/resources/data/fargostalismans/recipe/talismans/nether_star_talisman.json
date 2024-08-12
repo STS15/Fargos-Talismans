@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ADA",
+    "B#C",
+    "AEA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:nether_star"
+    },
+    "B": {
+      "item": "minecraft:netherite_sword"
+    },
+    "C": {
+      "item": "minecraft:netherite_axe"
+    },
+    "D": {
+      "item": "minecraft:mace"
+    },
+    "E": {
+      "item": "minecraft:trident"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:nether_star_talisman",
+    "count": 1
+  }
+}

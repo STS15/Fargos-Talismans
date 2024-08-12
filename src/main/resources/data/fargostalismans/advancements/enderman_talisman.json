@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:enderman_talisman"
+    },
+    "title": "Enderman Talisman",
+    "description": "You crafted an Enderman Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:enderman_talisman"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

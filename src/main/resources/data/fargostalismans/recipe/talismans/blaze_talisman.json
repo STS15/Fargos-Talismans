@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:blaze_rod"
+    },
+    "B": {
+      "item": "minecraft:fire_charge"
+    },
+    "C": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "D": {
+      "item": "minecraft:coal_block"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:blaze_talisman",
+    "count": 1
+  }
+}

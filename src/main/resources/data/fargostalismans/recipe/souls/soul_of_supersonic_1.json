@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A D",
+    "B=E",
+    "C F"
+  ],
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:blessed_apple"
+    },
+    "B": {
+      "item": "fargostalismans:brain_scrambler"
+    },
+    "C": {
+      "item": "fargostalismans:bundle_of_horseshoe_balloons"
+    },
+    "D": {
+      "item": "fargostalismans:mechanical_cart"
+    },
+    "E": {
+      "item": "fargostalismans:master_ninja_gear"
+    },
+    "F": {
+      "item": "fargostalismans:flying_carpet"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_supersonic_1",
+    "count": 1
+  }
+}

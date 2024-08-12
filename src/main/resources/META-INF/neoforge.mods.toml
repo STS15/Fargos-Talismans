@@ -33,9 +33,3 @@ description = '''A Fargo's inspiried set of equipable talismans'''
     versionRange = "[9.0.5+1.21,)"
     ordering = "NONE"
     side = "BOTH"
-[[dependencies.${mod_id}]]
-    modId = "geckolib"
-    type="required"
-    versionRange = "[4.5.7,)"
-    ordering = "NONE"
-    side = "BOTH"

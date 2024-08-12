@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " =A",
+    "BCD",
+    "EFG"
+  ],
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:enchanted_wings_elytra"
+    },
+    "B": {
+      "item": "fargostalismans:phantom_wings_elytra"
+    },
+    "C": {
+      "item": "fargostalismans:oceans_fins_elytra"
+    },
+    "D": {
+      "item": "fargostalismans:blazing_wings_elytra"
+    },
+    "E": {
+      "item": "fargostalismans:ender_wings_elytra"
+    },
+    "F": {
+      "item": "fargostalismans:forest_wings_elytra"
+    },
+    "G": {
+      "item": "fargostalismans:dragon_wings_elytra"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_flight_mastery_2",
+    "count": 1
+  }
+}

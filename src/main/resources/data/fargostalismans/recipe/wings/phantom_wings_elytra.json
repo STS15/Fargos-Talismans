@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PBP",
+    "BEB",
+    "PBP"
+  ],
+  "key": {
+    "P": { "item": "minecraft:phantom_membrane" },
+    "B": { "item": "minecraft:feather" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "id": "fargostalismans:phantom_wings_elytra",
+    "count": 1
+  }
+}

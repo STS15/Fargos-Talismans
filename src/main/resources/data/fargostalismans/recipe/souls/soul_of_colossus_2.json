@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A D",
+    "B=E",
+    "C F"
+  ],
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:brain_of_confusion"
+    },
+    "B": {
+      "item": "fargostalismans:charm_of_myths"
+    },
+    "C": {
+      "item": "fargostalismans:frozen_shield"
+    },
+    "D": {
+      "item": "fargostalismans:hand_warmer"
+    },
+    "E": {
+      "item": "fargostalismans:hero_shield"
+    },
+    "F": {
+      "item": "fargostalismans:obsidian_horseshoe"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_colossus_2",
+    "count": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "DGE",
+    "F#H"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_legendary"
+    },
+    "A": {
+      "item": "fargostalismans:vindicator_talisman"
+    },
+    "B": {
+      "item": "fargostalismans:dragon_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:wither_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:skeleton_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:zombie_talisman"
+    },
+    "F": {
+      "item": "fargostalismans:creeper_talisman"
+    },
+    "G": {
+      "item": "fargostalismans:blaze_talisman"
+    },
+    "H": {
+      "item": "fargostalismans:ghast_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_rejectors",
+    "count": 1
+  }
+}

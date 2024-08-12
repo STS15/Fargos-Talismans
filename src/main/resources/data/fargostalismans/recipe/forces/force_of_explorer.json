@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "B C",
+    "D#E",
+    "AFA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "B": {
+      "item": "fargostalismans:enderman_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:spectral_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:arctic_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:architect_talisman"
+    },
+    "F": {
+      "item": "fargostalismans:glowstone_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_explorer",
+    "count": 1
+  }
+}

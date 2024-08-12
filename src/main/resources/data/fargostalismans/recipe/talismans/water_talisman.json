@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#E",
+    "FGH"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:gravel"
+    },
+    "B": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "C": {
+      "item": "minecraft:clay"
+    },
+    "D": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "E": {
+      "item": "minecraft:lily_pad"
+    },
+    "F": {
+      "item": "minecraft:sand"
+    },
+    "G": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "H": {
+      "item": "minecraft:gravel"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:water_talisman",
+    "count": 1
+  }
+}

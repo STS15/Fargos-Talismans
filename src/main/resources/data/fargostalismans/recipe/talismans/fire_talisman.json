@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#E",
+    "FGH"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:oak_planks"
+    },
+    "B": {
+      "item": "minecraft:fire_charge"
+    },
+    "C": {
+      "item": "minecraft:spruce_planks"
+    },
+    "D": {
+      "item": "minecraft:campfire"
+    },
+    "E": {
+      "item": "minecraft:soul_campfire"
+    },
+    "F": {
+      "item": "minecraft:birch_planks"
+    },
+    "G": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "H": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:fire_talisman",
+    "count": 1
+  }
+}

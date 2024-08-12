@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "#N#",
+    "AAA"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ultimate"
+    },
+    "N": {
+      "item": "minecraft:obsidian"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:talisman_base_godly",
+    "count": 1
+  }
+}

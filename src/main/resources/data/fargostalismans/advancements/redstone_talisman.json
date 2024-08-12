@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "item": "fargostalismans:redstone_talisman"
+    },
+    "title": "Redstone Talisman",
+    "description": "You crafted a Redstone Talisman!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:redstone_talisman"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

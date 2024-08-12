@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#E",
+    "FGH"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:brown_mushroom_block"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "minecraft:red_mushroom_block"
+    },
+    "D": {
+      "item": "minecraft:red_mushroom"
+    },
+    "E": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "F": {
+      "item": "minecraft:mushroom_stem"
+    },
+    "G": {
+      "item": "minecraft:nether_star"
+    },
+    "H": {
+      "item": "minecraft:mushroom_stem"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:mooshroom_talisman",
+    "count": 1
+  }
+}

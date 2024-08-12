@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A D",
+    "B=E",
+    "C F"
+  ],
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:pocket_mirror"
+    },
+    "B": {
+      "item": "fargostalismans:shiny_stone"
+    },
+    "C": {
+      "item": "fargostalismans:star_veil"
+    },
+    "D": {
+      "item": "fargostalismans:worm_scarf"
+    },
+    "E": {
+      "item": "fargostalismans:bee_cloak"
+    },
+    "F": {
+      "item": "fargostalismans:ankh_shield"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_colossus_1",
+    "count": 1
+  }
+}

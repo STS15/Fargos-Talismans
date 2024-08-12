@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GRG",
+    "RER",
+    "GRG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:ghast_tear" },
+    "R": { "item": "minecraft:quartz" },
+    "E": { "item": "minecraft:elytra" }
+  },
+  "result": {
+    "id": "fargostalismans:ghastly_wings_elytra",
+    "count": 1
+  }
+}

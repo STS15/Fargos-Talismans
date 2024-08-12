@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AGC",
+    "E#F",
+    "BHD"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "B": {
+      "item": "minecraft:golden_pickaxe"
+    },
+    "C": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "D": {
+      "item": "minecraft:netherite_pickaxe"
+    },
+    "E": {
+      "item": "minecraft:raw_iron_block"
+    },
+    "F": {
+      "item": "minecraft:raw_gold_block"
+    },
+    "G": {
+      "item": "minecraft:diamond_block"
+    },
+    "H": {
+      "item": "minecraft:raw_copper_block"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:pickaxe_talisman",
+    "count": 1
+  }
+}

@@ -1,18 +1,3 @@
 {
-  "parent": "minecraft:item/handheld",
-  "loader": "forge:separate_transforms",
-  "base": {
-    "parent": "fargostalismans:block/crucible_of_the_cosmos"
-  },
-  "perspectives": {
-    "gui": {
-      "parent": "fargostalismans:item/crucible_of_the_cosmos_2d"
-    },
-    "ground": {
-      "parent": "fargostalismans:item/crucible_of_the_cosmos_2d"
-    },
-    "fixed": {
-      "parent": "fargostalismans:item/crucible_of_the_cosmos_2d"
-    }
-  }
+  "parent": "fargostalismans:block/crucible_of_the_cosmos"
 }

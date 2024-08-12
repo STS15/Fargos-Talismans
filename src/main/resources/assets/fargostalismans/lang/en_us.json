@@ -126,21 +126,17 @@
   "item.fargostalismans.tooltip.glowstone_talisman": "Lights up nearby monsters the player cant see",
 
   "item.fargostalismans.force_of_overworld": "Force of Overworld",
-  "item.fargostalismans.tooltip.force_of_overworld": "Combines the abilities from some of the Overworld themed Talismans",
-  
   "item.fargostalismans.force_of_nature": "Force of Nature",
-  "item.fargostalismans.tooltip.force_of_nature": "Combines the abilities from the Nature themed Talismans",
-  
   "item.fargostalismans.force_of_rejectors": "Force of Rejectors",
-  "item.fargostalismans.tooltip.force_of_rejectors": "Combines the abilities from some of the Hostile themed Talismans",
-  
   "item.fargostalismans.force_of_mystic": "Force of Mystic",
-  "item.fargostalismans.tooltip.force_of_mystic": "Combines the abilities from some of the Mystical themed Talismans",
-  
   "item.fargostalismans.force_of_warrior": "Force of Warrior",
-  "item.fargostalismans.tooltip.force_of_warrior": "Combines the abilities from some of the Damage themed Talismans",
-  
   "item.fargostalismans.force_of_explorer": "Force of Explorer",
+
+  "item.fargostalismans.tooltip.force_of_overworld": "Combines the abilities from some of the Overworld themed Talismans",
+  "item.fargostalismans.tooltip.force_of_nature": "Combines the abilities from the Nature themed Talismans",
+  "item.fargostalismans.tooltip.force_of_rejectors": "Combines the abilities from some of the Hostile themed Talismans",
+  "item.fargostalismans.tooltip.force_of_mystic": "Combines the abilities from some of the Mystical themed Talismans",
+  "item.fargostalismans.tooltip.force_of_warrior": "Combines the abilities from some of the Damage themed Talismans",
   "item.fargostalismans.tooltip.force_of_explorer": "Combines the abilities from some of the Exploring themed Talismans",
   
   "item.fargostalismans.soul_of_minecraft": "Soul of Minecraft",
@@ -149,7 +145,14 @@
   "item.fargostalismans.soul_of_supersonic": "Soul of Supersonic",
   "item.fargostalismans.soul_of_trawler": "Soul of Trawler",
   "item.fargostalismans.soul_of_dimensions": "Soul of Dimensions",
-  
+
+  "item.fargostalismans.soul_of_flight_mastery_1": "Soul of Flight Mastery Part 1",
+  "item.fargostalismans.soul_of_flight_mastery_2": "Soul of Flight Mastery Part 2",
+  "item.fargostalismans.soul_of_colossus_1": "Soul of Colossus Part 1",
+  "item.fargostalismans.soul_of_colossus_2": "Soul of Colossus Part 2",
+  "item.fargostalismans.soul_of_supersonic_1": "Soul of Supersonic Part 1",
+  "item.fargostalismans.soul_of_supersonic_2": "Soul of Supersonic Part 2",
+
   "item.fargostalismans.tooltip.soul_of_minecraft": "Combines the ability of all the Forces",
   "item.fargostalismans.tooltip.soul_of_flight_mastery": "Grants creative flight",
   "item.fargostalismans.tooltip.soul_of_colossus": "Grants superhuman defense, health, and immunity to all negative debuffs",
@@ -157,15 +160,7 @@
   "item.fargostalismans.tooltip.soul_of_trawler": "Grants better fishing odds",
   "item.fargostalismans.tooltip.soul_of_dimensions": "Combines the ability of ALL the Souls",
 
-  "item.fargostalismans.mutants_curse": "Mutant's Curse",
-  "item.fargostalismans.mutant_voodoo": "Mutant's Voodoo Doll",
-  "item.fargostalismans.abominationns_curse": "Abominationn's Curse",
   "item.fargostalismans.abominable_energy": "Abominable Energy",
-  "item.fargostalismans.multitask_center": "Multitask Center",
-  "item.fargostalismans.elemental_assembler": "Elemental Assembler",
-  "item.fargostalismans.netherite_anvil": "Netherite Anvil",
-  "item.fargostalismans.reinforced_deepslate": "Reinforced Deepslate",
-  
   "item.fargostalismans.tooltip.abominable_energy": "Looted from the Treasure Room in a Fargo's Dungeon",
   
   "item.fargostalismans.ancient_wings_elytra": "Ancinet Wings",
@@ -211,12 +206,21 @@
   "item.fargostalismans.sweetheart_necklace": "Sweetheart Necklace",
   "item.fargostalismans.flying_carpet": "Flying Carpet",
   "item.fargostalismans.tooltip.craftingitem.crafted": "Crafting Item",
-  
-  "block.fargostalismans.crucible_of_the_cosmos": "Crucible of the Cosmos",
-  "gui.fargostalismans.crucible_of_the_cosmos": "Crucible of the Cosmos",
+  "item.fargostalismans.tooltip.craftingitem.component_1": "Crafting Item Part 1",
+  "item.fargostalismans.tooltip.craftingitem.component_2": "Crafting Item Part 2",
+
+  "item.fargostalismans.talisman_base_normal": "Normal Talisman Base",
+  "item.fargostalismans.talisman_base_advanced": "Advanced Talisman Base",
+  "item.fargostalismans.talisman_base_epic": "Epic Talisman Base",
+  "item.fargostalismans.talisman_base_legendary": "Legendary Talisman Base",
+  "item.fargostalismans.talisman_base_ultimate": "Ultimate Talisman Base",
+  "item.fargostalismans.talisman_base_godly": "Godly Talisman Base",
   
   "fargostalismans.subtitle.equip_talisman": "Talisman Equipped",
   "fargostalismans.subtitle.unequip_talisman": "Talisman Unequipped",
+
+  "item.fargostalismans.tooltip.disabled_by_server": "Talisman disabled on the server",
+  "item.fargostalismans.tooltip.disabled_by_client": "Client has talisman toggled off",
   
   "key.category.fargostalismans": "Fargo's Talismans",
   "key.fargostalismansmod.opengui": "Open Forces Control GUI",

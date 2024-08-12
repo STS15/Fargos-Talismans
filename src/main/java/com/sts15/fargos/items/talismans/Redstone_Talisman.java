@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 import java.util.Random;
 
+import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
@@ -21,6 +22,8 @@ import net.minecraft.world.entity.player.Player;
 
 public class Redstone_Talisman extends TalismanItem implements Redstone_Talisman_Provider {
 
+    private static final String talismanName = "redstone_talisman";
+
     private static long lastRepairTime = 0;
     private static long nextRepairInterval = 5000;
     private static final Random random = new Random();
@@ -30,10 +33,20 @@ public class Redstone_Talisman extends TalismanItem implements Redstone_Talisman
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        pTooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.redstone_talisman")
-                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+
+        if (!Config.isTalismanEnabledServer(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else if (!Config.isTalismanEnabledClient(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
     private static void repairArmorOverTime(Player player, long currentTime) {
@@ -57,6 +70,8 @@ public class Redstone_Talisman extends TalismanItem implements Redstone_Talisman
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             Player player = event.getEntity();
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Redstone_Talisman_Provider, player).isPresent()) {
+                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
+                    return;
                 long currentTime = System.currentTimeMillis();
                 Redstone_Talisman.repairArmorOverTime(player, currentTime);
             }

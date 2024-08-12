@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "1#2"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ultimate"
+    },
+    "1": {
+      "item": "fargostalismans:soul_of_flight_mastery_1"
+    },
+    "2": {
+      "item": "fargostalismans:soul_of_flight_mastery_2"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_flight_mastery",
+    "count": 1
+  }
+}

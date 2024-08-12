@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
@@ -27,6 +28,8 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Talisman_Provider {
 
+    private static final String talismanName = "iron_golem_talisman";
+
     private static final double HEALTH_BOOST_MULTIPLIER = 2.0;
     private static final Map<UUID, AttributeModifier> healthModifiers = new HashMap<>();
 
@@ -38,10 +41,20 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        pTooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.iron_golem_talisman")
-        		.setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+
+        if (!Config.isTalismanEnabledServer(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else if (!Config.isTalismanEnabledClient(talismanName)) {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        } else {
+            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
     private static void resetHealth(Player player) {
@@ -71,6 +84,8 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
             UUID playerUUID = player.getUUID();
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
+                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
+                    return;
                 increaseHealth(player);
             } else {
                 resetHealth(player);

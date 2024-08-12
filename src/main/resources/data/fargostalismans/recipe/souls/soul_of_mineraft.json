@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A=D",
+    "B#E",
+    "C=F"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ultimate"
+    },
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:force_of_overworld"
+    },
+    "B": {
+      "item": "fargostalismans:force_of_nature"
+    },
+    "C": {
+      "item": "fargostalismans:force_of_rejectors"
+    },
+    "D": {
+      "item": "fargostalismans:force_of_explorer"
+    },
+    "E": {
+      "item": "fargostalismans:force_of_mystic"
+    },
+    "F": {
+      "item": "fargostalismans:force_of_warrior"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:soul_of_minecraft",
+    "count": 1
+  }
+}
