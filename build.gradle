@@ -27,13 +27,6 @@ repositories {
         name = "OctoStudios"
         url = uri("https://maven.octo-studios.com/releases")
     }
-    maven {
-		name = 'GeckoLib'
-		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-		content {
-			includeGroup("software.bernie.geckolib")
-		}
-	}
     exclusiveContent {
         forRepository {
             maven {
@@ -89,7 +82,7 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     
     implementation "top.theillusivec4.curios:curios-neoforge:9.0.5+1.21"
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
     
     compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
   	compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
