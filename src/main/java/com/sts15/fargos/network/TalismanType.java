@@ -1,0 +1,56 @@
+package com.sts15.fargos.network;
+
+public enum TalismanType {
+    AIR_TALISMAN,
+    AMETHYST_TALISMAN,
+    APPLE_TALISMAN,
+    ARCHITECT_TALISMAN,
+    ARCTIC_TALISMAN,
+    BATTLE_TALISMAN,
+    BLAZE_TALISMAN,
+    CACTUS_TALISMAN,
+    COPPER_TALISMAN,
+    CREEPER_TALISMAN,
+    DIAMOND_TALISMAN,
+    DRAGON_TALISMAN,
+    EARTH_TALISMAN,
+    EMERALD_TALISMAN,
+    ENCHANTING_TALISMAN,
+    ENDERMAN_TALISMAN,
+    FIRE_TALISMAN,
+    GHAST_TALISMAN,
+    GLOWSTONE_TALISMAN,
+    GOLD_TALISMAN,
+    IRON_GOLEM_TALISMAN,
+    IRON_TALISMAN,
+    LAPIS_TALISMAN,
+    LIBRARIAN_TALISMAN,
+    MOOSHROOM_TALISMAN,
+    NETHER_STAR_TALISMAN,
+    OBSIDIAN_TALISMAN,
+    PICKAXE_TALISMAN,
+    REDSTONE_TALISMAN,
+    SHULKER_TALISMAN,
+    SKELETON_TALISMAN,
+    SPECTRAL_TALISMAN,
+    THORNY_TALISMAN,
+    UNDYING_TALISMAN,
+    VAMPIRIC_TALISMAN,
+    VINDICATOR_TALISMAN,
+    VOID_TALISMAN,
+    WATER_TALISMAN,
+    WITCH_TALISMAN,
+    WITHER_TALISMAN,
+    ZOMBIE_TALISMAN;
+
+    // Method to get the index of the talisman
+    public int getIndex() {
+        return this.ordinal();
+    }
+
+    // Method to get a TalismanType by its index
+    public static TalismanType byIndex(int index) {
+        return values()[index];
+    }
+}
+

@@ -1,9 +1,7 @@
-package com.sts15.fargos;
+package com.sts15.fargos.config;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
-import com.sts15.fargos.network.NetworkHandler;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.fml.config.ModConfig;
@@ -14,60 +12,60 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Config {
+public class ServerConfig {
 
-    private static final ModConfigSpec.Builder CLIENT_BUILDER = new ModConfigSpec.Builder();
+    private static final ModConfigSpec.Builder SERVER_BUILDER = new ModConfigSpec.Builder();
 
-    public static final Map<String, ModConfigSpec.BooleanValue> CLIENT_TALISMAN_TOGGLES = new HashMap<>();
+    public static final Map<String, ModConfigSpec.BooleanValue> SERVER_TALISMAN_TOGGLES = new HashMap<>();
     public static final Map<String, Boolean> talismanEnabledStates = new HashMap<>();
 
-    static final ModConfigSpec CLIENT_SPEC;
-    public static CommentedFileConfig clientConfigFile;
-    public static ModConfig clientModConfig;
+    public static final ModConfigSpec SERVER_SPEC;
+    public static CommentedFileConfig serverConfigFile;
+    public static ModConfig serverModConfig;
 
     static {
-        CLIENT_BUILDER.comment(
+        SERVER_BUILDER.comment(
                 "###########################",
                 "# Fargos Talismans Config #",
-                "# Client-side settings    #",
+                "# Server-side settings    #",
                 "###########################",
                 "",
                 "Each talisman can be enabled or disabled. Defaults to enabled.",
                 ""
         );
 
-        // Initialize client-side toggles for all talismans dynamically
+        // Initialize server-side toggles for all talismans dynamically
         for (String talisman : getTalismanNames()) {
-            ModConfigSpec.BooleanValue toggle = CLIENT_BUILDER
-                    .comment("Whether " + talisman + " is enabled on the client")
+            ModConfigSpec.BooleanValue toggle = SERVER_BUILDER
+                    .comment("Whether " + talisman + " is enabled on the server")
                     .define(talisman, true);
-            CLIENT_TALISMAN_TOGGLES.put(talisman, toggle);
+            SERVER_TALISMAN_TOGGLES.put(talisman, toggle);
         }
 
-        CLIENT_SPEC = CLIENT_BUILDER.build();
+        SERVER_SPEC = SERVER_BUILDER.build();
 
         // Load the configuration file and populate talismanEnabledStates
-        loadClientConfig();
+        loadServerConfig();
     }
 
-    private static void loadClientConfig() {
+    private static void loadServerConfig() {
         // Build the path to the configuration file
-        Path configPath = clientModConfig != null ? clientModConfig.getFullPath() : null;
+        Path configPath = serverModConfig != null ? serverModConfig.getFullPath() : null;
 
         // Check if the config path is available, and load the configuration
         if (configPath != null) {
-            clientConfigFile = CommentedFileConfig.builder(configPath)
+            serverConfigFile = CommentedFileConfig.builder(configPath)
                     .sync()
                     .preserveInsertionOrder()
                     .autosave()
                     .writingMode(WritingMode.REPLACE)
                     .build();
 
-            clientConfigFile.load();
+            serverConfigFile.load();
 
             // Populate talismanEnabledStates after the config is loaded
-            for (String talisman : CLIENT_TALISMAN_TOGGLES.keySet()) {
-                talismanEnabledStates.put(talisman, CLIENT_TALISMAN_TOGGLES.get(talisman).get());
+            for (String talisman : SERVER_TALISMAN_TOGGLES.keySet()) {
+                talismanEnabledStates.put(talisman, SERVER_TALISMAN_TOGGLES.get(talisman).get());
             }
         }
     }
@@ -81,20 +79,20 @@ public class Config {
             boolean newState = !currentState;
             talismanEnabledStates.put(talisman, newState);
 
-            // Update client-side config if present
-            if (clientModConfig != null && clientConfigFile != null) {
-                System.out.println("Client-side config is available. Toggling talisman.");
-                CLIENT_TALISMAN_TOGGLES.get(talisman).set(newState);
-                clientConfigFile.set(talisman, newState);
-                clientConfigFile.save();
+            // Update server-side config if present
+            if (serverModConfig != null && serverConfigFile != null) {
+                System.out.println("Server-side config is available. Toggling talisman.");
+                SERVER_TALISMAN_TOGGLES.get(talisman).set(newState);
+                serverConfigFile.set(talisman, newState);
+                serverConfigFile.save();
 
                 if (player != null) {
                     player.sendSystemMessage(Component.literal(talisman + " is now " + (newState ? "enabled" : "disabled")));
                 }
             } else {
-                System.out.println("Client-side config or config file is missing.");
-                if (clientModConfig == null) System.out.println("Missing clientModConfig.");
-                if (clientConfigFile == null) System.out.println("Missing clientConfigFile.");
+                System.out.println("Server-side config or config file is missing.");
+                if (serverModConfig == null) System.out.println("Missing serverModConfig.");
+                if (serverConfigFile == null) System.out.println("Missing serverConfigFile.");
 
                 if (player != null) {
                     player.sendSystemMessage(Component.literal("Toggling server-side configurations is not allowed through commands."));
@@ -109,16 +107,12 @@ public class Config {
         }
     }
 
-    public static boolean isTalismanEnabledClient(String talisman) {
-        return talismanEnabledStates.getOrDefault(talisman, false);
+    public static boolean isTalismanEnabled(ServerPlayer player, String talisman) {
+        return talismanEnabledStates.getOrDefault(talisman, true);
     }
 
     public static boolean isTalismanEnabledServer(String talisman) {
-        return true;  // Simplified assumption for now
-    }
-
-    public static boolean isTalismanEnabledOnClientAndServer(String talisman) {
-        return talismanEnabledStates.getOrDefault(talisman, false);
+        return talismanEnabledStates.getOrDefault(talisman, true);
     }
 
     public static List<String> getTalismanNames() {

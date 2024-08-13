@@ -2,13 +2,14 @@ package com.sts15.fargos.items.talismans;
 
 import java.util.List;
 
-import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -39,16 +40,8 @@ public class Glowstone_Talisman extends TalismanItem implements Glowstone_Talism
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 
-        if (!Config.isTalismanEnabledServer(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else if (!Config.isTalismanEnabledClient(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        }
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
@@ -67,18 +60,19 @@ public class Glowstone_Talisman extends TalismanItem implements Glowstone_Talism
         @SuppressWarnings({ "removal", "deprecation" })
 		@SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
-        	Player player = event.getEntity();
-    	    
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Glowstone_Talisman_Provider, player).isPresent()) {
-                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
-                    return;
-                int radius = 12;
-                AABB area = player.getBoundingBox().inflate(radius);
-                List<Monster> mobs = player.level().getEntitiesOfClass(Monster.class, area);
-                for (Monster mob : mobs) {
-                		if (!canSee(player, mob)) {
+            if (event.getEntity() instanceof ServerPlayer player) {
+
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Glowstone_Talisman_Provider, player).isPresent()) {
+                    if (!TalismanUtil.isTalismanEnabled(player, talismanName))
+                        return;
+                    int radius = 12;
+                    AABB area = player.getBoundingBox().inflate(radius);
+                    List<Monster> mobs = player.level().getEntitiesOfClass(Monster.class, area);
+                    for (Monster mob : mobs) {
+                        if (!canSee(player, mob)) {
                             mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 2, 0, false, false));
                         }
+                    }
                 }
             }
         	

@@ -5,14 +5,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -41,16 +42,8 @@ public class Architect_Talisman extends TalismanItem implements Architect_Talism
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 
-        if (!Config.isTalismanEnabledServer(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else if (!Config.isTalismanEnabledClient(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        }
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
@@ -80,13 +73,13 @@ public class Architect_Talisman extends TalismanItem implements Architect_Talism
         @SuppressWarnings({ "removal", "deprecation" })
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
-            if (!(event.getEntity() instanceof Player player))
+            if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
 
             UUID playerUUID = player.getUUID();
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player).isPresent()) {
-                if (Config.isTalismanEnabledOnClientAndServer(talismanName)) {
+                if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                     increaseReachDistance(player, playerUUID);
                 }
             } else {

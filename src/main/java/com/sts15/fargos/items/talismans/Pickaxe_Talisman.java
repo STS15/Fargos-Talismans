@@ -5,14 +5,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -41,16 +42,8 @@ public class Pickaxe_Talisman extends TalismanItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 
-        if (!Config.isTalismanEnabledServer(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else if (!Config.isTalismanEnabledClient(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        }
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
@@ -60,7 +53,7 @@ public class Pickaxe_Talisman extends TalismanItem {
         if (miningSpeedAttribute != null && miningSpeedModifiers.containsKey(playerId)) {
             miningSpeedAttribute.removeModifier(miningSpeedModifiers.get(playerId));
             miningSpeedModifiers.remove(playerId);
-            System.out.println("Reset mining speed for player " + player.getName().getString() + " (ID: " + playerId + ")");
+           //System.out.println("Reset mining speed for player " + player.getName().getString() + " (ID: " + playerId + ")");
         }
     }
 
@@ -70,7 +63,7 @@ public class Pickaxe_Talisman extends TalismanItem {
             AttributeModifier modifier = new AttributeModifier(PICKAXE_MINING_SPEED_BOOST_ID, MINING_SPEED_BOOST, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
             miningSpeedAttribute.addTransientModifier(modifier);
             miningSpeedModifiers.put(playerId, modifier);
-            System.out.println("Increased mining speed for player " + player.getName().getString() + " (ID: " + playerId + ")");
+            //System.out.println("Increased mining speed for player " + player.getName().getString() + " (ID: " + playerId + ")");
         }
     }
     
@@ -79,13 +72,13 @@ public class Pickaxe_Talisman extends TalismanItem {
         
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
-            if (!(event.getEntity() instanceof Player player))
+            if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
             
             UUID playerUUID = player.getUUID();
             
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Pickaxe_Talisman, player).isPresent()) {
-                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
+                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseMiningSpeed(player, playerUUID);
             } else {

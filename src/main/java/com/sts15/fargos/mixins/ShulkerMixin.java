@@ -1,6 +1,8 @@
 package com.sts15.fargos.mixins;
 
-import com.sts15.fargos.Config;
+import com.sts15.fargos.items.talismans.Gold_Talisman_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -32,8 +34,15 @@ public class ShulkerMixin {
 	
 	@SuppressWarnings({ "deprecation", "removal" })
     private static boolean hasShulkerTalisman(Player player) {
-        if (!Config.isTalismanEnabledOnClientAndServer("shulker_talisman")) return false;
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman_Provider, player).isPresent();
+        if (player instanceof ServerPlayer serverPlayer) {
+            // Check if the talisman is enabled for the server player
+            if (!TalismanUtil.isTalismanEnabled(serverPlayer, "shulker_talisman")) {
+                return false;
+            }
+            // Check if the player has the Librarian Talisman equipped
+            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman_Provider, serverPlayer).isPresent();
+        }
+        return false;
     }
 	
 }

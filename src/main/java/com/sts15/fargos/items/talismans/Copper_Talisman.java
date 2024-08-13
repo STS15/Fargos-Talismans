@@ -2,13 +2,14 @@ package com.sts15.fargos.items.talismans;
 
 import java.util.List;
 
-import com.sts15.fargos.Config;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -33,16 +34,8 @@ public class Copper_Talisman extends TalismanItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 
-        if (!Config.isTalismanEnabledServer(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_server")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else if (!Config.isTalismanEnabledClient(talismanName)) {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.disabled_by_client")
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
-        } else {
-            tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
-                    .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        }
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+                .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
@@ -51,16 +44,17 @@ public class Copper_Talisman extends TalismanItem {
     public static class Events {
 
         @SuppressWarnings({ "deprecation", "removal" })
-		@SubscribeEvent
+        @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
-            Player player = event.getEntity();
-
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Copper_Talisman, player).isPresent()) {
-                if (!Config.isTalismanEnabledOnClientAndServer(talismanName))
-                    return;
-                attractItems(player);
+            if (event.getEntity() instanceof ServerPlayer player) {
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Copper_Talisman, player).isPresent()) {
+                    if (!TalismanUtil.isTalismanEnabled(player, talismanName))
+                        return;
+                    attractItems(player);
+                }
             }
         }
+
 
         private static void attractItems(Player player) {
             Level level = player.level();

@@ -1,6 +1,7 @@
 package com.sts15.fargos.mixins;
 
-import com.sts15.fargos.Config;
+import com.sts15.fargos.utils.TalismanUtil;
+import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,10 +32,6 @@ public abstract class LibrarianMixin {
     private void modifyExperiencePoints(int p_36291_, CallbackInfo ci) {
         Player player = (Player) (Object) this;
         if (hasLibrarianEnchantment(player)) {
-//            System.out.println("Pre Experience Modification: Player = " + player.getName().getString() + ", XP = " + p_36291_);
-//            System.out.println("Current Total Experience: " + this.totalExperience);
-//            System.out.println("Current Experience Level: " + this.experienceLevel);
-//            System.out.println("Current Experience Progress: " + this.experienceProgress);
 
             int modifiedExperience = Math.round(p_36291_ * 1.5f);
             this.increaseScore(modifiedExperience);
@@ -67,7 +64,15 @@ public abstract class LibrarianMixin {
 
     @SuppressWarnings("deprecation")
     private static boolean hasLibrarianEnchantment(Player player) {
-        if (!Config.isTalismanEnabledOnClientAndServer("librarian_talisman")) return false;
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, player).isPresent();
+        if (player instanceof ServerPlayer serverPlayer) {
+            // Check if the talisman is enabled for the server player
+            if (!TalismanUtil.isTalismanEnabled(serverPlayer, "librarian_talisman")) {
+                return false;
+            }
+            // Check if the player has the Librarian Talisman equipped
+            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, serverPlayer).isPresent();
+        }
+        return false;
     }
+
 }

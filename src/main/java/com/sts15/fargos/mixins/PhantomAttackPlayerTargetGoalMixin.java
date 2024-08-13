@@ -1,6 +1,8 @@
 package com.sts15.fargos.mixins;
 
-import com.sts15.fargos.Config;
+import com.sts15.fargos.items.talismans.Librarian_Talisman_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Phantom;
@@ -52,8 +54,15 @@ public abstract class PhantomAttackPlayerTargetGoalMixin {
     }
 
     @SuppressWarnings({ "deprecation", "removal" })
-    private boolean hasPhantomTalisman(Player player) {
-        if (!Config.isTalismanEnabledOnClientAndServer("spectral_talisman")) return false;
-        return CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Spectral_Talisman_Provider, player).isPresent();
+    private static boolean hasPhantomTalisman(Player player) {
+        if (player instanceof ServerPlayer serverPlayer) {
+            // Check if the talisman is enabled for the server player
+            if (!TalismanUtil.isTalismanEnabled(serverPlayer, "spectral_talisman")) {
+                return false;
+            }
+            // Check if the player has the Librarian Talisman equipped
+            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Spectral_Talisman_Provider, serverPlayer).isPresent();
+        }
+        return false;
     }
 }

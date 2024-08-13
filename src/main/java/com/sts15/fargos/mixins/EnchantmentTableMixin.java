@@ -2,7 +2,8 @@ package com.sts15.fargos.mixins;
 
 import java.util.List;
 
-import com.sts15.fargos.Config;
+import com.sts15.fargos.utils.TalismanUtil;
+import net.minecraft.stats.ServerRecipeBook;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -46,16 +47,13 @@ public abstract class EnchantmentTableMixin {
     @Inject(method = "stillValid", at = @At("HEAD"))
     private void onStillValid(Player player, CallbackInfoReturnable<Boolean> ci) {
         this.currentEnchantmentMenuPlayer = player;
-        //System.out.println("Player set!");
     }
 
     @Inject(method = "slotsChanged", at = @At("RETURN"), cancellable = true)
     private void modifyEnchantmentCosts(Container container, CallbackInfo ci) {
-    	//System.out.println("Slot changed!");
         if (this.currentEnchantmentMenuPlayer != null && (hasEnchantingEnchantment(this.currentEnchantmentMenuPlayer) )) {
             for (int i = 0; i < this.costs.length; i++) {
                 this.costs[i] = Math.max(1, this.costs[i] - (this.costs[i] / 3));
-                //System.out.println("Modifying enchantment cost for slot: " + i);
             }
         }
     }
@@ -67,7 +65,7 @@ public abstract class EnchantmentTableMixin {
             ItemStack itemstack1 = this.enchantSlots.getItem(1);
             int i = pId + 1;
 
-            boolean hasLapisTalisman = isWearingLapisTalisman(pPlayer);
+            boolean hasLapisTalisman = isWearingLapisTalisman(this.currentEnchantmentMenuPlayer);
 
             if ((itemstack1.isEmpty() || itemstack1.getCount() < i) && !pPlayer.hasInfiniteMaterials() && !hasLapisTalisman) {
                 cir.setReturnValue(false);
@@ -109,16 +107,22 @@ public abstract class EnchantmentTableMixin {
         }
     }
     
-    @SuppressWarnings({ "deprecation", "removal" })
+    @SuppressWarnings({"deprecation", "removal", "deprecation", "removal"})
     private static boolean hasEnchantingEnchantment(Player player) {
-        if (!Config.isTalismanEnabledOnClientAndServer("enchanting_talisman")) return false;
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Enchanting_Talisman_Provider, player).isPresent();
+        if (player instanceof ServerPlayer serverPlayer) {
+            if (!TalismanUtil.isTalismanEnabled(serverPlayer, "enchanting_talisman")) return false;
+            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Enchanting_Talisman_Provider, serverPlayer).isPresent();
+        }
+        return false;
     }
-    
-    @SuppressWarnings({ "deprecation", "removal" })
+
+    @SuppressWarnings({"deprecation", "removal", "deprecation", "removal"})
     private static boolean isWearingLapisTalisman(Player player) {
-        if (!Config.isTalismanEnabledOnClientAndServer("lapis_talisman")) return false;
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Lapis_Talisman_Provider, player).isPresent();
+        if (player instanceof ServerPlayer serverPlayer) {
+            if (!TalismanUtil.isTalismanEnabled(serverPlayer, "lapis_talisman")) return false;
+            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Lapis_Talisman_Provider, serverPlayer).isPresent();
+        }
+        return false;
     }
 }
 

@@ -1,6 +1,7 @@
 package com.sts15.fargos.mixins;
 
-import com.sts15.fargos.Config;
+import com.sts15.fargos.utils.TalismanUtil;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -34,9 +35,16 @@ public class PiglinBruteAiMixin {
 	}
 	
 	@SuppressWarnings({ "deprecation", "removal" })
-    private static boolean hasGoldEnchantment(Player player) {
-		if (!Config.isTalismanEnabledOnClientAndServer("gold_talisman")) return false;
-        return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Gold_Talisman_Provider, player).isPresent();
-    }
+	private static boolean hasGoldEnchantment(Player player) {
+		if (player instanceof ServerPlayer serverPlayer) {
+			// Check if the talisman is enabled for the server player
+			if (!TalismanUtil.isTalismanEnabled(serverPlayer, "gold_talisman")) {
+				return false;
+			}
+			// Check if the player has the Librarian Talisman equipped
+			return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Gold_Talisman_Provider, serverPlayer).isPresent();
+		}
+		return false;
+	}
 	
 }

@@ -1,39 +1,30 @@
 package com.sts15.fargos.network;
 
-import com.sts15.fargos.config.ServerConfigManager;
+import com.sts15.fargos.Fargos;
 import com.sts15.fargos.network.packet.*;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-
-import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 
 public class NetworkHandler {
 
-    public static void registerPackets(RegisterPayloadHandlersEvent event) {
-        System.out.println("Registering TalismanConfigPacket...");
+    public static void registerPackets(@NotNull RegisterPayloadHandlersEvent event) {
+        final PayloadRegistrar registrar = event.registrar(Fargos.MODID)
+                .versioned("1.0").optional();
 
-        PayloadRegistrar registrar = event.registrar("fargostalismans").versioned("1.0").optional();
-
-        registrar.playToServer(TalismanConfigPacket.TYPE, TalismanConfigPacket.STREAM_CODEC, TalismanConfigPacket::handle);
-        //registrar.playToServer(SimpleMessagePacket.TYPE, SimpleMessagePacket::STREAM_CODEC, SimpleMessagePacket::handle);
+        registrar.playToServer(ToggleTalismanStatePacket.TYPE, ToggleTalismanStatePacket.STREAM_CODEC, ToggleTalismanStatePacket::handle);
+        registrar.playToClient(SyncAirStatusPacket.TYPE, SyncAirStatusPacket.STREAM_CODEC, SyncAirStatusPacket::handle);
     }
 
-    public static void sendTalismanConfigToServer(LocalPlayer player, Map<String, Boolean> talismanStates) {
-        TalismanConfigPacket packet = new TalismanConfigPacket(talismanStates);
-        System.out.println("Sending talisman config to server: " + talismanStates);
+    public static void sendToggleTalismanStateToServer(ServerPlayer player, int talismanIndex, boolean isEnabled) {
+        ToggleTalismanStatePacket packet = new ToggleTalismanStatePacket(talismanIndex, isEnabled);
         PacketDistributor.sendToServer(packet);
     }
 
-    public static void sendSimpleMessageToServer(LocalPlayer player, String message) {
-        SimpleMessagePacket packet = new SimpleMessagePacket(message);
-        PacketDistributor.sendToServer(packet);
-    }
-
-    public static void handleTalismanConfigFromClient(ServerPlayer player, Map<String, Boolean> talismanStates) {
-        System.out.println("Received talisman config from client: " + talismanStates);
-        ServerConfigManager.updatePlayerConfig(player, talismanStates);
+    public static void sendSyncAirStatusToClient(ServerPlayer player, int air) {
+        SyncAirStatusPacket packet = new SyncAirStatusPacket(air);
+        PacketDistributor.sendToPlayer(player, packet);
     }
 }

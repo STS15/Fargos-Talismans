@@ -1,6 +1,7 @@
 package com.sts15.fargos;
 
 import com.sts15.fargos.client.command.*;
+import com.sts15.fargos.config.ServerConfig;
 import com.sts15.fargos.items.ItemInit;
 import com.sts15.fargos.blocks.BlockInit;
 import com.sts15.fargos.init.CreativeTabRegistry;
@@ -35,7 +36,7 @@ public class Fargos {
         MobEffectRegistry.register(modEventBus);
 
         // Register the client configuration
-        modContainer.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_SPEC);
 
         // Register this mod with the global NeoForge event bus
         NeoForge.EVENT_BUS.register(this);
@@ -49,11 +50,10 @@ public class Fargos {
     @SubscribeEvent
     public void onRegisterCommands(RegisterCommandsEvent event) {
         TalismanCommand.register(event.getDispatcher());
-        SimpleMessageCommand.register(event.getDispatcher());
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Perform any necessary setup when the server starts
+
     }
 }
