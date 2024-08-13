@@ -19,7 +19,7 @@ In a world where the elements rule and the mystical forces are ever-present, Tal
 | **Redstone Talisman**  | Slowly repairs armor durability over time.                                                  |
 | **Amethyst Talisman**  | Negates incoming projectile damage.                                                         |
 | **Diamond Talisman**   | Negates 20% of all damage.                                                                  |
-| **Lapis Talisman**     | Removes the need for Lapis in an Enchanting Table.                                          |
+| **Lapis Talisman**     | Attracts XP orbs to the player.                                                             |
 | **Iron Talisman**      | Negates 5% of all damage.                                                                   |
 | **Emerald Talisman**   | Extra damage to Pillagers and Illagers.                                                     |
 | **Gold Talisman**      | Piglins ignore you.                                                                         |
@@ -40,7 +40,7 @@ In a world where the elements rule and the mystical forces are ever-present, Tal
 | **Pickaxe Talisman**   | Doubles mining speed.                                                                       |
 | **Vindicator Talisman**| Boosts next attack after switching weapons.                                                 |
 | **Ghast Talisman**     | Applies weakness to monsters around you.                                                    |
-| **Creeper Talisman**   | Grants explode on hit.                                                                      |
+| **Creeper Talisman**   | Explode on jump.                                                                            |
 | **Vampiric Talisman**  | Drains health from enemies to heal the player.                                              |
 | **Enchanting Talisman**| Reduces levels required for enchantment by 30%.                                             |
 | **Librarian Talisman** | Increases experience gained from all sources by 50%.                                        |
