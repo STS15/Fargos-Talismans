@@ -15,6 +15,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import net.minecraft.world.item.Item.TooltipContext;
@@ -33,23 +34,30 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 
+    private static void enableFlight (Player player){
+        if (!player.isCreative() && !player.isSpectator()) {
+            player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT).setBaseValue(1);
+        }
+    }
+
+    private static void disableFlight (Player player){
+        if (!player.isCreative() && !player.isSpectator()) {
+            player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT).setBaseValue(0);
+        }
+    }
+
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
-        @SuppressWarnings({ "removal", "deprecation" })
+        @SuppressWarnings({"removal", "deprecation"})
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             Player player = event.getEntity();
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent()) {
-                if (!player.getAbilities().mayfly) {
-                    player.getAbilities().mayfly = true;
-                    player.onUpdateAbilities();
-                }
-            } else {
-                if (player.getAbilities().mayfly && !player.isCreative() && !player.isSpectator()) {
-                    player.getAbilities().mayfly = false;
-                    player.getAbilities().flying = false;
-                    player.onUpdateAbilities();
+                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent()) {
+                    enableFlight(player);
+                } else {
+                    disableFlight(player);
                 }
             }
         }
