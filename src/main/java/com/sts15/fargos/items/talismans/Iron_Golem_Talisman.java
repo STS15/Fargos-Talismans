@@ -32,9 +32,6 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
     private static final String talismanName = "iron_golem_talisman";
 
     private static final double HEALTH_BOOST_MULTIPLIER = 2.0;
-    private static final Map<UUID, AttributeModifier> healthModifiers = new HashMap<>();
-
-    //private static final ResourceLocation IRON_GOLEM_HEALTH_BOOST = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health_boost");
     private static final ResourceLocation HEALTH_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health_boost");
 
     public Iron_Golem_Talisman() {
@@ -73,8 +70,6 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
-
-            UUID playerUUID = player.getUUID();
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))

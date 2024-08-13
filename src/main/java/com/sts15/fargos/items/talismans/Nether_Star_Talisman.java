@@ -24,7 +24,6 @@ import top.theillusivec4.curios.api.CuriosApi;
 public class Nether_Star_Talisman extends TalismanItem {
 
     private static final String talismanName = "nether_star_talisman";
-	
 	public static final float criticalMultiplier = 1.5F;
 
     public Nether_Star_Talisman() {
@@ -51,7 +50,6 @@ public class Nether_Star_Talisman extends TalismanItem {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     if (!player.onGround() && !player.isInWater() && (player.fallDistance > 0)) {
-        	            float criticalMultiplier = 1.15F;
         	            float increasedCritDamage = event.getAmount() * criticalMultiplier;
         	            event.setAmount(increasedCritDamage);
         	        }
