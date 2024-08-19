@@ -54,11 +54,9 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             Player player = event.getEntity();
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent()) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent()) {
-                    enableFlight(player);
-                } else {
-                    disableFlight(player);
-                }
+                enableFlight(player);
+            } else {
+                disableFlight(player);
             }
         }
     }

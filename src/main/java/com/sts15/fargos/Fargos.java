@@ -13,6 +13,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -25,26 +26,26 @@ public class Fargos {
 
     public Fargos(IEventBus modEventBus, ModContainer modContainer) {
 
-        // Register payloads for network communication
         Objects.requireNonNull(modContainer.getEventBus()).addListener(this::registerPayloads);
 
-        // Register other mod elements
         ItemInit.register(modEventBus);
         BlockInit.register(modEventBus);
         SoundRegistry.SOUNDS.register(modEventBus);
         CreativeTabRegistry.register(modEventBus);
         MobEffectRegistry.register(modEventBus);
 
-        // Register the client configuration
         modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_SPEC);
 
-        // Register this mod with the global NeoForge event bus
         NeoForge.EVENT_BUS.register(this);
     }
 
-    // Method to register network payload handlers
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
         NetworkHandler.registerPackets(event);
+    }
+
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+
     }
 
     @SubscribeEvent
@@ -53,7 +54,8 @@ public class Fargos {
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
+    public void onRegisterCommands(RegisterClientCommandsEvent event) {
+        TalismanScreenCommand.register(event.getDispatcher());
     }
+
 }

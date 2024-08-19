@@ -1,10 +1,14 @@
 package com.sts15.fargos.items.components;
 
+import java.awt.*;
 import java.util.List;
 
+import com.sts15.fargos.screen.TalismanToggleScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;

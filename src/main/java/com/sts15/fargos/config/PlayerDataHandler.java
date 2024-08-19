@@ -22,6 +22,18 @@ public class PlayerDataHandler {
         //System.out.println("Talisman state saved. NBT data: " + getTalismanState(player, talismanName));
     }
 
+    public static void setTalismanState(LocalPlayer player, String talismanName, boolean isEnabled) {
+        //System.out.println("Setting talisman state for player: " + player.getName().getString() + ", Talisman: " + talismanName + ", Enabled: " + isEnabled);
+
+        CompoundTag data = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
+        CompoundTag talismanData = data.getCompound(TALISMAN_DATA_KEY);
+        talismanData.putBoolean(talismanName, isEnabled);
+        data.put(TALISMAN_DATA_KEY, talismanData);
+        player.getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
+
+        //System.out.println("Talisman state saved. NBT data: " + getTalismanState(player, talismanName));
+    }
+
     public static boolean getTalismanState(ServerPlayer player, String talismanName) {
         //System.out.println("Retrieving talisman state for player: " + player.getName().getString() + ", Talisman: " + talismanName);
 
@@ -58,7 +70,7 @@ public class PlayerDataHandler {
         return true; // Default to true if no state is found
     }
 
-    private static ServerPlayer getServerPlayerFromLocal(LocalPlayer localPlayer) {
+    public static ServerPlayer getServerPlayerFromLocal(LocalPlayer localPlayer) {
         //System.out.println("Attempting to retrieve ServerPlayer from LocalPlayer: " + localPlayer.getName().getString());
 
         Minecraft mc = Minecraft.getInstance();

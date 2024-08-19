@@ -223,6 +223,7 @@
   "item.fargostalismans.tooltip.disabled_by_client": "Client has talisman toggled off",
   
   "key.category.fargostalismans": "Fargo's Talismans",
-  "key.fargostalismansmod.opengui": "Open Forces Control GUI",
-  "key.categories.fargostalismansmod": "Fargo's Talismans"
+  "key.fargostalismansmod.opengui": "Open Talisman Control GUI",
+  "key.categories.fargostalismansmod": "Fargo's Talismans",
+  "screen.fargostalismans.header": "Fargo's Talismans Config"
 }

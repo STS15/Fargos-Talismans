@@ -36,7 +36,7 @@ public class TalismanCommand {
         dispatcher.register(command);
     }
 
-    private static int executeToggle(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+    public static int executeToggle(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
         String talismanName = StringArgumentType.getString(context, "talisman").toUpperCase();
         TalismanType talismanType;
         try {
@@ -59,7 +59,7 @@ public class TalismanCommand {
             // Client-side
             int talismanIndex = talismanType.getIndex();
             boolean isEnabled = !PlayerDataHandler.getTalismanState(context.getSource().getPlayerOrException(), talismanType.name());
-            NetworkHandler.sendToggleTalismanStateToServer(context.getSource().getPlayerOrException(), talismanIndex, isEnabled);
+            NetworkHandler.sendToggleTalismanStateToServer(/*context.getSource().getPlayerOrException(), */talismanIndex, isEnabled);
         }
 
         return Command.SINGLE_SUCCESS;

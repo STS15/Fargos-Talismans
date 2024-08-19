@@ -53,7 +53,7 @@ public class ToggleTalismanStatePacket implements CustomPacketPayload {
 
             TalismanType talismanType = TalismanType.byIndex(talismanIndex);
             PlayerDataHandler.setTalismanState(player, talismanType.name(), isEnabled);
-            player.sendSystemMessage(Component.literal("Talisman " + talismanType.name() + " is now " + (isEnabled ? "enabled" : "disabled")));
+            //player.sendSystemMessage(Component.literal("Talisman " + talismanType.name() + " is now " + (isEnabled ? "enabled" : "disabled")));
         }
     }
 }
