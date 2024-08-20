@@ -73,7 +73,16 @@ public class FargosItemTagProvider extends ItemTagsProvider {
             .add(ItemInit.SOUL_OF_DIMENSIONS.get())
             .add(ItemInit.SOUL_OF_FLIGHT_MASTERY.get())
             .add(ItemInit.SOUL_OF_MINECRAFT.get())
-            .add(ItemInit.SOUL_OF_SUPERSONIC.get());
-            //.add(ItemInit.SOUL_OF_TRAWLER.get());
+            .add(ItemInit.SOUL_OF_SUPERSONIC.get())
+            .add(ItemInit.FIRED_TALISMAN.get())
+            .add(ItemInit.POISONED_TALISMAN.get())
+            .add(ItemInit.WITHERED_TALISMAN.get())
+            .add(ItemInit.BLINDED_TALISMAN.get())
+            .add(ItemInit.FATIGUED_TALISMAN.get())
+            .add(ItemInit.SLOWED_TALISMAN.get())
+            .add(ItemInit.NAUSEATED_TALISMAN.get())
+            .add(ItemInit.WEAKENED_TALISMAN.get());
+
+            //.add(ItemInit.SOUL_OF_TRAWLER.get()); // May be added in a later update
     }
 }

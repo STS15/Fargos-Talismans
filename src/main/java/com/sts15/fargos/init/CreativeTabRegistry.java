@@ -36,6 +36,7 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.ARCTIC_TALISMAN.get());
                 output.accept(ItemInit.BATTLE_TALISMAN.get());
                 output.accept(ItemInit.BLAZE_TALISMAN.get());
+                output.accept(ItemInit.BLINDED_TALISMAN.get());
                 output.accept(ItemInit.CACTUS_TALISMAN.get());
                 output.accept(ItemInit.COPPER_TALISMAN.get());
                 output.accept(ItemInit.CREEPER_TALISMAN.get());
@@ -45,7 +46,9 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.EMERALD_TALISMAN.get());
                 output.accept(ItemInit.ENCHANTING_TALISMAN.get());
                 output.accept(ItemInit.ENDERMAN_TALISMAN.get());
+                output.accept(ItemInit.FATIGUED_TALISMAN.get());
                 output.accept(ItemInit.FIRE_TALISMAN.get());
+                output.accept(ItemInit.FIRED_TALISMAN.get());
                 output.accept(ItemInit.GHAST_TALISMAN.get());
                 output.accept(ItemInit.GLOWSTONE_TALISMAN.get());
                 output.accept(ItemInit.GOLD_TALISMAN.get());
@@ -54,23 +57,28 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.LAPIS_TALISMAN.get());
                 output.accept(ItemInit.LIBRARIAN_TALISMAN.get());
                 output.accept(ItemInit.MOOSHROOM_TALISMAN.get());
+                output.accept(ItemInit.NAUSEATED_TALISMAN.get());
                 output.accept(ItemInit.NETHER_STAR_TALISMAN.get());
                 output.accept(ItemInit.OBSIDIAN_TALISMAN.get());
                 output.accept(ItemInit.PICKAXE_TALISMAN.get());
+                output.accept(ItemInit.POISONED_TALISMAN.get());
                 output.accept(ItemInit.REDSTONE_TALISMAN.get());
                 output.accept(ItemInit.SHULKER_TALISMAN.get());
-                output.accept(ItemInit.SPECTRAL_TALISMAN.get());
                 output.accept(ItemInit.SKELETON_TALISMAN.get());
+                output.accept(ItemInit.SLOWED_TALISMAN.get());
+                output.accept(ItemInit.SPECTRAL_TALISMAN.get());
                 output.accept(ItemInit.THORNY_TALISMAN.get());
                 output.accept(ItemInit.UNDYING_TALISMAN.get());
                 output.accept(ItemInit.VAMPIRIC_TALISMAN.get());
                 output.accept(ItemInit.VINDICATOR_TALISMAN.get());
                 output.accept(ItemInit.VOID_TALISMAN.get());
                 output.accept(ItemInit.WATER_TALISMAN.get());
+                output.accept(ItemInit.WEAKENED_TALISMAN.get());
                 output.accept(ItemInit.WITCH_TALISMAN.get());
                 output.accept(ItemInit.WITHER_TALISMAN.get());
+                output.accept(ItemInit.WITHERED_TALISMAN.get());
                 output.accept(ItemInit.ZOMBIE_TALISMAN.get());
-                
+
                 // Add forces
                 output.accept(ItemInit.FORCE_OF_OVERWORLD.get());
                 output.accept(ItemInit.FORCE_OF_NATURE.get());
@@ -78,6 +86,7 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.FORCE_OF_EXPLORER.get());
                 output.accept(ItemInit.FORCE_OF_MYSTIC.get());
                 output.accept(ItemInit.FORCE_OF_WARRIOR.get());
+                output.accept(ItemInit.FORCE_OF_NEGATIVE.get());
 
                 // Add souls
                 output.accept(ItemInit.SOUL_OF_MINECRAFT.get());

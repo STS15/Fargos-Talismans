@@ -2,15 +2,18 @@ package com.sts15.fargos.config;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
+import com.sts15.fargos.network.TalismanType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ServerConfig {
 
@@ -116,48 +119,11 @@ public class ServerConfig {
     }
 
     public static List<String> getTalismanNames() {
-        return List.of(
-                "air_talisman",
-                "amethyst_talisman",
-                "apple_talisman",
-                "architect_talisman",
-                "arctic_talisman",
-                "battle_talisman",
-                "blaze_talisman",
-                "cactus_talisman",
-                "copper_talisman",
-                "creeper_talisman",
-                "diamond_talisman",
-                "dragon_talisman",
-                "earth_talisman",
-                "emerald_talisman",
-                "enchanting_talisman",
-                "enderman_talisman",
-                "fire_talisman",
-                "ghast_talisman",
-                "glowstone_talisman",
-                "gold_talisman",
-                "iron_golem_talisman",
-                "iron_talisman",
-                "lapis_talisman",
-                "librarian_talisman",
-                "mooshroom_talisman",
-                "nether_star_talisman",
-                "obsidian_talisman",
-                "pickaxe_talisman",
-                "redstone_talisman",
-                "shulker_talisman",
-                "skeleton_talisman",
-                "spectral_talisman",
-                "thorny_talisman",
-                "undying_talisman",
-                "vampiric_talisman",
-                "vindicator_talisman",
-                "void_talisman",
-                "water_talisman",
-                "witch_talisman",
-                "wither_talisman",
-                "zombie_talisman"
-        );
+        List<String> talismanNames = new ArrayList<>();
+        for (TalismanType type : TalismanType.values()) {
+            talismanNames.add(type.name().toLowerCase());
+        }
+        return talismanNames;
     }
+
 }
