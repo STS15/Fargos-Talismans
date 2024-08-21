@@ -1,5 +1,7 @@
 package com.sts15.fargos.items.souls;
 
+import com.sts15.fargos.Fargos;
+import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Supersonic_Provider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -13,18 +15,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.nbt.CompoundTag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import net.minecraft.nbt.CompoundTag;
 import top.theillusivec4.curios.api.CuriosApi;
-
-import com.sts15.fargos.Fargos;
-import com.sts15.fargos.items.TalismanItem;
 
 import java.util.List;
 
-public class Soul_of_Supersonic extends TalismanItem implements Soul_of_Supersonic_Provider { // Works but weird fov changes, prolly fine
+public class Soul_of_Supersonic extends TalismanItem implements Soul_of_Supersonic_Provider {
 
     private static final ResourceLocation WALK_SPEED_MODIFIER_ID = ResourceLocation.fromNamespaceAndPath("fargos", "supersonic_walking_speed_boost");
     private static final double WALK_SPEED_BOOST = 1.75;
@@ -44,42 +43,37 @@ public class Soul_of_Supersonic extends TalismanItem implements Soul_of_Superson
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
-        @SuppressWarnings({ "deprecation", "removal" })
-		@SubscribeEvent
+        @SuppressWarnings({"deprecation", "removal"})
+        @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             Player player = event.getEntity();
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Supersonic_Provider, player).isPresent()) {
-                applyEffects(player);
-            } else {
-                removeEffects(player);
+            boolean hasTalisman = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Supersonic_Provider, player).isPresent();
+            CompoundTag playerData = player.getPersistentData();
+
+            if (hasTalisman && !playerData.getBoolean("SoulOfSupersonicActive")) {
+                applyEffects(player, playerData);
+            } else if (!hasTalisman && playerData.getBoolean("SoulOfSupersonicActive")) {
+                removeEffects(player, playerData);
             }
         }
 
-        private static void applyEffects(Player player) {
-            CompoundTag playerData = player.getPersistentData();
+        private static void applyEffects(Player player, CompoundTag playerData) {
+            AttributeInstance speedAttribute = player.getAttribute(Attributes.MOVEMENT_SPEED);
+            if (speedAttribute != null && speedAttribute.getModifier(WALK_SPEED_MODIFIER_ID) == null) {
+                AttributeModifier modifier = new AttributeModifier(WALK_SPEED_MODIFIER_ID, WALK_SPEED_BOOST, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+                speedAttribute.addTransientModifier(modifier);
+            }
 
-            // Walking speed boost
-                AttributeInstance speedAttribute = player.getAttribute(Attributes.MOVEMENT_SPEED);
-                if (speedAttribute != null && speedAttribute.getModifier(WALK_SPEED_MODIFIER_ID) == null) {
-                    AttributeModifier modifier = new AttributeModifier(WALK_SPEED_MODIFIER_ID, WALK_SPEED_BOOST, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
-                    speedAttribute.addTransientModifier(modifier);
-                }
-            
+            if (!playerData.getBoolean("SoulOfSupersonicFlyingSpeedBoost")) {
+                player.getAbilities().setFlyingSpeed((float) (player.getAbilities().getFlyingSpeed() * FLY_SPEED_BOOST));
+                playerData.putBoolean("SoulOfSupersonicFlyingSpeedBoost", true); // Set flag
+            }
 
-            // Flying speed boost
-                if (!playerData.getBoolean("SoulOfSupersonicFlyingSpeedBoost")) {
-                    player.getAbilities().setFlyingSpeed((float) (player.getAbilities().getFlyingSpeed() * FLY_SPEED_BOOST));
-                    playerData.putBoolean("SoulOfSupersonicFlyingSpeedBoost", true); // Set flag
-                }
-
-
+            playerData.putBoolean("SoulOfSupersonicActive", true);
             player.onUpdateAbilities();
         }
 
-        private static void removeEffects(Player player) {
-            CompoundTag playerData = player.getPersistentData();
-
-            // Remove walking speed boost
+        private static void removeEffects(Player player, CompoundTag playerData) {
             AttributeInstance speedAttribute = player.getAttribute(Attributes.MOVEMENT_SPEED);
             if (speedAttribute != null) {
                 AttributeModifier modifier = speedAttribute.getModifier(WALK_SPEED_MODIFIER_ID);
@@ -88,12 +82,12 @@ public class Soul_of_Supersonic extends TalismanItem implements Soul_of_Superson
                 }
             }
 
-            // Remove flying speed boost if it was applied
             if (playerData.getBoolean("SoulOfSupersonicFlyingSpeedBoost")) {
                 player.getAbilities().setFlyingSpeed((float) (player.getAbilities().getFlyingSpeed() / FLY_SPEED_BOOST));
                 playerData.remove("SoulOfSupersonicFlyingSpeedBoost"); // Clear flag
             }
 
+            playerData.remove("SoulOfSupersonicActive");
             player.onUpdateAbilities();
         }
     }
