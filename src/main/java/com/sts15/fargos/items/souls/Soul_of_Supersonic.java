@@ -1,5 +1,6 @@
 package com.sts15.fargos.items.souls;
 
+import com.sts15.fargos.items.providers.Soul_of_Supersonic_Provider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;

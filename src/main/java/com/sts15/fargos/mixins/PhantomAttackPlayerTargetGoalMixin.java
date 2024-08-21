@@ -1,6 +1,5 @@
 package com.sts15.fargos.mixins;
 
-import com.sts15.fargos.items.talismans.Librarian_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,7 +15,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import com.sts15.fargos.items.talismans.Spectral_Talisman_Provider;
+import com.sts15.fargos.items.providers.Spectral_Talisman_Provider;
 
 import top.theillusivec4.curios.api.CuriosApi;
 

@@ -52,15 +52,6 @@
 		"fargostalismans:soul_of_flight_mastery",
 		"fargostalismans:soul_of_colossus",
 		"fargostalismans:soul_of_supersonic",
-		"fargostalismans:soul_of_dimensions",
-		"fargostalismans:fired_talisman",
-		"fargostalismans:poisoned_talisman",
-		"fargostalismans:withered_talisman",
-		"fargostalismans:blinded_talisman",
-		"fargostalismans:fatigued_talisman",
-		"fargostalismans:slowed_talisman",
-		"fargostalismans:nauseated_talisman",
-		"fargostalismans:weakened_talisman",
-		"fargostalismans:force_of_negative"
+		"fargostalismans:soul_of_dimensions"
 	]
 }

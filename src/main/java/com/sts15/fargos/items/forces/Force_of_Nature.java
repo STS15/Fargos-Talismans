@@ -3,10 +3,10 @@ package com.sts15.fargos.items.forces;
 import java.util.List;
 
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.talismans.Earth_Talisman_Provider;
-import com.sts15.fargos.items.talismans.Water_Talisman_Provider;
-import com.sts15.fargos.items.talismans.Fire_Talisman_Provider;
-import com.sts15.fargos.items.talismans.Air_Talisman_Provider;
+import com.sts15.fargos.items.providers.Earth_Talisman_Provider;
+import com.sts15.fargos.items.providers.Water_Talisman_Provider;
+import com.sts15.fargos.items.providers.Fire_Talisman_Provider;
+import com.sts15.fargos.items.providers.Air_Talisman_Provider;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

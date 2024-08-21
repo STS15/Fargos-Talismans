@@ -8,6 +8,7 @@ import java.util.UUID;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 
+import com.sts15.fargos.items.providers.Zombie_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -39,7 +40,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
 
     private static final Map<UUID, Long> lastAttackTimes = new HashMap<>();
     private static final Map<UUID, Integer> attackCounts = new HashMap<>();
-    private static final Map<UUID, Long> cooldownEndTimes = new HashMap<>(); // Cooldown end times
+    private static final Map<UUID, Long> cooldownEndTimes = new HashMap<>();
 
     private static final ResourceLocation ZOMBIE_ATTACK_SPEED_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "zombie_attack_speed_boost");
 

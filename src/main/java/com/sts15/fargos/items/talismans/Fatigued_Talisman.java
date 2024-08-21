@@ -2,6 +2,7 @@ package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
+import com.sts15.fargos.items.providers.Fatigued_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

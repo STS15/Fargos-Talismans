@@ -10,7 +10,7 @@
 //import org.spongepowered.asm.mixin.injection.At;
 //import org.spongepowered.asm.mixin.injection.Inject;
 //import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-//import com.sts15.fargos.items.souls.Soul_of_Trawler_Provider;
+//import com.sts15.fargos.items.providers.Soul_of_Trawler_Provider;
 //
 //import top.theillusivec4.curios.api.CuriosApi;
 //

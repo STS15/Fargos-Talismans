@@ -3,7 +3,7 @@ package com.sts15.fargos.items.forces;
 import java.util.List;
 
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.talismans.*;
+import com.sts15.fargos.items.providers.*;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -13,8 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 
-public class Force_of_Mystic extends TalismanItem implements 
-	Vampiric_Talisman_Provider, Enchanting_Talisman_Provider, Librarian_Talisman_Provider, Witch_Talisman_Provider, Shulker_Talisman_Provider, Undying_Talisman_Provider
+public class Force_of_Mystic extends TalismanItem implements
+        Vampiric_Talisman_Provider, Enchanting_Talisman_Provider, Librarian_Talisman_Provider, Witch_Talisman_Provider, Shulker_Talisman_Provider, Undying_Talisman_Provider
 	{
 
     public Force_of_Mystic() {

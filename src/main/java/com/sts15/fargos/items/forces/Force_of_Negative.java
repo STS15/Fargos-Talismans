@@ -1,7 +1,7 @@
 package com.sts15.fargos.items.forces;
 
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.talismans.*;
+import com.sts15.fargos.items.providers.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -12,7 +12,7 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 
 public class Force_of_Negative extends TalismanItem implements
-	Fired_Talisman_Provider, Poisoned_Talisman_Provider, Withered_Talisman_Provider, Blinded_Talisman_Provider, Fatigued_Talisman_Provider,
+        Fired_Talisman_Provider, Poisoned_Talisman_Provider, Withered_Talisman_Provider, Blinded_Talisman_Provider, Fatigued_Talisman_Provider,
         Slowed_Talisman_Provider, Nauseated_Talisman_Provider, Weakened_Talisman_Provider
 {
 

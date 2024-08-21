@@ -1,13 +1,12 @@
 package com.sts15.fargos.mixins;
 
-import com.sts15.fargos.items.talismans.Shulker_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import com.sts15.fargos.items.talismans.Witch_Talisman_Provider;
+import com.sts15.fargos.items.providers.Witch_Talisman_Provider;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

@@ -3,7 +3,7 @@ package com.sts15.fargos.items.forces;
 import java.util.List;
 
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.talismans.*;
+import com.sts15.fargos.items.providers.*;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -12,10 +12,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Item.TooltipContext;
 
-public class Force_of_Overworld extends TalismanItem implements 
-	Emerald_Talisman_Provider, Amethyst_Talisman_Provider, Gold_Talisman_Provider, Diamond_Talisman_Provider, Lapis_Talisman_Provider, Redstone_Talisman_Provider 
+public class Force_of_Overworld extends TalismanItem implements
+        Emerald_Talisman_Provider, Amethyst_Talisman_Provider, Gold_Talisman_Provider, Diamond_Talisman_Provider, Lapis_Talisman_Provider, Redstone_Talisman_Provider
 	{
 
     public Force_of_Overworld() {

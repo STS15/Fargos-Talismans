@@ -12,6 +12,7 @@ public enum TalismanType {
     CACTUS_TALISMAN,
     COPPER_TALISMAN,
     CREEPER_TALISMAN,
+    DAY_TALISMAN,
     DIAMOND_TALISMAN,
     DRAGON_TALISMAN,
     EARTH_TALISMAN,
@@ -21,6 +22,7 @@ public enum TalismanType {
     FATIGUED_TALISMAN,
     FIRE_TALISMAN,
     FIRED_TALISMAN,
+    FULL_MOON_TALISMAN,
     GHAST_TALISMAN,
     GLOWSTONE_TALISMAN,
     GOLD_TALISMAN,
@@ -31,15 +33,21 @@ public enum TalismanType {
     MOOSHROOM_TALISMAN,
     NAUSEATED_TALISMAN,
     NETHER_STAR_TALISMAN,
+    NIGHT_TALISMAN,
     OBSIDIAN_TALISMAN,
     PICKAXE_TALISMAN,
     POISONED_TALISMAN,
+    RAIN_TALISMAN,
     REDSTONE_TALISMAN,
     SHULKER_TALISMAN,
     SKELETON_TALISMAN,
     SLOWED_TALISMAN,
+    SNOWY_TALISMAN,
     SPECTRAL_TALISMAN,
+    STORM_TALISMAN,
+    SUN_TALISMAN,
     THORNY_TALISMAN,
+    TRUE_SUN_TALISMAN,
     UNDYING_TALISMAN,
     VAMPIRIC_TALISMAN,
     VINDICATOR_TALISMAN,
@@ -51,12 +59,10 @@ public enum TalismanType {
     WITHERED_TALISMAN,
     ZOMBIE_TALISMAN;
 
-    // Method to get the index of the talisman
     public int getIndex() {
         return this.ordinal();
     }
 
-    // Method to get a TalismanType by its index
     public static TalismanType byIndex(int index) {
         return values()[index];
     }

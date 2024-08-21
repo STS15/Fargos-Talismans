@@ -3,7 +3,7 @@ package com.sts15.fargos.items.forces;
 import java.util.List;
 
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.talismans.*;
+import com.sts15.fargos.items.providers.*;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -13,8 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 
-public class Force_of_Rejectors extends TalismanItem implements 
-	Dragon_Talisman_Provider, Wither_Talisman_Provider, Zombie_Talisman_Provider, Skeleton_Talisman_Provider, Blaze_Talisman_Provider, Ghast_Talisman_Provider, Creeper_Talisman_Provider, Vindicator_Talisman_Provider
+public class Force_of_Rejectors extends TalismanItem implements
+        Dragon_Talisman_Provider, Wither_Talisman_Provider, Zombie_Talisman_Provider, Skeleton_Talisman_Provider, Blaze_Talisman_Provider, Ghast_Talisman_Provider, Creeper_Talisman_Provider, Vindicator_Talisman_Provider
 	{
 
     public Force_of_Rejectors() {

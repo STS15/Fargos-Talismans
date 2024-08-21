@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import com.sts15.fargos.items.talismans.Enderman_Talisman_Provider;
+import com.sts15.fargos.items.providers.Enderman_Talisman_Provider;
 
 @Mixin(EnderMan.class)
 public class EnderManMixin {

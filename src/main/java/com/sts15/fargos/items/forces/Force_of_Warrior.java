@@ -3,7 +3,7 @@ package com.sts15.fargos.items.forces;
 import java.util.List;
 
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.talismans.*;
+import com.sts15.fargos.items.providers.*;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

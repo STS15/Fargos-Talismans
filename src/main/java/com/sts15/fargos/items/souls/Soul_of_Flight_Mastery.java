@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
-
+import com.sts15.fargos.items.providers.Soul_of_Flight_Mastery_Provider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +19,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
-import net.minecraft.world.item.Item.TooltipContext;
 
 public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flight_Mastery_Provider {
 
@@ -34,15 +34,19 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 
-    private static void enableFlight (Player player){
-        if (!player.isCreative() && !player.isSpectator()) {
-            player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT).setBaseValue(1);
+    private static void enableFlight(Player player) {
+        AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        if (flightAttribute != null && flightAttribute.getBaseValue() == 0 && !player.isCreative() && !player.isSpectator()) {
+            flightAttribute.setBaseValue(1);
+            //System.out.println("Flight enabled for player: " + player.getName().getString());
         }
     }
 
-    private static void disableFlight (Player player){
-        if (!player.isCreative() && !player.isSpectator()) {
-            player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT).setBaseValue(0);
+    private static void disableFlight(Player player) {
+        AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        if (flightAttribute != null && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
+            flightAttribute.setBaseValue(0);
+            //System.out.println("Flight disabled for player: " + player.getName().getString());
         }
     }
 
@@ -53,9 +57,14 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             Player player = event.getEntity();
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent()) {
+            boolean hasTalisman = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent();
+
+            AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+            if (flightAttribute == null) return;
+
+            if (hasTalisman && flightAttribute.getBaseValue() == 0 && !player.isCreative() && !player.isSpectator()) {
                 enableFlight(player);
-            } else {
+            } else if (!hasTalisman && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
                 disableFlight(player);
             }
         }
