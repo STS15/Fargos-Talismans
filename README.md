@@ -120,7 +120,10 @@ Each Talisman requires a specific base (Normal, Advanced, Epic, etc.) and specia
 **A:** Yes, it plays nicely with most other mods, especially those that enhance survival and exploration.
 
 **Q:** Why does my Talisman not work?<br>
-**A:** Make sure it's enabled both on the server and client-side. If you're still having issues, try toggling it off and on again.
+**A:** Make sure it's enabled both on the server and client. If you're still having issues, try toggling it off and on again.
+
+**Q:** How do I toggle a talisman?<br>
+**A:** You can open the talisman config screen in game using `/fargostalismans talisman gui` or `/fargostalismans talisman toggle {talisman}` if you want to manually toggle a specific one
 
 ---
 
