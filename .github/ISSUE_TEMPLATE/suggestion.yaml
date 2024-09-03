@@ -5,7 +5,6 @@ body:
     placeholder: Ex. I would like to see [...] added to the mod.
   id: problem
   type: textarea
-  required: true
 description: Create a suggestion for the Fargos mod.
 labels:
 - enhancement
