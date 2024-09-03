@@ -1,0 +1,51 @@
+body:
+- attributes:
+    description: Is the mod in a modpack?
+    label: Modpack
+    multiple: false
+    options:
+    - Yes
+    - No
+  id: fargos-modpack-dropdown
+  type: dropdown
+  validations:
+    required: true
+- attributes:
+    label: Neoforge Version
+    placeholder: ex. 21.1.31
+  id: fargos-neoforge-version
+  type: input
+  validations:
+    required: true
+- attributes:
+    label: Mod Version
+    placeholder: ex. 1.21-2.0.7
+  id: fargos-mod-version
+  type: input
+  validations:
+    required: true
+- attributes:
+    description: 'A clear description of what the issue is'
+    label: Describe the issue
+  id: fargos-issue-desc
+  type: textarea
+  validations:
+    required: true
+- attributes:
+    description: 'A description of what you expected to happen, if applicable'
+    label: Expected behaviour
+  id: fargos-expected-behaviour
+  type: input
+  validations:
+    required: false
+- attributes:
+    description: If applicable, add screenshots or a video to help explain the issue.
+    label: Screenshots
+  id: fargos-screenshots
+  type: input
+  validations:
+    required: false
+description: Report an issue with the mod.
+labels:
+- bug
+name: Issue Report

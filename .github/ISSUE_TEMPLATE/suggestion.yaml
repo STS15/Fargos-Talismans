@@ -1,0 +1,12 @@
+body:
+- attributes:
+    description: A description of what you would like to see added or changed in the mod.
+    label: What should be added or changed?
+    placeholder: Ex. I would like to see [...] added to the mod.
+  id: problem
+  type: textarea
+  required: true
+description: Create a suggestion for the Fargos mod.
+labels:
+- enhancement
+name: Suggestion
