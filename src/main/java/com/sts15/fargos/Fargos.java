@@ -3,7 +3,6 @@ package com.sts15.fargos;
 import com.sts15.fargos.client.command.*;
 import com.sts15.fargos.config.ServerConfig;
 import com.sts15.fargos.items.ItemInit;
-import com.sts15.fargos.blocks.BlockInit;
 import com.sts15.fargos.init.CreativeTabRegistry;
 import com.sts15.fargos.init.MobEffectRegistry;
 import com.sts15.fargos.init.SoundRegistry;
@@ -29,7 +28,6 @@ public class Fargos {
         Objects.requireNonNull(modContainer.getEventBus()).addListener(this::registerPayloads);
 
         ItemInit.register(modEventBus);
-        BlockInit.register(modEventBus);
         SoundRegistry.SOUNDS.register(modEventBus);
         CreativeTabRegistry.register(modEventBus);
         MobEffectRegistry.register(modEventBus);

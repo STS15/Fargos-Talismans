@@ -10,6 +10,8 @@ public class TalismanUtil {
     public static boolean isTalismanEnabled(ServerPlayer player, String talismanName) {
         boolean playerTalismanState = PlayerDataHandler.getTalismanState(player, talismanName.toUpperCase());
         boolean serverTalismanState = ServerConfig.isTalismanEnabledServer(talismanName.toLowerCase());
+        System.out.println(playerTalismanState);
+        System.out.println(serverTalismanState);
         return playerTalismanState && serverTalismanState;
     }
     public static boolean isTalismanEnabled(Player player, String talismanName) {

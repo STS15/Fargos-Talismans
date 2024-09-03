@@ -57,7 +57,7 @@ public class Lapis_Talisman extends TalismanItem {
 
         private static void attractXPOrbs(Player player) {
             Level level = player.level();
-            AABB area = player.getBoundingBox().inflate(7); // 5-block radius
+            AABB area = player.getBoundingBox().inflate(12); // 12-block radius
             List<ExperienceOrb> xpOrbs = level.getEntitiesOfClass(ExperienceOrb.class, area);
 
             for (ExperienceOrb xpOrb : xpOrbs) {

@@ -2,11 +2,9 @@ package com.sts15.fargos.init;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.ItemInit;
-import com.sts15.fargos.blocks.BlockInit;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -17,7 +15,6 @@ public class CreativeTabRegistry {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FARGOS_TAB = CREATIVE_MODE_TABS.register("fargos_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("key.categories.fargostalismansmod"))
-            //.withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> ItemInit.ABOMINABLE_ENERGY.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
 
@@ -129,7 +126,6 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.CHARM_OF_MYTHS.get());
                 output.accept(ItemInit.DRAGON_WINGS_ELYTRA.get());
                 output.accept(ItemInit.DUSTY_WINGS_ELYTRA.get());
-                //output.accept(ItemInit.ELEMENTAL_ASSEMBLER.get());
                 output.accept(ItemInit.ENCHANTED_WINGS_ELYTRA.get());
                 output.accept(ItemInit.ENDER_WINGS_ELYTRA.get());
                 output.accept(ItemInit.FLYING_CARPET.get());
@@ -141,7 +137,6 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.HERO_SHIELD.get());
                 output.accept(ItemInit.MASTER_NINJA_GEAR.get());
                 output.accept(ItemInit.MECHANICAL_CART.get());
-                //output.accept(ItemInit.MULTITASK_CENTER.get());
                 output.accept(ItemInit.OBSIDIAN_HORSESHOE.get());
                 output.accept(ItemInit.OCEANS_FINS_ELYTRA.get());
                 output.accept(ItemInit.PHANTOM_WINGS_ELYTRA.get());
@@ -154,9 +149,6 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.VOLCANIC_ASH_ELYTRA.get());
                 output.accept(ItemInit.WITHER_WINGS_ELYTRA.get());
                 output.accept(ItemInit.WORM_SCARF.get());
-
-                
-                //output.accept(BlockInit.CRUCIBLE_OF_THE_COSMOS.get());
             }).build());
 
     public static void register(IEventBus modEventBus) {
