@@ -70,16 +70,21 @@ public class Architect_Talisman extends TalismanItem implements Architect_Talism
 
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
+
+        private static int tickCounter = 0;
         
         @SuppressWarnings({ "removal", "deprecation" })
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
+            if (++tickCounter < 10) { return; } tickCounter = 0;
 
             UUID playerUUID = player.getUUID();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player).isPresent()) {
+            if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
+                resetReachDistance(player, playerUUID);
+            } else if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player).isPresent()) {
                 if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                     increaseReachDistance(player, playerUUID);
                 }

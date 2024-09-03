@@ -63,13 +63,18 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
+        private static int tickCounter = 0;
+
         @SuppressWarnings({ "removal", "deprecation" })
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
+            if (++tickCounter < 10) { return; } tickCounter = 0;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
+            if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
+                resetHealth(player);
+            } else if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseHealth(player);

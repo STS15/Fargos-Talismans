@@ -69,15 +69,20 @@ public class Pickaxe_Talisman extends TalismanItem {
     
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
+
+        private static int tickCounter = 0;
         
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
+            if (++tickCounter < 10) { return; } tickCounter = 0;
             
             UUID playerUUID = player.getUUID();
-            
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Pickaxe_Talisman, player).isPresent()) {
+
+            if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
+                resetMiningSpeed(player, playerUUID);
+            } if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Pickaxe_Talisman, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseMiningSpeed(player, playerUUID);
