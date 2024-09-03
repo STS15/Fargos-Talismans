@@ -4,8 +4,8 @@ body:
     label: Modpack
     multiple: false
     options:
-    - Yes
-    - No
+    - 'Yes'
+    - 'No'
   id: fargos-modpack-dropdown
   type: dropdown
   validations:
