@@ -36,7 +36,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
     private static final long INCREASE_ATTACK_SPEED_THRESHOLD = 100;
     private static final double ATTACK_SPEED_BOOST = 5.5;
     private static final int MAX_ATTACKS = 3;
-    private static final long COOLDOWN_PERIOD = 200;
+    private static final long COOLDOWN_PERIOD = 5000;
 
     private static final Map<UUID, Long> lastAttackTimes = new HashMap<>();
     private static final Map<UUID, Integer> attackCounts = new HashMap<>();
