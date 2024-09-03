@@ -57,7 +57,12 @@ public enum TalismanType {
     WITCH_TALISMAN,
     WITHER_TALISMAN,
     //WITHERED_TALISMAN,
-    ZOMBIE_TALISMAN;
+    ZOMBIE_TALISMAN,
+    SOUL_OF_COLOSSUS,
+    SOUL_OF_FLIGHT_MASTERY,
+    SOUL_OF_SUPERSONIC
+
+    ;
 
     public int getIndex() {
         return this.ordinal();

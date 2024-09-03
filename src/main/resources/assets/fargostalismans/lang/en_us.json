@@ -301,5 +301,6 @@
   "key.category.fargostalismans": "Fargo's Talismans",
   "key.fargostalismansmod.opengui": "Open Talisman Control GUI",
   "key.categories.fargostalismansmod": "Fargo's Talismans",
+  "key.categories.fargostalismans.fov": "The FOV change may be extreme, but can be dialed back in accessibility settings under 'FOV Effects'",
   "screen.fargostalismans.header": "Fargo's Talismans Config"
 }

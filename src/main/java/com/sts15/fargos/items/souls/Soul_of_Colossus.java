@@ -70,16 +70,23 @@ public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_P
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
+        private static int tickCounter = 0;
+
         @SuppressWarnings({ "removal", "deprecation" })
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
 
+            if (++tickCounter < 10) { return; } tickCounter = 0;
+
+            if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Colossus")) {
+                resetHealth(player);
+            }
+
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
-
                 increaseHealth(player);
                 negateNegativeEffects(player);
             } else {

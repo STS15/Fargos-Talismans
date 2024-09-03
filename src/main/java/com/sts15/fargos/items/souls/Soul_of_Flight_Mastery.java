@@ -5,6 +5,7 @@ import java.util.List;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Flight_Mastery_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -46,6 +47,7 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
         if (flightAttribute != null && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
             flightAttribute.setBaseValue(0);
+            player.getAbilities().flying = false;
             //System.out.println("Flight disabled for player: " + player.getName().getString());
         }
     }
@@ -53,10 +55,19 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
+        private static int tickCounter = 0;
+
         @SuppressWarnings({"removal", "deprecation"})
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             Player player = event.getEntity();
+
+            if (++tickCounter < 10) { return; } tickCounter = 0;
+
+            if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Flight_Mastery")) {
+                disableFlight(player);
+            }
+
             boolean hasTalisman = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent();
 
             AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
