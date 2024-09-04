@@ -61,10 +61,6 @@ public class ServerConfig {
         }
     }
 
-//    public static boolean isTalismanEnabled(ServerPlayer player, String talisman) {
-//        return talismanEnabledStates.getOrDefault(talisman, true);
-//    }
-
     public static boolean isTalismanEnabledServer(String talisman) {
         return talismanEnabledStates.getOrDefault(talisman, true);
     }

@@ -9,7 +9,6 @@
   	"WitchMixin",
   	"PhantomAttackPlayerTargetGoalMixin",
   	"LibrarianMixin",
-  	"EnchantmentTableMixin",
   	"ShulkerMixin"
   ],
   "minVersion": "0.8",

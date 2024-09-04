@@ -109,7 +109,7 @@
   "item.fargostalismans.tooltip.ghast_talisman": "Applies weakness to monsters around you",
   "item.fargostalismans.tooltip.creeper_talisman": "Explode on jump",
   "item.fargostalismans.tooltip.vampiric_talisman": "Drains health from enemies to heal the player",
-  "item.fargostalismans.tooltip.enchanting_talisman": "Reduces levels required for enchantmenting by 30%",
+  "item.fargostalismans.tooltip.enchanting_talisman": "Removes curses from item held in main or offhand",
   "item.fargostalismans.tooltip.librarian_talisman": "Increases experience gained from all sources by 50%",
   "item.fargostalismans.tooltip.witch_talisman": "Witches throw good potions at you and applies blindness to attackers",
   "item.fargostalismans.tooltip.shulker_talisman": "Negates Shulker levitation effect",
@@ -302,5 +302,6 @@
   "key.fargostalismansmod.opengui": "Open Talisman Control GUI",
   "key.categories.fargostalismansmod": "Fargo's Talismans",
   "key.categories.fargostalismans.fov": "The FOV change may be extreme, but can be dialed back in accessibility settings under 'FOV Effects'",
+  "item.fargostalismans.curse_removed": "Curse removed from item!",
   "screen.fargostalismans.header": "Fargo's Talismans Config"
 }
