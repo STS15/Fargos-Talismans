@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class NetworkHandler {
 
@@ -21,6 +22,7 @@ public class NetworkHandler {
         registrar.playToServer(ToggleTalismanStatePacket.TYPE, ToggleTalismanStatePacket.STREAM_CODEC, ToggleTalismanStatePacket::handle);
         registrar.playToClient(SyncAirStatusPacket.TYPE, SyncAirStatusPacket.STREAM_CODEC, SyncAirStatusPacket::handle);
         registrar.playBidirectional(TalismanStatePacket.TYPE, TalismanStatePacket.STREAM_CODEC, TalismanStatePacket::handle);
+        registrar.playBidirectional(ServerTalismanConfigPacket.TYPE, ServerTalismanConfigPacket.STREAM_CODEC, ServerTalismanConfigPacket::handle);
     }
 
     public static void sendToggleTalismanStateToServer(/*ServerPlayer player, */int talismanIndex, boolean isEnabled) {
@@ -50,5 +52,15 @@ public class NetworkHandler {
         PacketDistributor.sendToPlayer(player, packet);
     }
 
+    public static void sendServerTalismanConfigRequestToServer(LocalPlayer localPlayer) {
+        ServerTalismanConfigPacket packet = new ServerTalismanConfigPacket(localPlayer.getUUID().toString(), new HashMap<>());
+        PacketDistributor.sendToServer(packet);
+    }
+
+    // Method to send the response from the server to the client
+    public static void sendServerTalismanConfigToClient(ServerPlayer serverPlayer, UUID playerUUID, Map<String, Boolean> talismanStates) {
+        ServerTalismanConfigPacket packet = new ServerTalismanConfigPacket(playerUUID.toString(), talismanStates);
+        PacketDistributor.sendToPlayer(serverPlayer, packet);
+    }
 
 }

@@ -303,5 +303,7 @@
   "key.categories.fargostalismansmod": "Fargo's Talismans",
   "key.categories.fargostalismans.fov": "The FOV change may be extreme, but can be dialed back in accessibility settings under 'FOV Effects'",
   "item.fargostalismans.curse_removed": "Curse removed from item!",
-  "screen.fargostalismans.header": "Fargo's Talismans Config"
+  "screen.fargostalismans.header": "Fargo's Talismans Config",
+  "screen.fargostalismans.node.talisman.header": "Talismans",
+  "screen.fargostalismans.node.soul.header": "Souls"
 }

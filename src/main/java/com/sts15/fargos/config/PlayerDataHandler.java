@@ -76,11 +76,7 @@ public class PlayerDataHandler {
         Minecraft mc = Minecraft.getInstance();
         if (mc.getSingleplayerServer() != null) {
             ServerPlayer serverPlayer = mc.getSingleplayerServer().getPlayerList().getPlayer(localPlayer.getUUID());
-            if (serverPlayer != null) {
-                //System.out.println("Found ServerPlayer: " + serverPlayer.getName().getString());
-            } else {
-                //System.out.println("ServerPlayer not found for LocalPlayer: " + localPlayer.getName().getString());
-            }
+            if (serverPlayer != null) {} else {}
             return serverPlayer;
         }
 

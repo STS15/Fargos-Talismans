@@ -32,7 +32,7 @@ public class Fargos {
         CreativeTabRegistry.register(modEventBus);
         MobEffectRegistry.register(modEventBus);
 
-        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_SPEC);
+        //modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_SPEC);
 
         NeoForge.EVENT_BUS.register(this);
     }

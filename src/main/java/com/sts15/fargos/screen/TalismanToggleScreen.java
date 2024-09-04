@@ -59,16 +59,51 @@ public class TalismanToggleScreen extends Screen {
         updateTalismanStates();
     }
 
+//    private List<TalismanNode> setupTalismanNodes() {
+//        List<TalismanNode> talismanNodes = new ArrayList<>();
+//        for (Map.Entry<Integer, Boolean> entry : talismanStates.entrySet()) {
+//            TalismanType talismanType = TalismanType.byIndex(entry.getKey());
+//            String talismanName = talismanType.name().toLowerCase();
+//            boolean isEnabled = entry.getValue();
+//            talismanNodes.add(new TalismanNode(talismanName, isEnabled));
+//        }
+//        return talismanNodes;
+//    }
+
     private List<TalismanNode> setupTalismanNodes() {
         List<TalismanNode> talismanNodes = new ArrayList<>();
+        List<TalismanNode> soulNodes = new ArrayList<>();
+
+        // Separate talismans and souls
         for (Map.Entry<Integer, Boolean> entry : talismanStates.entrySet()) {
             TalismanType talismanType = TalismanType.byIndex(entry.getKey());
-            String talismanName = talismanType.name().toLowerCase();
+            String talismanName = talismanType.name();
             boolean isEnabled = entry.getValue();
-            talismanNodes.add(new TalismanNode(talismanName, isEnabled));
+
+            if (talismanName.endsWith("_TALISMAN")) {
+                talismanNodes.add(new TalismanNode(talismanName.toLowerCase(), isEnabled));
+            } else if (talismanName.startsWith("SOUL_OF_")) {
+                soulNodes.add(new TalismanNode(talismanName.toLowerCase(), isEnabled));
+            }
         }
-        return talismanNodes;
+
+        List<TalismanNode> nodes = new ArrayList<>();
+
+        // Add the talisman header and talisman nodes
+        if (!talismanNodes.isEmpty()) {
+            nodes.add(new TalismanNode("talisman_header", false)); // Add a header node for talismans
+            nodes.addAll(talismanNodes);
+        }
+
+        // Add the soul header and soul nodes
+        if (!soulNodes.isEmpty()) {
+            nodes.add(new TalismanNode("soul_header", false)); // Add a header node for souls
+            nodes.addAll(soulNodes);
+        }
+
+        return nodes;
     }
+
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
@@ -100,7 +135,32 @@ public class TalismanToggleScreen extends Screen {
         guiGraphics.renderOutline(leftPos, topPos, WINDOW_WIDTH, WINDOW_HEIGHT, borderColor);
     }
 
+    private void drawHeaderNode(GuiGraphics guiGraphics, String nodeType, int x, int y, int mouseX, int mouseY) {
+        int startColor = FastColor.ARGB32.color(240, 80, 80, 100); // More distinct gradient for header
+        int endColor = FastColor.ARGB32.color(240, 60, 60, 80);
+        int borderColor = FastColor.ARGB32.color(255, 160, 160, 220); // Lighter border for professional look
+
+        guiGraphics.fillGradient(x, y, x + 200, y + NODE_HEIGHT - 2, startColor, endColor);
+        guiGraphics.renderOutline(x, y, 200, NODE_HEIGHT - 2, borderColor);
+
+        Component nameComponent = Component.translatable("screen.fargostalismans.node."+nodeType+".header")
+                .withStyle(ChatFormatting.BOLD);
+
+        guiGraphics.drawString(Minecraft.getInstance().font, nameComponent, x + 25, y + 5, FastColor.ARGB32.color(255, 240, 240, 255), true);
+
+    }
+
+
+
     private void drawNode(GuiGraphics guiGraphics, TalismanNode node, int x, int y, int mouseX, int mouseY) {
+        if (node.talismanName().equals("talisman_header")) {
+            drawHeaderNode(guiGraphics, "talisman", x, y, mouseX, mouseY); // Use drawHeaderNode for talisman header
+            return;
+        } else if (node.talismanName().equals("soul_header")) {
+            drawHeaderNode(guiGraphics, "soul", x, y, mouseX, mouseY); // Use drawHeaderNode for soul header
+            return;
+        }
+
         int startColor = FastColor.ARGB32.color(220, 60, 60, 80); // Softer gradient
         int endColor = FastColor.ARGB32.color(220, 40, 40, 60);
         int borderColor = FastColor.ARGB32.color(255, 140, 140, 180); // Lighter border
@@ -111,8 +171,7 @@ public class TalismanToggleScreen extends Screen {
         int currentBorderColor = isHoveringNode(x, y, mouseX, mouseY) ? hoverColor : borderColor;
         guiGraphics.renderOutline(x, y, 200, NODE_HEIGHT - 2, currentBorderColor);
 
-        Component nameComponent = Component.translatable("item.fargostalismans." + node.talismanName())
-                .withStyle(ChatFormatting.UNDERLINE); // Use underline for emphasis
+        Component nameComponent = Component.translatable("item.fargostalismans." + node.talismanName());
 
         guiGraphics.drawString(Minecraft.getInstance().font, nameComponent, x + 25, y + 5, FastColor.ARGB32.color(255, 240, 240, 255), true);
 
@@ -149,7 +208,7 @@ public class TalismanToggleScreen extends Screen {
         for (int i = 0; i < nodes.size(); i++) {
             TalismanNode node = nodes.get(i);
             int yPos = yStart + i * NODE_HEIGHT;
-            if (yPos >= topPos + 20 && yPos <= topPos + WINDOW_HEIGHT - NODE_HEIGHT) {
+            if (yPos >= topPos + 20 && yPos <= topPos + WINDOW_HEIGHT - (NODE_HEIGHT * 2)) {
                 drawNode(guiGraphics, node, leftPos + 20, yPos, mouseX, mouseY);
             }
         }
@@ -225,6 +284,11 @@ public class TalismanToggleScreen extends Screen {
                 int yPos = yStart + i * NODE_HEIGHT;
                 TalismanNode node = nodes.get(i);
 
+                // Skip headers when checking for clicks
+                if (node.talismanName().equals("talisman_header") || node.talismanName().equals("soul_header")) {
+                    continue; // Skip the iteration for header nodes
+                }
+
                 int checkboxX = leftPos + 180;
                 int checkboxY = yPos + 5;
                 if (isHovering(checkboxX, checkboxY, 10, 10, (int) mouseX, (int) mouseY)) {
@@ -240,6 +304,7 @@ public class TalismanToggleScreen extends Screen {
         }
         return super.mouseClicked(mouseX, mouseY, button);
     }
+
 
     private void toggleTalisman(TalismanNode node) {
         LocalPlayer player = Minecraft.getInstance().player;
