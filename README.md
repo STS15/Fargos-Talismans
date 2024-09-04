@@ -42,7 +42,7 @@ In a world where the elements rule and the mystical forces are ever-present, Tal
 | **Ghast Talisman**     | Applies weakness to monsters around you.                                                    |
 | **Creeper Talisman**   | Explode on jump.                                                                            |
 | **Vampiric Talisman**  | Drains health from enemies to heal the player.                                              |
-| **Enchanting Talisman**| Reduces levels required for enchantment by 30%.                                             |
+| **Enchanting Talisman**| Removes curses from item held in main or offhand.                                           |
 | **Librarian Talisman** | Increases experience gained from all sources by 50%.                                        |
 | **Witch Talisman**     | Witches throw good potions at you and applies blindness to attackers.                       |
 | **Shulker Talisman**   | Negates Shulker levitation effect.                                                          |
