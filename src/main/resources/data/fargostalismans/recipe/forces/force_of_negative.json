@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#E",
+    "FGH"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_legendary"
+    },
+    "A": {
+      "item": "fargostalismans:fatigued_talisman"
+    },
+    "B": {
+      "item": "fargostalismans:withered_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:nauseated_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:poisoned_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:weakened_talisman"
+    },
+    "F": {
+      "item": "fargostalismans:fired_talisman"
+    },
+    "G": {
+      "item": "fargostalismans:slowed_talisman"
+    },
+    "H": {
+      "item": "fargostalismans:blinded_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_negative",
+    "count": 1
+  }
+}

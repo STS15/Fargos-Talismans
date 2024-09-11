@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "C#D",
+    "AEA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:snowball"
+    },
+    "B": {
+      "item": "minecraft:blue_ice"
+    },
+    "C": {
+      "item": "minecraft:iron_ingot"
+    },
+    "D": {
+      "item": "minecraft:white_wool"
+    },
+    "E": {
+      "item": "minecraft:snow_block"
+    },
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:snowy_talisman",
+    "count": 1
+  }
+}

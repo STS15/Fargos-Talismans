@@ -2,16 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "A=D",
+    "AGD",
     "B#E",
-    "C=F"
+    "CHF"
   ],
   "key": {
     "#": {
       "item": "fargostalismans:talisman_base_ultimate"
     },
-    "=": {
-      "item": "fargostalismans:abominable_energy"
+    "G": {
+      "item": "fargostalismans:force_of_environment"
+    },
+    "H": {
+      "item": "fargostalismans:force_of_negative"
     },
     "A": {
       "item": "fargostalismans:force_of_overworld"

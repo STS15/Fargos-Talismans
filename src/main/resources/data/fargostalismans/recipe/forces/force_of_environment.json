@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABC",
+    "D#E",
+    "FGH"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_legendary"
+    },
+    "A": {
+      "item": "fargostalismans:storm_talisman"
+    },
+    "B": {
+      "item": "fargostalismans:sun_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:snowy_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:night_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:rain_talisman"
+    },
+    "F": {
+      "item": "fargostalismans:full_moon_talisman"
+    },
+    "G": {
+      "item": "fargostalismans:day_talisman"
+    },
+    "H": {
+      "item": "fargostalismans:true_sun_talisman"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:force_of_environment",
+    "count": 1
+  }
+}

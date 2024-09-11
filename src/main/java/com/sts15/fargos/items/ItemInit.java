@@ -46,8 +46,6 @@ public class ItemInit {
             () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> DUSTY_WINGS_ELYTRA = ITEMS.register("dusty_wings_elytra", 
             () -> new CraftingItem(new Item.Properties()) {});
-//        public static final DeferredHolder<Item, CraftingItem> ELEMENTAL_ASSEMBLER = ITEMS.register("elemental_assembler",
-//            () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> ENCHANTED_WINGS_ELYTRA = ITEMS.register("enchanted_wings_elytra", 
             () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> ENDER_WINGS_ELYTRA = ITEMS.register("ender_wings_elytra", 
@@ -70,8 +68,6 @@ public class ItemInit {
             () -> new ScavengedItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, ScavengedItem> MECHANICAL_CART = ITEMS.register("mechanical_cart", 
             () -> new ScavengedItem(new Item.Properties()) {});
-//        public static final DeferredHolder<Item, CraftingItem> MULTITASK_CENTER = ITEMS.register("multitask_center",
-//            () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, LootedItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe", 
             () -> new LootedItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, CraftingItem> OCEANS_FINS_ELYTRA = ITEMS.register("oceans_fins_elytra", 
@@ -96,6 +92,23 @@ public class ItemInit {
             () -> new CraftingItem(new Item.Properties()) {});
         public static final DeferredHolder<Item, LootedItem> WORM_SCARF = ITEMS.register("worm_scarf", 
             () -> new LootedItem(new Item.Properties()) {});
+
+    public static final DeferredHolder<Item, CraftingItem> FATIGUED_VIAL = ITEMS.register("fatigued_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> WITHERED_VIAL = ITEMS.register("withered_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> NAUSEATED_VIAL = ITEMS.register("nauseated_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> POISONED_VIAL = ITEMS.register("poisoned_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> WEAKENED_VIAL = ITEMS.register("weakened_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> FIRED_VIAL = ITEMS.register("fired_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> SLOWED_VIAL = ITEMS.register("slowed_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> BLINDED_VIAL = ITEMS.register("blinded_vial",
+            () -> new CraftingItem(new Item.Properties()) {});
 
     public static final DeferredHolder<Item, CraftingItem1> SOUL_OF_FLIGHT_MASTERY_1 = ITEMS.register("soul_of_flight_mastery_1",
             () -> new CraftingItem1(new Item.Properties()) {});
@@ -167,23 +180,23 @@ public class ItemInit {
     public static final DeferredHolder<Item, TalismanItem> WITHER_TALISMAN = ITEMS.register("wither_talisman", Wither_Talisman::new);
     public static final DeferredHolder<Item, TalismanItem> ZOMBIE_TALISMAN = ITEMS.register("zombie_talisman", Zombie_Talisman::new);
 
-//    public static final DeferredHolder<Item, TalismanItem> FIRED_TALISMAN = ITEMS.register("fired_talisman", Fired_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> POISONED_TALISMAN = ITEMS.register("poisoned_talisman", Poisoned_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> WITHERED_TALISMAN = ITEMS.register("withered_talisman", Withered_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> BLINDED_TALISMAN = ITEMS.register("blinded_talisman", Blinded_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> FATIGUED_TALISMAN = ITEMS.register("fatigued_talisman", Fatigued_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> SLOWED_TALISMAN = ITEMS.register("slowed_talisman", Slowed_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> NAUSEATED_TALISMAN = ITEMS.register("nauseated_talisman", Nauseated_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> WEAKENED_TALISMAN = ITEMS.register("weakened_talisman", Weakened_Talisman::new);
-//
-//    public static final DeferredHolder<Item, TalismanItem> SUN_TALISMAN = ITEMS.register("sun_talisman", Sun_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> TRUE_SUN_TALISMAN = ITEMS.register("true_sun_talisman", True_Sun_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> STORM_TALISMAN = ITEMS.register("storm_talisman", Storm_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> RAIN_TALISMAN = ITEMS.register("rain_talisman", Rain_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> NIGHT_TALISMAN = ITEMS.register("night_talisman", Night_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> DAY_TALISMAN = ITEMS.register("day_talisman", Day_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> FULL_MOON_TALISMAN = ITEMS.register("full_moon_talisman", Full_Moon_Talisman::new);
-//    public static final DeferredHolder<Item, TalismanItem> SNOWY_TALISMAN = ITEMS.register("snowy_talisman", Snowy_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> FIRED_TALISMAN = ITEMS.register("fired_talisman", Fired_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> POISONED_TALISMAN = ITEMS.register("poisoned_talisman", Poisoned_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> WITHERED_TALISMAN = ITEMS.register("withered_talisman", Withered_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> BLINDED_TALISMAN = ITEMS.register("blinded_talisman", Blinded_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> FATIGUED_TALISMAN = ITEMS.register("fatigued_talisman", Fatigued_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> SLOWED_TALISMAN = ITEMS.register("slowed_talisman", Slowed_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> NAUSEATED_TALISMAN = ITEMS.register("nauseated_talisman", Nauseated_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> WEAKENED_TALISMAN = ITEMS.register("weakened_talisman", Weakened_Talisman::new);
+
+    public static final DeferredHolder<Item, TalismanItem> SUN_TALISMAN = ITEMS.register("sun_talisman", Sun_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> TRUE_SUN_TALISMAN = ITEMS.register("true_sun_talisman", True_Sun_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> STORM_TALISMAN = ITEMS.register("storm_talisman", Storm_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> RAIN_TALISMAN = ITEMS.register("rain_talisman", Rain_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> NIGHT_TALISMAN = ITEMS.register("night_talisman", Night_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> DAY_TALISMAN = ITEMS.register("day_talisman", Day_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> FULL_MOON_TALISMAN = ITEMS.register("full_moon_talisman", Full_Moon_Talisman::new);
+    public static final DeferredHolder<Item, TalismanItem> SNOWY_TALISMAN = ITEMS.register("snowy_talisman", Snowy_Talisman::new);
     
     //Forces
     public static final DeferredHolder<Item, TalismanItem> FORCE_OF_EXPLORER = ITEMS.register("force_of_explorer", Force_of_Explorer::new);
@@ -192,8 +205,8 @@ public class ItemInit {
     public static final DeferredHolder<Item, TalismanItem> FORCE_OF_OVERWORLD = ITEMS.register("force_of_overworld", Force_of_Overworld::new);
     public static final DeferredHolder<Item, TalismanItem> FORCE_OF_REJECTORS = ITEMS.register("force_of_rejectors", Force_of_Rejectors::new);
     public static final DeferredHolder<Item, TalismanItem> FORCE_OF_WARRIOR = ITEMS.register("force_of_warrior", Force_of_Warrior::new);
-//    public static final DeferredHolder<Item, TalismanItem> FORCE_OF_NEGATIVE = ITEMS.register("force_of_negative", Force_of_Negative::new);
-//    public static final DeferredHolder<Item, TalismanItem> FORCE_OF_ENVIRONMENT = ITEMS.register("force_of_environment", Force_of_Environment::new);
+    public static final DeferredHolder<Item, TalismanItem> FORCE_OF_NEGATIVE = ITEMS.register("force_of_negative", Force_of_Negative::new);
+    public static final DeferredHolder<Item, TalismanItem> FORCE_OF_ENVIRONMENT = ITEMS.register("force_of_environment", Force_of_Environment::new);
     
     //Souls
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_COLOSSUS = ITEMS.register("soul_of_colossus", Soul_of_Colossus::new);

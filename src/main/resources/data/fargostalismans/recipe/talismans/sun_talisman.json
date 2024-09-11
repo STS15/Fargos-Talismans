@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "C#D",
+    "AEA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:blaze_powder"
+    },
+    "B": {
+      "item": "minecraft:sunflower"
+    },
+    "C": {
+      "item": "minecraft:gold_ingot"
+    },
+    "D": {
+      "item": "minecraft:daylight_detector"
+    },
+    "E": {
+      "item": "minecraft:gold_block"
+    },
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:sun_talisman",
+    "count": 1
+  }
+}

@@ -57,5 +57,4 @@ public class Nether_Star_Talisman extends TalismanItem {
             }
         }
     }
-    
 }

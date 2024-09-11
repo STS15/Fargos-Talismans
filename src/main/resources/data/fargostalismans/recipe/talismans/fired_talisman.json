@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BAB",
+    "MFM",
+    "BLB"
+  ],
+  "key": {
+    "B": {
+      "item": "fargostalismans:fired_vial"
+    },
+    "M": {
+      "item": "minecraft:magma_block"
+    },
+    "F": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "A": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:fired_talisman",
+    "count": 1
+  }
+}

@@ -326,14 +326,14 @@
         "element_type": "minecraft:single_pool_element"
       }
     },
-  {
+    {
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/spider",
         "processors": "minecraft:empty",
-		"projection": "rigid",
+        "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
-    }	
+    }
   ]
 }

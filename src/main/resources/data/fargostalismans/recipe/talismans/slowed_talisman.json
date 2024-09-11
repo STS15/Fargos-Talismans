@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "VCV",
+    "IFS",
+    "VBV"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:blue_ice"
+    },
+    "B": {
+      "item": "minecraft:snow_block"
+    },
+    "F": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "C": {
+      "item": "minecraft:cobweb"
+    },
+    "V": {
+      "item": "fargostalismans:slowed_vial"
+    },
+    "S": {
+      "item": "minecraft:ice"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:slowed_talisman",
+    "count": 1
+  }
+}

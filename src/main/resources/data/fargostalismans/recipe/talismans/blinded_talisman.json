@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IBI",
+    "OFO",
+    "IBI"
+  ],
+  "key": {
+    "I": {
+      "item": "fargostalismans:blinded_vial"
+    },
+    "B": {
+      "item": "minecraft:ink_sac"
+    },
+    "F": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "O": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:blinded_talisman",
+    "count": 1
+  }
+}
