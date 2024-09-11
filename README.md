@@ -71,7 +71,6 @@ In a world where the elements rule and the mystical forces are ever-present, Tal
 | Day Talisman         |5% increased damage during the day                                              |
 | Night Talisman       |10% increased armor during the night                                            |
 | Full Moon Talisman   |10% increased damage during a full moon                                         |
-|                      |                                                                                |
 
 * * *
 
@@ -89,7 +88,6 @@ By combining Talismans of a similar theme, you can create powerful "Forces" that
 | Force of Explorer  |Combines the abilities from some of the Exploring themed Talismans. |
 | Force of Negative  |Combines the abilities from some of the Negative themed Talismans.  |
 | Force of Environment|Combines the abilities from some of the Environment themed Talismans. |
-|                    |                                                                    |
 
 * * *
 
@@ -104,7 +102,6 @@ Once you've gathered enough power from the Talismans and Forces, you can create 
 | Soul of Colossus       |Grants superhuman defense, health, and immunity to all negative debuffs. |
 | Soul of Supersonic     |Grants supersonic speed for running and flying.                          |
 | Soul of Dimensions     |Combines the abilities of ALL the Souls.                                 |
-|                        |                                                                         |
 
 * * *
 
