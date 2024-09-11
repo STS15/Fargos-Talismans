@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Vindicator_Talisman_Provider;
@@ -93,7 +94,7 @@ public class Vindicator_Talisman extends TalismanItem implements Vindicator_Tali
 
             UUID playerUUID = player.getUUID();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.VINDICATOR_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 trackWeaponSwitch(player, playerUUID);
@@ -105,7 +106,7 @@ public class Vindicator_Talisman extends TalismanItem implements Vindicator_Tali
             if (!(event.getSource().getEntity() instanceof ServerPlayer player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.VINDICATOR_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vindicator_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 applyVindicatorBoostIfEligible(player, event);

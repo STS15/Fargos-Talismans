@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Glowstone_Talisman_Provider;
@@ -63,7 +64,7 @@ public class Glowstone_Talisman extends TalismanItem implements Glowstone_Talism
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (event.getEntity() instanceof ServerPlayer player) {
 
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Glowstone_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.GLOWSTONE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Glowstone_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     int radius = 12;

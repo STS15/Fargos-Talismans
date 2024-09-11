@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Night_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -64,7 +65,7 @@ public class Night_Talisman extends TalismanItem implements Night_Talisman_Provi
                 return;
             }
 
-            boolean hasTalismanEquipped = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Night_Talisman_Provider, player).isPresent();
+            boolean hasTalismanEquipped = player.hasEffect(EffectsInit.NIGHT_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Night_Talisman_Provider, player).isPresent();
 
             if (!isDaytime && hasTalismanEquipped) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))

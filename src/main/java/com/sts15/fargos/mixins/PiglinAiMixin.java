@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -41,8 +42,7 @@ public class PiglinAiMixin {
 			if (!TalismanUtil.isTalismanEnabled(serverPlayer, "gold_talisman")) {
 				return false;
 			}
-			// Check if the player has the Librarian Talisman equipped
-			return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Gold_Talisman_Provider, serverPlayer).isPresent();
+			return player.hasEffect(EffectsInit.GOLD_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Gold_Talisman_Provider, serverPlayer).isPresent();
 		}
 		return false;
 	}

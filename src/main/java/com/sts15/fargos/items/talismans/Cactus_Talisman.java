@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Cactus_Talisman_Provider;
@@ -46,7 +47,7 @@ public class Cactus_Talisman extends TalismanItem implements Cactus_Talisman_Pro
         public static void onLivingHurt(LivingIncomingDamageEvent event) {
             Entity source = event.getSource().getEntity();
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Cactus_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.CACTUS_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Cactus_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
 

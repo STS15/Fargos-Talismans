@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.utils.TalismanUtil;
@@ -46,7 +47,7 @@ public class Nether_Star_Talisman extends TalismanItem {
         public static void onLivingHurt(LivingIncomingDamageEvent event) {
             Entity source = event.getSource().getEntity();
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Nether_Star_Talisman, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.NETHER_STAR_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Nether_Star_Talisman, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     if (!player.onGround() && !player.isInWater() && (player.fallDistance > 0)) {

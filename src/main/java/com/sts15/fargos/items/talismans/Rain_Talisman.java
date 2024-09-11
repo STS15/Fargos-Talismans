@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Rain_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -55,7 +56,7 @@ public class Rain_Talisman extends TalismanItem implements Rain_Talisman_Provide
 
             boolean isRaining = level.isRaining();
             boolean isInWater = player.isInWater();
-            boolean hasTalismanEquipped = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Rain_Talisman_Provider, player).isPresent();
+            boolean hasTalismanEquipped = player.hasEffect(EffectsInit.RAIN_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Rain_Talisman_Provider, player).isPresent();
 
             if (isRaining && isInWater && hasTalismanEquipped) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))

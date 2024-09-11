@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.utils.TalismanUtil;
@@ -46,7 +47,7 @@ public class Iron_Talisman extends TalismanItem {
         	if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Diamond_Talisman, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.IRON_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Diamond_Talisman, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 float reducedDamage = event.getAmount() * 0.95F;

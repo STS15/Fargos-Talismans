@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Skeleton_Talisman_Provider;
@@ -49,7 +50,7 @@ public class Skeleton_Talisman extends TalismanItem implements Skeleton_Talisman
             if (directEntity instanceof Arrow arrow) {
                 Entity owner = arrow.getOwner();
                 if (owner instanceof ServerPlayer player) {
-                    if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Skeleton_Talisman_Provider, player).isPresent()) {
+                    if (player.hasEffect(EffectsInit.SKELETON_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Skeleton_Talisman_Provider, player).isPresent()) {
                         if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                             return;
                         event.setAmount(event.getAmount() * 1.5F); // 150% the damage

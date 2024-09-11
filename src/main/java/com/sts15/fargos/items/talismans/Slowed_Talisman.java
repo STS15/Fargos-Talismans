@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Slowed_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -45,7 +46,7 @@ public class Slowed_Talisman extends TalismanItem implements Slowed_Talisman_Pro
             Entity source = event.getSource().getDirectEntity();
             if (source instanceof ServerPlayer player) {
                 if (player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
-                    if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Slowed_Talisman_Provider, player).isPresent()) {
+                    if (player.hasEffect(EffectsInit.SLOWED_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Slowed_Talisman_Provider, player).isPresent()) {
                         if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                             return;
                         event.setAmount(event.getAmount() * 1.25F);

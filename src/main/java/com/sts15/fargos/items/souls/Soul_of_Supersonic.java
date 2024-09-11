@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.souls;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Supersonic_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -104,7 +105,7 @@ public class Soul_of_Supersonic extends TalismanItem implements Soul_of_Superson
 
             if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Supersonic")) {
                 removeEffects(player, player.getPersistentData());
-            } else if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Supersonic_Provider, player).isPresent()) {
+            } else if (player.hasEffect(EffectsInit.SOUL_OF_SUPERSONIC_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Supersonic_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Supersonic"))
                     return;
                 if (!player.getPersistentData().getBoolean("SoulOfSupersonicActive"))

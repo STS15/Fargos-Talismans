@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Iron_Golem_Talisman_Provider;
@@ -74,7 +75,7 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
 
             if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
                 resetHealth(player);
-            } else if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
+            } else if (player.hasEffect(EffectsInit.IRON_GOLEM_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseHealth(player);

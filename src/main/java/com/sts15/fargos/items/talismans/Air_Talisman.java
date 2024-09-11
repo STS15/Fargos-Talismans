@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Air_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -26,7 +27,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class Air_Talisman extends TalismanItem implements Air_Talisman_Provider {
 
-    private static final String talismanName = "air_talisman";
+    public static final String talismanName = "air_talisman";
 
     public Air_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -50,7 +51,7 @@ public class Air_Talisman extends TalismanItem implements Air_Talisman_Provider 
             ResourceKey<DamageType> fallDamageType = DamageTypes.FALL;
 
             if (source.is(fallDamageType)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Air_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.AIR_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Air_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setCanceled(true);

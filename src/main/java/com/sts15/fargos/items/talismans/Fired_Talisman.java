@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Fired_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -44,7 +45,7 @@ public class Fired_Talisman extends TalismanItem implements Fired_Talisman_Provi
             Entity source = event.getSource().getDirectEntity();
             if (source instanceof ServerPlayer player) {
                 if (player.isOnFire()) {
-                    if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Fired_Talisman_Provider, player).isPresent()) {
+                    if (player.hasEffect(EffectsInit.FIRED_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Fired_Talisman_Provider, player).isPresent()) {
                         if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                             return;
                         event.setAmount(event.getAmount() * 1.25F);

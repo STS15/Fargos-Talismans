@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.True_Sun_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -44,7 +45,7 @@ public class True_Sun_Talisman extends TalismanItem implements True_Sun_Talisman
                 return;
 
             if (player.level().isDay() && player.level().canSeeSky(player.blockPosition()) && !player.level().isRaining()) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof True_Sun_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.TRUE_SUN_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof True_Sun_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setAmount(event.getAmount() * 1.05F);

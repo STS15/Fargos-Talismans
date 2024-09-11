@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.utils.TalismanUtil;
@@ -58,7 +59,7 @@ public class Obsidian_Talisman extends TalismanItem {
             		||source.is(DamageTypeExplosion_Player)
             		||source.is(DamageTypeFirework)
             		||source.is(DamageTypeBadRespawn)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Obsidian_Talisman, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.OBSIDIAN_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Obsidian_Talisman, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setCanceled(true);

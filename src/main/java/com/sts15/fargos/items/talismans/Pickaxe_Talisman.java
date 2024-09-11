@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.utils.TalismanUtil;
@@ -82,7 +83,7 @@ public class Pickaxe_Talisman extends TalismanItem {
 
             if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
                 resetMiningSpeed(player, playerUUID);
-            } if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Pickaxe_Talisman, player).isPresent()) {
+            } if (player.hasEffect(EffectsInit.PICKAXE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Pickaxe_Talisman, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseMiningSpeed(player, playerUUID);

@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.souls;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -84,7 +85,7 @@ public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_P
                 resetHealth(player);
             }
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseHealth(player);

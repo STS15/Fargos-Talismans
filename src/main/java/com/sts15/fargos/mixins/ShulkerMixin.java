@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -38,8 +39,7 @@ public class ShulkerMixin {
             if (!TalismanUtil.isTalismanEnabled(serverPlayer, "shulker_talisman")) {
                 return false;
             }
-            // Check if the player has the Librarian Talisman equipped
-            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman_Provider, serverPlayer).isPresent();
+            return player.hasEffect(EffectsInit.SHULKER_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Shulker_Talisman_Provider, serverPlayer).isPresent();
         }
         return false;
     }

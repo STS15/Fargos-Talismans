@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Fire_Talisman_Provider;
@@ -54,7 +55,7 @@ public class Fire_Talisman extends TalismanItem implements Fire_Talisman_Provide
             ResourceKey<DamageType> DamageTypeInFire = DamageTypes.IN_FIRE;
 
             if (source.is(DamageTypeOnFire)||source.is(DamageTypeLava)||source.is(DamageTypeInFire)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Fire_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.FIRE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Fire_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setCanceled(true);

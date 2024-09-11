@@ -1,17 +1,22 @@
 package com.sts15.fargos;
 
+import com.sts15.fargos.block.BlocksInit;
+import com.sts15.fargos.block.entity.BlockEntitiesInit;
+import com.sts15.fargos.block.entity.renderer.PedestalBlockEntityRenderer;
 import com.sts15.fargos.client.command.*;
-import com.sts15.fargos.config.ServerConfig;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.ItemInit;
 import com.sts15.fargos.init.CreativeTabRegistry;
-import com.sts15.fargos.init.MobEffectRegistry;
 import com.sts15.fargos.init.SoundRegistry;
 import com.sts15.fargos.network.NetworkHandler;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -29,10 +34,10 @@ public class Fargos {
 
         ItemInit.register(modEventBus);
         SoundRegistry.SOUNDS.register(modEventBus);
+        BlocksInit.register(modEventBus);
+        BlockEntitiesInit.register(modEventBus);
         CreativeTabRegistry.register(modEventBus);
-        MobEffectRegistry.register(modEventBus);
-
-        //modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_SPEC);
+        EffectsInit.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
     }
@@ -54,6 +59,19 @@ public class Fargos {
     @SubscribeEvent
     public void onRegisterCommands(RegisterClientCommandsEvent event) {
         TalismanScreenCommand.register(event.getDispatcher());
+    }
+
+    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(BlockEntitiesInit.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+        }
     }
 
 }

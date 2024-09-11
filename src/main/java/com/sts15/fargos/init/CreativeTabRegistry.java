@@ -1,6 +1,7 @@
 package com.sts15.fargos.init;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.block.BlocksInit;
 import com.sts15.fargos.items.ItemInit;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -99,7 +100,6 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.SOUL_OF_COLOSSUS.get());
                 output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY.get());
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC.get());
-                //output.accept(ItemInit.SOUL_OF_TRAWLER.get());
                 output.accept(ItemInit.SOUL_OF_DIMENSIONS.get());
 
                 output.accept(ItemInit.SOUL_OF_COLOSSUS_1.get());
@@ -108,6 +108,8 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY_2.get());
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC_1.get());
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC_2.get());
+
+                output.accept(BlocksInit.PEDESTAL.get());
 
                 // Talisman Crafting Items
                 output.accept(ItemInit.FATIGUED_VIAL.get());

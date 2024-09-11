@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Blaze_Talisman_Provider;
@@ -60,7 +61,7 @@ public class Blaze_Talisman extends TalismanItem implements Blaze_Talisman_Provi
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Blaze_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.BLAZE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Blaze_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, "blaze_talisman"))
                         return;
 

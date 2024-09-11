@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Redstone_Talisman_Provider;
@@ -63,7 +64,7 @@ public class Redstone_Talisman extends TalismanItem implements Redstone_Talisman
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Redstone_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.REDSTONE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Redstone_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
                         return;
                     }

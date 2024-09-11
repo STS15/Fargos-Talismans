@@ -2,6 +2,7 @@ package com.sts15.fargos.items.talismans;
 
 import java.util.List;
 
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Water_Talisman_Provider;
@@ -42,7 +43,7 @@ public class Water_Talisman extends TalismanItem implements Water_Talisman_Provi
         @SubscribeEvent
         public static void onLivingBreath(LivingBreatheEvent event) {
         	if ((event.getEntity() instanceof ServerPlayer player))
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Water_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.WATER_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Water_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     NetworkHandler.sendSyncAirStatusToClient(player, player.getAirSupply());

@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Dragon_Talisman_Provider;
@@ -53,7 +54,7 @@ public class Dragon_Talisman extends TalismanItem implements Dragon_Talisman_Pro
             ResourceKey<DamageType> DamageTypeIndirect = DamageTypes.INDIRECT_MAGIC;
 
             if (source.is(DamageType)||source.is(DamageTypeIndirect)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Dragon_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.DRAGON_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Dragon_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setCanceled(true);

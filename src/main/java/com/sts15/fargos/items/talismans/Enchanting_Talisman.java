@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 import java.util.Set;
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Enchanting_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -52,7 +53,7 @@ public class Enchanting_Talisman extends TalismanItem implements Enchanting_Tali
             if (event.getEntity() instanceof ServerPlayer player) {
                 if (++tickCounter < 10) { return; } tickCounter = 0;
 
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Enchanting_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.ENCHANTING_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Enchanting_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
                         return;
                     }

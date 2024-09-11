@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Snowy_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -51,7 +52,7 @@ public class Snowy_Talisman extends TalismanItem implements Snowy_Talisman_Provi
             boolean isSnowing = level.isRaining() && biome.getPrecipitationAt(player.blockPosition()) == Biome.Precipitation.SNOW && biome.getBaseTemperature() <= 0.15F;
 
             if (isSnowing) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Snowy_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.SNOWY_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Snowy_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     //System.out.println("Pre: " + event.getAmount());

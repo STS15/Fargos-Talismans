@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Battle_Talisman_Provider;
@@ -56,7 +57,7 @@ public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Pro
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Battle_Talisman_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.BATTLE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Battle_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 UUID playerUUID = player.getUUID();

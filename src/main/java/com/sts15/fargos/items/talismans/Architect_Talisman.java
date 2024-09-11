@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Architect_Talisman_Provider;
@@ -84,7 +85,7 @@ public class Architect_Talisman extends TalismanItem implements Architect_Talism
 
             if (!TalismanUtil.isTalismanEnabled(player, talismanName)) {
                 resetReachDistance(player, playerUUID);
-            } else if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player).isPresent()) {
+            } else if (player.hasEffect(EffectsInit.ARCHITECT_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player).isPresent()) {
                 if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                     increaseReachDistance(player, playerUUID);
                 }

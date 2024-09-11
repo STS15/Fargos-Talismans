@@ -1,5 +1,6 @@
 package com.sts15.fargos.mixins;
 
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -70,7 +71,7 @@ public abstract class LibrarianMixin {
                 return false;
             }
             // Check if the player has the Librarian Talisman equipped
-            return CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, serverPlayer).isPresent();
+            return player.hasEffect(EffectsInit.LIBRARIAN_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, serverPlayer).isPresent();
         }
         return false;
     }
