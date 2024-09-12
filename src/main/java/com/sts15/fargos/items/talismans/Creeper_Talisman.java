@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Creeper_Talisman_Provider;
@@ -43,7 +44,7 @@ public class Creeper_Talisman extends TalismanItem implements Creeper_Talisman_P
         @SubscribeEvent
         public static void onLivingJump(LivingEvent.LivingJumpEvent event) {
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Creeper_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.CREEPER_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Creeper_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     Level level = player.level();

@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Arctic_Talisman_Provider;
@@ -52,7 +53,7 @@ public class Arctic_Talisman extends TalismanItem implements Arctic_Talisman_Pro
             ResourceKey<DamageType> fallDamageType = DamageTypes.FREEZE;
 
             if (source.is(fallDamageType)) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Arctic_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.ARCTIC_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Arctic_Talisman_Provider, player).isPresent()) {
                     if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                         event.setCanceled(true);
                     }

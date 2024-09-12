@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.utils.TalismanUtil;
@@ -33,10 +34,8 @@ public class Copper_Talisman extends TalismanItem {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-
         tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
     
@@ -46,7 +45,7 @@ public class Copper_Talisman extends TalismanItem {
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Copper_Talisman, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.COPPER_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Copper_Talisman, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     attractItems(player);
@@ -56,11 +55,10 @@ public class Copper_Talisman extends TalismanItem {
 
         private static void attractItems(Player player) {
             Level level = player.level();
-            AABB area = player.getBoundingBox().inflate(5); // 5-block radius
-            AABB playerArea = player.getBoundingBox().inflate(10); // 10-block radius
+            AABB area = player.getBoundingBox().inflate(10); // 10-block radius
+            AABB playerArea = player.getBoundingBox().inflate(15); // 15-block radius
             List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, area);
 
-            // Check all players in the area with a Copper Talisman
             List<ServerPlayer> nearbyPlayers = level.getEntitiesOfClass(ServerPlayer.class, playerArea).stream()
                     .filter(p -> CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Copper_Talisman, p).isPresent())
                     .toList();
@@ -69,10 +67,8 @@ public class Copper_Talisman extends TalismanItem {
                 if (!item.hasPickUpDelay() && item.isAlive()) {
                     ServerPlayer closestPlayer = null;
                     double closestDistance = Double.MAX_VALUE;
-
-                    // Find the closest player to this item
                     for (ServerPlayer p : nearbyPlayers) {
-                        double distance = p.distanceToSqr(item); // Squared distance is cheaper to compute
+                        double distance = p.distanceToSqr(item);
                         if (distance < closestDistance) {
                             closestDistance = distance;
                             closestPlayer = p;
@@ -80,14 +76,13 @@ public class Copper_Talisman extends TalismanItem {
                     }
 
                     if (closestPlayer != null && closestPlayer == player) {
-                        // Only attract the item to the closest player
-                        double speed = 1.0; // Speed at which items are attracted
+                        double speed = 1.5;
                         double xDir = player.getX() - item.getX();
-                        double yDir = player.getY() - item.getY();
+                        double yDir = player.getEyeY() - item.getY();
                         double zDir = player.getZ() - item.getZ();
                         double distance = Math.sqrt(xDir * xDir + yDir * yDir + zDir * zDir);
 
-                        if (distance < 1) {
+                        if (distance < 3) {
                             item.teleportTo(player.getX(), player.getY(), player.getZ());
                         } else {
                             item.setDeltaMovement(

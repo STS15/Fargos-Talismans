@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Vampiric_Talisman_Provider;
@@ -48,7 +49,7 @@ public class Vampiric_Talisman extends TalismanItem implements Vampiric_Talisman
             // Check if the entity causing the damage is a player
             if (source instanceof ServerPlayer player) {
                 // Find the equipped Vampiric Talisman
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vampiric_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.VAMPIRIC_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Vampiric_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     // Heal the player for 20% of the damage dealt

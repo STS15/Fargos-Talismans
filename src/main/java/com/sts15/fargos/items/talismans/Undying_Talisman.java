@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Undying_Talisman_Provider;
@@ -62,7 +63,7 @@ public class Undying_Talisman extends TalismanItem implements Undying_Talisman_P
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Undying_Talisman_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.UNDYING_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Undying_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 if (player.getHealth() - event.getAmount() <= 0) {

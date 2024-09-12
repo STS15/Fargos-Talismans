@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "fargostalismans:block/crucible_of_the_cosmos", "y": 0 },
-    "facing=south": { "model": "fargostalismans:block/crucible_of_the_cosmos", "y": 180 },
-    "facing=west":  { "model": "fargostalismans:block/crucible_of_the_cosmos", "y": 270 },
-    "facing=east":  { "model": "fargostalismans:block/crucible_of_the_cosmos", "y": 90 }
-  }
-}

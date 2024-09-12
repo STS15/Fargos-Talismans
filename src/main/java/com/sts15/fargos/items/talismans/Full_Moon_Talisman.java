@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Full_Moon_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -45,7 +46,7 @@ public class Full_Moon_Talisman extends TalismanItem implements Full_Moon_Talism
                 return;
 
             if (player.level().getMoonPhase() == 0) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Full_Moon_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.FULL_MOON_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Full_Moon_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setAmount(event.getAmount() * 1.15F);

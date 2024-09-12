@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.utils.TalismanUtil;
@@ -47,7 +48,7 @@ public class Lapis_Talisman extends TalismanItem {
         @SubscribeEvent
         public static void onPlayerTick(PlayerTickEvent.Pre event) {
             if (event.getEntity() instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Lapis_Talisman, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.LAPIS_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Lapis_Talisman, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     attractXPOrbs(player);

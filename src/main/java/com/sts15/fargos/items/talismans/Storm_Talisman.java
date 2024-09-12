@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Storm_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -44,7 +45,7 @@ public class Storm_Talisman extends TalismanItem implements Storm_Talisman_Provi
                 return;
 
             if (player.level().isThundering()) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Storm_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.STORM_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Storm_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setAmount(event.getAmount() * 1.15F);

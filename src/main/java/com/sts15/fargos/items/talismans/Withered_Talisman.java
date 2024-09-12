@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Withered_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -45,7 +46,7 @@ public class Withered_Talisman extends TalismanItem implements Withered_Talisman
             Entity source = event.getSource().getDirectEntity();
             if (source instanceof ServerPlayer player) {
                 if (player.hasEffect(MobEffects.WITHER)) {
-                    if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Withered_Talisman_Provider, player).isPresent()) {
+                    if (player.hasEffect(EffectsInit.WITHERED_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Withered_Talisman_Provider, player).isPresent()) {
                         if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                             return;
                         event.setAmount(event.getAmount() * 1.25F);

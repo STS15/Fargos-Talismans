@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Zombie_Talisman_Provider;
@@ -92,7 +93,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
             UUID playerUUID = player.getUUID();
             long currentTime = player.level().getGameTime();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Zombie_Talisman_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.ZOMBIE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Zombie_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 Long lastAttackTime = lastAttackTimes.getOrDefault(playerUUID, 0L);
@@ -112,7 +113,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
 
             UUID playerUUID = player.getUUID();
 
-            if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Zombie_Talisman_Provider, player).isPresent()) {
+            if (player.hasEffect(EffectsInit.ZOMBIE_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Zombie_Talisman_Provider, player).isPresent()) {
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 int attackCount = attackCounts.getOrDefault(playerUUID, 0);

@@ -3,6 +3,7 @@ package com.sts15.fargos.items.talismans;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Emerald_Talisman_Provider;
@@ -97,7 +98,7 @@ public class Emerald_Talisman extends TalismanItem implements Emerald_Talisman_P
             Entity source = event.getSource().getDirectEntity();
 
             if (source instanceof ServerPlayer player) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Emerald_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.EMERALD_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Emerald_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
 

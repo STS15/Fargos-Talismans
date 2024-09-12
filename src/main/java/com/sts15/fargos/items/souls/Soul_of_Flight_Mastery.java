@@ -3,6 +3,7 @@ package com.sts15.fargos.items.souls;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Flight_Mastery_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -48,6 +49,7 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         if (flightAttribute != null && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
             flightAttribute.setBaseValue(0);
             player.getAbilities().flying = false;
+            player.getAbilities().mayfly = false;
             //System.out.println("Flight disabled for player: " + player.getName().getString());
         }
     }
@@ -69,13 +71,14 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
             }
 
             boolean hasTalisman = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent();
+            boolean hasEffect = player.hasEffect(EffectsInit.SOUL_OF_FLIGHT_MASTERY_EFFECT);
 
             AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
             if (flightAttribute == null) return;
 
-            if (hasTalisman && flightAttribute.getBaseValue() == 0 && !player.isCreative() && !player.isSpectator()) {
+            if ((hasTalisman||hasEffect) && flightAttribute.getBaseValue() == 0 && !player.isCreative() && !player.isSpectator()) {
                 enableFlight(player);
-            } else if (!hasTalisman && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
+            } else if ((!hasTalisman && !hasEffect) && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
                 disableFlight(player);
             }
         }

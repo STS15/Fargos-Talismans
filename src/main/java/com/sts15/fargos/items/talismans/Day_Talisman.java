@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Day_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -49,7 +50,7 @@ public class Day_Talisman extends TalismanItem implements Day_Talisman_Provider 
             boolean isDaytime = level.isDay();
 
             if (isDaytime) {
-                if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Day_Talisman_Provider, player).isPresent()) {
+                if (player.hasEffect(EffectsInit.DAY_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Day_Talisman_Provider, player).isPresent()) {
                     if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                         return;
                     event.setAmount(event.getAmount() * 1.05F);
