@@ -7,4 +7,5 @@ public class SoulOfFlightMasteryEffect extends MobEffect {
     public SoulOfFlightMasteryEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
+
 }

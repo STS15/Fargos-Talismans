@@ -306,7 +306,6 @@
   "item.fargostalismans.tooltip.disabled_by_server": "Talisman disabled on the server",
   "item.fargostalismans.tooltip.disabled_by_client": "Client has talisman toggled off",
 
-  "block.fargostalismans.pedestal": "Talisman Pedestal",
   "effect.fargostalismans.air_talisman_effect": "Temporary Air Talisman",
   "effect.fargostalismans.amethyst_talisman_effect": "Temporary Amethyst Talisman",
   "effect.fargostalismans.apple_talisman_effect": "Temporary Apple Talisman",
@@ -367,6 +366,18 @@
   "effect.fargostalismans.soul_of_flight_mastery_effect": "Temporary Soul of Flight Mastery",
   "effect.fargostalismans.soul_of_supersonic_effect": "Temporary Soul of Supersonic",
 
+  "block.fargostalismans.pedestal": "Talisman Pedestal",
+  "block.fargostalismans.tooltip.pedestal": "Applies talisman effect to players within an AOE",
+  "block.fargostalismans.tooltip.pedestal2": "Radius modified when placed on specific blocks",
+  "block.fargostalismans.tooltip.pedestal_1": "Default",
+  "block.fargostalismans.tooltip.pedestal_2": "Amethyst Block",
+  "block.fargostalismans.tooltip.pedestal_3": "Beacon",
+  "block.fargostalismans.tooltip.pedestal_4": "Chorus Flower",
+  "block.fargostalismans.tooltip.pedestal_1_blocks": "5",
+  "block.fargostalismans.tooltip.pedestal_2_blocks": "9",
+  "block.fargostalismans.tooltip.pedestal_3_blocks": "15",
+  "block.fargostalismans.tooltip.pedestal_4_blocks": "20",
+  "block.fargostalismans.tooltip.pedestal_radius": " Radius: ",
   
   "key.category.fargostalismans": "Fargo's Talismans",
   "key.fargostalismansmod.opengui": "Open Talisman Control GUI",
