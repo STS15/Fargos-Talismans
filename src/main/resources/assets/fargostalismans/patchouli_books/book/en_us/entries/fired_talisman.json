@@ -1,0 +1,18 @@
+{
+  "name": "Fired Talisman",
+  "sortnum": 20,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:fired_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Fired Talisman provides a 25% damage increase while the player is on fire.  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_negative)Force of Negative$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/fired_talisman",
+      "recipe2": "fargostalismans:forces/force_of_negative"
+    }
+  ],
+  "read_by_default": true
+}

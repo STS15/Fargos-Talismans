@@ -1,0 +1,6 @@
+{
+  "name": "Talismans",
+  "description": "Equipable items that can provide useful effects and modifiers",
+  "icon": "fargostalismans:redstone_talisman",
+  "sortnum": 0
+}

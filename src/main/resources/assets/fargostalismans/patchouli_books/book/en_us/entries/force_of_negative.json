@@ -1,0 +1,18 @@
+{
+  "name": "Force of Negative",
+  "sortnum": 6,
+  "category": "fargostalismans:forces",
+  "icon": "fargostalismans:force_of_negative",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Force of Negative provides all the effects of the talismans in it's craft.  The crafting recipe requires an $(l:fargostalismans:talisman_base_legendary)Legendary Talisman Base$(/l).  The force is used to craft the $(l:fargostalismans:soul_of_minecraft)Soul of Minecraft$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:forces/force_of_negative",
+      "recipe2": "fargostalismans:souls/soul_of_minecraft"
+    }
+  ],
+  "read_by_default": true
+}

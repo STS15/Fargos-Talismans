@@ -1,0 +1,18 @@
+{
+  "name": "Battle Talisman",
+  "sortnum": 5,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:battle_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Battle Talisman provides immunity for 5 ticks after taking damage.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_warrior)Force of Warrior$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/battle_talisman",
+      "recipe2": "fargostalismans:forces/force_of_warrior"
+    }
+  ],
+  "read_by_default": true
+}

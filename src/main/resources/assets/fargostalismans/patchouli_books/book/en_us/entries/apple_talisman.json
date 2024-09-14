@@ -1,0 +1,17 @@
+{
+  "name": "Apple Talisman",
+  "sortnum": 2,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:apple_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Apple Talisman enhances healing by an additional 25%.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is not used to craft a force."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/apple_talisman"
+    }
+  ],
+  "read_by_default": true
+}

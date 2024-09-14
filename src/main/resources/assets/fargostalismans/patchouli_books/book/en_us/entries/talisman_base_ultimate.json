@@ -1,0 +1,18 @@
+{
+  "name": "Ultimate Talisman Base",
+  "sortnum": 4,
+  "category": "fargostalismans:upgrades",
+  "icon": "fargostalismans:talisman_base_ultimate",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Ultimate Talisman Base requires 2 of the previous tier base.  The base is used to craft the $(l:fargostalismans:talisman_base_godly)Godly Talisman Base$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/talisman_base_ultimate",
+      "recipe2": "fargostalismans:talismans/talisman_base_godly"
+    }
+  ],
+  "read_by_default": true
+}

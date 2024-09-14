@@ -1,0 +1,18 @@
+{
+  "name": "Day Talisman",
+  "sortnum": 11,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:day_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Day Talisman grants 5% increased damage for the player during daytime.  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_environment)Force of Environment$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/day_talisman",
+      "recipe2": "fargostalismans:forces/force_of_environment"
+    }
+  ],
+  "read_by_default": true
+}

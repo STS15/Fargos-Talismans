@@ -1,0 +1,17 @@
+{
+  "name": "Mooshroom Talisman",
+  "sortnum": 29,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:mooshroom_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Mooshroom Talisman regens the player health by 2% every tick while standing on mycelium.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is not used to craft a force."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/mooshroom_talisman"
+    }
+  ],
+  "read_by_default": true
+}

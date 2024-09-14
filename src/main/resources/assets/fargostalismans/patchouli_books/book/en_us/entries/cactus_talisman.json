@@ -1,0 +1,18 @@
+{
+  "name": "Cactus Talisman",
+  "sortnum": 8,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:cactus_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Cactus Talisman reflects 25% the amount of damage back at the attacking entity, does not modify incoming damage.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_warrior)Force of Warrior$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/cactus_talisman",
+      "recipe2": "fargostalismans:forces/force_of_warrior"
+    }
+  ],
+  "read_by_default": true
+}

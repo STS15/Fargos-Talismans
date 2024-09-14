@@ -1,0 +1,6 @@
+{
+  "name": "Upgrade Bases",
+  "description": "The main crafting ingredient for Talismans",
+  "icon": "fargostalismans:talisman_base_normal",
+  "sortnum": 3
+}

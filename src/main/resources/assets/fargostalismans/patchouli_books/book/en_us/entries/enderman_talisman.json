@@ -1,0 +1,18 @@
+{
+  "name": "Enderman Talisman",
+  "sortnum": 17,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:enderman_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Enderman Talisman prevents enderman aggression by looking at an Enderman.  They will still be mad if you attack them. The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_explorer)Force of Explorer$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/enderman_talisman",
+      "recipe2": "fargostalismans:forces/force_of_explorer"
+    }
+  ],
+  "read_by_default": true
+}

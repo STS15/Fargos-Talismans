@@ -1,0 +1,17 @@
+{
+  "name": "Godly Talisman Base",
+  "sortnum": 5,
+  "category": "fargostalismans:upgrades",
+  "icon": "fargostalismans:talisman_base_godly",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Godly Talisman Base requires 2 of the previous tier base.  The base is the final upgrade tier (so far)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/talisman_base_godly"
+    }
+  ],
+  "read_by_default": true
+}

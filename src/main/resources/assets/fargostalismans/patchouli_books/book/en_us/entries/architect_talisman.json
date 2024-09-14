@@ -1,0 +1,18 @@
+{
+  "name": "Architect Talisman",
+  "sortnum": 3,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:architect_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Architect Talisman provides block reach up to 64 blocks.  The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_explorer)Force of Explorer$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/architect_talisman",
+      "recipe2": "fargostalismans:forces/force_of_explorer"
+    }
+  ],
+  "read_by_default": true
+}

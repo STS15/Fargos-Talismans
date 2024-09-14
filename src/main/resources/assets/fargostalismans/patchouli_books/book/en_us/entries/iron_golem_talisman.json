@@ -1,0 +1,18 @@
+{
+  "name": "Iron Golem Talisman",
+  "sortnum": 25,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:iron_golem_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Iron Golem Talisman multiplies your current max health by 2x. The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_warrior)Force of Warrior$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/iron_golem_talisman",
+      "recipe2": "fargostalismans:forces/force_of_warrior"
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Normal Talisman Base",
+  "sortnum": 0,
+  "category": "fargostalismans:upgrades",
+  "icon": "fargostalismans:talisman_base_normal",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Normal Talisman Base is a crafting ingredient that is used in every future crafting upgrade.  This first talisman base does not require netherite, but requires a totem of undying.  The base is used to craft the $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/talisman_base_normal",
+      "recipe2": "fargostalismans:talismans/talisman_base_advanced"
+    }
+  ],
+  "read_by_default": true
+}

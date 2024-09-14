@@ -1,0 +1,17 @@
+{
+  "name": "Talisman Pedestal",
+  "sortnum": 0,
+  "category": "fargostalismans:pedestal",
+  "icon": "fargostalismans:pedestal",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The pedestal provides an area of effect of the current talisman that is placed on the pedestal.  The effect is applied to all players within the radius of the pedestal.  See $(l:fargostalismans:pedestal_upgrades)Pedestal Upgrades$(/l) for range upgrades"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:blocks/pedestal"
+    }
+  ],
+  "read_by_default": true
+}

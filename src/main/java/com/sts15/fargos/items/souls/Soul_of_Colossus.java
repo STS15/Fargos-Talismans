@@ -79,6 +79,12 @@ public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_P
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
 
+            if (player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
+                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
+                    return;
+                negateNegativeEffects(player);
+            }
+
             if (++tickCounter < 10) { return; } tickCounter = 0;
 
             if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Colossus")) {
@@ -89,7 +95,6 @@ public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_P
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
                 increaseHealth(player);
-                negateNegativeEffects(player);
             } else {
                 resetHealth(player);
             }

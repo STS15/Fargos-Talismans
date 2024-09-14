@@ -19,6 +19,8 @@ public class CreativeTabRegistry {
             .icon(() -> ItemInit.ABOMINABLE_ENERGY.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
 
+                output.accept(ItemInit.GUIDE_BOOK.get());
+
                 output.accept(ItemInit.TALISMAN_BASE_NORMAL.get());
                 output.accept(ItemInit.TALISMAN_BASE_ADVANCED.get());
                 output.accept(ItemInit.TALISMAN_BASE_EPIC.get());

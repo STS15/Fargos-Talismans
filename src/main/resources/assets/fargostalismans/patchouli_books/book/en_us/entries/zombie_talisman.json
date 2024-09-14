@@ -1,0 +1,18 @@
+{
+  "name": "Zombie Talisman",
+  "sortnum": 56,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:zombie_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Zombie Talisman boosts attack speed for 3 hits after not attacking for 5 seconds.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_rejectors)Force of Rejectors$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/zombie_talisman",
+      "recipe2": "fargostalismans:forces/force_of_rejectors"
+    }
+  ],
+  "read_by_default": true
+}

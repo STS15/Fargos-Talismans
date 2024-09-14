@@ -1,0 +1,18 @@
+{
+  "name": "Full Moon Talisman",
+  "sortnum": 21,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:full_moon_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Full Moon Talisman grants 10% increased damage for the player during a full moon (Every 8 minecraft days).  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_environment)Force of Environment$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/full_moon_talisman",
+      "recipe2": "fargostalismans:forces/force_of_environment"
+    }
+  ],
+  "read_by_default": true
+}

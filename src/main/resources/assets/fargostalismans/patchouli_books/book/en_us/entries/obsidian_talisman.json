@@ -1,0 +1,17 @@
+{
+  "name": "Obsidian Talisman",
+  "sortnum": 33,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:obsidian_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Obsidian Talisman provides immunity to blast damage.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is not used to craft a force."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/obsidian_talisman"
+    }
+  ],
+  "read_by_default": true
+}

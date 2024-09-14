@@ -1,0 +1,18 @@
+{
+  "name": "Dragon Talisman",
+  "sortnum": 13,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:dragon_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Dragon Talisman provides immunity to direct and indirect magic type damage.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_rejectors)Force of Rejectors$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/dragon_talisman",
+      "recipe2": "fargostalismans:forces/force_of_rejectors"
+    }
+  ],
+  "read_by_default": true
+}

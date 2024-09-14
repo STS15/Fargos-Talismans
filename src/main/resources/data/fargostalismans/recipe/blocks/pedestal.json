@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "B#B",
+    "SSS"
+  ],
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "G": {
+      "item": "minecraft:gilded_blackstone"
+    },
+    "B": {
+      "item": "minecraft:polished_blackstone_bricks"
+    },
+    "S": {
+      "item": "minecraft:polished_blackstone_brick_slab"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:pedestal",
+    "count": 1
+  }
+}

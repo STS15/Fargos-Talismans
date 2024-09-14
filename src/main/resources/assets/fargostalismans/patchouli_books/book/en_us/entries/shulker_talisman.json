@@ -1,0 +1,18 @@
+{
+  "name": "Shulker Talisman",
+  "sortnum": 38,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:shulker_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Shulker Talisman provides immunity to the levitation effect.  Damage from shulker bullets still happen.  The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_mystic)Force of Mystic$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/shulker_talisman",
+      "recipe2": "fargostalismans:forces/force_of_mystic"
+    }
+  ],
+  "read_by_default": true
+}

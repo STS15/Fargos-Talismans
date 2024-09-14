@@ -1,0 +1,113 @@
+{
+  "name": "Pedestal Upgrades",
+  "sortnum": 1,
+  "category": "fargostalismans:pedestal",
+  "icon": "fargostalismans:pedestal",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The pedestal has range upgrades.  By default the pedestals radius is 5 blocks, but it can go up to 20 blocks!"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "text": "The default radius of effect is 5 blocks",
+      "name": "5 Block Radius",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_0_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "0":"fargostalismans:pedestal"
+        },
+        "symmetrical": true
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "text": "With an amethyst block under the pedestal, radius of effect is increased to 9 blocks",
+      "name": "9 Block Radius",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_0_",
+            "___"
+          ],
+          [
+            "___",
+            "_A_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "0":"fargostalismans:pedestal",
+          "A":"minecraft:amethyst_block"
+        },
+        "symmetrical": true
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "text": "With a beacon under the pedestal, radius of effect is increased to 15 blocks",
+      "name": "15 Block Radius",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_0_",
+            "___"
+          ],
+          [
+            "___",
+            "_B_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "0":"fargostalismans:pedestal",
+          "B":"minecraft:beacon"
+        },
+        "symmetrical": true
+      }
+    },
+    {
+      "type": "patchouli:multiblock",
+      "text": "With a chorus flower under the pedestal, radius of effect is increased to 20 blocks.  The flower can still grow!",
+      "name": "20 Block Radius",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_0_",
+            "___"
+          ],
+          [
+            "___",
+            "_C_",
+            "___"
+          ],
+          [
+            "___",
+            "_E_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "0":"fargostalismans:pedestal",
+          "C":"minecraft:chorus_flower",
+          "E":"minecraft:end_stone"
+        },
+        "symmetrical": true
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "text": ""
+    }
+  ],
+  "read_by_default": true
+}

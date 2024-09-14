@@ -1,0 +1,17 @@
+{
+  "name": "Copper Talisman",
+  "sortnum": 9,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:copper_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Copper Talisman provides an item magnet within a 10 block radius.  The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is not used to craft a force."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/copper_talisman"
+    }
+  ],
+  "read_by_default": true
+}

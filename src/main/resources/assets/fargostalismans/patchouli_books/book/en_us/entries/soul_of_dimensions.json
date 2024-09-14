@@ -1,0 +1,17 @@
+{
+  "name": "Soul of Dimensions",
+  "sortnum": 4,
+  "category": "fargostalismans:souls",
+  "icon": "fargostalismans:soul_of_dimensions",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Soul of Dimensions provides all the effects of the souls in it's craft.  This is the final item (for now) of Fargos Talismans.  The crafting recipe requires an $(l:fargostalismans:talisman_base_godly)Godly Talisman Base$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:souls/soul_of_dimensions"
+    }
+  ],
+  "read_by_default": true
+}

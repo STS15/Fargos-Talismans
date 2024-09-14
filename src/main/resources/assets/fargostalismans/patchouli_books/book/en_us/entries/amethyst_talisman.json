@@ -1,0 +1,18 @@
+{
+  "name": "Amethyst Talisman",
+  "sortnum": 1,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:amethyst_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Amethyst Talisman provides immunity to projectile damage.  The crafting recipe requires an $(l:fargostalismans:talisman_base_advanced)Advanced Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_overworld)Force of Overworld$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/amethyst_talisman",
+      "recipe2": "fargostalismans:forces/force_of_overworld"
+    }
+  ],
+  "read_by_default": true
+}

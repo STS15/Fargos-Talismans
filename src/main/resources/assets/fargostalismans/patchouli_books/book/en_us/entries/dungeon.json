@@ -1,0 +1,40 @@
+{
+  "name": "Dungeon Info",
+  "sortnum": 0,
+  "category": "fargostalismans:dungeon",
+  "icon": "fargostalismans:abominable_energy",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Fargo's Dungeon is the only place to get Abominable Energy, one of the critical crafting components for Talisman Bases.  They can be looted from chests in this dungeon."
+    },
+    {
+      "type": "patchouli:image",
+      "images": ["fargostalismans:textures/images/dungeon2_256.png","fargostalismans:textures/images/dungeon_256.png"],
+      "text": "A small glimpse at what the dungeon looks like."
+    },
+    {
+      "title": "Looted Items",
+      "type": "patchouli:text",
+      "text": "Chests have a chance to contain a crafting item used in the Soul of Colossus."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "fargostalismans:soul_of_colossus",
+      "text": "The soul is crafted using items found within chests in the Fargo's Dungeon.",
+      "link_recipe": true
+    },
+    {
+      "title": "Scavenged Items",
+      "type": "patchouli:text",
+      "text": "Zombies, Skeletons, Creepers, and Spiders all have a 5% chance to drop an item that is used in the Soul of Supersonic.  Looting adds 2% for every level.  The drops are RNG so you may get repeats."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "fargostalismans:soul_of_supersonic",
+      "text": "The soul is crafted using items dropped from mobs inside the Fargo's Dungeon.",
+      "link_recipe": true
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Earth Talisman",
+  "sortnum": 14,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:earth_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Earth Talisman provides dirt type to grass conversion using an empty hand.  The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_nature)Force of Nature$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/earth_talisman",
+      "recipe2": "fargostalismans:forces/force_of_nature"
+    }
+  ],
+  "read_by_default": true
+}

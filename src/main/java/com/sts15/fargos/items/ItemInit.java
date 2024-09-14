@@ -1,5 +1,6 @@
 package com.sts15.fargos.items;
 
+import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.components.*;
 import com.sts15.fargos.items.forces.*;
 import com.sts15.fargos.items.souls.*;
@@ -214,7 +215,9 @@ public class ItemInit {
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_FLIGHT_MASTERY = ITEMS.register("soul_of_flight_mastery", Soul_of_Flight_Mastery::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_MINECRAFT = ITEMS.register("soul_of_minecraft", Soul_of_Minecraft::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_SUPERSONIC = ITEMS.register("soul_of_supersonic", Soul_of_Supersonic::new);
-    //public static final DeferredHolder<Item, TalismanItem> SOUL_OF_TRAWLER = ITEMS.register("soul_of_trawler", Soul_of_Trawler::new);
+
+    public static final DeferredHolder<Item, FargosGuideBook> GUIDE_BOOK = ITEMS.register("guide_book",
+            () -> new FargosGuideBook(new Item.Properties().stacksTo(1)) {});
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

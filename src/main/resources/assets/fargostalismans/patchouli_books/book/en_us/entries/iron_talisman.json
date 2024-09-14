@@ -1,0 +1,18 @@
+{
+  "name": "Iron Talisman",
+  "sortnum": 26,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:iron_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Iron Talisman provides a 5% damage reduction.  The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:diamond_talisman)Diamond Talisman$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/iron_talisman",
+      "recipe2": "fargostalismans:talismans/diamond_talisman"
+    }
+  ],
+  "read_by_default": true
+}

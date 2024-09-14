@@ -1,0 +1,18 @@
+{
+  "name": "Emerald Talisman",
+  "sortnum": 15,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:emerald_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Emerald Talisman provides +2 damage to pillager/illager types. It also bonemeals crops within a radius of 2 of the player every 15 seconds. The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_overworld)Force of Overworld$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/emerald_talisman",
+      "recipe2": "fargostalismans:forces/force_of_overworld"
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Nether Star Talisman",
+  "sortnum": 31,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:nether_star_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Never Star Talisman increases the crit damage by 50% and crit chance by only requiring the player to be falling and not in water.  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is not used to craft a force."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/nether_star_talisman"
+    }
+  ],
+  "read_by_default": true
+}

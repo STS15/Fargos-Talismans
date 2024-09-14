@@ -1,0 +1,17 @@
+{
+  "name": "Dungeon Generation Info",
+  "sortnum": 1,
+  "category": "fargostalismans:dungeon",
+  "icon": "fargostalismans:abominable_energy",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Fargo's Dungeon only generates between Y:-40 and Y:20. It is an underground structure that spawns in plains, desert, savanna, tagia, snowy plains, snowy tagia, sunflower plains, and the meadow biomes. Each dungeon should be spaced between 16-24 chucks apart."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "This structure only does 6 steps, but falls back on a 7th step for decoration. Sometimes you may get a bad roll on generation and it may be a small dungeon. It's designed to be randomly generated to hopefully provide a comprehensive dungeon design. Suggestions are welcome in Github for additional rooms or hallway designs."
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Creeper Talisman",
+  "sortnum": 10,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:creeper_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Creeper Talisman grants a non-block damaging explosive jump to the player.  The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_rejectors)Force of Rejectors$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/creeper_talisman",
+      "recipe2": "fargostalismans:forces/force_of_rejectors"
+    }
+  ],
+  "read_by_default": true
+}

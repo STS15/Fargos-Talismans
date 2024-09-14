@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.sts15.fargos.items.providers.Librarian_Talisman_Provider;
-
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -33,7 +32,6 @@ public abstract class LibrarianMixin {
     private void modifyExperiencePoints(int p_36291_, CallbackInfo ci) {
         Player player = (Player) (Object) this;
         if (hasLibrarianEnchantment(player)) {
-
             int modifiedExperience = Math.round(p_36291_ * 1.5f);
             this.increaseScore(modifiedExperience);
             this.experienceProgress += (float) modifiedExperience / (float) this.getXpNeededForNextLevel();
@@ -53,12 +51,6 @@ public abstract class LibrarianMixin {
                 this.giveExperienceLevels(1);
                 this.experienceProgress /= (float) this.getXpNeededForNextLevel();
             }
-
-//            System.out.println("Post Experience Modification: Player = " + player.getName().getString());
-//            System.out.println("New Total Experience: " + this.totalExperience);
-//            System.out.println("New Experience Level: " + this.experienceLevel);
-//            System.out.println("New Experience Progress: " + this.experienceProgress);
-
             ci.cancel();
         }
     }
@@ -66,14 +58,11 @@ public abstract class LibrarianMixin {
     @SuppressWarnings("deprecation")
     private static boolean hasLibrarianEnchantment(Player player) {
         if (player instanceof ServerPlayer serverPlayer) {
-            // Check if the talisman is enabled for the server player
             if (!TalismanUtil.isTalismanEnabled(serverPlayer, "librarian_talisman")) {
                 return false;
             }
-            // Check if the player has the Librarian Talisman equipped
             return player.hasEffect(EffectsInit.LIBRARIAN_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(itemStack -> itemStack.getItem() instanceof Librarian_Talisman_Provider, serverPlayer).isPresent();
         }
         return false;
     }
-
 }

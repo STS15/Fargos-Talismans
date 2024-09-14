@@ -1,0 +1,18 @@
+{
+  "name": "Gold Talisman",
+  "sortnum": 24,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:gold_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Gold Talisman prevents Piglin/Piglin Brute aggression even when attacking them. The crafting recipe requires an $(l:fargostalismans:talisman_base_normal)Normal Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_overworld)Force of Overworld$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/gold_talisman",
+      "recipe2": "fargostalismans:forces/force_of_overworld"
+    }
+  ],
+  "read_by_default": true
+}

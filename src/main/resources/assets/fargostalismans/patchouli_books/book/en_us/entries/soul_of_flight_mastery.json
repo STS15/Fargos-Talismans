@@ -1,0 +1,27 @@
+{
+  "name": "Soul of Flight Mastery",
+  "sortnum": 2,
+  "category": "fargostalismans:souls",
+  "icon": "fargostalismans:soul_of_flight_mastery",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Soul of Flight Mastery provides creative flight.  The crafting recipe requires an $(l:fargostalismans:talisman_base_ultimate)Ultimate Talisman Base$(/l).  The soul is used to craft the $(l:fargostalismans:soul_of_dimensions)Soul of Dimensions$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:souls/soul_of_flight_mastery",
+      "recipe2": "fargostalismans:souls/soul_of_dimensions"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The items to craft this are crafted using elytras"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:souls/soul_of_flight_mastery_1",
+      "recipe2": "fargostalismans:souls/soul_of_flight_mastery_2"
+    }
+  ],
+  "read_by_default": true
+}

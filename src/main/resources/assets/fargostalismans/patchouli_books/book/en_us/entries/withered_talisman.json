@@ -1,0 +1,18 @@
+{
+  "name": "Withered Talisman",
+  "sortnum": 55,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:withered_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Withered Talisman provides a 25% damage increase while the player is effected with wither.  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_negative)Force of Negative$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/withered_talisman",
+      "recipe2": "fargostalismans:forces/force_of_negative"
+    }
+  ],
+  "read_by_default": true
+}

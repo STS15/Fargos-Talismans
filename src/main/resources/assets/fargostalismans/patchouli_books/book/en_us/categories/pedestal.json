@@ -1,0 +1,6 @@
+{
+  "name": "Talisman Pedestal",
+  "description": "A pedestal that provides the talisman effects in an AOE around the pedestal",
+  "icon": "fargostalismans:pedestal",
+  "sortnum": 4
+}

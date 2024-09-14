@@ -1,0 +1,18 @@
+{
+  "name": "Nauseated Talisman",
+  "sortnum": 30,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:nauseated_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Nauseated Talisman provides a 25% damage increase while the player is effected with nausea.  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_negative)Force of Negative$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/nauseated_talisman",
+      "recipe2": "fargostalismans:forces/force_of_negative"
+    }
+  ],
+  "read_by_default": true
+}

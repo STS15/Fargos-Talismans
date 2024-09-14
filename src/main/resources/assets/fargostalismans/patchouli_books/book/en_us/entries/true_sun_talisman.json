@@ -1,0 +1,18 @@
+{
+  "name": "True Sun Talisman",
+  "sortnum": 46,
+  "category": "fargostalismans:talismans",
+  "icon": "fargostalismans:true_sun_talisman",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The True Sun Talisman grants 5% increased damage while it's a sunny day and the sky is visible directly above.  The crafting recipe requires an $(l:fargostalismans:talisman_base_epic)Epic Talisman Base$(/l).  The talisman is used to craft the $(l:fargostalismans:force_of_environment)Force of Environment$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/true_sun_talisman",
+      "recipe2": "fargostalismans:forces/force_of_environment"
+    }
+  ],
+  "read_by_default": true
+}

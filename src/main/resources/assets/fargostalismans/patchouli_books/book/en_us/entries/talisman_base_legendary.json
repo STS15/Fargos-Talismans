@@ -1,0 +1,18 @@
+{
+  "name": "Legendary Talisman Base",
+  "sortnum": 3,
+  "category": "fargostalismans:upgrades",
+  "icon": "fargostalismans:talisman_base_legendary",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Legendary Talisman Base requires 2 of the previous tier base.  The base is used to craft the $(l:fargostalismans:talisman_base_ultimate)Ultimate Talisman Base$(/l)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "fargostalismans:talismans/talisman_base_legendary",
+      "recipe2": "fargostalismans:talismans/talisman_base_ultimate"
+    }
+  ],
+  "read_by_default": true
+}
