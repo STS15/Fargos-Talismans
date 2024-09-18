@@ -132,7 +132,7 @@ Each Talisman requires a specific base (Normal, Advanced, Epic, etc.) and some c
 * * *
 
 
-### 🏰 In-Game Config
+### 📝 In-Game Config
 
 There is an ingame config that can be accessed as a hot link in the guide book if you have Patchouli installed, or by running the command `/fargostalismans talisman gui`
 
