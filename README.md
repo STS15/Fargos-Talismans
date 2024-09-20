@@ -183,7 +183,7 @@ We welcome contributions! Feel free to submit issues, feature requests, or pull 
 
 ### 🎉 Special Thanks
 
-A big thank you to all the players and modders who have supported and inspired me over the last decade.
+A huge thanks to the Terraria mod developer [Fargowilta](https://steamcommunity.com/workshop/filedetails/?id=2570931073), whom this mod pulled heavy inspiration from.  A big thank you to all the players and modders who have supported and inspired me over the last decade.
 
 * * *
 
