@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[1,)"
-license = "All Rights Reserved"
+license = "MIT License"
 issueTrackerURL = "https://github.com/STS15/Fargos-Talismans/issues"
 logoFile = "logo.png"
 
