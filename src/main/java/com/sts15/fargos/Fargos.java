@@ -8,6 +8,7 @@ import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.ItemInit;
 import com.sts15.fargos.init.CreativeTabRegistry;
 import com.sts15.fargos.init.SoundRegistry;
+import com.sts15.fargos.loot.LootRegistry;
 import com.sts15.fargos.network.NetworkHandler;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -38,6 +39,7 @@ public class Fargos {
         BlockEntitiesInit.register(modEventBus);
         CreativeTabRegistry.register(modEventBus);
         EffectsInit.register(modEventBus);
+        LootRegistry.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
     }

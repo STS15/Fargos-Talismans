@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "id": "fargostalismans:soul_of_supersonic"
+    },
+    "title": "You now are as fast as a God",
+    "description": "I am SPEEED",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:soul_of_supersonic"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

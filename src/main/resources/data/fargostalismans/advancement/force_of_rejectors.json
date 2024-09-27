@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "id": "fargostalismans:force_of_rejectors"
+    },
+    "title": "You're is actually going for it..",
+    "description": "I bet this Force of Rejectors took a while to craft...",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:force_of_rejectors"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "id": "fargostalismans:force_of_overworld"
+    },
+    "title": "Man.. that is a lot of Talismans",
+    "description": "Congrats on crafting all those Talismans, good luck with the others adventurer",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:force_of_overworld"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

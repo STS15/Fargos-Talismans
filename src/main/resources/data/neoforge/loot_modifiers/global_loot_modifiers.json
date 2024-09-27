@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "entries": [
+    "fargostalismans:chest_loot/end_city_modifier",
+    "fargostalismans:chest_loot/stronghold_library_modifier",
+    "fargostalismans:chest_loot/ancient_city_modifier",
+    "fargostalismans:chest_loot/nether_loot_modifier",
+    "fargostalismans:chest_loot/vanilla_generic_loot_modifier",
+    "fargostalismans:chest_loot/compat_generic_loot_modifier",
+    "fargostalismans:chest_loot/compat_good_loot_modifier",
+    "fargostalismans:chest_loot/compat_treasure_loot_modifier"
+  ]
+}

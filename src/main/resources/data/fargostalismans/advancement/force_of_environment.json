@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "id": "fargostalismans:force_of_environment"
+    },
+    "title": "Think we can control the clouds yet?",
+    "description": "Isn't the sound of rain annoying?  Take this Force of Environment!  It doesn't help with the sound of the rain but your sound settings can.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:force_of_environment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

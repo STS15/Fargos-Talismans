@@ -1,6 +1,6 @@
 {
   "name": "Fargo's Talismans Guide",
-  "landing_text": "Fargo's Talismans is a mod that adds equippable curios which provide various modifiers to the player. Every talisman can be toggled via the $(c:/fargostalismans talisman gui)Talisman GUI$(/c). If you encounter any issues, please report them on our $(l:https://github.com/STS15/Fargos-Talismans/issues)GitHub$(/l). Thanks for playing!",
+  "landing_text": "Fargo's Talismans is a mod that adds equippable curios which provide various modifiers to the player. Every talisman can be toggled via the $(c:/fargostalismans talisman gui)Talisman GUI$(/c). Come join our $(l:https://discord.gg/NuvfZGd4ES)Discord(/l). Thanks for playing!",
   "version": 1,
   "dont_generate_book":true,
   "custom_book_item":"fargostalismans:guide_book",

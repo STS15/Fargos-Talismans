@@ -1,0 +1,27 @@
+{
+  "parent": "fargostalismans:root_talisman",
+  "display": {
+    "icon": {
+      "id": "fargostalismans:soul_of_colossus"
+    },
+    "title": "You are the size of a God",
+    "description": "You now to take damage like a God. Pathetic weaklings all around you",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fargostalismans:soul_of_colossus"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
