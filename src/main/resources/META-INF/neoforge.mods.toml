@@ -28,8 +28,20 @@ description = '''A Fargo's inspiried set of equipable talismans'''
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.${mod_id}]]
+    modId = "eventslib"
+    type="required"
+    versionRange = "[1.0.55,)"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.${mod_id}]]
     modId = "curios"
     type="required"
     versionRange = "[9.0.5+1.21,)"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.${mod_id}]]
+    modId = "patchouli"
+    type="required"
+    versionRange = "[1.21-87-NEOFORGE-SNAPSHOT,)"
     ordering = "NONE"
     side = "BOTH"

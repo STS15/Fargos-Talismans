@@ -3,13 +3,13 @@
   "package": "com.sts15.fargos.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-  	"EnderManMixin",
-  	"PiglinAiMixin",
-  	"PiglinBruteAiMixin",
-  	"WitchMixin",
-  	"PhantomAttackPlayerTargetGoalMixin",
-  	"LibrarianMixin",
-  	"ShulkerMixin"
+    "EnderManMixin",
+    "LibrarianMixin",
+    "PhantomAttackPlayerTargetGoalMixin",
+    "PiglinAiMixin",
+    "PiglinBruteAiMixin",
+    "ShulkerMixin",
+    "WitchMixin"
   ],
   "minVersion": "0.8",
   "refmap": "mixins.fargostalismans.refmap.json"

@@ -1,7 +1,6 @@
 package com.sts15.fargos.items.souls;
 
 import com.sts15.fargos.Fargos;
-import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -21,15 +20,19 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
+
 import java.util.List;
 
-public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_Provider {
+public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_of_Colossus_Provider {
 
-    private static final String talismanName = "soul_of_colossus";
+    public static final String talismanName = "soul_of_colossus";
     private static final double HEALTH_MULTIPLIER = 4.0;
     private static final ResourceLocation HEALTH_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_colossus_health_boost");
+    private static final ResourceLocation HEALTH_DATA_KEY = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_colossus_health");
 
     public Soul_of_Colossus() {
         super(new Item.Properties().rarity(Rarity.EPIC));
@@ -39,18 +42,17 @@ public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_P
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
-    private static void resetHealth(Player player) {
+    public static void resetHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
         if (healthAttribute != null && healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
             healthAttribute.removeModifier(HEALTH_BOOST_ID);
         }
     }
 
-    private static void increaseHealth(Player player) {
+    public static void increaseHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
         if (healthAttribute != null && !healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
             AttributeModifier modifier = new AttributeModifier(HEALTH_BOOST_ID, HEALTH_MULTIPLIER, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
@@ -62,42 +64,74 @@ public class Soul_of_Colossus extends TalismanItem implements Soul_of_Colossus_P
         List<MobEffectInstance> negativeEffects = player.getActiveEffects().stream()
                 .filter(effectInstance -> !effectInstance.getEffect().value().isBeneficial())
                 .toList();
-
         for (MobEffectInstance effect : negativeEffects) {
             player.removeEffect(effect.getEffect());
         }
     }
 
-    @EventBusSubscriber(modid = Fargos.MODID)
-    public static class Events {
+    @Override
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+        if (!(slotContext.entity() instanceof ServerPlayer player))
+            return;
 
-        private static int tickCounter = 0;
+        boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
+                .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player)
+                .isPresent();
 
-        @SuppressWarnings({ "removal", "deprecation" })
-        @SubscribeEvent
-        public static void onPlayerTick(PlayerTickEvent.Pre event) {
-            if (!(event.getEntity() instanceof ServerPlayer player))
-                return;
-
-            if (player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
-                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
-                    return;
-                negateNegativeEffects(player);
-            }
-
-            if (++tickCounter < 10) { return; } tickCounter = 0;
-
-            if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Colossus")) {
-                resetHealth(player);
-            }
-
-            if (player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
-                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
-                    return;
+        if (hasEquippedCurio) {
+            if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                 increaseHealth(player);
+                negateNegativeEffects(player);
             } else {
                 resetHealth(player);
             }
         }
     }
+
+    @Override
+    public void onEquip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
+        if (stack.getItem() == newStack.getItem())
+            return;
+        Player entity = (Player) slotContext.entity();
+        increaseHealth(entity);
+    }
+
+    @Override
+    public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
+        if (stack.getItem() == newStack.getItem())
+            return;
+        Player entity = (Player) slotContext.entity();
+        resetHealth(entity);
+    }
+
+    @EventBusSubscriber(modid = Fargos.MODID)
+    public static class Events {
+
+        @SubscribeEvent
+        public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+            if (!(event.getEntity() instanceof ServerPlayer player)) return;
+            System.out.println("Running logout event ");
+            player.getPersistentData().putFloat(HEALTH_DATA_KEY.toString(), player.getHealth());
+            System.out.println("Trying to put health away; "+player.getHealth());
+        }
+
+        @SubscribeEvent
+        public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+            if (!(event.getEntity() instanceof ServerPlayer player)) return;
+            System.out.println("Running login event ");
+            if (player.getPersistentData().contains(String.valueOf(HEALTH_DATA_KEY))) {
+                System.out.println("Trying to get health ; "+player.getPersistentData().getFloat(String.valueOf(HEALTH_DATA_KEY)));
+                increaseHealth(player);
+                player.setHealth(player.getPersistentData().getFloat(String.valueOf(HEALTH_DATA_KEY)));
+            }
+        }
+
+        private static boolean hasEquippedColossusCurio(Player player) {
+            return CuriosApi.getCuriosHelper()
+                    .findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player)
+                    .isPresent();
+        }
+
+    }
+
 }
