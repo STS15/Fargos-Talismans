@@ -121,8 +121,12 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
         public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
             if (player.getPersistentData().contains(HEALTH_DATA_KEY.toString())) {
-                increaseHealth(player);
-                player.setHealth(player.getPersistentData().getFloat(HEALTH_DATA_KEY.toString()));
+                boolean hasEquippedCurio = CuriosApi.getCuriosHelper().findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent();
+                boolean hasSoulOfColossusEffect = player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT);
+                if (hasSoulOfColossusEffect || hasEquippedCurio) {
+                    increaseHealth(player);
+                    player.setHealth(player.getPersistentData().getFloat(HEALTH_DATA_KEY.toString()));
+                }
                 player.getPersistentData().remove(HEALTH_DATA_KEY.toString());
             }
         }
