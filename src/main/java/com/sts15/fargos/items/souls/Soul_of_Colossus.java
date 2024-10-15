@@ -102,7 +102,10 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
         if (stack.getItem() == newStack.getItem())
             return;
         Player entity = (Player) slotContext.entity();
-        resetHealth(entity);
+        boolean hasSoulOfColossusEffect = entity.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT);
+        if (!hasSoulOfColossusEffect) {
+            resetHealth(entity);
+        }
     }
 
     @EventBusSubscriber(modid = Fargos.MODID)
