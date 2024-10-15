@@ -61,7 +61,6 @@ public enum TalismanType {
     SOUL_OF_COLOSSUS,
     SOUL_OF_FLIGHT_MASTERY,
     SOUL_OF_SUPERSONIC
-
     ;
 
     public int getIndex() {
