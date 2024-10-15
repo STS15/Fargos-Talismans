@@ -1,6 +1,7 @@
 package com.sts15.fargos.items.souls;
 
 import com.sts15.fargos.Fargos;
+import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -82,7 +83,7 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
             if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                 increaseHealth(player);
                 negateNegativeEffects(player);
-            } else {
+            } else { // Toggle off is only for config toggle disable, not actual removal
                 resetHealth(player);
             }
         }
@@ -110,28 +111,17 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
         @SubscribeEvent
         public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
-            System.out.println("Running logout event ");
             player.getPersistentData().putFloat(HEALTH_DATA_KEY.toString(), player.getHealth());
-            System.out.println("Trying to put health away; "+player.getHealth());
         }
 
         @SubscribeEvent
         public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
-            System.out.println("Running login event ");
-            if (player.getPersistentData().contains(String.valueOf(HEALTH_DATA_KEY))) {
-                System.out.println("Trying to get health ; "+player.getPersistentData().getFloat(String.valueOf(HEALTH_DATA_KEY)));
+            if (player.getPersistentData().contains(HEALTH_DATA_KEY.toString())) {
                 increaseHealth(player);
-                player.setHealth(player.getPersistentData().getFloat(String.valueOf(HEALTH_DATA_KEY)));
+                player.setHealth(player.getPersistentData().getFloat(HEALTH_DATA_KEY.toString()));
+                player.getPersistentData().remove(HEALTH_DATA_KEY.toString());
             }
         }
-
-        private static boolean hasEquippedColossusCurio(Player player) {
-            return CuriosApi.getCuriosHelper()
-                    .findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player)
-                    .isPresent();
-        }
-
     }
-
 }
