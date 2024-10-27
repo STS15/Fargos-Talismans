@@ -72,8 +72,8 @@ public class LootDropHandler {
     }
 
     private static boolean isTargetMob(EntityType<?> entityType) {
-        return entityType == EntityType.CREEPER || entityType == EntityType.ZOMBIE
-                || entityType == EntityType.SKELETON || entityType == EntityType.SPIDER;
+        return entityType == EntityType.PIGLIN || entityType == EntityType.PIGLIN_BRUTE
+                || entityType == EntityType.MAGMA_CUBE || entityType == EntityType.WITHER_SKELETON;
     }
 
     private static boolean shouldDropLoot(Player player) {

@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Fargo's Dungeon only generates between Y:-40 and Y:20. It is an underground structure that spawns in any biome in the Nether. Each dungeon should be spaced between 16-24 chucks apart."
+      "text": "The Fargo's Dungeon only generates between Y:5 and Y:25. It is an underground structure that spawns in any biome in the Nether. Each dungeon should be spaced between 12-20 chucks apart."
     },
     {
       "type": "patchouli:text",
