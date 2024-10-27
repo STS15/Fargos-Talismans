@@ -3,12 +3,16 @@
   "package": "com.sts15.fargos.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
+    "BlockMixin",
     "EnderManMixin",
-    "LibrarianMixin",
+    "LivingEntityMixin",
     "PhantomAttackPlayerTargetGoalMixin",
     "PiglinAiMixin",
     "PiglinBruteAiMixin",
+    "ServerPlayerGameModeMixin",
     "ShulkerMixin",
+    "VillagerMixin",
     "WitchMixin"
   ],
   "minVersion": "0.8",

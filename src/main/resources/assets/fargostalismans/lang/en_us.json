@@ -110,7 +110,7 @@
   "item.fargostalismans.tooltip.creeper_talisman": "Explode on jump",
   "item.fargostalismans.tooltip.vampiric_talisman": "Drains health from enemies to heal the player",
   "item.fargostalismans.tooltip.enchanting_talisman": "Removes curses from item held in main or offhand",
-  "item.fargostalismans.tooltip.librarian_talisman": "Increases experience gained from all sources by 50%",
+  "item.fargostalismans.tooltip.librarian_talisman": "Increases experience gained from most common sources by 50%",
   "item.fargostalismans.tooltip.witch_talisman": "Witches throw good potions at you and applies blindness to attackers",
   "item.fargostalismans.tooltip.shulker_talisman": "Negates Shulker levitation effect",
   "item.fargostalismans.tooltip.undying_talisman": "Revives the player once upon death with full health",
@@ -239,7 +239,7 @@
   "item.fargostalismans.abominable_energy": "Abominable Energy",
   "item.fargostalismans.tooltip.abominable_energy": "Looted from the Treasure Room in a Fargo's Dungeon",
   
-  "item.fargostalismans.ancient_wings_elytra": "Ancinet Wings",
+  "item.fargostalismans.ancient_wings_elytra": "Ancient Wings",
   "item.fargostalismans.astral_wings_elytra": "Astral Wings",
   "item.fargostalismans.blazing_wings_elytra": "Blazing Wings",
   "item.fargostalismans.dragon_wings_elytra": "Dragon Wings",

@@ -299,28 +299,64 @@
         "element_type": "minecraft:single_pool_element"
       }
     },
-  {
-      "weight": 15,
+    {
+      "weight": 10,
       "element": {
-        "location": "fargostalismans:dungeon2/zombie",
+        "location": "fargostalismans:dungeon2/blaze",
         "processors": "minecraft:empty",
-		"projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-  {
-      "weight": 15,
-      "element": {
-        "location": "fargostalismans:dungeon2/skeleton",
-        "processors": "minecraft:empty",
-		"projection": "rigid",
+        "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     },
     {
-      "weight": 15,
+      "weight": 10,
       "element": {
-        "location": "fargostalismans:dungeon2/strong_wither",
+        "location": "fargostalismans:dungeon2/hoglin",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "fargostalismans:dungeon2/piglin",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 20,
+      "element": {
+        "location": "fargostalismans:dungeon2/piglin_brute",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "fargostalismans:dungeon2/magma_cube",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "fargostalismans:dungeon2/stray",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "fargostalismans:dungeon2/vex",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -329,7 +365,25 @@
     {
       "weight": 15,
       "element": {
-        "location": "fargostalismans:dungeon2/spider",
+        "location": "fargostalismans:dungeon2/wither_skeleton",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+  {
+      "weight": 10,
+      "element": {
+        "location": "fargostalismans:dungeon2/skeleton",
+        "processors": "minecraft:empty",
+		"projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 25,
+      "element": {
+        "location": "fargostalismans:dungeon2/zombified_piglin",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

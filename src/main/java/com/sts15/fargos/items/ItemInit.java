@@ -1,6 +1,5 @@
 package com.sts15.fargos.items;
 
-import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.components.*;
 import com.sts15.fargos.items.forces.*;
 import com.sts15.fargos.items.souls.*;

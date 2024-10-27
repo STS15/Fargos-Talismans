@@ -3,9 +3,9 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
-        "location": "fargostalismans:dungeon2/hallway/barrel",
+        "location": "fargostalismans:dungeon2/wall",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -21,36 +21,9 @@
       }
     },
     {
-      "weight": 5,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/button",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/hallway/candle_1",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/candle_2",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/candle_3",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -84,15 +57,6 @@
       }
     },
     {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/dripstone",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
       "weight": 3,
       "element": {
         "location": "fargostalismans:dungeon2/hallway/grindstone",
@@ -114,33 +78,6 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/hallway/nether_brick_fence",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/pot",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/rail",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 6,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/redstone_torch",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -242,24 +179,6 @@
     {
       "weight": 2,
       "element": {
-        "location": "fargostalismans:dungeon2/ground_hallway/water",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "fargostalismans:dungeon2/ground_hallway/snow",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
         "location": "fargostalismans:dungeon2/ground_hallway/wall",
         "processors": "minecraft:empty",
         "projection": "rigid",
@@ -270,6 +189,51 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/ground_hallway/solid",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "fargostalismans:dungeon2/hallway/chest_common",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "fargostalismans:dungeon2/hallway/chest_treasure",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "fargostalismans:dungeon2/hallway/chest_library",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "fargostalismans:dungeon2/hallway/chest_other",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "fargostalismans:dungeon2/hallway/chest_portal",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

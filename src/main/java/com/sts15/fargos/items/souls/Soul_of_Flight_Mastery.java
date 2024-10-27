@@ -65,39 +65,6 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
         return player.getPersistentData().getBoolean(FLIGHT_ENABLE_ID.toString());
     }
 
-//    @EventBusSubscriber(modid = Fargos.MODID)
-//    public static class Events {
-//
-//        private static int tickCounter = 0;
-//
-//        @SuppressWarnings({"removal", "deprecation"})
-//        @SubscribeEvent
-//        public static void onPlayerTick(PlayerTickEvent.Pre event) {
-//            Player player = event.getEntity();
-//            if (++tickCounter < 10) { return; } tickCounter = 0;
-//            if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Flight_Mastery")) {
-//                if (isFlightEnabledByMod(player)) {
-//                    disableFlight(player);
-//                }
-//                return;
-//            }
-//
-//            boolean hasTalisman = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player).isPresent();
-//            boolean hasEffect = player.hasEffect(EffectsInit.SOUL_OF_FLIGHT_MASTERY_EFFECT);
-//
-//            AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
-//            if (flightAttribute == null) {
-//                return;
-//            }
-//
-//            if ((hasTalisman || hasEffect) && !player.isCreative() && !player.isSpectator()) {
-//                enableFlight(player);
-//            } else if (!hasTalisman && !hasEffect && isFlightEnabledByMod(player)) {
-//                disableFlight(player);
-//            }
-//        }
-//    }
-
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         if (!(slotContext.entity() instanceof ServerPlayer player))
