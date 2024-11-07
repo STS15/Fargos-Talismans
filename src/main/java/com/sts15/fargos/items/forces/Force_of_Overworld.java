@@ -2,6 +2,7 @@ package com.sts15.fargos.items.forces;
 
 import java.util.List;
 
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.*;
 
@@ -23,6 +24,8 @@ public class Force_of_Overworld extends TalismanItem implements
     
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+        int configValue1 = (int) (Config.DIAMOND_TALISMAN_DAMAGE_REDUCTION.getAsDouble() * 100);
+        int configValue2 = (int) (Config.EMERALD_TALISMAN_INCREASED_ILLAGER_DAMAGE.getAsDouble() * 100);
         pTooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.force_of_overworld")
         		.setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
         pTooltipComponents.add(Component.literal("- ")
@@ -40,13 +43,13 @@ public class Force_of_Overworld extends TalismanItem implements
         pTooltipComponents.add(Component.literal("- ")
         		.append(Component.translatable("item.fargostalismans.tooltip.diamond_talisman.title"))
                 .append(Component.literal(": "))
-                .append(Component.translatable("item.fargostalismans.tooltip.diamond_talisman"))
+                .append(Component.translatable("item.fargostalismans.tooltip.diamond_talisman",configValue1))
                 .withStyle(ChatFormatting.AQUA)
         );
         pTooltipComponents.add(Component.literal("- ")
         		.append(Component.translatable("item.fargostalismans.tooltip.emerald_talisman.title"))
                 .append(Component.literal(": "))
-                .append(Component.translatable("item.fargostalismans.tooltip.emerald_talisman"))
+                .append(Component.translatable("item.fargostalismans.tooltip.emerald_talisman",configValue2))
                 .withStyle(ChatFormatting.GREEN)
         );
         pTooltipComponents.add(Component.literal("- ")

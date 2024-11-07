@@ -1,9 +1,11 @@
 package com.sts15.fargos.items.talismans;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Emerald_Talisman_Provider;
@@ -29,6 +31,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
@@ -36,9 +39,6 @@ import top.theillusivec4.curios.api.SlotContext;
 public class Emerald_Talisman extends TalismanItem implements Emerald_Talisman_Provider {
 
     private static final String talismanName = "emerald_talisman";
-	
-	private static final long ACTIVE_ABILITY_COOLDOWN = 15000; // 15 seconds
-    private long lastActiveAbilityTime = 0;
 
     public Emerald_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -46,49 +46,23 @@ public class Emerald_Talisman extends TalismanItem implements Emerald_Talisman_P
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-
-        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName, (int)(Config.EMERALD_TALISMAN_INCREASED_ILLAGER_DAMAGE.getAsDouble() * 100))
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
-    
-    @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Player player = (Player) slotContext.entity();
-        Level level = player.level();
-        long currentTime = System.currentTimeMillis();
 
-        if (!level.isClientSide) {
-            if (currentTime - lastActiveAbilityTime >= ACTIVE_ABILITY_COOLDOWN) {
-                lastActiveAbilityTime = currentTime;
-                applyBonemealEffect(player, level);
-            }
-        }
-    }
-    
-    private void applyBonemealEffect(Player player, Level level) {
-        RandomSource randomSource = level.random;
-
-        BlockPos.betweenClosedStream(player.blockPosition().offset(-2, -1, -2), player.blockPosition().offset(2, 1, 2))
-                .forEach(pos -> {
-                    BlockState blockState = level.getBlockState(pos);
-                    if (isBonemealableCrop(blockState)) {
-                        BonemealableBlock bonemealable = (BonemealableBlock) blockState.getBlock();
-                        if (bonemealable.isValidBonemealTarget(level, pos, blockState)) {
-                            if (level instanceof ServerLevel) {
-                                if (bonemealable.isBonemealSuccess(level, randomSource, pos, blockState)) {
-                                    bonemealable.performBonemeal((ServerLevel) level, randomSource, pos, blockState);
-                                }
-                            }
-                        }
-                    }
-                });
-    }
-    
-    private boolean isBonemealableCrop(BlockState blockState) {
-        Block block = blockState.getBlock();
-        return block instanceof BonemealableBlock && block != Blocks.GRASS_BLOCK && block != Blocks.TALL_GRASS && block != Blocks.SHORT_GRASS;
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
     
     @EventBusSubscriber(modid = Fargos.MODID)
@@ -106,10 +80,7 @@ public class Emerald_Talisman extends TalismanItem implements Emerald_Talisman_P
                         return;
 
                     if (event.getEntity() instanceof AbstractIllager) {
-                        float extraDamage = 2.0F;
-                        float baseDamage = event.getAmount();
-                        float totalDamage = baseDamage + extraDamage;
-                        event.setAmount(totalDamage);
+                        event.setAmount(event.getAmount() * (1f + Config.EMERALD_TALISMAN_INCREASED_ILLAGER_DAMAGE.get().floatValue()));
                     }
                 }
             }

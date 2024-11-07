@@ -1,0 +1,162 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:tuff_bricks",
+            "probability": 0.1
+          },
+          "output_state": {
+            "Name": "minecraft:polished_tuff"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:stone",
+            "probability": 0.5
+          },
+          "output_state": {
+            "Name": "minecraft:chiseled_tuff_bricks"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:stone",
+            "probability": 0.2
+          },
+          "output_state": {
+            "Name": "minecraft:chiseled_tuff"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:stone",
+            "probability": 1.0
+          },
+          "output_state": {
+            "Name": "minecraft:polished_tuff"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "minecraft:smooth_stone",
+            "probability": 1.0
+          },
+          "output_state": {
+            "Name": "minecraft:waxed_oxidized_cut_copper"
+          }
+        },
+        {
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:redstone_lamp",
+              "Properties": {
+                "lit": "false",
+                "powered": "false"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:waxed_oxidized_copper_bulb",
+            "Properties": {
+              "lit": "true",
+              "powered": "false"
+            }
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:blockstate_match",
+            "block_state": {
+              "Name": "minecraft:smooth_stone_slab",
+              "Properties": {
+                "type": "top",
+                "waterlogged": "false"
+              }
+            }
+          },
+          "output_state": {
+            "Name": "minecraft:waxed_oxidized_cut_copper_slab",
+            "Properties": {
+              "type": "top",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:blockstate_match",
+            "block_state": {
+              "Name": "minecraft:smooth_stone_slab",
+              "Properties": {
+                "type": "bottom",
+                "waterlogged": "false"
+              }
+            }
+          },
+          "output_state": {
+            "Name": "minecraft:waxed_oxidized_cut_copper_slab",
+            "Properties": {
+              "type": "bottom",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:blockstate_match",
+            "block_state": {
+              "Name": "minecraft:smooth_stone_slab",
+              "Properties": {
+                "type": "double",
+                "waterlogged": "false"
+              }
+            }
+          },
+          "output_state": {
+            "Name": "minecraft:waxed_oxidized_cut_copper_slab",
+            "Properties": {
+              "type": "double",
+              "waterlogged": "false"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

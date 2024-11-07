@@ -48,18 +48,14 @@ public class TalismanCommand {
 
         if (context.getSource().getEntity() instanceof ServerPlayer player) {
             // Server-side
-            int talismanIndex = talismanType.getIndex();
             boolean isEnabled = !PlayerDataHandler.getTalismanState(player, talismanType.name());
             PlayerDataHandler.setTalismanState(player, talismanType.name(), isEnabled);
             player.displayClientMessage(Component.literal("Toggled talisman: " + talismanName + " to " + (isEnabled ? "enabled" : "disabled")), true);
-            // Message to players if they toggle talismans where the status doesnt apply/unapply unless it is equipped or unequipped
-            if (talismanName.toLowerCase().equals("iron_golem_talisman")||talismanName.toLowerCase().equals("architect_talisman"))
-            player.displayClientMessage(Component.literal("Please reequip talisman after toggling"), false);
         } else {
             // Client-side
             int talismanIndex = talismanType.getIndex();
             boolean isEnabled = !PlayerDataHandler.getTalismanState(context.getSource().getPlayerOrException(), talismanType.name());
-            NetworkHandler.sendToggleTalismanStateToServer(/*context.getSource().getPlayerOrException(), */talismanIndex, isEnabled);
+            NetworkHandler.sendToggleTalismanStateToServer(talismanIndex, isEnabled);
         }
 
         return Command.SINGLE_SUCCESS;

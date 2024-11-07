@@ -2,6 +2,7 @@ package com.sts15.fargos.items.souls;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -21,17 +22,17 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
-
+import java.lang.reflect.Field;
 import java.util.List;
 
 public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_of_Colossus_Provider {
 
     public static final String talismanName = "soul_of_colossus";
-    private static final double HEALTH_MULTIPLIER = 4.0;
     private static final ResourceLocation HEALTH_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_colossus_health_boost");
     private static final ResourceLocation HEALTH_DATA_KEY = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_colossus_health");
 
@@ -39,34 +40,52 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
         super(new Item.Properties().rarity(Rarity.EPIC));
     }
 
+    private static double getHealthMultiplier() {
+        return Config.SOUL_OF_COLOSSUS_HEALTH_MULTIPLIER.get();
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
 
     public static void resetHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
-        if (healthAttribute != null && healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
+        if (healthAttribute != null && healthAttribute.getModifier(HEALTH_BOOST_ID) != null) {
             healthAttribute.removeModifier(HEALTH_BOOST_ID);
         }
     }
 
     public static void increaseHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
-        if (healthAttribute != null && !healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
-            AttributeModifier modifier = new AttributeModifier(HEALTH_BOOST_ID, HEALTH_MULTIPLIER, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+        if (healthAttribute != null && healthAttribute.getModifier(HEALTH_BOOST_ID) == null) {
+            AttributeModifier modifier = new AttributeModifier(HEALTH_BOOST_ID, getHealthMultiplier(), AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
             healthAttribute.addTransientModifier(modifier);
         }
     }
 
     private static void negateNegativeEffects(Player player) {
-        List<MobEffectInstance> negativeEffects = player.getActiveEffects().stream()
-                .filter(effectInstance -> !effectInstance.getEffect().value().isBeneficial())
-                .toList();
-        for (MobEffectInstance effect : negativeEffects) {
-            player.removeEffect(effect.getEffect());
+        if (Config.SOUL_OF_COLOSSUS_REMOVE_NEGATIVE_EFFECTS.get()) {
+            List<MobEffectInstance> negativeEffects = player.getActiveEffects().stream().filter(effectInstance -> !effectInstance.getEffect().value().isBeneficial()).toList();
+            for (MobEffectInstance effect : negativeEffects) {
+                player.removeEffect(effect.getEffect());
+            }
         }
     }
 
@@ -83,7 +102,7 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
             if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
                 increaseHealth(player);
                 negateNegativeEffects(player);
-            } else { // Toggle off is only for config toggle disable, not actual removal
+            } else {
                 resetHealth(player);
             }
         }
@@ -121,7 +140,9 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
         public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
             if (player.getPersistentData().contains(HEALTH_DATA_KEY.toString())) {
-                boolean hasEquippedCurio = CuriosApi.getCuriosHelper().findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent();
+                boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
+                        .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player)
+                        .isPresent();
                 boolean hasSoulOfColossusEffect = player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT);
                 if (hasSoulOfColossusEffect || hasEquippedCurio) {
                     increaseHealth(player);
