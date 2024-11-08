@@ -1,5 +1,6 @@
 package com.sts15.fargos.items.talismans;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Zombie_Talisman_Provider;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -35,9 +38,6 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
     private static final String talismanName = "zombie_talisman";
 
     private static final long INCREASE_ATTACK_SPEED_THRESHOLD = 100;
-    private static final double ATTACK_SPEED_BOOST = 5.5;
-    private static final int MAX_ATTACKS = 3;
-    private static final long COOLDOWN_PERIOD = 5000;
 
     private static final Map<UUID, Long> lastAttackTimes = new HashMap<>();
     private static final Map<UUID, Integer> attackCounts = new HashMap<>();
@@ -51,11 +51,23 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-
-        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
 
     private static void resetAttackSpeed(Player player, UUID playerId) {
@@ -63,7 +75,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
         if (attackSpeedAttribute != null && attackSpeedAttribute.hasModifier(ZOMBIE_ATTACK_SPEED_BOOST_ID)) {
             attackSpeedAttribute.removeModifier(ZOMBIE_ATTACK_SPEED_BOOST_ID);
             attackCounts.remove(playerId);
-            long cooldownEndTime = player.level().getGameTime() + COOLDOWN_PERIOD;
+            long cooldownEndTime = player.level().getGameTime() + Config.ZOMBIE_TALISMAN_COOLDOWN_PERIOD.getAsInt();
             cooldownEndTimes.put(playerId, cooldownEndTime);
         }
     }
@@ -75,7 +87,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
 
         AttributeInstance attackSpeedAttribute = player.getAttribute(Attributes.ATTACK_SPEED);
         if (attackSpeedAttribute != null && !attackSpeedAttribute.hasModifier(ZOMBIE_ATTACK_SPEED_BOOST_ID)) {
-            AttributeModifier modifier = new AttributeModifier(ZOMBIE_ATTACK_SPEED_BOOST_ID, ATTACK_SPEED_BOOST, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+            AttributeModifier modifier = new AttributeModifier(ZOMBIE_ATTACK_SPEED_BOOST_ID, Config.ZOMBIE_TALISMAN_ATTACK_SPEED_BOOST.getAsDouble(), AttributeModifier.Operation.ADD_VALUE);
             attackSpeedAttribute.addTransientModifier(modifier);
             attackCounts.put(playerId, 0);
         }
@@ -120,7 +132,7 @@ public class Zombie_Talisman extends TalismanItem implements Zombie_Talisman_Pro
                 attackCount++;
                 attackCounts.put(playerUUID, attackCount);
 
-                if (attackCount >= MAX_ATTACKS) {
+                if (attackCount >= Config.ZOMBIE_TALISMAN_MAX_ATTACKS.getAsInt()) {
                     resetAttackSpeed(player, playerUUID);
                 } else {
                     lastAttackTimes.put(playerUUID, player.level().getGameTime());

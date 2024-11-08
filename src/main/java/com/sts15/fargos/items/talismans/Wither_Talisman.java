@@ -1,9 +1,11 @@
 package com.sts15.fargos.items.talismans;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Wither_Talisman_Provider;
@@ -24,6 +26,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -39,8 +42,21 @@ public class Wither_Talisman extends TalismanItem implements Wither_Talisman_Pro
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
 
     @EventBusSubscriber(modid = Fargos.MODID)

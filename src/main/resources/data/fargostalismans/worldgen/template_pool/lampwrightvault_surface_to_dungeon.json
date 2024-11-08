@@ -1,0 +1,24 @@
+{
+  "name": "fargostalismans:dungeon2",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 5,
+      "element": {
+        "location": "fargostalismans:lampwrightvault/surface_stairs",
+        "processors": "fargostalismans:lampwrightvault_common",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "fargostalismans:lampwrightvault/dungeon_intersection",
+        "processors": "fargostalismans:lampwrightvault_common",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

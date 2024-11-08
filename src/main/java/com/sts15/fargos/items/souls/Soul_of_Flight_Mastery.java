@@ -1,8 +1,10 @@
 package com.sts15.fargos.items.souls;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
 import com.sts15.fargos.items.providers.Soul_of_Flight_Mastery_Provider;
@@ -20,6 +22,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.jetbrains.annotations.NotNull;
@@ -36,10 +39,24 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack pStack, @NotNull TooltipContext pContext, List<Component> pTooltipComponents, @NotNull TooltipFlag pTooltipFlag) {
-        pTooltipComponents.add(Component.translatable("item.fargostalismans.tooltip.soul_of_flight_mastery")
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
 
     public static void enableFlight(Player player) {

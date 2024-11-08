@@ -2,6 +2,7 @@ package com.sts15.fargos.items.talismans;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Rain_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
@@ -19,8 +20,11 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
+
+import java.lang.reflect.Field;
 import java.util.List;
 
 public class Rain_Talisman extends TalismanItem implements Rain_Talisman_Provider {
@@ -28,18 +32,33 @@ public class Rain_Talisman extends TalismanItem implements Rain_Talisman_Provide
     private static final String talismanName = "rain_talisman";
     private static final ResourceLocation RAIN_SPEED_MODIFIER_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "rain_talisman_speed_modifier");
 
-    private static final double SPEED_BONUS = 0.50;
-
     public Rain_Talisman() {
         super(new Properties().rarity(Rarity.UNCOMMON));
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
+        double configValue = Config.RAIN_TALISMAN_INCREASED_SPEED.getAsDouble() * 100;
+        String formattedReduction;
+        if (configValue == (int) configValue) { formattedReduction = String.format("%.0f", configValue);
+        } else { formattedReduction = String.format("%.1f", configValue);}
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName,formattedReduction)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
 
     @EventBusSubscriber(modid = Fargos.MODID)
@@ -64,7 +83,7 @@ public class Rain_Talisman extends TalismanItem implements Rain_Talisman_Provide
 
                 if (!movementAttribute.hasModifier(RAIN_SPEED_MODIFIER_ID)) {
                     //System.out.println("Applying Rain Speed Bonus to player " + player.getName().getString());
-                    AttributeModifier speedModifier = new AttributeModifier(RAIN_SPEED_MODIFIER_ID, SPEED_BONUS, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+                    AttributeModifier speedModifier = new AttributeModifier(RAIN_SPEED_MODIFIER_ID, Config.RAIN_TALISMAN_INCREASED_SPEED.getAsDouble(), AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
                     movementAttribute.addTransientModifier(speedModifier);
                 }
             } else {

@@ -5,6 +5,7 @@ import com.sts15.fargos.block.entity.BlockEntitiesInit;
 import com.sts15.fargos.block.entity.renderer.PedestalBlockEntityRenderer;
 import com.sts15.fargos.client.command.*;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.ItemInit;
 import com.sts15.fargos.init.CreativeTabRegistry;
 import com.sts15.fargos.init.SoundRegistry;
@@ -30,7 +31,7 @@ public class Fargos {
     public static final String MODID = "fargostalismans";
 
     public Fargos(IEventBus modEventBus, ModContainer modContainer) {
-
+        Config.register(modContainer);
         Objects.requireNonNull(modContainer.getEventBus()).addListener(this::registerPayloads);
 
         ItemInit.register(modEventBus);

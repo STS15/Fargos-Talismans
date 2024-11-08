@@ -1,5 +1,6 @@
 package com.sts15.fargos.items.talismans;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.UUID;
 
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 
 import com.sts15.fargos.items.providers.Battle_Talisman_Provider;
@@ -22,6 +24,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -31,7 +34,7 @@ import org.apache.logging.log4j.Logger;
 public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Provider {
 
     private static final String talismanName = "battle_talisman";
-    
+    private static final boolean isDebug = false;
     private static final Map<UUID, Integer> invinciblePlayers = new HashMap<>();
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -41,11 +44,23 @@ public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Pro
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-
-        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip."+talismanName)
+        tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
-
+        if (!checkConfigEnabledStatus()) {
+            tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
+                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
+        }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    public static boolean checkConfigEnabledStatus() {
+        boolean isEnabled = true;
+        try {
+            String fieldName = talismanName.toUpperCase() + "_TOGGLE";
+            Field toggleField = Config.class.getField(fieldName);
+            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {}
+        return isEnabled;
     }
     
     @EventBusSubscriber(modid = Fargos.MODID)
@@ -64,8 +79,8 @@ public class Battle_Talisman extends TalismanItem implements Battle_Talisman_Pro
                 Integer invincibilityTicks = invinciblePlayers.get(playerUUID);
 
                 if (invincibilityTicks == null || invincibilityTicks <= 0) {
-                    invinciblePlayers.put(playerUUID, 5);
-                    //LOGGER.info("Player {} will be invincible for 5 ticks after taking initial damage.", player.getName().getString());
+                    invinciblePlayers.put(playerUUID, Config.BATTLE_TALISMAN_INVINCIBILITY_TICKS.getAsInt());
+                    if (isDebug) LOGGER.info("Player {} will be invincible for "+Config.BATTLE_TALISMAN_INVINCIBILITY_TICKS.getAsInt()+" ticks after taking initial damage.", player.getName().getString());
                 } else {
                     //LOGGER.info("Player {} is currently invincible for {} more ticks.", player.getName().getString(), invincibilityTicks);
                     event.setCanceled(true);
