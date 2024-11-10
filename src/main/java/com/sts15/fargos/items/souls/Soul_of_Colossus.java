@@ -24,6 +24,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
@@ -90,25 +91,6 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
     }
 
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        if (!(slotContext.entity() instanceof ServerPlayer player))
-            return;
-
-        boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
-                .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player)
-                .isPresent();
-
-        if (hasEquippedCurio) {
-            if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
-                increaseHealth(player);
-                negateNegativeEffects(player);
-            } else {
-                resetHealth(player);
-            }
-        }
-    }
-
-    @Override
     public void onEquip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
         if (stack.getItem() == newStack.getItem())
             return;
@@ -129,6 +111,29 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
 
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
+
+        private static int tickCounter = 0;
+        @SuppressWarnings({ "removal", "deprecation" })
+        @SubscribeEvent
+        public static void onPlayerTick(PlayerTickEvent.Pre event) {
+            if (!(event.getEntity() instanceof ServerPlayer player))
+                return;
+
+            if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Colossus")) {
+                resetHealth(player);
+            }
+
+            if (player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
+                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
+                    return;
+                negateNegativeEffects(player);
+                if (++tickCounter < 10) {return;} tickCounter = 0; // Only try and increase health every 10 ticks
+                increaseHealth(player);
+            } else {
+                if (++tickCounter < 10) {return;} tickCounter = 0; // Only try and decrease health every 10 ticks
+                resetHealth(player);
+            }
+        }
 
         @SubscribeEvent
         public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
