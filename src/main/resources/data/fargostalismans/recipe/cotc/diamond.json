@@ -1,0 +1,18 @@
+{
+  "type": "fargostalismans:crucibleofthecosmos",
+  "pattern": [
+    "IIII",
+    "IIII",
+    "IIII",
+    "IIII"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "minecraft:diamond",
+    "count": 4
+  }
+}

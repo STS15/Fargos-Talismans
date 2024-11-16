@@ -378,6 +378,10 @@
   "block.fargostalismans.tooltip.pedestal_3_blocks": "15",
   "block.fargostalismans.tooltip.pedestal_4_blocks": "20",
   "block.fargostalismans.tooltip.pedestal_radius": " Radius: ",
+
+  "block.fargostalismans.crucible_of_the_cosmos": "Crucible of the Cosmos",
+  "item.fargostalismans.elemental_assembler": "Elemental Assembler",
+  "item.fargostalismans.multitask_center": "Multitask Center",
   
   "key.category.fargostalismans": "Fargo's Talismans",
   "key.fargostalismansmod.opengui": "Open Talisman Control GUI",

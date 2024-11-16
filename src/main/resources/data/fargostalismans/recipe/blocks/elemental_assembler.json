@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  "ABC",
+  "DEF",
+  "GHI"
+],
+  "key": {
+    "A": {
+      "item": "minecraft:beehive"
+    },
+    "B": {
+      "item": "minecraft:smithing_table"
+    },
+    "C": {
+      "item": "minecraft:fletching_table"
+    },
+    "D": {
+      "item": "minecraft:cartography_table"
+    },
+    "E": {
+      "item": "minecraft:enchanting_table"
+    },
+    "F": {
+      "item": "minecraft:jukebox"
+    },
+    "G": {
+      "item": "minecraft:blast_furnace"
+    },
+    "H": {
+      "item": "minecraft:ender_chest"
+    },
+    "I": {
+      "item": "minecraft:smoker"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:elemental_assembler",
+    "count": 1
+  }
+}

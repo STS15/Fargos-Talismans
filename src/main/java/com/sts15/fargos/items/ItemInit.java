@@ -218,6 +218,11 @@ public class ItemInit {
     public static final DeferredHolder<Item, FargosGuideBook> GUIDE_BOOK = ITEMS.register("guide_book",
             () -> new FargosGuideBook(new Item.Properties().stacksTo(1)) {});
 
+    public static final DeferredHolder<Item, CraftingItem> MULTITASK_CENTER = ITEMS.register("multitask_center",
+            () -> new CraftingItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, CraftingItem> ELEMENTAL_ASSEMBLER = ITEMS.register("elemental_assembler",
+            () -> new CraftingItem(new Item.Properties()) {});
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

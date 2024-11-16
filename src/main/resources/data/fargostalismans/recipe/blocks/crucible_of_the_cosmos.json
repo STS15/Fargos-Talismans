@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  "ABC",
+  "DEF",
+  "GHI"
+],
+  "key": {
+    "A": {
+      "item": "minecraft:observer"
+    },
+    "B": {
+      "item": "minecraft:end_crystal"
+    },
+    "C": {
+      "item": "minecraft:daylight_detector"
+    },
+    "D": {
+      "item": "fargostalismans:elemental_assembler"
+    },
+    "E": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "F": {
+      "item": "fargostalismans:multitask_center"
+    },
+    "G": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "H": {
+      "item": "minecraft:anvil"
+    },
+    "I": {
+      "item": "minecraft:purpur_pillar"
+    }
+  },
+  "result": {
+    "id": "fargostalismans:crucible_of_the_cosmos",
+    "count": 1
+  }
+}
