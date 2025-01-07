@@ -4,13 +4,14 @@ import com.sts15.fargos.block.BlocksInit;
 import com.sts15.fargos.block.entity.BlockEntitiesInit;
 import com.sts15.fargos.block.entity.renderer.PedestalBlockEntityRenderer;
 import com.sts15.fargos.client.command.*;
+import com.sts15.fargos.client.elytra.MyElytraLayer;
 import com.sts15.fargos.effect.EffectsInit;
-import com.sts15.fargos.init.Config;
+import com.sts15.fargos.init.*;
 import com.sts15.fargos.items.ItemInit;
-import com.sts15.fargos.init.CreativeTabRegistry;
-import com.sts15.fargos.init.SoundRegistry;
 import com.sts15.fargos.loot.LootRegistry;
 import com.sts15.fargos.network.NetworkHandler;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,6 +21,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -67,8 +69,24 @@ public class Fargos {
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+        }
 
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+        }
+
+        @SubscribeEvent
+        public static void registerRenderers(EntityRenderersEvent.AddLayers event) {
+            PlayerRenderer defaultRenderer = (PlayerRenderer) event.getSkin(PlayerSkin.Model.WIDE);
+            PlayerRenderer slimRenderer = (PlayerRenderer) event.getSkin(PlayerSkin.Model.SLIM);
+
+            if (defaultRenderer != null) {
+                defaultRenderer.addLayer(new MyElytraLayer(defaultRenderer));
+            }
+            if (slimRenderer != null) {
+                slimRenderer.addLayer(new MyElytraLayer(slimRenderer));
+            }
         }
 
         @SubscribeEvent
@@ -76,5 +94,4 @@ public class Fargos {
             event.registerBlockEntityRenderer(BlockEntitiesInit.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
         }
     }
-
 }

@@ -1,10 +1,14 @@
 package com.sts15.fargos.items;
 
+import com.sts15.fargos.Fargos;
 import com.sts15.fargos.items.components.*;
+import com.sts15.fargos.items.crafted.BasicElytraItem;
 import com.sts15.fargos.items.forces.*;
+import com.sts15.fargos.items.looted.*;
 import com.sts15.fargos.items.souls.*;
 import com.sts15.fargos.items.talismans.*;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -13,86 +17,107 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ItemInit {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.createItems("fargostalismans");
 
-    // Crafting Items
-    	public static final DeferredHolder<Item, AbominableEnergyItem> ABOMINABLE_ENERGY = ITEMS.register("abominable_energy", 
+    // Crafting Item
+    public static final DeferredHolder<Item, AbominableEnergyItem> ABOMINABLE_ENERGY = ITEMS.register("abominable_energy",
             () -> new AbominableEnergyItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> AEOLUS_BOOTS = ITEMS.register("aeolus_boots", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> AMBER_HORSESHOE_BALLOON = ITEMS.register("amber_horseshoe_balloon", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> ANCIENT_HORN = ITEMS.register("ancient_horn", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> ANCIENT_WINGS_ELYTRA = ITEMS.register("ancient_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> ANKH_SHIELD = ITEMS.register("ankh_shield", 
+
+    // Soul of Flight Mastery
+    public static final DeferredHolder<Item, BasicElytraItem> ANCIENT_WINGS_ELYTRA = ITEMS.register("ancient_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/ancient_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> ASTRAL_WINGS_ELYTRA = ITEMS.register("astral_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/astral_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> BLAZING_WINGS_ELYTRA = ITEMS.register("blazing_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/blazing_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> DRAGON_WINGS_ELYTRA = ITEMS.register("dragon_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/dragon_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> DUSTY_WINGS_ELYTRA = ITEMS.register("dusty_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/dusty_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> ENCHANTED_WINGS_ELYTRA = ITEMS.register("enchanted_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/enchanted_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> ENDER_WINGS_ELYTRA = ITEMS.register("ender_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/ender_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> FOREST_WINGS_ELYTRA = ITEMS.register("forest_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/forest_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> FROZEN_WINGS_ELYTRA = ITEMS.register("frozen_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/frozen_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> GHASTLY_WINGS_ELYTRA = ITEMS.register("ghastly_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/ghastly_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> OCEANS_FINS_ELYTRA = ITEMS.register("oceans_fins_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/oceans_fins_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> PHANTOM_WINGS_ELYTRA = ITEMS.register("phantom_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/phantom_wings_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> VOLCANIC_ASH_ELYTRA = ITEMS.register("volcanic_ash_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/volcanic_ash_elytra.png")));
+    public static final DeferredHolder<Item, BasicElytraItem> WITHER_WINGS_ELYTRA = ITEMS.register("wither_wings_elytra",
+            () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/wither_wings_elytra.png")));
+
+    // Soul of Colossus
+//    public static final DeferredHolder<Item, TalismanItem> ANKH_SHIELD = ITEMS.register("ankh_shield", AnkhShieldItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> SHINY_STONE = ITEMS.register("shiny_stone", ShinyStoneItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> HAND_WARMER = ITEMS.register("hand_warmer", HandWarmerItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> POCKET_MIRROR = ITEMS.register("pocket_mirror", PocketMirrorItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> FROZEN_SHIELD = ITEMS.register("frozen_shield", FrozenShieldItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> WORM_SCARF = ITEMS.register("worm_scarf", WormScarfItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> CHARM_OF_MYTHS = ITEMS.register("charm_of_myths", CharmOfMythsItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> BRAIN_OF_CONFUSION = ITEMS.register("brain_of_confusion", BrainOfConfusionItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> BEE_CLOAK = ITEMS.register("bee_cloak", BeeCloakItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> HERO_SHIELD = ITEMS.register("hero_shield", HeroShieldItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe", ObsidianHorseshoeItem::new);
+//    public static final DeferredHolder<Item, TalismanItem> STAR_VEIL = ITEMS.register("star_veil", StarVeilItem::new);
+
+    public static final DeferredHolder<Item, LootedItem> ANKH_SHIELD = ITEMS.register("ankh_shield",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> ASTRAL_WINGS_ELYTRA = ITEMS.register("astral_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> BEE_CLOAK = ITEMS.register("bee_cloak", 
+    public static final DeferredHolder<Item, LootedItem> BEE_CLOAK = ITEMS.register("bee_cloak",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> BLAZING_WINGS_ELYTRA = ITEMS.register("blazing_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> BLESSED_APPLE = ITEMS.register("blessed_apple", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> BRAIN_OF_CONFUSION = ITEMS.register("brain_of_confusion", 
+    public static final DeferredHolder<Item, LootedItem> BRAIN_OF_CONFUSION = ITEMS.register("brain_of_confusion",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> BRAIN_SCRAMBLER = ITEMS.register("brain_scrambler", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> BUNDLE_OF_HORSESHOE_BALLOONS = ITEMS.register("bundle_of_horseshoe_balloons", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> CHARM_OF_MYTHS = ITEMS.register("charm_of_myths", 
+    public static final DeferredHolder<Item, LootedItem> CHARM_OF_MYTHS = ITEMS.register("charm_of_myths",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> DRAGON_WINGS_ELYTRA = ITEMS.register("dragon_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> DUSTY_WINGS_ELYTRA = ITEMS.register("dusty_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> ENCHANTED_WINGS_ELYTRA = ITEMS.register("enchanted_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> ENDER_WINGS_ELYTRA = ITEMS.register("ender_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> FLYING_CARPET = ITEMS.register("flying_carpet", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> FOREST_WINGS_ELYTRA = ITEMS.register("forest_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> FROZEN_SHIELD = ITEMS.register("frozen_shield", 
+    public static final DeferredHolder<Item, LootedItem> FROZEN_SHIELD = ITEMS.register("frozen_shield",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> FROZEN_WINGS_ELYTRA = ITEMS.register("frozen_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> GHASTLY_WINGS_ELYTRA = ITEMS.register("ghastly_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> HAND_WARMER = ITEMS.register("hand_warmer", 
+    public static final DeferredHolder<Item, LootedItem> HAND_WARMER = ITEMS.register("hand_warmer",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> HERO_SHIELD = ITEMS.register("hero_shield", 
+    public static final DeferredHolder<Item, LootedItem> HERO_SHIELD = ITEMS.register("hero_shield",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> MASTER_NINJA_GEAR = ITEMS.register("master_ninja_gear", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> MECHANICAL_CART = ITEMS.register("mechanical_cart", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe", 
+    public static final DeferredHolder<Item, LootedItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> OCEANS_FINS_ELYTRA = ITEMS.register("oceans_fins_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> PHANTOM_WINGS_ELYTRA = ITEMS.register("phantom_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> POCKET_MIRROR = ITEMS.register("pocket_mirror", 
+    public static final DeferredHolder<Item, LootedItem> POCKET_MIRROR = ITEMS.register("pocket_mirror",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> REINDEER_BELLS = ITEMS.register("reindeer_bells", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> SHIELD_OF_CTHULHU = ITEMS.register("shield_of_cthulhu", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> SHINY_STONE = ITEMS.register("shiny_stone", 
+    public static final DeferredHolder<Item, LootedItem> SHINY_STONE = ITEMS.register("shiny_stone",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> STAR_VEIL = ITEMS.register("star_veil", 
+    public static final DeferredHolder<Item, LootedItem> STAR_VEIL = ITEMS.register("star_veil",
             () -> new LootedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, ScavengedItem> SWEETHEART_NECKLACE = ITEMS.register("sweetheart_necklace", 
-            () -> new ScavengedItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> VOLCANIC_ASH_ELYTRA = ITEMS.register("volcanic_ash_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> WITHER_WINGS_ELYTRA = ITEMS.register("wither_wings_elytra", 
-            () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, LootedItem> WORM_SCARF = ITEMS.register("worm_scarf", 
+    public static final DeferredHolder<Item, LootedItem> WORM_SCARF = ITEMS.register("worm_scarf",
             () -> new LootedItem(new Item.Properties()) {});
 
+    // Soul of Supersonic
+    public static final DeferredHolder<Item, ScavengedItem> AEOLUS_BOOTS = ITEMS.register("aeolus_boots",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> AMBER_HORSESHOE_BALLOON = ITEMS.register("amber_horseshoe_balloon",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> ANCIENT_HORN = ITEMS.register("ancient_horn",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> BLESSED_APPLE = ITEMS.register("blessed_apple",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> BRAIN_SCRAMBLER = ITEMS.register("brain_scrambler",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> BUNDLE_OF_HORSESHOE_BALLOONS = ITEMS.register("bundle_of_horseshoe_balloons",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> FLYING_CARPET = ITEMS.register("flying_carpet",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> MASTER_NINJA_GEAR = ITEMS.register("master_ninja_gear",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> MECHANICAL_CART = ITEMS.register("mechanical_cart",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> REINDEER_BELLS = ITEMS.register("reindeer_bells",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> SHIELD_OF_CTHULHU = ITEMS.register("shield_of_cthulhu",
+            () -> new ScavengedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, ScavengedItem> SWEETHEART_NECKLACE = ITEMS.register("sweetheart_necklace",
+            () -> new ScavengedItem(new Item.Properties()) {});
+
+
+    // Force of Negative Vials
     public static final DeferredHolder<Item, CraftingItem> FATIGUED_VIAL = ITEMS.register("fatigued_vial",
             () -> new CraftingItem(new Item.Properties()) {});
     public static final DeferredHolder<Item, CraftingItem> WITHERED_VIAL = ITEMS.register("withered_vial",
@@ -110,6 +135,7 @@ public class ItemInit {
     public static final DeferredHolder<Item, CraftingItem> BLINDED_VIAL = ITEMS.register("blinded_vial",
             () -> new CraftingItem(new Item.Properties()) {});
 
+    // Soul Crafting Parts
     public static final DeferredHolder<Item, CraftingItem1> SOUL_OF_FLIGHT_MASTERY_1 = ITEMS.register("soul_of_flight_mastery_1",
             () -> new CraftingItem1(new Item.Properties()) {});
     public static final DeferredHolder<Item, CraftingItem2> SOUL_OF_FLIGHT_MASTERY_2 = ITEMS.register("soul_of_flight_mastery_2",
@@ -123,18 +149,18 @@ public class ItemInit {
     public static final DeferredHolder<Item, CraftingItem2> SOUL_OF_COLOSSUS_2 = ITEMS.register("soul_of_colossus_2",
             () -> new CraftingItem2(new Item.Properties()) {});
 
-        // Talisman Bases
-        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_NORMAL = ITEMS.register("talisman_base_normal",
+    // Talisman Bases
+    public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_NORMAL = ITEMS.register("talisman_base_normal",
             () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_ADVANCED = ITEMS.register("talisman_base_advanced",
+    public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_ADVANCED = ITEMS.register("talisman_base_advanced",
             () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_EPIC = ITEMS.register("talisman_base_epic",
+    public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_EPIC = ITEMS.register("talisman_base_epic",
             () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_LEGENDARY = ITEMS.register("talisman_base_legendary",
+    public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_LEGENDARY = ITEMS.register("talisman_base_legendary",
             () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_ULTIMATE = ITEMS.register("talisman_base_ultimate",
+    public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_ULTIMATE = ITEMS.register("talisman_base_ultimate",
             () -> new CraftingItem(new Item.Properties()) {});
-        public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_GODLY = ITEMS.register("talisman_base_godly",
+    public static final DeferredHolder<Item, CraftingItem> TALISMAN_BASE_GODLY = ITEMS.register("talisman_base_godly",
             () -> new CraftingItem(new Item.Properties()) {});
 
     // Talisman Items

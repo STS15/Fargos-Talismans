@@ -69,6 +69,21 @@ public class Config {
     public static ModConfigSpec.BooleanValue WITHERED_TALISMAN_TOGGLE;
     public static ModConfigSpec.BooleanValue ZOMBIE_TALISMAN_TOGGLE;
 
+    public static final String CATEGORY_ACCESSORIES = "accessories";
+    public static final String CATEGORY_DESC_ACCESSORIES = "Toggle the functionality of the accessories";
+    public static ModConfigSpec.BooleanValue ANKH_SHIELD_TOGGLE;
+    public static ModConfigSpec.BooleanValue SHINY_STONE_TOGGLE;
+    public static ModConfigSpec.BooleanValue HAND_WARMER_TOGGLE;
+    public static ModConfigSpec.BooleanValue FROZEN_SHIELD_TOGGLE;
+    public static ModConfigSpec.BooleanValue POCKET_MIRROR_TOGGLE;
+    public static ModConfigSpec.BooleanValue WORM_SCARF_TOGGLE;
+    public static ModConfigSpec.BooleanValue OBSIDIAN_HORSESHOE_TOGGLE;
+    public static ModConfigSpec.BooleanValue BRAIN_OF_CONFUSION_TOGGLE;
+    public static ModConfigSpec.BooleanValue CHARM_OF_MYTHS_TOGGLE;
+    public static ModConfigSpec.BooleanValue BEE_CLOAK_TOGGLE;
+    public static ModConfigSpec.BooleanValue STAR_VEIL_TOGGLE;
+    public static ModConfigSpec.BooleanValue HERO_SHIELD_TOGGLE;
+
     public static final String CATEGORY_SOULS = "souls";
     public static final String CATEGORY_DESC_SOULS = "Is soul functionality enabled on server?";
     public static ModConfigSpec.BooleanValue SOUL_OF_COLOSSUS_TOGGLE;
@@ -337,6 +352,7 @@ public class Config {
     private static void registerServerConfigs(ModContainer container) {
         generalTalismansConfig();
         generalSoulsConfig();
+        generalAccessoryConfig();
         appleConfig();
         architectConfig();
         battleConfig();
@@ -499,14 +515,32 @@ public class Config {
                 .define("Zombie_Talisman", true);
         SERVER_BUILDER.pop();
     }
-    private static void generalSoulsConfig() {
-        SERVER_BUILDER.comment(CATEGORY_DESC_SOULS).push(CATEGORY_SOULS);
-        SOUL_OF_COLOSSUS_TOGGLE = SERVER_BUILDER
-                .define("Soul_Of_Colossus", true);
-        SOUL_OF_FLIGHT_MASTERY_TOGGLE = SERVER_BUILDER
-                .define("Soul_Of_Flight_Mastery", true);
-        SOUL_OF_SUPERSONIC_TOGGLE = SERVER_BUILDER
-                .define("Soul_Of_Supersonic", true);
+    private static void generalAccessoryConfig() {
+        SERVER_BUILDER.comment(CATEGORY_DESC_ACCESSORIES).push(CATEGORY_ACCESSORIES);
+        ANKH_SHIELD_TOGGLE = SERVER_BUILDER
+                .define("Ankh_Shield", true);
+        SHINY_STONE_TOGGLE = SERVER_BUILDER
+                .define("Shiny_Stone", true);
+        HAND_WARMER_TOGGLE = SERVER_BUILDER
+                .define("Hand_Warmer", true);
+        POCKET_MIRROR_TOGGLE = SERVER_BUILDER
+                .define("Pocket_Mirror", true);
+        FROZEN_SHIELD_TOGGLE = SERVER_BUILDER
+                .define("Frozen_Shield", true);
+        WORM_SCARF_TOGGLE = SERVER_BUILDER
+                .define("Worm_Scarf", true);
+        BRAIN_OF_CONFUSION_TOGGLE = SERVER_BUILDER
+                .define("Brain_Of_Confusion", true);
+        CHARM_OF_MYTHS_TOGGLE = SERVER_BUILDER
+                .define("Charm_Of_Myths", true);
+        BEE_CLOAK_TOGGLE = SERVER_BUILDER
+                .define("Bee_Cloak", true);
+        STAR_VEIL_TOGGLE = SERVER_BUILDER
+                .define("Star_Veil", true);
+        HERO_SHIELD_TOGGLE = SERVER_BUILDER
+                .define("Hero_Shield", true);
+        OBSIDIAN_HORSESHOE_TOGGLE = SERVER_BUILDER
+                .define("Obsidian_Horseshoe", true);
         SERVER_BUILDER.pop();
     }
     private static void appleConfig() {
@@ -586,7 +620,7 @@ public class Config {
         CREEPER_TALISMAN_BLAST_RADIUS = SERVER_BUILDER
                 .comment(CREEPER_TALISMAN_BLAST_RADIUS_DESC)
                 .comment(CREEPER_TALISMAN_BLAST_RADIUS_DEFAULT)
-                .defineInRange("creeper_talisman_blast_radius", 4, 0, 16);
+                .defineInRange("creeper_talisman_blast_radius", 4, 1, 16);
         SERVER_BUILDER.pop();
     }
     private static void dayConfig() {
@@ -891,6 +925,16 @@ public class Config {
                 .comment(SOUL_OF_COLOSSUS_REMOVE_NEGATIVE_EFFECTS_DESC)
                 .comment(SOUL_OF_COLOSSUS_REMOVE_NEGATIVE_EFFECTS_DEFAULT)
                 .define("soul_of_colossus_remove_negative_effects", true);
+        SERVER_BUILDER.pop();
+    }
+    private static void generalSoulsConfig() {
+        SERVER_BUILDER.comment(CATEGORY_DESC_SOULS).push(CATEGORY_SOULS);
+        SOUL_OF_COLOSSUS_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Colossus", true);
+        SOUL_OF_FLIGHT_MASTERY_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Flight_Mastery", true);
+        SOUL_OF_SUPERSONIC_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Supersonic", true);
         SERVER_BUILDER.pop();
     }
 

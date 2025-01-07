@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.*;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;

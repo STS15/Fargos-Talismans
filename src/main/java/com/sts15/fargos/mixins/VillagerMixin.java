@@ -19,7 +19,7 @@ public abstract class VillagerMixin {
     @Shadow
     private Player lastTradedPlayer;
 
-    //ide may not find the target but it still valid
+    //IDE does not find the target but it's still valid
     @ModifyArg(method = "rewardTradeXp", at = @At(value = "NEW", target = "Lnet/minecraft/world/entity/ExperienceOrb;(Lnet/minecraft/world/level/Level;DDDI)V"), index = 4)
     private int ModifyRewardTradeXp(int xp) {
         if (lastTradedPlayer instanceof ServerPlayer player && !lastTradedPlayer.level().isClientSide()) {

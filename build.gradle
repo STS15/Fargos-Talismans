@@ -55,6 +55,10 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        name = "C4's Maven"
+        url = 'https://maven.theillusivec4.top/'
+    }
 }
 
 base {
@@ -100,6 +104,8 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation "com.sts15.eventslib:eventslib:${eventslib_version}"
     implementation "top.theillusivec4.curios:curios-neoforge:9.0.5+1.21"
+    runtimeOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"
+    compileOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}:api"
     implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
     
     compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")

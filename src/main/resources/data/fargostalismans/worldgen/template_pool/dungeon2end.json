@@ -12,27 +12,54 @@
       }
     },
     {
+      "weight": 1,
+      "element": {
+        "location": "fargostalismans:dungeon2/hall_cap",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "fargostalismans:dungeon2/hall_cap_chest",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "fargostalismans:dungeon2/center_feature/stairs",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "fargostalismans:dungeon2/center_feature/ladder",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "fargostalismans:dungeon2/center_feature/air",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
       "weight": 3,
       "element": {
         "location": "fargostalismans:dungeon2/hallway/brewing_station",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/candle_1",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/candle_4",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -93,15 +120,6 @@
       }
     },
     {
-      "weight": 15,
-      "element": {
-        "location": "fargostalismans:dungeon2/hallway/soul_lantern",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
       "weight": 2,
       "element": {
         "location": "fargostalismans:dungeon2/hallway/wither_skeleton_skull",
@@ -130,43 +148,6 @@
         "element_type": "minecraft:single_pool_element"
       }
     },
-    {
-      "weight": 1,
-      "element": {
-        "location": "fargostalismans:dungeon2/hanging_hallway/copper_rod",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "fargostalismans:dungeon2/hanging_hallway/end_rod",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "fargostalismans:dungeon2/hanging_hallway/lantern",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 10,
-      "element": {
-        "location": "fargostalismans:dungeon2/hanging_hallway/soul_lantern",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-
     {
       "weight": 4,
       "element": {

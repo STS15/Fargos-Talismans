@@ -16,8 +16,7 @@ import java.util.function.Supplier;
 public class BlocksInit {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Fargos.MODID);
 
-    public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
-            () -> new PedestalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
@@ -33,4 +32,3 @@ public class BlocksInit {
         BLOCKS.register(eventBus);
     }
 }
-

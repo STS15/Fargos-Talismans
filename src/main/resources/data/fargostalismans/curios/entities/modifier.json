@@ -3,6 +3,7 @@
     "player"
   ],
   "slots": [
-    "charm"
+    "charm",
+    "back"
   ]
 }

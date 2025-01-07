@@ -23,6 +23,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -130,6 +131,18 @@ public class Soul_of_Supersonic extends TalismanItem implements Soul_of_Superson
             } else {
                 if (player.getPersistentData().getBoolean("SoulOfSupersonicActive"))
                     removeEffects(player, player.getPersistentData());
+            }
+        }
+
+        @SubscribeEvent
+        public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+            if (!(event.getEntity() instanceof ServerPlayer player)) return;
+            boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
+                    .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Supersonic_Provider, player)
+                    .isPresent();
+            boolean hasSoulOfSupersonicEffect = player.hasEffect(EffectsInit.SOUL_OF_SUPERSONIC_EFFECT);
+            if (hasSoulOfSupersonicEffect || hasEquippedCurio) {
+                applyEffects(player, player.getPersistentData());
             }
         }
     }

@@ -273,7 +273,7 @@
       }
     },
   {
-      "weight": 10,
+      "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/chest",
         "processors": "minecraft:empty",
@@ -300,7 +300,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 7,
       "element": {
         "location": "fargostalismans:dungeon2/blaze",
         "processors": "minecraft:empty",
@@ -309,7 +309,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/hoglin",
         "processors": "minecraft:empty",
@@ -336,7 +336,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/magma_cube",
         "processors": "minecraft:empty",
@@ -345,7 +345,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 2,
       "element": {
         "location": "fargostalismans:dungeon2/stray",
         "processors": "minecraft:empty",
@@ -354,7 +354,7 @@
       }
     },
     {
-      "weight": 5,
+      "weight": 1,
       "element": {
         "location": "fargostalismans:dungeon2/vex",
         "processors": "minecraft:empty",
