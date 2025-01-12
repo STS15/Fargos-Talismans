@@ -108,6 +108,11 @@ public class HeroShieldItem extends TalismanItem implements Hero_Shield_Provider
             LivingEntity aboutToTarget = event.getNewAboutToBeSetTarget();
             LivingEntity originalTarget = event.getOriginalAboutToBeSetTarget();
 
+            // Log the original target and about-to-be-set target
+//            System.out.println("Mob [" + mob.getName().getString() + "] is changing target.");
+//            System.out.println("Original Target: " + (originalTarget != null ? originalTarget.getName().getString() : "None"));
+//            System.out.println("About to Target: " + (aboutToTarget != null ? aboutToTarget.getName().getString() : "None"));
+
             // If there's at least one hero-shield-bearer around, pick the best candidate
             double radius = 16.0; // how far mobs will search for a shield-bearer
 
@@ -123,7 +128,7 @@ public class HeroShieldItem extends TalismanItem implements Hero_Shield_Provider
 
                 if (!shieldBearers.isEmpty()) {
                     // Log the found shield-bearers
-                    System.out.println("Found Shield Bearers in Range:");
+                    //System.out.println("Found Shield Bearers in Range:");
                     shieldBearers.forEach(p -> System.out.println("- " + p.getName().getString()));
 
                     // Pick the closest shield-bearer
@@ -134,7 +139,10 @@ public class HeroShieldItem extends TalismanItem implements Hero_Shield_Provider
                     // If found, override the new target with this shield-bearer
                     if (closestShield != null) {
                         event.setNewAboutToBeSetTarget(closestShield);
+                        //System.out.println("Mob [" + mob.getName().getString() + "] now targeting [" + closestShield.getName().getString() + "].");
                     }
+                } else {
+                    //System.out.println("No Shield Bearers found in range.");
                 }
             }
         }

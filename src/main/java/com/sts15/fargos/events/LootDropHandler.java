@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -52,6 +53,8 @@ public class LootDropHandler {
         if (!(world instanceof ServerLevel serverLevel)) return;
 
         if (event.getSource().getEntity() instanceof Player player) {
+            EntityType<?> entityType = event.getEntity().getType();
+
             if (isTargetMob(event.getEntity().getType())) {
                 BlockPos entityPos = event.getEntity().blockPosition();
                 ResourceLocation customStructureLocation = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "dungeon2");
@@ -68,6 +71,29 @@ public class LootDropHandler {
                     }
                 }
             }
+
+            if (entityType == EntityType.WITHER) {
+                spawnCustomDrop(event.getEntity().blockPosition(), serverLevel, ItemInit.ABOMINABLE_ENERGY.get(), 1, 2, player);
+            } else if (entityType == EntityType.WARDEN) {
+                spawnCustomDrop(event.getEntity().blockPosition(), serverLevel, ItemInit.ABOMINABLE_ENERGY.get(), 2, 3, player);
+            } else if (entityType == EntityType.ENDER_DRAGON) {
+                spawnCustomDrop(event.getEntity().blockPosition(), serverLevel, ItemInit.ABOMINABLE_ENERGY.get(), 3, 4, player);
+            }
+        }
+    }
+
+    private static void spawnCustomDrop(BlockPos pos, ServerLevel serverLevel, Item item, int min, int max, Player player) {
+        int baseDrop = RANDOM.nextInt(max - min + 1) + min;
+        Registry<Enchantment> enchantmentRegistry = player.level().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
+        Holder<Enchantment> lootingEnchantment = enchantmentRegistry.getHolderOrThrow(Enchantments.LOOTING);
+        int lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(lootingEnchantment, player.getMainHandItem());
+        int maxBonus = 6;
+        double diminishingFactor = 0.5;
+        int bonusDrop = (int) Math.min(maxBonus, Math.ceil(lootingLevel * diminishingFactor));
+        int totalDrop = baseDrop + RANDOM.nextInt(bonusDrop + 1);
+
+        for (int i = 0; i < totalDrop; i++) {
+            serverLevel.addFreshEntity(new ItemEntity(serverLevel, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(item)));
         }
     }
 
