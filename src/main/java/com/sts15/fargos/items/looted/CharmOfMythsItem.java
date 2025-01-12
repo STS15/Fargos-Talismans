@@ -88,9 +88,9 @@ public class CharmOfMythsItem extends TalismanItem implements Charm_of_Myths_Pro
             int foodLevel = foodData.getFoodLevel();
 
             if (currentHealth < maxHealth && foodLevel >= 18) {
-                System.out.println("Charm of Myths => applying regen to "
-                        + player.getName().getString() + " [health: " + currentHealth + "/" + maxHealth
-                        + ", hunger: " + foodLevel );
+//                System.out.println("Charm of Myths => applying regen to "
+//                        + player.getName().getString() + " [health: " + currentHealth + "/" + maxHealth
+//                        + ", hunger: " + foodLevel );
                 applyCharmRegen(player);
             }
         }
