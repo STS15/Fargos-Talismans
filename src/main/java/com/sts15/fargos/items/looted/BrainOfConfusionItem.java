@@ -4,6 +4,7 @@ import com.sts15.fargos.Fargos;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Brain_Of_Confusion_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -69,13 +70,15 @@ public class BrainOfConfusionItem extends TalismanItem implements ICurioItem, Br
                     .findEquippedCurio(stack -> stack.getItem() instanceof Brain_Of_Confusion_Provider, player)
                     .isPresent();
 
-            if (!hasBrainEquipped || !BrainOfConfusionItem.checkConfigEnabledStatus()) return;
+            if (!hasBrainEquipped || !checkConfigEnabledStatus()) return;
+            if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                return;
 
             double chance = player.level().random.nextDouble();
             if (chance < 0.10) {
                 event.setAmount(0F);
                 event.setCanceled(true);
-                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WIND_CHARGE_BURST, SoundSource.PLAYERS, 1.0F, 1.0F);
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WIND_CHARGE_BURST, SoundSource.PLAYERS, 0.2F, 1.0F);
             }
         }
     }

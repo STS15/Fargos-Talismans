@@ -76,11 +76,12 @@ public class CharmOfMythsItem extends TalismanItem implements Charm_of_Myths_Pro
                     .findEquippedCurio(stack -> stack.getItem() instanceof Charm_of_Myths_Provider, player)
                     .isPresent();
 
-            if (!hasCharmEquipped
-                    || !CharmOfMythsItem.checkConfigEnabledStatus()) {
+            if (!hasCharmEquipped || !checkConfigEnabledStatus()) {
                 removeCharmRegen(player);
                 return;
             }
+            if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                return;
 
             float currentHealth = player.getHealth();
             float maxHealth = player.getMaxHealth();
@@ -88,9 +89,6 @@ public class CharmOfMythsItem extends TalismanItem implements Charm_of_Myths_Pro
             int foodLevel = foodData.getFoodLevel();
 
             if (currentHealth < maxHealth && foodLevel >= 18) {
-//                System.out.println("Charm of Myths => applying regen to "
-//                        + player.getName().getString() + " [health: " + currentHealth + "/" + maxHealth
-//                        + ", hunger: " + foodLevel );
                 applyCharmRegen(player);
             }
         }

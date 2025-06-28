@@ -4,6 +4,7 @@ import com.sts15.fargos.Fargos;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Ankh_Shield_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -84,6 +85,8 @@ public class AnkhShieldItem extends TalismanItem implements ICurioItem, Ankh_Shi
                 return;
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Ankh_Shield_Provider, player).isPresent()) {
+                if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                    return;
                 negateNegativeEffects(player);
             }
         }

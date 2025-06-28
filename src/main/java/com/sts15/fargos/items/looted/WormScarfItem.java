@@ -74,6 +74,9 @@ public class WormScarfItem extends TalismanItem implements Worm_Scarf_Provider {
             if ((!hasWormScarfEquipped) || !WormScarfItem.checkConfigEnabledStatus()) {
                 return;
             }
+            if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                return;
+
             float originalDamage = event.getAmount();
             float reducedDamage = originalDamage * 0.98F; // 2% less
             event.setAmount(reducedDamage);

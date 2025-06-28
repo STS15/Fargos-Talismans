@@ -83,6 +83,18 @@ public class Config {
     public static ModConfigSpec.BooleanValue BEE_CLOAK_TOGGLE;
     public static ModConfigSpec.BooleanValue STAR_VEIL_TOGGLE;
     public static ModConfigSpec.BooleanValue HERO_SHIELD_TOGGLE;
+    public static ModConfigSpec.BooleanValue AEOLUS_BOOTS_TOGGLE;
+    public static ModConfigSpec.BooleanValue BRAIN_SCRAMBLER_TOGGLE;
+    public static ModConfigSpec.BooleanValue REINDEER_BELLS_TOGGLE;
+    public static ModConfigSpec.BooleanValue ANCIENT_HORN_TOGGLE;
+    public static ModConfigSpec.BooleanValue MECHANICAL_CART_TOGGLE;
+    public static ModConfigSpec.BooleanValue BLESSED_APPLE_TOGGLE;
+    public static ModConfigSpec.BooleanValue MASTER_NINJA_GEAR_TOGGLE;
+    public static ModConfigSpec.BooleanValue SHIELD_OF_CTHULHU_TOGGLE;
+    public static ModConfigSpec.BooleanValue BUNDLE_OF_HORSESHOE_BALLOONS_TOGGLE;
+    public static ModConfigSpec.BooleanValue AMBER_HORSESHOE_BALLOON_TOGGLE;
+    public static ModConfigSpec.BooleanValue SWEETHEART_NECKLACE_TOGGLE;
+    public static ModConfigSpec.BooleanValue FLYING_CARPET_TOGGLE;
 
     public static final String CATEGORY_SOULS = "souls";
     public static final String CATEGORY_DESC_SOULS = "Is soul functionality enabled on server?";
@@ -517,32 +529,38 @@ public class Config {
     }
     private static void generalAccessoryConfig() {
         SERVER_BUILDER.comment(CATEGORY_DESC_ACCESSORIES).push(CATEGORY_ACCESSORIES);
-        ANKH_SHIELD_TOGGLE = SERVER_BUILDER
-                .define("Ankh_Shield", true);
-        SHINY_STONE_TOGGLE = SERVER_BUILDER
-                .define("Shiny_Stone", true);
-        HAND_WARMER_TOGGLE = SERVER_BUILDER
-                .define("Hand_Warmer", true);
-        POCKET_MIRROR_TOGGLE = SERVER_BUILDER
-                .define("Pocket_Mirror", true);
-        FROZEN_SHIELD_TOGGLE = SERVER_BUILDER
-                .define("Frozen_Shield", true);
-        WORM_SCARF_TOGGLE = SERVER_BUILDER
-                .define("Worm_Scarf", true);
-        BRAIN_OF_CONFUSION_TOGGLE = SERVER_BUILDER
-                .define("Brain_Of_Confusion", true);
-        CHARM_OF_MYTHS_TOGGLE = SERVER_BUILDER
-                .define("Charm_Of_Myths", true);
-        BEE_CLOAK_TOGGLE = SERVER_BUILDER
-                .define("Bee_Cloak", true);
-        STAR_VEIL_TOGGLE = SERVER_BUILDER
-                .define("Star_Veil", true);
-        HERO_SHIELD_TOGGLE = SERVER_BUILDER
-                .define("Hero_Shield", true);
-        OBSIDIAN_HORSESHOE_TOGGLE = SERVER_BUILDER
-                .define("Obsidian_Horseshoe", true);
+
+        // Colossus
+        ANKH_SHIELD_TOGGLE = SERVER_BUILDER.define("Ankh_Shield", true);
+        SHINY_STONE_TOGGLE = SERVER_BUILDER.define("Shiny_Stone", true);
+        HAND_WARMER_TOGGLE = SERVER_BUILDER.define("Hand_Warmer", true);
+        POCKET_MIRROR_TOGGLE = SERVER_BUILDER.define("Pocket_Mirror", true);
+        FROZEN_SHIELD_TOGGLE = SERVER_BUILDER.define("Frozen_Shield", true);
+        WORM_SCARF_TOGGLE = SERVER_BUILDER.define("Worm_Scarf", true);
+        BRAIN_OF_CONFUSION_TOGGLE = SERVER_BUILDER.define("Brain_Of_Confusion", true);
+        CHARM_OF_MYTHS_TOGGLE = SERVER_BUILDER.define("Charm_Of_Myths", true);
+        BEE_CLOAK_TOGGLE = SERVER_BUILDER.define("Bee_Cloak", true);
+        STAR_VEIL_TOGGLE = SERVER_BUILDER.define("Star_Veil", true);
+        HERO_SHIELD_TOGGLE = SERVER_BUILDER.define("Hero_Shield", true);
+        OBSIDIAN_HORSESHOE_TOGGLE = SERVER_BUILDER.define("Obsidian_Horseshoe", true);
+
+        // Supersonic
+        AEOLUS_BOOTS_TOGGLE = SERVER_BUILDER.define("Aeolus_Boots", true);
+        BRAIN_SCRAMBLER_TOGGLE = SERVER_BUILDER.define("Brain_Scrambler", true);
+        REINDEER_BELLS_TOGGLE = SERVER_BUILDER.define("Reindeer_Bells", true);
+        ANCIENT_HORN_TOGGLE = SERVER_BUILDER.define("Ancient_Horn", true);
+        MECHANICAL_CART_TOGGLE = SERVER_BUILDER.define("Mechanical_Cart", true);
+        BLESSED_APPLE_TOGGLE = SERVER_BUILDER.define("Blessed_Apple", true);
+        MASTER_NINJA_GEAR_TOGGLE = SERVER_BUILDER.define("Master_Ninja_Gear", true);
+        SHIELD_OF_CTHULHU_TOGGLE = SERVER_BUILDER.define("Shield_Of_Cthulhu", true);
+        BUNDLE_OF_HORSESHOE_BALLOONS_TOGGLE = SERVER_BUILDER.define("Bundle_Of_Horseshoe_Balloons", true);
+        AMBER_HORSESHOE_BALLOON_TOGGLE = SERVER_BUILDER.define("Amber_Horseshoe_Balloon", true);
+        SWEETHEART_NECKLACE_TOGGLE = SERVER_BUILDER.define("Sweetheart_Necklace", true);
+        FLYING_CARPET_TOGGLE = SERVER_BUILDER.define("Flying_Carpet", true);
+
         SERVER_BUILDER.pop();
     }
+
     private static void appleConfig() {
         SERVER_BUILDER.push(CATEGORY_APPLE_TALISMAN);
         APPLE_TALISMAN_HEAL_FACTOR = SERVER_BUILDER

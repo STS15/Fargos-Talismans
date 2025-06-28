@@ -2,6 +2,7 @@ package com.sts15.fargos.items;
 
 import com.sts15.fargos.init.SoundRegistry;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -19,12 +20,32 @@ public abstract class TalismanItem extends Item  implements ICurioItem {
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
         return true;
     }
-    
+
     @Override
     public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
         playEquipSound(slotContext, stack);
+
+        Player player = (Player) slotContext.entity();
+        if (!player.level().isClientSide) {
+            String key = getFirstTimeMessageKey();
+            if (key != null && !player.getPersistentData().getBoolean(key)) {
+                Component msg = getFirstTimeMessageComponent();
+                if (msg != null) {
+                    player.sendSystemMessage(msg);
+                }
+                player.getPersistentData().putBoolean(key, true);
+            }
+        }
     }
-    
+
+    protected String getFirstTimeMessageKey() {
+        return null;
+    }
+
+    protected Component getFirstTimeMessageComponent() {
+        return null;
+    }
+
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
         playUnequipSound(slotContext, stack);

@@ -107,7 +107,7 @@
   "item.fargostalismans.tooltip.pickaxe_talisman": "Mining speed doubled",
   "item.fargostalismans.tooltip.vindicator_talisman": "Boosts next attack after switching weapons",
   "item.fargostalismans.tooltip.ghast_talisman": "Redirects ghast fireballs back",
-  "item.fargostalismans.tooltip.creeper_talisman": "Explode on jump",
+  "item.fargostalismans.tooltip.creeper_talisman": "Creepers will ignore you unless you provoke them",
   "item.fargostalismans.tooltip.vampiric_talisman": "Drains health from enemies to heal the player",
   "item.fargostalismans.tooltip.enchanting_talisman": "Removes curses from item held in main or offhand",
   "item.fargostalismans.tooltip.librarian_talisman": "Increases experience gained from most common sources by 50%",
@@ -231,7 +231,7 @@
 
   "item.fargostalismans.tooltip.soul_of_minecraft": "Combines the ability of all the Forces",
   "item.fargostalismans.tooltip.soul_of_flight_mastery": "Grants creative flight",
-  "item.fargostalismans.tooltip.soul_of_colossus": "Grants superhuman health and immunity to all negative debuffs",
+  "item.fargostalismans.tooltip.soul_of_colossus": "Provides superhuman health and negates all negative effects. Hostiles will prioritize targeting you. Provides effects from all crafting trinkets.",
   "item.fargostalismans.tooltip.soul_of_supersonic": "Grants supersonic speed running and flying",
   "item.fargostalismans.tooltip.soul_of_trawler": "Grants better fishing odds",
   "item.fargostalismans.tooltip.soul_of_dimensions": "Combines the ability of ALL the Souls",
@@ -253,7 +253,6 @@
   "item.fargostalismans.phantom_wings_elytra": "Phantom Wings",
   "item.fargostalismans.volcanic_ash_elytra": "Volcanic Ash Wings",
   "item.fargostalismans.wither_wings_elytra": "Wither Wings",
-  "item.fargostalismans.tooltip.craftingitem.scavenged": "Scavenged from mobs in a Fargo's Dungeon",
 
   "item.fargostalismans.ankh_shield": "Ankh Shield",
   "item.fargostalismans.tooltip.ankh_shield": "Provides immunity to Darkness and Poisoned",
@@ -271,32 +270,43 @@
   "item.fargostalismans.tooltip.charm_of_myths": "Increased life regeneration while actively healing",
   "item.fargostalismans.brain_of_confusion": "Brain of Confusion",
   "item.fargostalismans.tooltip.brain_of_confusion": "10% chance to dodge the attack",
-
-
   "item.fargostalismans.obsidian_horseshoe": "Obsidian Horseshoe",
-  "item.fargostalismans.tooltip.obsidian_horseshoe": "Provides the ability to walk on fire and magma without taking damage (Does not include lava)",
+  "item.fargostalismans.tooltip.obsidian_horseshoe": "Provides the ability to walk on magma blocks without taking damage and limited lava resistance",
   "item.fargostalismans.bee_cloak": "Bee Cloak",
-  "item.fargostalismans.tooltip.bee_cloak": "Release a wave of bee stinger projectiles in an AOE around you when attacked",
+  "item.fargostalismans.tooltip.bee_cloak": "Bees never become hostile to you. While near a hive, you slowly regenerate food.",
   "item.fargostalismans.star_veil": "Star Veil",
-  "item.fargostalismans.tooltip.star_veil": "Extends immunity frames and summons a star projectile that strikes your attacker",
+  "item.fargostalismans.tooltip.star_veil": "Extends immunity frames after taking damage",
   "item.fargostalismans.hero_shield": "Hero Shield",
   "item.fargostalismans.tooltip.hero_shield": "Provides knockback resistance from attacks or explosions, and draws aggression from nearby monsters",
-
-
   "item.fargostalismans.tooltip.craftingitem.looted": "Looted from a Fargo's Dungeon",
-  
+
   "item.fargostalismans.aeolus_boots": "Aeolus Boots",
+  "item.fargostalismans.tooltip.aeolus_boots": "Increased sprint speed",
   "item.fargostalismans.brain_scrambler": "Brain Scrambler",
+  "item.fargostalismans.tooltip.brain_scrambler": "Occasionally confuse nearby enemies when sprinting near them",
   "item.fargostalismans.reindeer_bells": "Reindeer Bells",
+  "item.fargostalismans.tooltip.reindeer_bells": "Grants a higher jump",
   "item.fargostalismans.ancient_horn": "Ancient Horn",
+  "item.fargostalismans.tooltip.ancient_horn": "Gain a burst of speed after falling more than 2 blocks",
   "item.fargostalismans.mechanical_cart": "Mechanical Cart",
+  "item.fargostalismans.tooltip.mechanical_cart": "Ride rails like there's a motor in your minecart!",
   "item.fargostalismans.blessed_apple": "Blessed Apple",
+  "item.fargostalismans.tooltip.blessed_apple": "Step assist while sprinting",
   "item.fargostalismans.master_ninja_gear": "Master Ninja Gear",
+  "item.fargostalismans.tooltip.master_ninja_gear": "Does not alert the Warden unless attacked",
   "item.fargostalismans.shield_of_cthulhu": "Shield of Cthulhu",
+  "item.fargostalismans.tooltip.shield_of_cthulhu": "Collision with enemies while sprinting knocks them back",
   "item.fargostalismans.bundle_of_horseshoe_balloons": "Bundle of Horseshoe Balloons",
+  "item.fargostalismans.tooltip.bundle_of_horseshoe_balloons": "Negates fall damage from falls shorter than 10 blocks",
   "item.fargostalismans.amber_horseshoe_balloon": "Amber Horseshoe Balloon",
+  "item.fargostalismans.tooltip.amber_horseshoe_balloon": "Fall damage is capped at 2 hearts",
   "item.fargostalismans.sweetheart_necklace": "Sweetheart Necklace",
+  "item.fargostalismans.tooltip.sweetheart_necklace": "Sprinting grants nearby players regeneration",
   "item.fargostalismans.flying_carpet": "Flying Carpet",
+  "item.fargostalismans.tooltip.flying_carpet": "Hold [LShift] while falling to slowly glide downward, reducing fall speed and allowing mid-air control",
+  "item.fargostalismans.tooltip.craftingitem.scavenged": "Scavenged from mobs in a Fargo's Dungeon",
+
+
   "item.fargostalismans.fatigued_vial": "Fatigued Vial",
   "item.fargostalismans.withered_vial": "Withered Vial",
   "item.fargostalismans.nauseated_vial": "Nauseated Vial",
@@ -439,7 +449,7 @@
   "effect.fargostalismans.withered_talisman_effect.desc": "While withered, you do %s%% more damage",
   "effect.fargostalismans.zombie_talisman_effect.desc": "Temporarily increases attack speed after not attacking for a while",
   "effect.fargostalismans.soul_of_colossus_effect.desc": "Grants superhuman health and immunity to all negative debuffs",
-  "effect.fargostalismans.soul_of_flight_mastery_effect.desc": "Grants creative flight",
+  "effect.fargostalismans.soul_of_flight_mastery_effect.desc": "Grants creative and elytra flight",
   "effect.fargostalismans.soul_of_supersonic_effect.desc": "Grants supersonic speed running and flying",
 
   "block.fargostalismans.pedestal": "Talisman Pedestal",
@@ -468,5 +478,9 @@
   "screen.fargostalismans.header": "Fargo's Talismans Config",
   "screen.fargostalismans.node.talisman.header": "Talismans",
   "screen.fargostalismans.node.soul.header": "Souls",
-  "config.fargostalismans.tooltip.disabled": "[Disabled by Server Config]"
+  "screen.fargostalismans.node.trinket.header": "Trinkets",
+  "config.fargostalismans.tooltip.disabled": "[Disabled by Server Config]",
+
+  "curios.identifier.trinket": "Trinket",
+  "curios.identifier.talisman": "Talisman"
 }

@@ -7,17 +7,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.player.Player;
-
 import java.util.List;
-
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.sts15.fargos.items.providers.Spectral_Talisman_Provider;
-
 import top.theillusivec4.curios.api.CuriosApi;
 
 @Mixin(targets = "net.minecraft.world.entity.monster.Phantom$PhantomAttackPlayerTargetGoal")
@@ -31,9 +29,7 @@ public abstract class PhantomAttackPlayerTargetGoalMixin {
     private void onCanUse(CallbackInfoReturnable<Boolean> cir) {
         List<Player> players = this$0.level().getNearbyPlayers(TargetingConditions.forCombat().range(64.0), this$0, this$0.getBoundingBox().inflate(16.0, 64.0, 16.0));
         for (Player player : players) {
-            //System.out.println("Phantom checking player: " + player.getName().getString() + " (ID: " + player.getUUID() + ")");
-            if (hasPhantomTalisman(player)) {
-                //System.out.println("Phantom skipped player with talisman: " + player.getName().getString() + " (ID: " + player.getUUID() + ")");
+            if (fargos_Talismans_main$hasPhantomTalisman(player)) {
                 cir.setReturnValue(false);
                 return;
             }
@@ -45,18 +41,16 @@ public abstract class PhantomAttackPlayerTargetGoalMixin {
         LivingEntity target = this$0.getTarget();
 
         if (target instanceof Player player) {
-            //System.out.println("Phantom targeting player: " + player.getName().getString() + " (ID: " + player.getUUID() + ")");
-            if (hasPhantomTalisman(player)) {
-                //System.out.println("Phantom stopped targeting player with talisman: " + player.getName().getString() + " (ID: " + player.getUUID() + ")");
+            if (fargos_Talismans_main$hasPhantomTalisman(player)) {
                 cir.setReturnValue(false);
             }
         }
     }
 
+    @Unique
     @SuppressWarnings({ "deprecation", "removal" })
-    private static boolean hasPhantomTalisman(Player player) {
+    private static boolean fargos_Talismans_main$hasPhantomTalisman(Player player) {
         if (player instanceof ServerPlayer serverPlayer) {
-            // Check if the talisman is enabled for the server player
             if (!TalismanUtil.isTalismanEnabled(serverPlayer, "spectral_talisman")) {
                 return false;
             }

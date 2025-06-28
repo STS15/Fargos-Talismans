@@ -4,6 +4,7 @@ import com.sts15.fargos.Fargos;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Shiny_Stone_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -85,6 +86,8 @@ public class ShinyStoneItem extends TalismanItem implements Shiny_Stone_Provider
             lastMovementTimes.remove(playerId);
             return;
         }
+        if (!TalismanUtil.isTalismanEnabled(player, charmName))
+            return;
 
         BlockPos currentPos = player.blockPosition();
         BlockPos lastPos = lastPositions.getOrDefault(playerId, BlockPos.ZERO);

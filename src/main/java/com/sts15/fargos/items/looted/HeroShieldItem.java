@@ -4,6 +4,7 @@ import com.sts15.fargos.Fargos;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Hero_Shield_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -77,6 +78,8 @@ public class HeroShieldItem extends TalismanItem implements Hero_Shield_Provider
             boolean hasShieldEquipped = CuriosApi.getCuriosHelper()
                     .findEquippedCurio(stack -> stack.getItem() instanceof Hero_Shield_Provider, player)
                     .isPresent();
+            if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                return;
 
             if (hasShieldEquipped && HeroShieldItem.checkConfigEnabledStatus()) {
                 addKnockbackResistance(player);
@@ -104,45 +107,24 @@ public class HeroShieldItem extends TalismanItem implements Hero_Shield_Provider
             if (!(event.getEntity() instanceof Mob mob)) return;
             if (!checkConfigEnabledStatus()) return;
 
-            // Original new target (before we override it)
-            LivingEntity aboutToTarget = event.getNewAboutToBeSetTarget();
-            LivingEntity originalTarget = event.getOriginalAboutToBeSetTarget();
+            double radius = 16.0;
 
-            // Log the original target and about-to-be-set target
-//            System.out.println("Mob [" + mob.getName().getString() + "] is changing target.");
-//            System.out.println("Original Target: " + (originalTarget != null ? originalTarget.getName().getString() : "None"));
-//            System.out.println("About to Target: " + (aboutToTarget != null ? aboutToTarget.getName().getString() : "None"));
-
-            // If there's at least one hero-shield-bearer around, pick the best candidate
-            double radius = 16.0; // how far mobs will search for a shield-bearer
-
-            // Must be on the server side
             if (mob.level() instanceof ServerLevel serverLevel) {
                 List<ServerPlayer> shieldBearers = serverLevel.getEntitiesOfClass(
                         ServerPlayer.class,
                         new AABB(mob.blockPosition()).inflate(radius),
-                        p -> CuriosApi.getCuriosHelper()
-                                .findEquippedCurio(stack -> stack.getItem() instanceof Hero_Shield_Provider, p)
+                        player -> CuriosApi.getCuriosHelper()
+                                .findEquippedCurio(stack -> stack.getItem() instanceof Hero_Shield_Provider, player)
                                 .isPresent()
+                                &&
+                                TalismanUtil.isTalismanEnabled(player, charmName)
                 );
 
                 if (!shieldBearers.isEmpty()) {
-                    // Log the found shield-bearers
-                    //System.out.println("Found Shield Bearers in Range:");
-                    shieldBearers.forEach(p -> System.out.println("- " + p.getName().getString()));
-
-                    // Pick the closest shield-bearer
-                    ServerPlayer closestShield = shieldBearers.stream()
+                    shieldBearers.stream()
+                            .filter(mob::hasLineOfSight)
                             .min(Comparator.comparingDouble(p -> p.distanceToSqr(mob)))
-                            .orElse(null);
-
-                    // If found, override the new target with this shield-bearer
-                    if (closestShield != null) {
-                        event.setNewAboutToBeSetTarget(closestShield);
-                        //System.out.println("Mob [" + mob.getName().getString() + "] now targeting [" + closestShield.getName().getString() + "].");
-                    }
-                } else {
-                    //System.out.println("No Shield Bearers found in range.");
+                            .ifPresent(event::setNewAboutToBeSetTarget);
                 }
             }
         }

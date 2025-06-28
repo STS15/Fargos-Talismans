@@ -4,6 +4,7 @@ import com.sts15.fargos.Fargos;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Hand_Warmer_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -85,6 +86,8 @@ public class HandWarmerItem extends TalismanItem implements ICurioItem, Hand_War
                 return;
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Hand_Warmer_Provider, player).isPresent()) {
+                if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                    return;
                 negateNegativeEffects(player);
             }
         }

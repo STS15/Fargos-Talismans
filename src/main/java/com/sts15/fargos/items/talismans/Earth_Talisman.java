@@ -54,25 +54,39 @@ public class Earth_Talisman extends TalismanItem implements Earth_Talisman_Provi
         } catch (NoSuchFieldException | IllegalAccessException e) {}
         return isEnabled;
     }
-    
+
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
+
         @SubscribeEvent
         public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
             if (!(event.getEntity() instanceof ServerPlayer player))
                 return;
-            
-            if (player.hasEffect(EffectsInit.EARTH_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Earth_Talisman_Provider, player).isPresent()) {
+
+            if (player.hasEffect(EffectsInit.EARTH_TALISMAN_EFFECT) ||
+                    CuriosApi.getCuriosHelper()
+                            .findEquippedCurio(stack -> stack.getItem() instanceof Earth_Talisman_Provider, player)
+                            .isPresent()) {
+
                 if (!TalismanUtil.isTalismanEnabled(player, talismanName))
                     return;
-                if(event.getLevel().getBlockState(event.getPos()).is(BlockTags.DIRT)){
+
+                var blockState = event.getLevel().getBlockState(event.getPos());
+                var block = blockState.getBlock();
+
+                if (block == Blocks.DIRT ||
+                        block == Blocks.COARSE_DIRT ||
+                        block == Blocks.PODZOL ||
+                        block == Blocks.ROOTED_DIRT) {
+
                     if (player.getMainHandItem().isEmpty()) {
                         if (!event.getLevel().isClientSide()) {
                             event.getLevel().setBlock(event.getPos(), Blocks.GRASS_BLOCK.defaultBlockState(), 3);
                         }
                     }
-    			}
-    	    }
+                }
+            }
         }
     }
+
 }

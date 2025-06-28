@@ -8,7 +8,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -21,16 +20,18 @@ public class NetworkHandler {
 
         registrar.playToServer(ToggleTalismanStatePacket.TYPE, ToggleTalismanStatePacket.STREAM_CODEC, ToggleTalismanStatePacket::handle);
         registrar.playToClient(SyncAirStatusPacket.TYPE, SyncAirStatusPacket.STREAM_CODEC, SyncAirStatusPacket::handle);
+        registrar.playToClient(SyncFireShieldPacket.TYPE, SyncFireShieldPacket.STREAM_CODEC, SyncFireShieldPacket::handle);
         registrar.playBidirectional(TalismanStatePacket.TYPE, TalismanStatePacket.STREAM_CODEC, TalismanStatePacket::handle);
         registrar.playBidirectional(ServerTalismanConfigPacket.TYPE, ServerTalismanConfigPacket.STREAM_CODEC, ServerTalismanConfigPacket::handle);
+
     }
 
-    public static void sendToggleTalismanStateToServer(/*ServerPlayer player, */int talismanIndex, boolean isEnabled) {
+    public static void sendToggleTalismanStateToServer(int talismanIndex, boolean isEnabled) {
         ToggleTalismanStatePacket packet = new ToggleTalismanStatePacket(talismanIndex, isEnabled);
         PacketDistributor.sendToServer(packet);
     }
 
-    public static void sendToggleTalismanStateToLocal(/*LocalPlayer player, */int talismanIndex, boolean isEnabled) {
+    public static void sendToggleTalismanStateToLocal(int talismanIndex, boolean isEnabled) {
         ToggleTalismanStatePacket packet = new ToggleTalismanStatePacket(talismanIndex, isEnabled);
         PacketDistributor.sendToServer(packet);
     }
@@ -41,13 +42,11 @@ public class NetworkHandler {
     }
 
     public static void sendTalismanStateRequestToServer() {
-        //System.out.println("Sending TalismanStatePacket request to server.");
         TalismanStatePacket packet = new TalismanStatePacket(new HashMap<>());
         PacketDistributor.sendToServer(packet);
     }
 
     public static void sendTalismanStateToClient(ServerPlayer player, Map<Integer, Boolean> talismanStates) {
-        //System.out.println("Sending TalismanStatePacket to client with states: " + talismanStates);
         TalismanStatePacket packet = new TalismanStatePacket(talismanStates);
         PacketDistributor.sendToPlayer(player, packet);
     }
@@ -57,10 +56,14 @@ public class NetworkHandler {
         PacketDistributor.sendToServer(packet);
     }
 
-    // Method to send the response from the server to the client
     public static void sendServerTalismanConfigToClient(ServerPlayer serverPlayer, UUID playerUUID, Map<String, Boolean> talismanStates) {
         ServerTalismanConfigPacket packet = new ServerTalismanConfigPacket(playerUUID.toString(), talismanStates);
         PacketDistributor.sendToPlayer(serverPlayer, packet);
+    }
+
+    public static void sendSyncFireShieldToClient(ServerPlayer player, int duration) {
+        SyncFireShieldPacket pkt = new SyncFireShieldPacket(duration);
+        PacketDistributor.sendToPlayer(player, pkt);
     }
 
 }

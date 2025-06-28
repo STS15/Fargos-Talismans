@@ -5,6 +5,7 @@ import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Ankh_Shield_Provider;
 import com.sts15.fargos.items.providers.Pocket_Mirror_Provider;
+import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -87,6 +88,8 @@ public class PocketMirrorItem extends TalismanItem implements ICurioItem, Pocket
                 return;
 
             if (CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Pocket_Mirror_Provider, player).isPresent()) {
+                if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                    return;
                 negateNegativeEffects(player);
             }
         }

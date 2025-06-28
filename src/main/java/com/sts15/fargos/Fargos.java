@@ -5,6 +5,7 @@ import com.sts15.fargos.block.entity.BlockEntitiesInit;
 import com.sts15.fargos.block.entity.renderer.PedestalBlockEntityRenderer;
 import com.sts15.fargos.client.command.*;
 import com.sts15.fargos.client.elytra.MyElytraLayer;
+import com.sts15.fargos.client.hud.FireUIRenderer;
 import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.init.*;
 import com.sts15.fargos.items.ItemInit;
@@ -74,6 +75,7 @@ public class Fargos {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            NeoForge.EVENT_BUS.register(FireUIRenderer.class);
         }
 
         @SubscribeEvent

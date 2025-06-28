@@ -48,61 +48,52 @@ public class TalismanToggleScreen extends Screen {
     protected void init() {
         this.leftPos = (this.width - WINDOW_WIDTH) / 2;
         this.topPos = (this.height - WINDOW_HEIGHT) / 2;
-        nodes = setupTalismanNodes();
+        nodes = setupNodes();
         totalNodeHeight = nodes.size() * NODE_HEIGHT;
     }
 
     public void setTalismanStates(Map<Integer, Boolean> states) {
-        //System.out.println("Setting talisman states from packet: " + states);
         talismanStates.clear();
         talismanStates.putAll(states);
         updateTalismanStates();
     }
 
-//    private List<TalismanNode> setupTalismanNodes() {
-//        List<TalismanNode> talismanNodes = new ArrayList<>();
-//        for (Map.Entry<Integer, Boolean> entry : talismanStates.entrySet()) {
-//            TalismanType talismanType = TalismanType.byIndex(entry.getKey());
-//            String talismanName = talismanType.name().toLowerCase();
-//            boolean isEnabled = entry.getValue();
-//            talismanNodes.add(new TalismanNode(talismanName, isEnabled));
-//        }
-//        return talismanNodes;
-//    }
-
-    private List<TalismanNode> setupTalismanNodes() {
+    private List<TalismanNode> setupNodes() {
         List<TalismanNode> talismanNodes = new ArrayList<>();
         List<TalismanNode> soulNodes = new ArrayList<>();
+        List<TalismanNode> trinketNodes = new ArrayList<>();
 
-        // Separate talismans and souls
         for (Map.Entry<Integer, Boolean> entry : talismanStates.entrySet()) {
-            TalismanType talismanType = TalismanType.byIndex(entry.getKey());
-            String talismanName = talismanType.name();
+            TalismanType type = TalismanType.byIndex(entry.getKey());
+            String name = type.name();
             boolean isEnabled = entry.getValue();
 
-            if (talismanName.endsWith("_TALISMAN")) {
-                talismanNodes.add(new TalismanNode(talismanName.toLowerCase(), isEnabled));
-            } else if (talismanName.startsWith("SOUL_OF_")) {
-                soulNodes.add(new TalismanNode(talismanName.toLowerCase(), isEnabled));
+            if (name.endsWith("_TALISMAN")) {
+                talismanNodes.add(new TalismanNode(name.toLowerCase(), isEnabled));
+            } else if (name.startsWith("SOUL_OF_")) {
+                soulNodes.add(new TalismanNode(name.toLowerCase(), isEnabled));
+            } else {
+                trinketNodes.add(new TalismanNode(name.toLowerCase(), isEnabled));
             }
         }
 
         List<TalismanNode> nodes = new ArrayList<>();
-
-        // Add the talisman header and talisman nodes
         if (!talismanNodes.isEmpty()) {
-            nodes.add(new TalismanNode("talisman_header", false)); // Add a header node for talismans
+            nodes.add(new TalismanNode("talisman_header", false));
             nodes.addAll(talismanNodes);
         }
-
-        // Add the soul header and soul nodes
+        if (!trinketNodes.isEmpty()) {
+            nodes.add(new TalismanNode("trinket_header", false));
+            nodes.addAll(trinketNodes);
+        }
         if (!soulNodes.isEmpty()) {
-            nodes.add(new TalismanNode("soul_header", false)); // Add a header node for souls
+            nodes.add(new TalismanNode("soul_header", false));
             nodes.addAll(soulNodes);
         }
 
         return nodes;
     }
+
 
 
     @Override
@@ -121,63 +112,49 @@ public class TalismanToggleScreen extends Screen {
     }
 
     private void renderCustomBackground(GuiGraphics guiGraphics) {
-        int startColor = FastColor.ARGB32.color(200, 34, 45, 50); // Subtle modern background
+        int startColor = FastColor.ARGB32.color(200, 34, 45, 50);
         int endColor = FastColor.ARGB32.color(200, 24, 35, 40);
-
         guiGraphics.fillGradient(leftPos, topPos, leftPos + WINDOW_WIDTH, topPos + WINDOW_HEIGHT, startColor, endColor);
-
-        // Add subtle transparency and depth to the background
         int overlayColor = FastColor.ARGB32.color(120, 20, 20, 20);
         guiGraphics.fill(leftPos + 10, topPos + 10, leftPos + WINDOW_WIDTH - 10, topPos + WINDOW_HEIGHT - 10, overlayColor);
-
-        // Modern border with rounded corners and slight glow
         int borderColor = FastColor.ARGB32.color(255, 80, 150, 200);
         guiGraphics.renderOutline(leftPos, topPos, WINDOW_WIDTH, WINDOW_HEIGHT, borderColor);
     }
 
     private void drawHeaderNode(GuiGraphics guiGraphics, String nodeType, int x, int y, int mouseX, int mouseY) {
-        int startColor = FastColor.ARGB32.color(240, 80, 80, 100); // More distinct gradient for header
+        int startColor = FastColor.ARGB32.color(240, 80, 80, 100);
         int endColor = FastColor.ARGB32.color(240, 60, 60, 80);
-        int borderColor = FastColor.ARGB32.color(255, 160, 160, 220); // Lighter border for professional look
-
+        int borderColor = FastColor.ARGB32.color(255, 160, 160, 220);
         guiGraphics.fillGradient(x, y, x + 200, y + NODE_HEIGHT - 2, startColor, endColor);
         guiGraphics.renderOutline(x, y, 200, NODE_HEIGHT - 2, borderColor);
-
         Component nameComponent = Component.translatable("screen.fargostalismans.node."+nodeType+".header")
                 .withStyle(ChatFormatting.BOLD);
-
         guiGraphics.drawString(Minecraft.getInstance().font, nameComponent, x + 25, y + 5, FastColor.ARGB32.color(255, 240, 240, 255), true);
-
     }
-
-
 
     private void drawNode(GuiGraphics guiGraphics, TalismanNode node, int x, int y, int mouseX, int mouseY) {
         if (node.talismanName().equals("talisman_header")) {
-            drawHeaderNode(guiGraphics, "talisman", x, y, mouseX, mouseY); // Use drawHeaderNode for talisman header
+            drawHeaderNode(guiGraphics, "talisman", x, y, mouseX, mouseY);
             return;
         } else if (node.talismanName().equals("soul_header")) {
-            drawHeaderNode(guiGraphics, "soul", x, y, mouseX, mouseY); // Use drawHeaderNode for soul header
+            drawHeaderNode(guiGraphics, "soul", x, y, mouseX, mouseY);
+            return;
+        } else if (node.talismanName().equals("trinket_header")) {
+            drawHeaderNode(guiGraphics, "trinket", x, y, mouseX, mouseY);
             return;
         }
 
-        int startColor = FastColor.ARGB32.color(220, 60, 60, 80); // Softer gradient
+        int startColor = FastColor.ARGB32.color(220, 60, 60, 80);
         int endColor = FastColor.ARGB32.color(220, 40, 40, 60);
-        int borderColor = FastColor.ARGB32.color(255, 140, 140, 180); // Lighter border
-        int hoverColor = FastColor.ARGB32.color(255, 190, 190, 230);  // Subtle hover effect
-
+        int borderColor = FastColor.ARGB32.color(255, 140, 140, 180);
+        int hoverColor = FastColor.ARGB32.color(255, 190, 190, 230);
         guiGraphics.fillGradient(x, y, x + 200, y + NODE_HEIGHT - 2, startColor, endColor);
-
         int currentBorderColor = isHoveringNode(x, y, mouseX, mouseY) ? hoverColor : borderColor;
         guiGraphics.renderOutline(x, y, 200, NODE_HEIGHT - 2, currentBorderColor);
-
         Component nameComponent = Component.translatable("item.fargostalismans." + node.talismanName());
-
         guiGraphics.drawString(Minecraft.getInstance().font, nameComponent, x + 25, y + 5, FastColor.ARGB32.color(255, 240, 240, 255), true);
-
         drawCheckbox(guiGraphics, x + 170, y + 5, node.enabled());
         drawIcon(guiGraphics, x + 5, (y + (NODE_HEIGHT - 12) / 2) - 1, node);
-
         if (isHoveringNode(x, y, mouseX, mouseY)) {
             guiGraphics.renderTooltip(Minecraft.getInstance().font, Component.translatable("item.fargostalismans.tooltip." + node.talismanName()), mouseX, mouseY);
         }
@@ -186,17 +163,13 @@ public class TalismanToggleScreen extends Screen {
     private void drawCheckbox(GuiGraphics guiGraphics, int x, int y, boolean checked) {
         int outlineColor = FastColor.ARGB32.color(255, 220, 220, 255);
         int checkmarkColor = FastColor.ARGB32.color(255, 50, 220, 80);
-
         guiGraphics.fill(x, y, x + 10, y + 10, outlineColor);
-
         if (checked) {
-            // Apply a smooth fade-in animation for the checkmark
             guiGraphics.fill(x + 2, y + 2, x + 8, y + 8, checkmarkColor);
         }
     }
 
     private void drawHeader(GuiGraphics guiGraphics) {
-        // Draw the header text centered at the top of the screen
         int headerX = leftPos + (WINDOW_WIDTH / 2) - (Minecraft.getInstance().font.width(headerText) / 2);
         int headerY = topPos + 5;
         guiGraphics.drawString(Minecraft.getInstance().font, headerText, headerX, headerY, FastColor.ARGB32.color(255, 255, 255, 255), true);
@@ -220,12 +193,7 @@ public class TalismanToggleScreen extends Screen {
     }
 
     public void updateTalismanStates() {
-        //System.out.println("Updating Talisman states on the screen");
-        nodes = setupTalismanNodes();
-
-        if (nodes.isEmpty()) {
-            //System.out.println("No talisman nodes to display.");
-        }
+        nodes = setupNodes();
         totalNodeHeight = nodes.size() * NODE_HEIGHT;
         this.init();
     }
@@ -236,22 +204,40 @@ public class TalismanToggleScreen extends Screen {
 
     private void drawScrollBar(GuiGraphics guiGraphics) {
         int visibleHeight = WINDOW_HEIGHT - 40;
-
-        if (totalNodeHeight == 0) {
-            //System.out.println("Total node height is zero, skipping scrollbar rendering.");
-            return; // Skip rendering the scrollbar if there are no nodes
-        }
+        if (totalNodeHeight == 0) return;
 
         int maxScrollOffset = Math.max(0, totalNodeHeight - visibleHeight);
-        int scrollBarHeight = Math.max(10, visibleHeight * visibleHeight / totalNodeHeight);
+        int scrollBarHeight = Math.max(12, visibleHeight * visibleHeight / totalNodeHeight);
 
-        if (maxScrollOffset > 0) {
-            int scrollBarY = topPos + 20 + (int) ((float) scrollOffset / maxScrollOffset * (visibleHeight - scrollBarHeight));
-            guiGraphics.fill(leftPos + WINDOW_WIDTH - SCROLL_BAR_WIDTH, scrollBarY, leftPos + WINDOW_WIDTH, scrollBarY + scrollBarHeight, FastColor.ARGB32.color(255, 128, 128, 128));
-        } else {
-            guiGraphics.fill(leftPos + WINDOW_WIDTH - SCROLL_BAR_WIDTH, topPos + 20, leftPos + WINDOW_WIDTH, topPos + 20 + scrollBarHeight, FastColor.ARGB32.color(255, 128, 128, 128));
+        int barX1 = leftPos + WINDOW_WIDTH - SCROLL_BAR_WIDTH;
+        int barX2 = leftPos + WINDOW_WIDTH - 1;
+
+        int scrollBarY = (maxScrollOffset > 0)
+                ? topPos + 20 + (int) ((float) scrollOffset / maxScrollOffset * (visibleHeight - scrollBarHeight))
+                : topPos + 20;
+
+        // ✨ Draw rounded thumb with subtle gradient
+        int thumbTopColor = FastColor.ARGB32.color(255, 160, 160, 160);
+        int thumbBottomColor = FastColor.ARGB32.color(255, 110, 110, 110);
+        guiGraphics.fillGradient(barX1, scrollBarY, barX2, scrollBarY + scrollBarHeight, thumbTopColor, thumbBottomColor);
+
+        // ✏️ Draw thin border on left
+        int borderColor = FastColor.ARGB32.color(255, 90, 90, 90);
+        guiGraphics.fill(barX1, scrollBarY, barX1 + 1, scrollBarY + scrollBarHeight, borderColor);
+
+        // 🪝 Draw 3 centered grip lines
+        int gripColor = FastColor.ARGB32.color(255, 230, 230, 230);
+        int gripX1 = barX1 + 2;
+        int gripX2 = barX2 - 2;
+        int gripStartY = scrollBarY + (scrollBarHeight / 2) - 3;
+
+        for (int i = 0; i < 3; i++) {
+            int y = gripStartY + i * 3;
+            guiGraphics.fill(gripX1, y, gripX2, y + 1, gripColor);
         }
     }
+
+
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
@@ -265,10 +251,8 @@ public class TalismanToggleScreen extends Screen {
             int visibleHeight = WINDOW_HEIGHT - 40;
             int scrollBarHeight = Math.max(10, visibleHeight * visibleHeight / totalNodeHeight);
             int maxScrollOffset = Math.max(0, totalNodeHeight - visibleHeight);
-
             double scrollBarY = Mth.clamp(mouseY - topPos - 20 - scrollBarHeight / 2.0, 0, visibleHeight - scrollBarHeight);
             scrollOffset = (int) Mth.clamp((scrollBarY / (visibleHeight - scrollBarHeight)) * maxScrollOffset, 0, maxScrollOffset);
-
             return true;
         }
         return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
@@ -283,10 +267,8 @@ public class TalismanToggleScreen extends Screen {
                 int yStart = topPos + 20 - scrollOffset;
                 int yPos = yStart + i * NODE_HEIGHT;
                 TalismanNode node = nodes.get(i);
-
-                // Skip headers when checking for clicks
-                if (node.talismanName().equals("talisman_header") || node.talismanName().equals("soul_header")) {
-                    continue; // Skip the iteration for header nodes
+                if (node.talismanName().equals("talisman_header") || node.talismanName().equals("soul_header") || node.talismanName().equals("trinket_header")) {
+                    continue;
                 }
 
                 int checkboxX = leftPos + 180;
@@ -304,7 +286,6 @@ public class TalismanToggleScreen extends Screen {
         }
         return super.mouseClicked(mouseX, mouseY, button);
     }
-
 
     private void toggleTalisman(TalismanNode node) {
         LocalPlayer player = Minecraft.getInstance().player;
@@ -331,7 +312,6 @@ public class TalismanToggleScreen extends Screen {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player != null) {
             minecraft.execute(() -> {
-                //System.out.println("Opening TalismanToggleScreen and requesting talisman states from server.");
                 NetworkHandler.sendTalismanStateRequestToServer();
                 minecraft.setScreen(new TalismanToggleScreen(Component.literal("Talisman Toggle")));
             });

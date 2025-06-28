@@ -10,6 +10,7 @@ import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.sts15.fargos.config.PlayerDataHandler;
 import com.sts15.fargos.network.NetworkHandler;
 import com.sts15.fargos.network.TalismanType;
+import com.sts15.fargos.network.TrinketType;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -24,6 +25,13 @@ public class TalismanCommand {
         return builder.buildFuture();
     };
 
+    private static final SuggestionProvider<CommandSourceStack> SUGGEST_TRINKET = (context, builder) -> {
+        for (TrinketType trinket : TrinketType.values()) {
+            builder.suggest(trinket.name().toLowerCase());
+        }
+        return builder.buildFuture();
+    };
+
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("fargostalismans")
                 .requires(source -> source.hasPermission(0))
@@ -31,7 +39,12 @@ public class TalismanCommand {
                         .then(Commands.literal("toggle")
                                 .then(Commands.argument("talisman", StringArgumentType.word())
                                         .suggests(SUGGEST_TALISMAN)
-                                        .executes(TalismanCommand::executeToggle))));
+                                        .executes(TalismanCommand::executeToggle))))
+                .then(Commands.literal("trinket")
+                        .then(Commands.literal("toggle")
+                                .then(Commands.argument("trinket", StringArgumentType.word())
+                                        .suggests(SUGGEST_TRINKET)
+                                        .executes(TalismanCommand::executeTrinketToggle))));
 
         dispatcher.register(command);
     }
@@ -60,4 +73,30 @@ public class TalismanCommand {
 
         return Command.SINGLE_SUCCESS;
     }
+
+    public static int executeTrinketToggle(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        String talismanName = StringArgumentType.getString(context, "trinket").toUpperCase();
+        TalismanType talismanType;
+        try {
+            talismanType = TalismanType.valueOf(talismanName);
+        } catch (IllegalArgumentException e) {
+            context.getSource().sendFailure(Component.literal("Invalid trinket name: " + talismanName));
+            return 0;
+        }
+
+        if (context.getSource().getEntity() instanceof ServerPlayer player) {
+            // Server-side
+            boolean isEnabled = !PlayerDataHandler.getTalismanState(player, talismanType.name());
+            PlayerDataHandler.setTalismanState(player, talismanType.name(), isEnabled);
+            player.displayClientMessage(Component.literal("Toggled trinket: " + talismanName + " to " + (isEnabled ? "enabled" : "disabled")), true);
+        } else {
+            // Client-side
+            int talismanIndex = talismanType.getIndex();
+            boolean isEnabled = !PlayerDataHandler.getTalismanState(context.getSource().getPlayerOrException(), talismanType.name());
+            NetworkHandler.sendToggleTalismanStateToServer(talismanIndex, isEnabled);
+        }
+
+        return Command.SINGLE_SUCCESS;
+    }
+
 }

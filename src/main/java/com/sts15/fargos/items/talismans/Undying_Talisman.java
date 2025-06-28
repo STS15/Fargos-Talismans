@@ -1,16 +1,11 @@
 package com.sts15.fargos.items.talismans;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
+import java.util.*;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
-
 import com.sts15.fargos.items.providers.Undying_Talisman_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
@@ -33,8 +28,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 public class Undying_Talisman extends TalismanItem implements Undying_Talisman_Provider {
 
     private static final String talismanName = "undying_talisman";
-	
-    private static Map<UUID, Long> undyingCooldowns = new HashMap<>();
+    private static final Map<UUID, Long> cooldownMap = new HashMap<>();
 
     public Undying_Talisman() {
         super(new Item.Properties().rarity(Rarity.UNCOMMON));
@@ -52,46 +46,56 @@ public class Undying_Talisman extends TalismanItem implements Undying_Talisman_P
     }
 
     public static boolean checkConfigEnabledStatus() {
-        boolean isEnabled = true;
         try {
             String fieldName = talismanName.toUpperCase() + "_TOGGLE";
             Field toggleField = Config.class.getField(fieldName);
-            isEnabled = ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
-        } catch (NoSuchFieldException | IllegalAccessException e) {}
-        return isEnabled;
+            return ((ModConfigSpec.BooleanValue) toggleField.get(null)).get();
+        } catch (Exception e) {
+            return true;
+        }
     }
-    
-    private static void teleportPlayerBackwards(Player player, int blocks) {
-        Direction direction = player.getDirection();
-        BlockPos pos = player.blockPosition();
-        BlockPos newPos = pos.relative(direction.getOpposite(), blocks);
-        player.teleportTo(newPos.getX(), newPos.getY(), newPos.getZ());
+
+    private static boolean isEligible(ServerPlayer player) {
+        if (!TalismanUtil.isTalismanEnabled(player, talismanName)) return false;
+        return player.hasEffect(EffectsInit.UNDYING_TALISMAN_EFFECT) ||
+                CuriosApi.getCuriosHelper().findEquippedCurio(
+                        stack -> stack.getItem() instanceof Undying_Talisman_Provider, player).isPresent();
     }
-    
+
+    private static boolean isOnCooldown(ServerPlayer player, long currentTime) {
+        return currentTime - cooldownMap.getOrDefault(player.getUUID(), 0L)
+                < Config.UNDYING_TALISMAN_COOLDOWN.getAsInt();
+    }
+
+    private static void revivePlayer(ServerPlayer player, long currentTime) {
+        player.level().playSound(
+                null,
+                player.getX(), player.getY(), player.getZ(),
+                net.minecraft.sounds.SoundEvents.TOTEM_USE,
+                net.minecraft.sounds.SoundSource.PLAYERS,
+                1.0F,
+                1.0F
+        );
+        player.setHealth(player.getMaxHealth());
+        cooldownMap.put(player.getUUID(), currentTime);
+    }
+
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
-        
         @SuppressWarnings({ "removal", "deprecation" })
         @SubscribeEvent
         public static void onLivingHurt(LivingIncomingDamageEvent event) {
-            if (!(event.getEntity() instanceof ServerPlayer player))
-                return;
+            if (!(event.getEntity() instanceof ServerPlayer player)) return;
+            if (!isEligible(player)) return;
 
-            if (player.hasEffect(EffectsInit.UNDYING_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Undying_Talisman_Provider, player).isPresent()) {
-                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
-                    return;
-                if (player.getHealth() - event.getAmount() <= 0) {
-                        long currentTime = player.level().getGameTime();
-                        undyingCooldowns.putIfAbsent(player.getUUID(), 0L);
-                        if (currentTime - undyingCooldowns.get(player.getUUID()) >= Config.UNDYING_TALISMAN_COOLDOWN.getAsInt()) {
-                            teleportPlayerBackwards(player, Config.UNDYING_TALISMAN_TELEPORT_DISTANCE.getAsInt());
-                            player.setHealth(player.getMaxHealth());
-                            undyingCooldowns.put(player.getUUID(), currentTime);
-                            event.setCanceled(true);
-                        }
-                    }
+            float healthAfter = player.getHealth() - event.getAmount();
+            if (healthAfter > 0) return;
+
+            long now = player.level().getGameTime();
+            if (!isOnCooldown(player, now)) {
+                revivePlayer(player, now);
+                event.setCanceled(true);
             }
         }
     }
-    
 }

@@ -84,6 +84,8 @@ public class FrozenShieldItem extends TalismanItem implements Frozen_Shield_Prov
                 removeFrozenShieldResistance(player);
                 return;
             }
+            if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                return;
 
             float halfHealth = player.getMaxHealth() / 2.0F;
             if (player.getHealth() < halfHealth) {
@@ -108,6 +110,8 @@ public class FrozenShieldItem extends TalismanItem implements Frozen_Shield_Prov
                 boolean hasFrozenShieldEquipped = CuriosApi.getCuriosHelper()
                         .findEquippedCurio(stack -> stack.getItem() instanceof Frozen_Shield_Provider, player)
                         .isPresent();
+                if (!TalismanUtil.isTalismanEnabled(player, charmName))
+                    return;
 
                 if (hasFrozenShieldEquipped) {
                     event.setAmount(0.0F);

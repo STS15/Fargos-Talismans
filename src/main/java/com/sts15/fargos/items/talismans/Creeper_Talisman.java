@@ -2,28 +2,17 @@ package com.sts15.fargos.items.talismans;
 
 import java.lang.reflect.Field;
 import java.util.List;
-
-import com.sts15.fargos.Fargos;
-import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
-
 import com.sts15.fargos.items.providers.Creeper_Talisman_Provider;
-import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.neoforge.event.entity.living.LivingEvent;
-import top.theillusivec4.curios.api.CuriosApi;
 
 public class Creeper_Talisman extends TalismanItem implements Creeper_Talisman_Provider {
 
@@ -53,19 +42,6 @@ public class Creeper_Talisman extends TalismanItem implements Creeper_Talisman_P
         } catch (NoSuchFieldException | IllegalAccessException e) {}
         return isEnabled;
     }
-    
-    @EventBusSubscriber(modid = Fargos.MODID)
-    public static class Events {
-        @SubscribeEvent
-        public static void onLivingJump(LivingEvent.LivingJumpEvent event) {
-            if (event.getEntity() instanceof ServerPlayer player) {
-                if (player.hasEffect(EffectsInit.CREEPER_TALISMAN_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Creeper_Talisman_Provider, player).isPresent()) {
-                    if (!TalismanUtil.isTalismanEnabled(player, talismanName))
-                        return;
-                    Level level = player.level();
-                    level.explode(player, player.getX(), player.getY(), player.getZ(), Config.CREEPER_TALISMAN_BLAST_RADIUS.getAsInt(), false, Level.ExplosionInteraction.NONE);
-                }
-            }
-        }
-    }
+
+    // Logic for creepers ignoring in NearestAttackableTargetGoalMixin
 }

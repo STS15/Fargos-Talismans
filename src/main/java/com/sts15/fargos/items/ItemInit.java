@@ -5,6 +5,7 @@ import com.sts15.fargos.items.components.*;
 import com.sts15.fargos.items.crafted.BasicElytraItem;
 import com.sts15.fargos.items.forces.*;
 import com.sts15.fargos.items.looted.*;
+import com.sts15.fargos.items.scavenged.*;
 import com.sts15.fargos.items.souls.*;
 import com.sts15.fargos.items.talismans.*;
 
@@ -52,70 +53,32 @@ public class ItemInit {
             () -> new BasicElytraItem(new Item.Properties().stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/wither_wings_elytra.png")));
 
     // Soul of Colossus
-//    public static final DeferredHolder<Item, TalismanItem> ANKH_SHIELD = ITEMS.register("ankh_shield", AnkhShieldItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> SHINY_STONE = ITEMS.register("shiny_stone", ShinyStoneItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> HAND_WARMER = ITEMS.register("hand_warmer", HandWarmerItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> POCKET_MIRROR = ITEMS.register("pocket_mirror", PocketMirrorItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> FROZEN_SHIELD = ITEMS.register("frozen_shield", FrozenShieldItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> WORM_SCARF = ITEMS.register("worm_scarf", WormScarfItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> CHARM_OF_MYTHS = ITEMS.register("charm_of_myths", CharmOfMythsItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> BRAIN_OF_CONFUSION = ITEMS.register("brain_of_confusion", BrainOfConfusionItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> BEE_CLOAK = ITEMS.register("bee_cloak", BeeCloakItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> HERO_SHIELD = ITEMS.register("hero_shield", HeroShieldItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe", ObsidianHorseshoeItem::new);
-//    public static final DeferredHolder<Item, TalismanItem> STAR_VEIL = ITEMS.register("star_veil", StarVeilItem::new);
-
-    public static final DeferredHolder<Item, LootedItem> ANKH_SHIELD = ITEMS.register("ankh_shield",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> BEE_CLOAK = ITEMS.register("bee_cloak",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> BRAIN_OF_CONFUSION = ITEMS.register("brain_of_confusion",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> CHARM_OF_MYTHS = ITEMS.register("charm_of_myths",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> FROZEN_SHIELD = ITEMS.register("frozen_shield",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> HAND_WARMER = ITEMS.register("hand_warmer",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> HERO_SHIELD = ITEMS.register("hero_shield",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> POCKET_MIRROR = ITEMS.register("pocket_mirror",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> SHINY_STONE = ITEMS.register("shiny_stone",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> STAR_VEIL = ITEMS.register("star_veil",
-            () -> new LootedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, LootedItem> WORM_SCARF = ITEMS.register("worm_scarf",
-            () -> new LootedItem(new Item.Properties()) {});
+    public static final DeferredHolder<Item, TalismanItem> ANKH_SHIELD = ITEMS.register("ankh_shield", AnkhShieldItem::new);
+    public static final DeferredHolder<Item, TalismanItem> SHINY_STONE = ITEMS.register("shiny_stone", ShinyStoneItem::new);
+    public static final DeferredHolder<Item, TalismanItem> HAND_WARMER = ITEMS.register("hand_warmer", HandWarmerItem::new);
+    public static final DeferredHolder<Item, TalismanItem> POCKET_MIRROR = ITEMS.register("pocket_mirror", PocketMirrorItem::new);
+    public static final DeferredHolder<Item, TalismanItem> FROZEN_SHIELD = ITEMS.register("frozen_shield", FrozenShieldItem::new);
+    public static final DeferredHolder<Item, TalismanItem> WORM_SCARF = ITEMS.register("worm_scarf", WormScarfItem::new);
+    public static final DeferredHolder<Item, TalismanItem> CHARM_OF_MYTHS = ITEMS.register("charm_of_myths", CharmOfMythsItem::new);
+    public static final DeferredHolder<Item, TalismanItem> BRAIN_OF_CONFUSION = ITEMS.register("brain_of_confusion", BrainOfConfusionItem::new);
+    public static final DeferredHolder<Item, TalismanItem> BEE_CLOAK = ITEMS.register("bee_cloak", BeeCloakItem::new);
+    public static final DeferredHolder<Item, TalismanItem> HERO_SHIELD = ITEMS.register("hero_shield", HeroShieldItem::new);
+    public static final DeferredHolder<Item, TalismanItem> OBSIDIAN_HORSESHOE = ITEMS.register("obsidian_horseshoe", ObsidianHorseshoeItem::new);
+    public static final DeferredHolder<Item, TalismanItem> STAR_VEIL = ITEMS.register("star_veil", StarVeilItem::new);
 
     // Soul of Supersonic
-    public static final DeferredHolder<Item, ScavengedItem> AEOLUS_BOOTS = ITEMS.register("aeolus_boots",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> AMBER_HORSESHOE_BALLOON = ITEMS.register("amber_horseshoe_balloon",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> ANCIENT_HORN = ITEMS.register("ancient_horn",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> BLESSED_APPLE = ITEMS.register("blessed_apple",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> BRAIN_SCRAMBLER = ITEMS.register("brain_scrambler",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> BUNDLE_OF_HORSESHOE_BALLOONS = ITEMS.register("bundle_of_horseshoe_balloons",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> FLYING_CARPET = ITEMS.register("flying_carpet",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> MASTER_NINJA_GEAR = ITEMS.register("master_ninja_gear",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> MECHANICAL_CART = ITEMS.register("mechanical_cart",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> REINDEER_BELLS = ITEMS.register("reindeer_bells",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> SHIELD_OF_CTHULHU = ITEMS.register("shield_of_cthulhu",
-            () -> new ScavengedItem(new Item.Properties()) {});
-    public static final DeferredHolder<Item, ScavengedItem> SWEETHEART_NECKLACE = ITEMS.register("sweetheart_necklace",
-            () -> new ScavengedItem(new Item.Properties()) {});
-
+    public static final DeferredHolder<Item, TalismanItem> AEOLUS_BOOTS = ITEMS.register("aeolus_boots", AeolusBootsItem::new);
+    public static final DeferredHolder<Item, TalismanItem> AMBER_HORSESHOE_BALLOON = ITEMS.register("amber_horseshoe_balloon", AmberHorseshoeBalloonItem::new);
+    public static final DeferredHolder<Item, TalismanItem> ANCIENT_HORN = ITEMS.register("ancient_horn", AncientHornItem::new);
+    public static final DeferredHolder<Item, TalismanItem> BLESSED_APPLE = ITEMS.register("blessed_apple", BlessedAppleItem::new);
+    public static final DeferredHolder<Item, TalismanItem> BRAIN_SCRAMBLER = ITEMS.register("brain_scrambler", BrainScramblerItem::new);
+    public static final DeferredHolder<Item, TalismanItem> BUNDLE_OF_HORSESHOE_BALLOONS = ITEMS.register("bundle_of_horseshoe_balloons", BundleOfHorseshoeBalloonsItem::new);
+    public static final DeferredHolder<Item, TalismanItem> FLYING_CARPET = ITEMS.register("flying_carpet", FlyingCarpetItem::new);
+    public static final DeferredHolder<Item, TalismanItem> MASTER_NINJA_GEAR = ITEMS.register("master_ninja_gear", MasterNinjaGearItem::new);
+    public static final DeferredHolder<Item, TalismanItem> MECHANICAL_CART = ITEMS.register("mechanical_cart", MechanicalCartItem::new);
+    public static final DeferredHolder<Item, TalismanItem> REINDEER_BELLS = ITEMS.register("reindeer_bells", ReindeerBellsItem::new);
+    public static final DeferredHolder<Item, TalismanItem> SHIELD_OF_CTHULHU = ITEMS.register("shield_of_cthulhu", ShieldOfCthulhuItem::new);
+    public static final DeferredHolder<Item, TalismanItem> SWEETHEART_NECKLACE = ITEMS.register("sweetheart_necklace", SweetheartNecklaceItem::new);
 
     // Force of Negative Vials
     public static final DeferredHolder<Item, CraftingItem> FATIGUED_VIAL = ITEMS.register("fatigued_vial",
@@ -237,7 +200,7 @@ public class ItemInit {
     //Souls
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_COLOSSUS = ITEMS.register("soul_of_colossus", Soul_of_Colossus::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_DIMENSIONS = ITEMS.register("soul_of_dimensions", Soul_of_Dimensions::new);
-    public static final DeferredHolder<Item, TalismanItem> SOUL_OF_FLIGHT_MASTERY = ITEMS.register("soul_of_flight_mastery", Soul_of_Flight_Mastery::new);
+    public static final DeferredHolder<Item, BasicElytraItem> SOUL_OF_FLIGHT_MASTERY = ITEMS.register("soul_of_flight_mastery", Soul_of_Flight_Mastery::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_MINECRAFT = ITEMS.register("soul_of_minecraft", Soul_of_Minecraft::new);
     public static final DeferredHolder<Item, TalismanItem> SOUL_OF_SUPERSONIC = ITEMS.register("soul_of_supersonic", Soul_of_Supersonic::new);
 
