@@ -19,7 +19,6 @@ public class ServerDataHandler {
         // Check if the data is present
         if (serverTalismanStates.isEmpty() && !requestSent) {
             // Send the request to the server since we don't have the data
-            System.out.println("Server data is empty, requesting server talisman states...");
             requestSent = true;  // Mark that the request has been sent
             NetworkHandler.sendServerTalismanConfigRequestToServer(localPlayer);  // Pass the local player to identify the requestor
             return true; // Return default true while waiting for the server response
@@ -33,7 +32,6 @@ public class ServerDataHandler {
     public static void setServerTalismanStates(Map<String, Boolean> talismanStates) {
         serverTalismanStates.clear();
         serverTalismanStates.putAll(talismanStates);
-        System.out.println("Server talisman states updated on client: " + serverTalismanStates);
         requestSent = false;  // Reset the request flag once we have data
     }
 
@@ -59,7 +57,5 @@ public class ServerDataHandler {
         for (String key : serverTalismanData.getAllKeys()) {
             serverTalismanStates.put(key, serverTalismanData.getBoolean(key));
         }
-
-        System.out.println("Loaded server talisman states from player NBT: " + serverTalismanStates);
     }
 }

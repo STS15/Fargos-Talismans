@@ -111,11 +111,12 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC_1.get());
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC_2.get());
 
-                output.accept(BlocksInit.PEDESTAL.get());
-                output.accept(ItemInit.ELEMENTAL_ASSEMBLER.get());
-                output.accept(ItemInit.MULTITASK_CENTER.get());
-                output.accept(BlocksInit.CRUCIBLE_OF_THE_COSMOS.get());
+                output.accept(ItemInit.ERIDANUS_HELMET.get());
+                output.accept(ItemInit.ERIDANUS_CHESTPLATE.get());
+                output.accept(ItemInit.ERIDANUS_LEGGINGS.get());
+                output.accept(ItemInit.ERIDANUS_BOOTS.get());
 
+                output.accept(BlocksInit.PEDESTAL.get());
 
                 // Talisman Crafting Items
                 output.accept(ItemInit.FATIGUED_VIAL.get());

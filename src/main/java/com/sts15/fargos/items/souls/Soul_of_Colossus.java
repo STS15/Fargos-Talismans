@@ -4,14 +4,16 @@ import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
+import com.sts15.fargos.items.providers.*;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -24,13 +26,17 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_of_Colossus_Provider {
+public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_of_Colossus_Provider,
+        Shiny_Stone_Provider, Frozen_Shield_Provider, Charm_of_Myths_Provider, Brain_Of_Confusion_Provider,
+        Obsidian_Horseshoe_Provider, Star_Veil_Provider, Hero_Shield_Provider
+{
 
     public static final String talismanName = "soul_of_colossus";
     private static final ResourceLocation HEALTH_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_colossus_health_boost");
@@ -48,11 +54,43 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("item.fargostalismans.tooltip." + talismanName)
                 .setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY)));
+
         if (!checkConfigEnabledStatus()) {
             tooltipComponents.add(Component.translatable("config.fargostalismans.tooltip.disabled")
                     .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
         }
+
+        if (Screen.hasShiftDown()) {
+            if (Screen.hasShiftDown()) {
+                addTrinketTooltip(tooltipComponents, "ankh_shield", 0x4A90E2);
+                addTrinketTooltip(tooltipComponents, "shiny_stone", 0xFFAA00);
+                addTrinketTooltip(tooltipComponents, "pocket_mirror", 0x00E2E2);
+                addTrinketTooltip(tooltipComponents, "hand_warmer", 0xFF5555);
+                addTrinketTooltip(tooltipComponents, "frozen_shield", 0x00BFFF);
+                addTrinketTooltip(tooltipComponents, "worm_scarf", 0x8B4513);
+                addTrinketTooltip(tooltipComponents, "charm_of_myths", 0xAA55FF);
+                addTrinketTooltip(tooltipComponents, "brain_of_confusion", 0xFF66CC);
+                addTrinketTooltip(tooltipComponents, "obsidian_horseshoe", 0x7F3FBF);
+                addTrinketTooltip(tooltipComponents, "bee_cloak", 0xFFDD44);
+                addTrinketTooltip(tooltipComponents, "star_veil", 0xFF77FF);
+                addTrinketTooltip(tooltipComponents, "hero_shield", 0xFFCC33);
+            }
+        } else {
+            tooltipComponents.add(Component.literal("Hold ")
+                    .append(Component.literal("[LShift]").withStyle(ChatFormatting.GRAY))
+                    .append(" to see each trinket effect")
+                    .withStyle(ChatFormatting.DARK_GRAY));
+        }
+
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+    private void addTrinketTooltip(List<Component> tooltip, String key, int hexColor) {
+        Component name = Component.translatable("item.fargostalismans." + key)
+                .setStyle(Style.EMPTY.withColor(hexColor));
+        Component effect = Component.translatable("item.fargostalismans.tooltip." + key)
+                .setStyle(Style.EMPTY.withColor(0xAAAAAA)); // soft gray
+        tooltip.add(Component.literal(" - ").append(name).append(": ").append(effect));
     }
 
     public static boolean checkConfigEnabledStatus() {
@@ -82,28 +120,15 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
 
     private static void negateNegativeEffects(Player player) {
         if (Config.SOUL_OF_COLOSSUS_REMOVE_NEGATIVE_EFFECTS.get()) {
-            List<MobEffectInstance> negativeEffects = player.getActiveEffects().stream().filter(effectInstance -> !effectInstance.getEffect().value().isBeneficial()).toList();
+            List<MobEffectInstance> negativeEffects = player.getActiveEffects().stream()
+                    .filter(effectInstance -> {
+                        var effect = effectInstance.getEffect().value();
+                        return !effect.isBeneficial() && !effect.equals(MobEffects.BAD_OMEN);
+                    })
+                    .toList();
+
             for (MobEffectInstance effect : negativeEffects) {
                 player.removeEffect(effect.getEffect());
-            }
-        }
-    }
-
-    @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        if (!(slotContext.entity() instanceof ServerPlayer player))
-            return;
-
-        boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
-                .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player)
-                .isPresent();
-
-        if (hasEquippedCurio) {
-            if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
-                increaseHealth(player);
-                negateNegativeEffects(player);
-            } else {
-                resetHealth(player);
             }
         }
     }
@@ -130,10 +155,39 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
+        private static int tickCounter = 0;
+        @SuppressWarnings({ "removal", "deprecation" })
+        @SubscribeEvent
+        public static void onPlayerTick(PlayerTickEvent.Pre event) {
+            if (!(event.getEntity() instanceof ServerPlayer player))
+                return;
+
+            if (!TalismanUtil.isTalismanEnabled(player, "Soul_of_Colossus")) {
+                resetHealth(player);
+            }
+
+            if (player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT) || CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Colossus_Provider, player).isPresent()) {
+                if (!TalismanUtil.isTalismanEnabled(player, talismanName))
+                    return;
+                negateNegativeEffects(player);
+                if (++tickCounter < 10) {return;} tickCounter = 0;
+                increaseHealth(player);
+            } else {
+                if (++tickCounter < 10) {return;} tickCounter = 0;
+                resetHealth(player);
+            }
+        }
+
         @SubscribeEvent
         public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
-            player.getPersistentData().putFloat(HEALTH_DATA_KEY.toString(), player.getHealth());
+            boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
+                    .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Colossus_Provider, player)
+                    .isPresent();
+            boolean hasSoulOfColossusEffect = player.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT);
+            if (hasSoulOfColossusEffect || hasEquippedCurio) {
+                player.getPersistentData().putFloat(HEALTH_DATA_KEY.toString(), player.getHealth());
+            }
         }
 
         @SubscribeEvent

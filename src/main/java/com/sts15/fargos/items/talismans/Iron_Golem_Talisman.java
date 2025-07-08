@@ -7,7 +7,6 @@ import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.init.Config;
 import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.Iron_Golem_Talisman_Provider;
-import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -33,7 +32,6 @@ import top.theillusivec4.curios.api.SlotContext;
 public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Talisman_Provider {
 
     private static final String talismanName = "iron_golem_talisman";
-
     private static final ResourceLocation HEALTH_BOOST_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health_boost");
     private static final ResourceLocation HEALTH_DATA_KEY = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "iron_golem_health");
 
@@ -62,14 +60,14 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
         return isEnabled;
     }
 
-    private static void resetHealth(Player player) {
+    public static void resetHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
         if (healthAttribute != null && healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
             healthAttribute.removeModifier(HEALTH_BOOST_ID);
         }
     }
 
-    private static void increaseHealth(Player player) {
+    public static void increaseHealth(Player player) {
         AttributeInstance healthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
         if (healthAttribute != null && !healthAttribute.hasModifier(HEALTH_BOOST_ID)) {
             AttributeModifier modifier = new AttributeModifier(HEALTH_BOOST_ID, Config.IRON_GOLEM_TALISMAN_HEALTH_BOOST_MULTIPLIER.getAsDouble(), AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
@@ -90,32 +88,33 @@ public class Iron_Golem_Talisman extends TalismanItem implements Iron_Golem_Tali
         if (stack.getItem() == newStack.getItem())
             return;
         Player entity = (Player) slotContext.entity();
-        boolean hasSoulOfColossusEffect = entity.hasEffect(EffectsInit.SOUL_OF_COLOSSUS_EFFECT);
-        if (!hasSoulOfColossusEffect) {
+        boolean hasIronGolemTalismanEffect = entity.hasEffect(EffectsInit.IRON_GOLEM_TALISMAN_EFFECT);
+        if (!hasIronGolemTalismanEffect) {
             resetHealth(entity);
-        }
-    }
-
-    @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        if (!(slotContext.entity() instanceof ServerPlayer player))
-            return;
-
-        boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
-                .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Iron_Golem_Talisman_Provider, player)
-                .isPresent();
-
-        if (hasEquippedCurio) {
-            if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
-                increaseHealth(player);
-            } else { // Toggle off is only for config toggle disable, not actual removal
-                resetHealth(player);
-            }
         }
     }
 
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
+        private static int tickCounter = 0;
+
+        @SubscribeEvent
+        public static void onPlayerTick(PlayerTickEvent.Pre event) {
+            if (!(event.getEntity() instanceof ServerPlayer player))
+                return;
+            if (++tickCounter < 10) { return; } tickCounter = 0;
+
+            boolean hasEquippedCurio = CuriosApi.getCuriosHelper().findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Iron_Golem_Talisman_Provider, player).isPresent();
+            if (hasEquippedCurio) {
+                if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
+                    increaseHealth(player);
+                } else { // Toggle off is only for config toggle disable, not actual removal
+                    resetHealth(player);
+                }
+            } else {
+                resetHealth(player);
+            }
+        }
 
         @SubscribeEvent
         public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {

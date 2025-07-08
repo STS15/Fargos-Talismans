@@ -40,6 +40,12 @@ description = '''A Fargo's inspiried set of equipable talismans'''
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.${mod_id}]]
+    modId = "caelus"
+    type="required"
+    versionRange = "[7.0.1+1.21.1,)"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.${mod_id}]]
     modId = "patchouli"
     type="required"
     versionRange = "[1.21-87-NEOFORGE-SNAPSHOT,)"

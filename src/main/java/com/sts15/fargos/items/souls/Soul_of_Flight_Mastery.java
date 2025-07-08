@@ -2,11 +2,13 @@ package com.sts15.fargos.items.souls;
 
 import java.lang.reflect.Field;
 import java.util.List;
+
+import com.illusivesoulworks.caelus.api.CaelusApi;
 import com.sts15.fargos.Fargos;
 import com.sts15.fargos.effect.EffectsInit;
 import com.sts15.fargos.init.Config;
-import com.sts15.fargos.items.TalismanItem;
-import com.sts15.fargos.items.providers.Soul_of_Colossus_Provider;
+import com.sts15.fargos.init.SoundRegistry;
+import com.sts15.fargos.items.crafted.BasicElytraItem;
 import com.sts15.fargos.items.providers.Soul_of_Flight_Mastery_Provider;
 import com.sts15.fargos.utils.TalismanUtil;
 import net.minecraft.ChatFormatting;
@@ -14,28 +16,31 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
-public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flight_Mastery_Provider {
+public class Soul_of_Flight_Mastery extends BasicElytraItem implements Soul_of_Flight_Mastery_Provider {
 
     public static final String talismanName = "soul_of_flight_mastery";
     private static final ResourceLocation FLIGHT_ENABLE_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_flight_mastery_enabled");
+    private static final ResourceLocation ELYTRA_FLIGHT_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_flight_mastery_elytra");
 
     public Soul_of_Flight_Mastery() {
-        super(new Item.Properties().rarity(Rarity.EPIC));
+        super(new Item.Properties().rarity(Rarity.EPIC), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/soul_of_flight_mastery.png"));
     }
 
     @Override
@@ -60,22 +65,40 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
     }
 
     public static void enableFlight(Player player) {
-        AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
-        if (flightAttribute != null && flightAttribute.getBaseValue() == 0 && !player.isCreative() && !player.isSpectator()) {
-            flightAttribute.setBaseValue(1);
+        // Creative Flight
+        AttributeInstance creativeFlight = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        if (creativeFlight != null && creativeFlight.getBaseValue() == 0 && !player.isCreative() && !player.isSpectator()) {
+            creativeFlight.setBaseValue(1);
             player.getPersistentData().putBoolean(FLIGHT_ENABLE_ID.toString(), true);
         }
+
+        // Elytra Flight
+        AttributeInstance elytraAttr = player.getAttribute(CaelusApi.getInstance().getFallFlyingAttribute());
+        if (elytraAttr != null && elytraAttr.getModifier(ELYTRA_FLIGHT_ID) == null) {
+            elytraAttr.addTransientModifier(new AttributeModifier(
+                    ELYTRA_FLIGHT_ID, 1.0, AttributeModifier.Operation.ADD_VALUE
+            ));
+        }
+
+        player.onUpdateAbilities();
     }
 
+
     public static void disableFlight(Player player) {
-        AttributeInstance flightAttribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
-        if (flightAttribute != null && flightAttribute.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
-            flightAttribute.setBaseValue(0);
+        AttributeInstance creativeFlight = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        if (creativeFlight != null && creativeFlight.getBaseValue() == 1 && !player.isCreative() && !player.isSpectator()) {
+            creativeFlight.setBaseValue(0);
             player.getAbilities().flying = false;
             player.getAbilities().mayfly = false;
-            player.onUpdateAbilities();
-            player.getPersistentData().remove(FLIGHT_ENABLE_ID.toString());
         }
+
+        AttributeInstance elytraAttr = player.getAttribute(CaelusApi.getInstance().getFallFlyingAttribute());
+        if (elytraAttr != null && elytraAttr.getModifier(ELYTRA_FLIGHT_ID) != null) {
+            elytraAttr.removeModifier(ELYTRA_FLIGHT_ID);
+        }
+
+        player.onUpdateAbilities();
+        player.getPersistentData().remove(FLIGHT_ENABLE_ID.toString());
     }
 
     private static boolean isFlightEnabledByMod(Player player) {
@@ -83,38 +106,77 @@ public class Soul_of_Flight_Mastery extends TalismanItem implements Soul_of_Flig
     }
 
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        if (!(slotContext.entity() instanceof ServerPlayer player))
-            return;
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return true;
+    }
 
-        boolean hasEquippedCurio = CuriosApi.getCuriosHelper()
-                .findEquippedCurio(equippedStack -> equippedStack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player)
-                .isPresent();
+    protected String getFirstTimeMessageKey() {
+        return null;
+    }
 
-        if (hasEquippedCurio) {
-            if (TalismanUtil.isTalismanEnabled(player, talismanName)) {
+    protected Component getFirstTimeMessageComponent() {
+        return null;
+    }
+
+    @Override
+    public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
+        Level level = slotContext.entity().level();
+        if (!level.isClientSide) {
+            Player player = (Player) slotContext.entity();
+            level.playSound(null, player.blockPosition(), SoundRegistry.EQUIP_TALISMAN.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+
+            String key = getFirstTimeMessageKey();
+            if (key != null && !player.getPersistentData().getBoolean(key)) {
+                Component msg = getFirstTimeMessageComponent();
+                if (msg != null) {
+                    player.sendSystemMessage(msg);
+                }
+                player.getPersistentData().putBoolean(key, true);
+            }
+        }
+
+        // Don't forget: enable flight too
+        if (TalismanUtil.isTalismanEnabled((Player) slotContext.entity(), talismanName)) {
+            enableFlight((Player) slotContext.entity());
+        }
+    }
+
+    @Override
+    public void onUnequip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
+        Level level = slotContext.entity().level();
+        if (!level.isClientSide) {
+            Player player = (Player) slotContext.entity();
+            level.playSound(null, player.blockPosition(), SoundRegistry.UNEQUIP_TALISMAN.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+        }
+
+        disableFlight((Player) slotContext.entity());
+    }
+
+
+    @EventBusSubscriber(modid = Fargos.MODID)
+    public static class Events {
+
+        private static int tickCounter = 0;
+        @SuppressWarnings({ "removal", "deprecation" })
+        @SubscribeEvent
+        public static void onPlayerTick(PlayerTickEvent.Pre event) {
+            if (!(event.getEntity() instanceof ServerPlayer player)) return;
+            if (++tickCounter < 10) return;
+            tickCounter = 0;
+
+            boolean configOn  = TalismanUtil.isTalismanEnabled(player, talismanName);
+            boolean hasSoul   = player.hasEffect(EffectsInit.SOUL_OF_FLIGHT_MASTERY_EFFECT) || CuriosApi.getCuriosHelper()
+                    .findEquippedCurio(stack -> stack.getItem() instanceof Soul_of_Flight_Mastery_Provider, player)
+                    .isPresent();
+            boolean flightOn  = isFlightEnabledByMod(player);
+            boolean shouldFly = configOn && hasSoul;
+            if (shouldFly && !flightOn) {
                 enableFlight(player);
-            } else if (isFlightEnabledByMod(player)) {
+            }
+            else if (!shouldFly && flightOn) {
                 disableFlight(player);
             }
         }
-    }
 
-    @Override
-    public void onEquip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
-        if (stack.getItem() == newStack.getItem())
-            return;
-        Player entity = (Player) slotContext.entity();
-        if (TalismanUtil.isTalismanEnabled(entity, talismanName)) {
-            enableFlight(entity);
-        }
-    }
-
-    @Override
-    public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
-        if (stack.getItem() == newStack.getItem())
-            return;
-        Player entity = (Player) slotContext.entity();
-        disableFlight(entity);
     }
 }

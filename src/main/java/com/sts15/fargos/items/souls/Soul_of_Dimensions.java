@@ -6,6 +6,7 @@ import com.sts15.fargos.items.TalismanItem;
 import com.sts15.fargos.items.providers.*;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.Item;
@@ -36,4 +37,31 @@ public class Soul_of_Dimensions extends TalismanItem implements
         
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
-}
+
+        @Override
+        protected String getFirstTimeMessageKey() {
+            return "SeenMessage_FargosConfigGUI";
+        }
+
+        @Override
+        protected Component getFirstTimeMessageComponent() {
+            return Component.empty()
+                    .append(Component.literal("[")
+                            .withStyle(ChatFormatting.GREEN))
+                    .append(Component.literal("Fargo's Talismans")
+                            .withStyle(ChatFormatting.GREEN))
+                    .append(Component.literal("] ")
+                            .withStyle(ChatFormatting.GREEN))
+                    .append(Component.literal("You can toggle individual talisman effects in the settings GUI ")
+                            .withStyle(ChatFormatting.WHITE))
+                    .append(Component.literal("here")
+                            .withStyle(Style.EMPTY
+                                    .withColor(ChatFormatting.AQUA)
+                                    .withUnderlined(true)
+                                    .withClickEvent(new ClickEvent(
+                                            ClickEvent.Action.SUGGEST_COMMAND,
+                                            "/fargostalismans talisman gui"))))
+                    .append(Component.literal(".")
+                            .withStyle(ChatFormatting.WHITE));
+        }
+    }

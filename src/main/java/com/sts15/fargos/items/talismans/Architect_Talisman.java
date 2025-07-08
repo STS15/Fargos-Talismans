@@ -29,8 +29,10 @@ import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotContext;
 
 public class Architect_Talisman extends TalismanItem implements Architect_Talisman_Provider {
 
@@ -87,6 +89,26 @@ public class Architect_Talisman extends TalismanItem implements Architect_Talism
         }
     }
 
+    @Override
+    public void onEquip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
+        if (stack.getItem() == newStack.getItem())
+            return;
+
+        Player entity = (Player) slotContext.entity();
+        if (TalismanUtil.isTalismanEnabled(entity, talismanName)) {
+            increaseReachDistance(entity, entity.getUUID());
+        }
+    }
+
+
+    @Override
+    public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
+        if (stack.getItem() == newStack.getItem())
+            return;
+        Player entity = (Player) slotContext.entity();
+        resetReachDistance(entity, entity.getUUID());
+    }
+
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
@@ -109,6 +131,22 @@ public class Architect_Talisman extends TalismanItem implements Architect_Talism
                 }
             } else {
                 resetReachDistance(player, playerUUID);
+            }
+        }
+
+        @SubscribeEvent
+        public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+            if (!(event.getEntity() instanceof ServerPlayer player)) return;
+            UUID playerUUID = player.getUUID();
+
+            boolean hasCurio = CuriosApi.getCuriosHelper()
+                    .findEquippedCurio(stack -> stack.getItem() instanceof Architect_Talisman_Provider, player)
+                    .isPresent();
+
+            boolean hasEffect = player.hasEffect(EffectsInit.ARCHITECT_TALISMAN_EFFECT);
+
+            if ((hasCurio || hasEffect) && TalismanUtil.isTalismanEnabled(player, talismanName)) {
+                increaseReachDistance(player, playerUUID);
             }
         }
     }

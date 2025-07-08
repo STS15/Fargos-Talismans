@@ -19,7 +19,9 @@ public class TalismanScreenCommand {
                 .requires(source -> source.hasPermission(0))
                 .then(Commands.literal("talisman")
                         .then(Commands.literal("gui")
-                                        .executes(TalismanScreenCommand::executeToggle)));
+                                        .executes(TalismanScreenCommand::executeToggle)))
+                .then(Commands.literal("gui")
+                        .executes(TalismanScreenCommand::executeToggle));
 
         dispatcher.register(command);
     }

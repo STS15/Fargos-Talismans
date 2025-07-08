@@ -18,6 +18,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.ChorusFlowerBlock;
+import net.minecraft.world.level.block.GrowingPlantBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -49,12 +52,10 @@ public class PedestalBlockEntity extends BlockEntity implements Container {
         super(BlockEntitiesInit.PEDESTAL_BE.get(), pPos, pBlockState);
     }
 
-    public List<Player> getPlayersInRange() {
+    public double getPedestalTier() {
         double range = 5.0;
-
         BlockPos blockBelow = this.worldPosition.below();
         BlockState blockStateBelow = level.getBlockState(blockBelow);
-
         if (blockStateBelow.is(Blocks.AMETHYST_BLOCK)) {
             range = 9.0;
         } else if (blockStateBelow.is(Blocks.BEACON)) {
@@ -62,7 +63,11 @@ public class PedestalBlockEntity extends BlockEntity implements Container {
         } else if (blockStateBelow.is(Blocks.CHORUS_FLOWER)) {
             range = 20.0;
         }
+        return range;
+    }
 
+    public List<Player> getPlayersInRange() {
+        double range = getPedestalTier();
         AABB aabb = new AABB(this.worldPosition).inflate(range);
 
         if (this.level instanceof ServerLevel serverLevel) {
@@ -72,9 +77,23 @@ public class PedestalBlockEntity extends BlockEntity implements Container {
         return List.of();
     }
 
+    public void applyItemSpecificEffect() {
+        ItemStack itemStack = this.getItem(0);
+        if (itemStack.isEmpty()) {
+            return;
+        }
+
+        if (itemStack.getItem() instanceof Emerald_Talisman_Provider) {
+            applyEmeraldTalismanEffect();
+        }
+
+    }
 
     public void applyTalismanEffect() {
         ItemStack itemStack = this.getItem(0);
+        if (itemStack.isEmpty()) {
+            return;
+        }
 
         List<Player> players = getPlayersInRange();
         for (Player player : players) {
@@ -267,6 +286,7 @@ public class PedestalBlockEntity extends BlockEntity implements Container {
 
     public static void tickEntity(Level level, BlockPos pos, BlockState state, PedestalBlockEntity blockEntity) {
         if (!level.isClientSide) {
+            blockEntity.applyItemSpecificEffect();
             blockEntity.tickCounter++;
             if (blockEntity.tickCounter >= 10) {
                 blockEntity.applyTalismanEffect();
@@ -274,6 +294,26 @@ public class PedestalBlockEntity extends BlockEntity implements Container {
             }
         }
     }
+
+    private void applyEmeraldTalismanEffect() {
+        if (!level.isClientSide()) {
+            AABB aabb = new AABB(worldPosition).inflate(getPedestalTier());
+            if (level instanceof ServerLevel serverLevel) {
+                BlockPos.betweenClosedStream(aabb).forEach(blockPos -> {
+                    BlockState blockState = level.getBlockState(blockPos);
+                    if (net.neoforged.neoforge.common.CommonHooks.canCropGrow(serverLevel, blockPos, blockState, true)) {
+                        blockState.randomTick(serverLevel, blockPos, level.random);
+                    }
+                    if (blockState.is(Blocks.CHORUS_FLOWER)) {
+                        if (blockState.getValue(ChorusFlowerBlock.AGE) < 5) {
+                            blockState.randomTick(serverLevel, blockPos, level.random);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
 
     @Override
     public int getContainerSize() {

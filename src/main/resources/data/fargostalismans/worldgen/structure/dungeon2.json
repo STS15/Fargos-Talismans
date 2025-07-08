@@ -1,6 +1,6 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "#minecraft:has_structure/nether_fortress",
+  "biomes": "#fargostalismans:dungeon2_biomes",
   "max_distance_from_center": 100,
   "dimension_padding": 10,
   "size": 6,
@@ -32,10 +32,10 @@
   "start_height": {
     "type": "minecraft:uniform",
     "max_inclusive": {
-      "absolute": 24
+      "absolute": 50
     },
     "min_inclusive": {
-      "absolute": 5
+      "absolute": 25
     }
   },
   "start_pool": "fargostalismans:dungeon2start",
