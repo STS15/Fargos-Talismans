@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:obsidian"
+    },
+    "B": {
+      "item": "minecraft:tnt"
+    },
+    "C": {
+      "item": "minecraft:netherite_chestplate"
+    },
+    "D": {
+      "item": "minecraft:nether_star"
+    },
+    "E": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "pattern": [
+    "ACE",
+    "B#B",
+    "EDA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:obsidian_talisman"
+  }
+}

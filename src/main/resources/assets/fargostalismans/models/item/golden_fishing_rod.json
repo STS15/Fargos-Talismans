@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld_rod",
+  "textures": {
+    "layer0": "fargostalismans:item/golden_fishing_rod"
+  }
+}

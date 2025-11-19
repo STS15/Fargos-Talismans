@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:lapis_block"
+    },
+    "B": {
+      "item": "minecraft:experience_bottle"
+    },
+    "C": {
+      "item": "minecraft:book"
+    },
+    "D": {
+      "item": "minecraft:enchanting_table"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:lapis_talisman"
+  }
+}

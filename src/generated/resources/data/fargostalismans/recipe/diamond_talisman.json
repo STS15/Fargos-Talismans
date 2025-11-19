@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:diamond_block"
+    },
+    "B": {
+      "item": "fargostalismans:iron_talisman"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:diamond_talisman"
+  }
+}

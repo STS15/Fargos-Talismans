@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:zombie_head"
+    },
+    "B": {
+      "item": "minecraft:potato"
+    },
+    "C": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "D": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:carrot"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "E#B",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:zombie_talisman"
+  }
+}

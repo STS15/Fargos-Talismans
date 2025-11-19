@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/vortex_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/vortex_bow_pulling_2"
+    }
+}

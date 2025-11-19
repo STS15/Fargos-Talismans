@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:raw_iron"
+    },
+    "B": {
+      "item": "minecraft:raw_gold"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    },
+    "D": {
+      "item": "minecraft:grass_block"
+    },
+    "E": {
+      "item": "fargostalismans:talisman_base_normal"
+    }
+  },
+  "pattern": [
+    "ADC",
+    "BEB",
+    "CDA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:earth_talisman"
+  }
+}

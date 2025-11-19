@@ -33,6 +33,22 @@ public class ArmorMaterialRegistry {
             8,
             1);
 
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> STYX = register("styx",
+            makeArmorMap(20, 35, 20, 15),
+            40,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(Tags.Items.INGOTS_NETHERITE),
+            12,
+            1);
+
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> MUTANT = register("mutant",
+            makeArmorMap(50, 50, 50, 50),
+            50,
+            SoundEvents.ARMOR_EQUIP_NETHERITE,
+            () -> Ingredient.of(Tags.Items.INGOTS_NETHERITE),
+            25,
+            1);
+
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> defense, int enchantmentValue, Holder<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient, float toughness, float knockbackResistance) {
         List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(Fargos.id(name)));
         return ARMOR_MATERIALS.register(name, ()-> new ArmorMaterial(defense, enchantmentValue, equipSound, repairIngredient, list, toughness, knockbackResistance));

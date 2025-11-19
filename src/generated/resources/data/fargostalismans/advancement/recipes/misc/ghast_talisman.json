@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:ghast_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:ghast_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:ghast_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:ghast_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:ghast_talisman"
+    ]
+  }
+}

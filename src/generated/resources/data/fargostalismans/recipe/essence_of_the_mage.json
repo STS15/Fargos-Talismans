@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "ars_nouveau:conjuration_essence"
+    },
+    "B": {
+      "item": "ars_nouveau:manipulation_essence"
+    },
+    "C": {
+      "item": "ars_nouveau:glyph_sense_magic"
+    }
+  },
+  "pattern": [
+    "A  ",
+    " C ",
+    "= B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_mage"
+  }
+}

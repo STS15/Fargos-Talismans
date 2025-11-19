@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/hellwing_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/hellwing_bow_pulling_0"
+    }
+}

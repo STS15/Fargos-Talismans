@@ -18,17 +18,14 @@ def extraAPIDir = "extra-api"
 
 repositories {
     mavenLocal()
-
     flatDir {
         name "extra-mods"
         dir file(extraModsDir)
     }
-
     flatDir {
         name "extra-api"
         dir file(extraAPIDir)
     }
-
     maven {
         name = "Blamejared maven"
         url = "https://maven.blamejared.com/"
@@ -53,6 +50,41 @@ repositories {
         }
         filter {
             includeGroup "curse.maven"
+        }
+    }
+    maven {
+        name = "C4's Maven"
+        url = 'https://maven.theillusivec4.top/'
+    }
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroup("software.bernie.geckolib")
+        }
+    }
+    maven {
+        name = 'Forge'
+        url = "https://maven.minecraftforge.net"
+    }
+    maven {
+        name = "Iron's Maven - Release"
+        url = "https://code.redspace.io/releases"
+    }
+    maven {
+        name = "Iron's Maven - Snapshots"
+        url = "https://code.redspace.io/snapshots"
+    }
+    maven {
+        url = "https://maven.kosmx.dev/"
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'org.ow2.asm:asm:9.7'
+            force 'org.ow2.asm:asm-tree:9.7'
+            force 'org.ow2.asm:asm-analysis:9.7'
+            force 'org.ow2.asm:asm-util:9.7'
+            force 'org.ow2.asm:asm-commons:9.7'
         }
     }
 }
@@ -98,16 +130,29 @@ configurations {
 dependencies {
 
     implementation "net.neoforged:neoforge:${neo_version}"
+
+    // Fargos
     implementation "com.sts15.eventslib:eventslib:${eventslib_version}"
     implementation "top.theillusivec4.curios:curios-neoforge:9.0.5+1.21"
-    implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
-    
-    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-  	compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
-  	runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    runtimeOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"
+    compileOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}:api"
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 
+    // Ars
+    implementation "com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}"
+    implementation "com.github.glitchfiend:TerraBlender-neoforge:1.21-4.0.0.0"
+
+    // Irons
+    implementation ("io.redspace:irons_spellbooks:${irons_version}")
+    runtimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator}")
+
+    // API
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}:api"
     runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}"
+    implementation "mcjty.theoneprobe:theoneprobe:${top_version}"
 
     for (extraModJar in fileTree(dir: extraModsDir, include: '*.jar')) {
         def basename = extraModJar.name.substring(0, extraModJar.name.length() - ".jar".length())

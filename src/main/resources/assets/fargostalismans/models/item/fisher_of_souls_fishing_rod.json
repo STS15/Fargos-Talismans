@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld_rod",
+  "textures": {
+    "layer0": "fargostalismans:item/fisher_of_souls_fishing_rod"
+  }
+}

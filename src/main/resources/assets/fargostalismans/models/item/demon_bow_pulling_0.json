@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/demon_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/demon_bow_pulling_0"
+    }
+}

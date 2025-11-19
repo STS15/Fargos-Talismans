@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:ghast_tear"
+    },
+    "B": {
+      "item": "minecraft:glowstone"
+    },
+    "C": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "D": {
+      "item": "minecraft:wither_rose"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:ghast_talisman"
+  }
+}

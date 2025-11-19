@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "irons_spellbooks:fire_upgrade_orb"
+    },
+    "B": {
+      "item": "irons_spellbooks:legendary_ink"
+    },
+    "C": {
+      "item": "irons_spellbooks:ice_upgrade_orb"
+    },
+    "D": {
+      "item": "irons_spellbooks:poisonward_ring"
+    },
+    "E": {
+      "item": "irons_spellbooks:frostward_ring"
+    },
+    "F": {
+      "item": "irons_spellbooks:fireward_ring"
+    },
+    "G": {
+      "item": "irons_spellbooks:druidic_spell_book"
+    }
+  },
+  "pattern": [
+    "EBC",
+    "=D ",
+    "AGF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_occult"
+  }
+}

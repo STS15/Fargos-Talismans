@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:essence_of_the_hex": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:essence_of_the_hex"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:essence_of_the_hex"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:essence_of_the_hex"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:essence_of_the_hex"
+    ]
+  }
+}

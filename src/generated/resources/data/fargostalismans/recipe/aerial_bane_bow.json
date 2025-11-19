@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:blaze_rod"
+    },
+    "R": {
+      "item": "minecraft:blaze_rod"
+    },
+    "S": {
+      "item": "fargostalismans:abominable_energy"
+    }
+  },
+  "pattern": [
+    "ARS",
+    "FBS",
+    "ARS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:aerial_bane_bow"
+  }
+}

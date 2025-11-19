@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:rain_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:rain_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:rain_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:rain_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:rain_talisman"
+    ]
+  }
+}

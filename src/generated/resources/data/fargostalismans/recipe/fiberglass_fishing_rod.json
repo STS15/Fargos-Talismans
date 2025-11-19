@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:tripwire_hook"
+    },
+    "B": {
+      "item": "minecraft:breeze_rod"
+    },
+    "R": {
+      "item": "minecraft:fishing_rod"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "  A",
+    " RS",
+    "B S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:fiberglass_fishing_rod"
+  }
+}

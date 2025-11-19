@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:true_sun_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:true_sun_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:true_sun_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:true_sun_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:true_sun_talisman"
+    ]
+  }
+}

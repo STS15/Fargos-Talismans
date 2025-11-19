@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:force_of_environment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:force_of_environment"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:force_of_environment"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:force_of_environment"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:force_of_environment"
+    ]
+  }
+}

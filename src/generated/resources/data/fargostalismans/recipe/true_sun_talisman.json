@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:glass"
+    },
+    "B": {
+      "item": "minecraft:ghast_tear"
+    },
+    "C": {
+      "item": "minecraft:quartz"
+    },
+    "D": {
+      "item": "minecraft:feather"
+    },
+    "E": {
+      "item": "fargostalismans:sun_talisman"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "C#D",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:true_sun_talisman"
+  }
+}

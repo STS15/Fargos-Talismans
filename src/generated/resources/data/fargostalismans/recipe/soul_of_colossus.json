@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ultimate"
+    },
+    "1": {
+      "item": "fargostalismans:essence_of_the_titan"
+    },
+    "2": {
+      "item": "fargostalismans:essence_of_the_juggernaut"
+    },
+    "3": {
+      "item": "fargostalismans:essence_of_the_behemoth"
+    },
+    "4": {
+      "item": "fargostalismans:essence_of_the_sentinel"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "2#3",
+    " 4 "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:soul_of_colossus"
+  }
+}

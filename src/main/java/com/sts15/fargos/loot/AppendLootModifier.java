@@ -23,7 +23,7 @@ public class AppendLootModifier extends LootModifier {
             Codec.STRING.fieldOf("key").forGetter(m -> m.resourceLocationKey)).apply(builder, AppendLootModifier::new)));
     private final String resourceLocationKey;
 
-    protected AppendLootModifier(LootItemCondition[] conditionsIn, String resourceLocationKey) {
+    public AppendLootModifier(LootItemCondition[] conditionsIn, String resourceLocationKey) {
         super(conditionsIn);
         this.resourceLocationKey = resourceLocationKey;
     }

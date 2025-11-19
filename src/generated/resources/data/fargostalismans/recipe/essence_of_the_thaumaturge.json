@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "ars_nouveau:water_essence"
+    },
+    "C": {
+      "item": "ars_nouveau:glyph_linger"
+    },
+    "D": {
+      "item": "ars_nouveau:amulet_of_mana_regen"
+    }
+  },
+  "pattern": [
+    "A  ",
+    " C ",
+    " =D"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_thaumaturge"
+  }
+}

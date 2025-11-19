@@ -15,12 +15,12 @@ public class EridanusModel extends GeoModel<EridanusBoss> {
 
     @Override
     public ResourceLocation getTextureResource(EridanusBoss animatable) {
-        if (animatable instanceof EridanusBoss boss) {
-            if (boss.isPhase(EridanusBoss.Phases.FinalPhase))
-                return TEXTURE_ENRAGED;
-            else
-                return TEXTURE_NORMAL;
-        }
+//        if (animatable instanceof EridanusBoss boss) {
+//            if (boss.isPhase(EridanusBoss.Phases.FinalPhase))
+//                return TEXTURE_ENRAGED;
+//            else
+//                return TEXTURE_NORMAL;
+//        }
         return ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/eridanus/eridanus_boss_texture.png");
     }
 

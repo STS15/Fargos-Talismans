@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:redstone_block"
+    },
+    "B": {
+      "item": "minecraft:repeater"
+    },
+    "C": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "D": {
+      "item": "minecraft:nether_star"
+    },
+    "E": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#E",
+    "ADA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:redstone_talisman"
+  }
+}

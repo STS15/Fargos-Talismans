@@ -6,7 +6,7 @@
       "weight": 9,
       "element": {
         "location": "fargostalismans:dungeon2/hall1",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -15,7 +15,7 @@
       "weight": 9,
       "element": {
         "location": "fargostalismans:dungeon2/long_hallway",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -24,7 +24,7 @@
       "weight": 3,
       "element": {
         "location": "fargostalismans:dungeon2/rightturn",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -33,7 +33,7 @@
       "weight": 3,
       "element": {
         "location": "fargostalismans:dungeon2/leftturn",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -42,7 +42,7 @@
       "weight": 1,
       "element": {
         "location": "fargostalismans:dungeon2/center",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -51,7 +51,7 @@
       "weight": 4,
       "element": {
         "location": "fargostalismans:dungeon2/t_hall",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -60,7 +60,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/roomtohall",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -69,7 +69,7 @@
       "weight": 4,
       "element": {
         "location": "fargostalismans:dungeon2/room",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -78,7 +78,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/halftohall1",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -87,7 +87,7 @@
       "weight": 8,
       "element": {
         "location": "fargostalismans:dungeon2/halftohall2",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -96,7 +96,7 @@
       "weight": 8,
       "element": {
         "location": "fargostalismans:dungeon2/lava_pit",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -105,7 +105,7 @@
       "weight": 1,
       "element": {
         "location": "fargostalismans:dungeon2/spiral_stairs_bidirectional",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -114,7 +114,7 @@
       "weight": 8,
       "element": {
         "location": "fargostalismans:dungeon2/double_center",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -123,7 +123,7 @@
       "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/halftohall3",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -132,7 +132,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/3roomhalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -141,7 +141,7 @@
       "weight": 1,
       "element": {
         "location": "fargostalismans:dungeon2/wall",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -150,7 +150,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/balconyhalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -159,7 +159,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/dining_hall",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -168,7 +168,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/cells",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -177,7 +177,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/library",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -186,7 +186,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/witch_cove",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -195,7 +195,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/gallery",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -204,7 +204,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/cellshalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -213,7 +213,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/lavahalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -222,7 +222,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/splithalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -231,7 +231,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/crescenthalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -240,7 +240,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/shorthallhalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -249,7 +249,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/smallhalf",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -258,7 +258,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/stairsup",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -267,7 +267,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/stairsdown",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -276,7 +276,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/chest",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -285,7 +285,7 @@
       "weight": 8,
       "element": {
         "location": "fargostalismans:dungeon2/lowpile",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -294,7 +294,7 @@
       "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/highpile",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -303,7 +303,7 @@
       "weight": 7,
       "element": {
         "location": "fargostalismans:dungeon2/blaze",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -312,7 +312,7 @@
       "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/hoglin",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -321,7 +321,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/piglin",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -330,7 +330,7 @@
       "weight": 20,
       "element": {
         "location": "fargostalismans:dungeon2/piglin_brute",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -339,7 +339,7 @@
       "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/magma_cube",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -348,7 +348,7 @@
       "weight": 2,
       "element": {
         "location": "fargostalismans:dungeon2/stray",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -357,7 +357,7 @@
       "weight": 1,
       "element": {
         "location": "fargostalismans:dungeon2/vex",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -366,7 +366,7 @@
       "weight": 15,
       "element": {
         "location": "fargostalismans:dungeon2/wither_skeleton",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -375,7 +375,7 @@
       "weight": 10,
       "element": {
         "location": "fargostalismans:dungeon2/skeleton",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -384,7 +384,7 @@
       "weight": 25,
       "element": {
         "location": "fargostalismans:dungeon2/zombified_piglin",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

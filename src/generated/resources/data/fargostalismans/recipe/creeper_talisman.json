@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:creeper_head"
+    },
+    "B": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "B#B",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:creeper_talisman"
+  }
+}

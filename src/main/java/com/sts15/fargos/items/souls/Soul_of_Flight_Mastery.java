@@ -40,7 +40,7 @@ public class Soul_of_Flight_Mastery extends BasicElytraItem implements Soul_of_F
     private static final ResourceLocation ELYTRA_FLIGHT_ID = ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "soul_of_flight_mastery_elytra");
 
     public Soul_of_Flight_Mastery() {
-        super(new Item.Properties().rarity(Rarity.EPIC), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/soul_of_flight_mastery.png"));
+        super(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1), ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "textures/entity/elytra/soul_of_flight_mastery.png"));
     }
 
     @Override

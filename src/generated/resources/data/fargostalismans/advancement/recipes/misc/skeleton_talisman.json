@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:skeleton_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:skeleton_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:skeleton_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:skeleton_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:skeleton_talisman"
+    ]
+  }
+}

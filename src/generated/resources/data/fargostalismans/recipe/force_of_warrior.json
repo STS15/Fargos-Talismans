@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_legendary"
+    },
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:battle_talisman"
+    },
+    "B": {
+      "item": "fargostalismans:void_talisman"
+    },
+    "C": {
+      "item": "fargostalismans:thorny_talisman"
+    },
+    "D": {
+      "item": "fargostalismans:cactus_talisman"
+    },
+    "E": {
+      "item": "fargostalismans:iron_golem_talisman"
+    }
+  },
+  "pattern": [
+    " CD",
+    "B#=",
+    "A=E"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:force_of_warrior"
+  }
+}

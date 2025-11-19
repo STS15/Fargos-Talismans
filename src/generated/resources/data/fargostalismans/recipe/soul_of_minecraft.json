@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ultimate"
+    },
+    "A": {
+      "item": "fargostalismans:force_of_overworld"
+    },
+    "B": {
+      "item": "fargostalismans:force_of_nature"
+    },
+    "C": {
+      "item": "fargostalismans:force_of_rejectors"
+    },
+    "D": {
+      "item": "fargostalismans:force_of_explorer"
+    },
+    "E": {
+      "item": "fargostalismans:force_of_mystic"
+    },
+    "F": {
+      "item": "fargostalismans:force_of_warrior"
+    },
+    "G": {
+      "item": "fargostalismans:force_of_environment"
+    },
+    "H": {
+      "item": "fargostalismans:force_of_negative"
+    }
+  },
+  "pattern": [
+    "AGD",
+    "B#E",
+    "CHF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:soul_of_minecraft"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:hotline_fishing_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:hotline_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:hotline_fishing_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:hotline_fishing_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:hotline_fishing_rod"
+    ]
+  }
+}

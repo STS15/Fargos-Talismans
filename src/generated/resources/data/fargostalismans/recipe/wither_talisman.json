@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "minecraft:wither_rose"
+    },
+    "D": {
+      "item": "minecraft:wither_rose"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:wither_talisman"
+  }
+}

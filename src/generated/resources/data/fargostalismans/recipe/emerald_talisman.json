@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:emerald_block"
+    },
+    "B": {
+      "item": "minecraft:crossbow"
+    },
+    "C": {
+      "item": "minecraft:emerald"
+    },
+    "D": {
+      "item": "minecraft:bone"
+    },
+    "E": {
+      "item": "minecraft:stone_axe"
+    }
+  },
+  "pattern": [
+    "ADC",
+    "B#E",
+    "CDA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:emerald_talisman"
+  }
+}

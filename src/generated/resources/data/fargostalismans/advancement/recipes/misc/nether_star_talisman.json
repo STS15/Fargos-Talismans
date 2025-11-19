@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:nether_star_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:nether_star_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:nether_star_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:nether_star_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:nether_star_talisman"
+    ]
+  }
+}

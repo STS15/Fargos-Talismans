@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "pattern": [
+    "ARS",
+    "FBS",
+    "ARS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:tendon_bow"
+  }
+}

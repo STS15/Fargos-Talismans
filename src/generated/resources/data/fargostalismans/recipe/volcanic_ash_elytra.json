@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "L": {
+      "item": "minecraft:fire_charge"
+    },
+    "M": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "pattern": [
+    "MLM",
+    "LEL",
+    "MLM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:volcanic_ash_elytra"
+  }
+}

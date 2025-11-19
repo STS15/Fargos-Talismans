@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:soul_of_sniper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:soul_of_sniper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:soul_of_sniper"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:soul_of_sniper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:soul_of_sniper"
+    ]
+  }
+}

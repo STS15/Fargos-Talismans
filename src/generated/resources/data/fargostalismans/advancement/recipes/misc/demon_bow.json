@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:demon_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:demon_bow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:demon_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:demon_bow"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:demon_bow"
+    ]
+  }
+}

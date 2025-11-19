@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:ender_pearl"
+    },
+    "B": {
+      "item": "minecraft:lodestone"
+    },
+    "C": {
+      "item": "minecraft:slime_ball"
+    },
+    "D": {
+      "item": "minecraft:rabbit_foot"
+    },
+    "E": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "C#D",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:full_moon_talisman"
+  }
+}

@@ -33,9 +33,9 @@ public class EridanusArmorItem  extends ExtendedArmorItem {
         Player player = Minecraft.getInstance().player;
         if (player == null) return;
         if (hasFullEridanusSet(player)) {
-            tooltipComponents.add(Component.literal("§6Set Bonus:").withStyle(ChatFormatting.GOLD));
-            tooltipComponents.add(Component.literal("§7+15% Damage, +20% Crit, +10% DR, +4 Minions/Sentries"));
-            tooltipComponents.add(Component.literal("§7Double tap ↓ to toggle Eridanus' Blessing"));
+//            tooltipComponents.add(Component.literal("§6Set Bonus:").withStyle(ChatFormatting.GOLD));
+//            tooltipComponents.add(Component.literal("§7+15% Damage, +20% Crit, +10% DR, +4 Minions/Sentries"));
+//            tooltipComponents.add(Component.literal("§7Double tap ↓ to toggle Eridanus' Blessing"));
         }
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);

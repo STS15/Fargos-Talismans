@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:iron_helmet"
+    },
+    "B": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "C": {
+      "item": "minecraft:iron_leggings"
+    },
+    "D": {
+      "item": "minecraft:iron_boots"
+    },
+    "E": {
+      "item": "minecraft:iron_sword"
+    },
+    "F": {
+      "item": "minecraft:iron_axe"
+    },
+    "G": {
+      "item": "minecraft:shield"
+    },
+    "H": {
+      "item": "minecraft:iron_horse_armor"
+    }
+  },
+  "pattern": [
+    "AGC",
+    "E#F",
+    "BHD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:iron_talisman"
+  }
+}

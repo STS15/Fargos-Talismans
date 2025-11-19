@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "ars_nouveau:fire_essence"
+    },
+    "B": {
+      "item": "ars_nouveau:abjuration_essence"
+    },
+    "C": {
+      "item": "ars_nouveau:glyph_hex"
+    },
+    "D": {
+      "item": "ars_nouveau:amulet_of_mana_boost"
+    }
+  },
+  "pattern": [
+    "A =",
+    " C ",
+    " DB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_arcana"
+  }
+}

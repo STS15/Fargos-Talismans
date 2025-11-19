@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:sculk"
+    },
+    "B": {
+      "item": "minecraft:echo_shard"
+    },
+    "C": {
+      "item": "minecraft:sculk_shrieker"
+    },
+    "D": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "F": {
+      "item": "minecraft:sculk_sensor"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "E#E",
+    "DBF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:void_talisman"
+  }
+}

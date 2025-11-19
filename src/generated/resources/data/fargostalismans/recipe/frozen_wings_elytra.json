@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "S": {
+      "item": "minecraft:snow_block"
+    }
+  },
+  "pattern": [
+    "SIS",
+    "IEI",
+    "SIS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:frozen_wings_elytra"
+  }
+}

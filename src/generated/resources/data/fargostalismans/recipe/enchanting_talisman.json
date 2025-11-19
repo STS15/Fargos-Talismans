@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:enchanting_table"
+    },
+    "B": {
+      "item": "minecraft:enchanted_golden_apple"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "B#B",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:enchanting_talisman"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:gold_block"
+    },
+    "B": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "minecraft:shield"
+    },
+    "D": {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "B#B",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:gold_talisman"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "minecraft:powder_snow_bucket"
+    },
+    "B": {
+      "item": "minecraft:snow_block"
+    },
+    "C": {
+      "item": "minecraft:leather_chestplate"
+    },
+    "D": {
+      "item": "minecraft:leather_leggings"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ADA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:arctic_talisman"
+  }
+}

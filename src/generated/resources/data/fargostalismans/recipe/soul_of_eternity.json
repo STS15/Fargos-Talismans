@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ancient"
+    },
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:soul_of_dimensions"
+    },
+    "B": {
+      "item": "fargostalismans:soul_of_the_universe"
+    }
+  },
+  "pattern": [
+    "===",
+    "A#B",
+    "==="
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:soul_of_eternity"
+  }
+}

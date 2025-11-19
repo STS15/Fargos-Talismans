@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:undying_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:undying_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:undying_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:undying_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:undying_talisman"
+    ]
+  }
+}

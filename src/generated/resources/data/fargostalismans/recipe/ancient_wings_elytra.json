@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:sculk_vein"
+    },
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "G": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "pattern": [
+    "GDG",
+    "DED",
+    "GDG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:ancient_wings_elytra"
+  }
+}

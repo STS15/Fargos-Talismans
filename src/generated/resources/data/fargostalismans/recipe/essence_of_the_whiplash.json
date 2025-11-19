@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:amber_horseshoe_balloon"
+    },
+    "B": {
+      "item": "fargostalismans:sweetheart_necklace"
+    },
+    "C": {
+      "item": "fargostalismans:shield_of_cthulhu"
+    }
+  },
+  "pattern": [
+    "  A",
+    " =B",
+    "C  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_whiplash"
+  }
+}

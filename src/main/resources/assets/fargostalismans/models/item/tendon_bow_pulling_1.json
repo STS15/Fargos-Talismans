@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/tendon_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/tendon_bow_pulling_1"
+    }
+}

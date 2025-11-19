@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_advanced"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "I": {
+      "item": "minecraft:gold_block"
+    },
+    "N": {
+      "item": "minecraft:netherite_block"
+    }
+  },
+  "pattern": [
+    "IAI",
+    "#N#",
+    "IAI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:talisman_base_epic"
+  }
+}

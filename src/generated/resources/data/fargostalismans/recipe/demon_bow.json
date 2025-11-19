@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "R": {
+      "item": "minecraft:breeze_rod"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " RS",
+    "FBS",
+    " RS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:demon_bow"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "irons_spellbooks:lightning_upgrade_orb"
+    },
+    "B": {
+      "item": "irons_spellbooks:legendary_ink"
+    },
+    "C": {
+      "item": "irons_spellbooks:mana_ring"
+    },
+    "D": {
+      "item": "irons_spellbooks:cooldown_ring"
+    },
+    "E": {
+      "item": "irons_spellbooks:cast_time_ring"
+    },
+    "F": {
+      "item": "irons_spellbooks:amethyst_resonance_charm"
+    },
+    "G": {
+      "item": "irons_spellbooks:ice_spell_book"
+    }
+  },
+  "pattern": [
+    "BC=",
+    "DAF",
+    " EG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_totem"
+  }
+}

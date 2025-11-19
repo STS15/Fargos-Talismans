@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "B": {
+      "item": "minecraft:water_bucket"
+    },
+    "C": {
+      "item": "minecraft:turtle_scute"
+    },
+    "D": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "E": {
+      "item": "minecraft:seagrass"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "C#D",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:rain_talisman"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:sunflower"
+    },
+    "B": {
+      "item": "minecraft:daylight_detector"
+    },
+    "C": {
+      "item": "minecraft:gold_ingot"
+    },
+    "E": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "C#C",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:day_talisman"
+  }
+}

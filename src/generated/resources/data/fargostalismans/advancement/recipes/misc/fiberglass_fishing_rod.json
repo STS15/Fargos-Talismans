@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:fiberglass_fishing_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:fiberglass_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:fiberglass_fishing_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:fiberglass_fishing_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:fiberglass_fishing_rod"
+    ]
+  }
+}

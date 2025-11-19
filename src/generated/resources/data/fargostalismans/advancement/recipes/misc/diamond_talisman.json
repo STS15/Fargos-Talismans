@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:diamond_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:diamond_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:diamond_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:diamond_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:diamond_talisman"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:soul_of_minecraft": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:soul_of_minecraft"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:soul_of_minecraft"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:soul_of_minecraft"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:soul_of_minecraft"
+    ]
+  }
+}

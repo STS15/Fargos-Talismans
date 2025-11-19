@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_godly"
+    },
+    "A": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "N": {
+      "item": "minecraft:amethyst_block"
+    }
+  },
+  "pattern": [
+    "A#A",
+    "#N#",
+    "A#A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:talisman_base_ancient"
+  }
+}

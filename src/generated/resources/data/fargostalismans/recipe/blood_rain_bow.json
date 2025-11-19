@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:blaze_powder"
+    },
+    "M": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "R": {
+      "item": "minecraft:blaze_rod"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " RM",
+    "FBS",
+    " RM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:blood_rain_bow"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:force_of_explorer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:force_of_explorer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:force_of_explorer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:force_of_explorer"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:force_of_explorer"
+    ]
+  }
+}

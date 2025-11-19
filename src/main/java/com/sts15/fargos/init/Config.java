@@ -101,6 +101,12 @@ public class Config {
     public static ModConfigSpec.BooleanValue SOUL_OF_COLOSSUS_TOGGLE;
     public static ModConfigSpec.BooleanValue SOUL_OF_FLIGHT_MASTERY_TOGGLE;
     public static ModConfigSpec.BooleanValue SOUL_OF_SUPERSONIC_TOGGLE;
+    public static ModConfigSpec.BooleanValue SOUL_OF_ARCH_WIZARD_TOGGLE;
+    public static ModConfigSpec.BooleanValue SOUL_OF_BERSERKER_TOGGLE;
+    public static ModConfigSpec.BooleanValue SOUL_OF_CONJURIST_TOGGLE;
+    public static ModConfigSpec.BooleanValue SOUL_OF_SNIPER_TOGGLE;
+    public static ModConfigSpec.BooleanValue SOUL_OF_TRAWLER_TOGGLE;
+    public static ModConfigSpec.BooleanValue SOUL_OF_WORLD_SHAPER_TOGGLE;
 
     public static final String CATEGORY_APPLE_TALISMAN = "apple_talisman";
     public static final String APPLE_TALISMAN_HEAL_FACTOR_DESC = "How much additional health should the player receive?  Value is added to 1f and then multiplied by the heal amount";
@@ -349,6 +355,81 @@ public class Config {
     public static ModConfigSpec.DoubleValue SOUL_OF_COLOSSUS_HEALTH_MULTIPLIER;
     public static ModConfigSpec.BooleanValue SOUL_OF_COLOSSUS_REMOVE_NEGATIVE_EFFECTS;
 
+    public static final String CATEGORY_SOUL_OF_ARCH_WIZARD = "soul_of_arch_wizard";
+    public static final String SOUL_OF_ARCH_WIZARD_SPELL_DAMAGE_MULTIPLIER_DESC = "Spell damage multiplier. Multiplied by base spell damage and added to total.";
+    public static final String SOUL_OF_ARCH_WIZARD_SPELL_DAMAGE_MULTIPLIER_DEFAULT = "Default is 0.3 for +30% spell damage.";
+    public static final String SOUL_OF_ARCH_WIZARD_MANA_REGEN_MULTIPLIER_DESC = "Mana regeneration multiplier. Multiplied by base mana regen and added to total.";
+    public static final String SOUL_OF_ARCH_WIZARD_MANA_REGEN_MULTIPLIER_DEFAULT = "Default is 2.0 for +200% mana regen.";
+    public static final String SOUL_OF_ARCH_WIZARD_MAX_MANA_ADDITION_DESC = "Flat value added to max mana.";
+    public static final String SOUL_OF_ARCH_WIZARD_MAX_MANA_ADDITION_DEFAULT = "Default is 150.0 for +150 mana.";
+    public static ModConfigSpec.DoubleValue SOUL_OF_ARCH_WIZARD_SPELL_DAMAGE_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_ARCH_WIZARD_MANA_REGEN_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_ARCH_WIZARD_MAX_MANA_ADDITION;
+
+    public static final String CATEGORY_SOUL_OF_CONJURIST = "soul_of_conjurist";
+    public static final String SOUL_OF_CONJURIST_MAX_MANA_ADDITION_DESC = "Flat value added to max mana.";
+    public static final String SOUL_OF_CONJURIST_MAX_MANA_ADDITION_DEFAULT = "Default is 100.0.";
+    public static final String SOUL_OF_CONJURIST_CAST_TIME_REDUCTION_MULTIPLIER_DESC = "Cast time reduction multiplier. Multiplied to base and added to total.";
+    public static final String SOUL_OF_CONJURIST_CAST_TIME_REDUCTION_MULTIPLIER_DEFAULT = "Default is 0.1 for +10% cast speed.";
+    public static final String SOUL_OF_CONJURIST_SPELL_RESIST_MULTIPLIER_DESC = "Spell resistance multiplier. Multiplied to base and added to total.";
+    public static final String SOUL_OF_CONJURIST_SPELL_RESIST_MULTIPLIER_DEFAULT = "Default is 0.2 for +20% spell resistance.";
+    public static final String SOUL_OF_CONJURIST_SPELL_POWER_MULTIPLIER_DESC = "Spell power multiplier. Multiplied to base and added to total.";
+    public static final String SOUL_OF_CONJURIST_SPELL_POWER_MULTIPLIER_DEFAULT = "Default is 0.5 for +50% spell power.";
+    public static final String SOUL_OF_CONJURIST_SUMMON_DAMAGE_MULTIPLIER_DESC = "Summon damage multiplier. Multiplied to base and added to total.";
+    public static final String SOUL_OF_CONJURIST_SUMMON_DAMAGE_MULTIPLIER_DEFAULT = "Default is 0.25 for +25% summon damage.";
+    public static final String SOUL_OF_CONJURIST_COOLDOWN_REDUCTION_MULTIPLIER_DESC = "Cooldown reduction multiplier. Multiplied to base and added to total.";
+    public static final String SOUL_OF_CONJURIST_COOLDOWN_REDUCTION_MULTIPLIER_DEFAULT = "Default is 0.25 for +25% cooldown reduction.";
+    public static ModConfigSpec.DoubleValue SOUL_OF_CONJURIST_MAX_MANA_ADDITION;
+    public static ModConfigSpec.DoubleValue SOUL_OF_CONJURIST_CAST_TIME_REDUCTION_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_CONJURIST_SPELL_RESIST_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_CONJURIST_SPELL_POWER_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_CONJURIST_SUMMON_DAMAGE_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_CONJURIST_COOLDOWN_REDUCTION_MULTIPLIER;
+
+    public static final String CATEGORY_SOUL_OF_WORLD_SHAPER = "soul_of_world_shaper";
+    public static final String SOUL_OF_WORLD_SHAPER_REACH_ADDITION_DESC = "Flat reach distance added to block placing.";
+    public static final String SOUL_OF_WORLD_SHAPER_REACH_ADDITION_DEFAULT = "Default is 59.";
+    public static final String SOUL_OF_WORLD_SHAPER_MINING_SPEED_MULTIPLIER_DESC = "Mining speed multiplier.";
+    public static final String SOUL_OF_WORLD_SHAPER_MINING_SPEED_MULTIPLIER_DEFAULT = "Default is 0.5 for +50%.";
+    public static ModConfigSpec.DoubleValue SOUL_OF_WORLD_SHAPER_REACH_ADDITION;
+    public static ModConfigSpec.DoubleValue SOUL_OF_WORLD_SHAPER_MINING_SPEED_MULTIPLIER;
+
+    public static final String CATEGORY_SOUL_OF_BERSERKER = "soul_of_berserker";
+    public static final String SOUL_OF_BERSERKER_MELEE_DAMAGE_DESC = "Flat melee damage multiplier. Use 0.6 for +60%.";
+    public static final String SOUL_OF_BERSERKER_MELEE_DAMAGE_DEFAULT = "Default is 0.6 for +60%.";
+    public static final String SOUL_OF_BERSERKER_ATTACK_SPEED_DESC = "Flat attack speed multiplier. Use 0.25 for +25%.";
+    public static final String SOUL_OF_BERSERKER_ATTACK_SPEED_DEFAULT = "Default is 0.25 for +25%.";
+    public static final String SOUL_OF_BERSERKER_LIFESTEAL_DESC = "Amount of health restored on melee hit. Use 0.05 for 5% lifesteal.";
+    public static final String SOUL_OF_BERSERKER_LIFESTEAL_DEFAULT = "Default is 0.05 for 5%.";
+    public static ModConfigSpec.DoubleValue SOUL_OF_BERSERKER_MELEE_DAMAGE;
+    public static ModConfigSpec.DoubleValue SOUL_OF_BERSERKER_ATTACK_SPEED;
+    public static ModConfigSpec.DoubleValue SOUL_OF_BERSERKER_LIFESTEAL;
+
+    public static final String CATEGORY_SOUL_OF_SNIPER = "soul_of_sniper";
+    public static final String SOUL_OF_SNIPER_ARROW_DAMAGE_MULTIPLIER_DESC = "Arrow damage multiplier.";
+    public static final String SOUL_OF_SNIPER_PROJECTILE_SPEED_MULTIPLIER_DESC = "Projectile speed multiplier.";
+    public static final String SOUL_OF_SNIPER_PIERCE_LEVEL_DESC = "Arrow pierce level.";
+    public static final String SOUL_OF_SNIPER_SLOWNESS_DURATION_DESC = "Duration of Slowness in ticks.";
+    public static final String SOUL_OF_SNIPER_SLOWNESS_LEVEL_DESC = "Amplifier of Slowness.";
+    public static ModConfigSpec.DoubleValue SOUL_OF_SNIPER_ARROW_DAMAGE_MULTIPLIER;
+    public static ModConfigSpec.DoubleValue SOUL_OF_SNIPER_PROJECTILE_SPEED_MULTIPLIER;
+    public static ModConfigSpec.IntValue SOUL_OF_SNIPER_PIERCE_LEVEL;
+    public static ModConfigSpec.IntValue SOUL_OF_SNIPER_SLOWNESS_DURATION;
+    public static ModConfigSpec.IntValue SOUL_OF_SNIPER_SLOWNESS_LEVEL;
+    public static final String SOUL_OF_SNIPER_NO_GRAVITY_DESC = "Arrows shot with the Soul of the Sniper ignore gravity.";
+    public static final String SOUL_OF_SNIPER_NO_GRAVITY_DEFAULT = "Default is true.";
+    public static ModConfigSpec.BooleanValue SOUL_OF_SNIPER_NO_GRAVITY;
+
+    public static final String CATEGORY_SOUL_OF_TRAWLER = "soul_of_trawler";
+    public static final String SOUL_OF_TRAWLER_AUTO_REEL_DESC = "Automatically reel in when a fish is biting.";
+    public static final String SOUL_OF_TRAWLER_AUTO_REEL_DEFAULT = "Default is true.";
+    public static ModConfigSpec.BooleanValue SOUL_OF_TRAWLER_AUTO_REEL;
+    public static final String SOUL_OF_TRAWLER_BITE_TIME_REDUCTION_DESC = "Ticks subtracted from bite time (per tick).";
+    public static final String SOUL_OF_TRAWLER_BITE_TIME_REDUCTION_DEFAULT = "Default is 1 (i.e., each tick reduces bite timer by 1).";
+    public static ModConfigSpec.IntValue SOUL_OF_TRAWLER_BITE_TIME_REDUCTION;
+    public static final String SOUL_OF_TRAWLER_EXTRA_LINES_DESC = "Number of additional fishing lines cast when fishing.";
+    public static final String SOUL_OF_TRAWLER_EXTRA_LINES_DEFAULT = "Default is 5.";
+    public static ModConfigSpec.IntValue SOUL_OF_TRAWLER_EXTRA_LINES;
 
     public static void register(ModContainer container) {
         //registerClientConfigs(container);
@@ -406,6 +487,12 @@ public class Config {
         zombieConfig();
         soulOfSupersonicConfig();
         soulOfColossusConfig();
+        soulOfArchWizardConfig();
+        soulOfConjuristConfig();
+        soulOfWorldShaperConfig();
+        soulOfBerserkerConfig();
+        soulOfSniperConfig();
+        soulOfTrawlerConfig();
         container.registerConfig(ModConfig.Type.SERVER, SERVER_BUILDER.build());
     }
 
@@ -560,7 +647,6 @@ public class Config {
 
         SERVER_BUILDER.pop();
     }
-
     private static void appleConfig() {
         SERVER_BUILDER.push(CATEGORY_APPLE_TALISMAN);
         APPLE_TALISMAN_HEAL_FACTOR = SERVER_BUILDER
@@ -574,7 +660,7 @@ public class Config {
         ARCHITECT_TALISMAN_REACH_DISTANCE = SERVER_BUILDER
                 .comment(ARCHITECT_TALISMAN_REACH_DISTANCE_DESC)
                 .comment(ARCHITECT_TALISMAN_REACH_DISTANCE_DEFAULT)
-                .defineInRange("architect_talisman_reach_distance", 59, 0, 59);
+                .defineInRange("architect_talisman_reach_distance", 11, 0, 59);
         SERVER_BUILDER.pop();
     }
     private static void battleConfig() {
@@ -945,14 +1031,177 @@ public class Config {
                 .define("soul_of_colossus_remove_negative_effects", true);
         SERVER_BUILDER.pop();
     }
+    private static void soulOfArchWizardConfig() {
+        SERVER_BUILDER.push(CATEGORY_SOUL_OF_ARCH_WIZARD);
+
+        SOUL_OF_ARCH_WIZARD_SPELL_DAMAGE_MULTIPLIER = SERVER_BUILDER
+                .comment(SOUL_OF_ARCH_WIZARD_SPELL_DAMAGE_MULTIPLIER_DESC)
+                .comment(SOUL_OF_ARCH_WIZARD_SPELL_DAMAGE_MULTIPLIER_DEFAULT)
+                .defineInRange("soul_of_arch_wizard_spell_damage_multiplier", 0.3, 0.0, 10.0);
+
+        SOUL_OF_ARCH_WIZARD_MANA_REGEN_MULTIPLIER = SERVER_BUILDER
+                .comment(SOUL_OF_ARCH_WIZARD_MANA_REGEN_MULTIPLIER_DESC)
+                .comment(SOUL_OF_ARCH_WIZARD_MANA_REGEN_MULTIPLIER_DEFAULT)
+                .defineInRange("soul_of_arch_wizard_mana_regen_multiplier", 2.0, 0.0, 10.0);
+
+        SOUL_OF_ARCH_WIZARD_MAX_MANA_ADDITION = SERVER_BUILDER
+                .comment(SOUL_OF_ARCH_WIZARD_MAX_MANA_ADDITION_DESC)
+                .comment(SOUL_OF_ARCH_WIZARD_MAX_MANA_ADDITION_DEFAULT)
+                .defineInRange("soul_of_arch_wizard_max_mana_addition", 150.0, 0.0, 10000.0);
+
+        SERVER_BUILDER.pop();
+    }
+    private static void soulOfConjuristConfig() {
+        SERVER_BUILDER.comment("Soul of the Conjurist Settings").push(CATEGORY_SOUL_OF_CONJURIST);
+
+        SOUL_OF_CONJURIST_MAX_MANA_ADDITION = SERVER_BUILDER
+                .comment(
+                        SOUL_OF_CONJURIST_MAX_MANA_ADDITION_DESC,
+                        SOUL_OF_CONJURIST_MAX_MANA_ADDITION_DEFAULT
+                )
+                .defineInRange("max_mana_addition", 100.0, 0.0, 100000.0);
+
+        SOUL_OF_CONJURIST_CAST_TIME_REDUCTION_MULTIPLIER = SERVER_BUILDER
+                .comment(
+                        SOUL_OF_CONJURIST_CAST_TIME_REDUCTION_MULTIPLIER_DESC,
+                        SOUL_OF_CONJURIST_CAST_TIME_REDUCTION_MULTIPLIER_DEFAULT
+                )
+                .defineInRange("cast_time_reduction_multiplier", 0.10, 0.0, 1.0);
+
+        SOUL_OF_CONJURIST_SPELL_RESIST_MULTIPLIER = SERVER_BUILDER
+                .comment(
+                        SOUL_OF_CONJURIST_SPELL_RESIST_MULTIPLIER_DESC,
+                        SOUL_OF_CONJURIST_SPELL_RESIST_MULTIPLIER_DEFAULT
+                )
+                .defineInRange("spell_resist_multiplier", 0.20, 0.0, 1.0);
+
+        SOUL_OF_CONJURIST_SPELL_POWER_MULTIPLIER = SERVER_BUILDER
+                .comment(
+                        SOUL_OF_CONJURIST_SPELL_POWER_MULTIPLIER_DESC,
+                        SOUL_OF_CONJURIST_SPELL_POWER_MULTIPLIER_DEFAULT
+                )
+                .defineInRange("spell_power_multiplier", 0.50, 0.0, 2.0);
+
+        SOUL_OF_CONJURIST_SUMMON_DAMAGE_MULTIPLIER = SERVER_BUILDER
+                .comment(
+                        SOUL_OF_CONJURIST_SUMMON_DAMAGE_MULTIPLIER_DESC,
+                        SOUL_OF_CONJURIST_SUMMON_DAMAGE_MULTIPLIER_DEFAULT
+                )
+                .defineInRange("summon_damage_multiplier", 0.25, 0.0, 1.0);
+
+        SOUL_OF_CONJURIST_COOLDOWN_REDUCTION_MULTIPLIER = SERVER_BUILDER
+                .comment(
+                        SOUL_OF_CONJURIST_COOLDOWN_REDUCTION_MULTIPLIER_DESC,
+                        SOUL_OF_CONJURIST_COOLDOWN_REDUCTION_MULTIPLIER_DEFAULT
+                )
+                .defineInRange("cooldown_reduction_multiplier", 0.25, 0.0, 1.0);
+
+        SERVER_BUILDER.pop();
+    }
+    private static void soulOfWorldShaperConfig() {
+        SERVER_BUILDER.push(CATEGORY_SOUL_OF_WORLD_SHAPER);
+
+        SOUL_OF_WORLD_SHAPER_REACH_ADDITION = SERVER_BUILDER
+                .comment(SOUL_OF_WORLD_SHAPER_REACH_ADDITION_DESC)
+                .comment(SOUL_OF_WORLD_SHAPER_REACH_ADDITION_DEFAULT)
+                .defineInRange("reach_addition", 59.0, 0.0, 128.0);
+
+        SOUL_OF_WORLD_SHAPER_MINING_SPEED_MULTIPLIER = SERVER_BUILDER
+                .comment(SOUL_OF_WORLD_SHAPER_MINING_SPEED_MULTIPLIER_DESC)
+                .comment(SOUL_OF_WORLD_SHAPER_MINING_SPEED_MULTIPLIER_DEFAULT)
+                .defineInRange("mining_speed_multiplier", 0.5, 0.0, 10.0);
+
+        SERVER_BUILDER.pop();
+    }
+    private static void soulOfBerserkerConfig() {
+        SERVER_BUILDER.push(CATEGORY_SOUL_OF_BERSERKER);
+
+        SOUL_OF_BERSERKER_MELEE_DAMAGE = SERVER_BUILDER
+                .comment(SOUL_OF_BERSERKER_MELEE_DAMAGE_DESC)
+                .comment(SOUL_OF_BERSERKER_MELEE_DAMAGE_DEFAULT)
+                .defineInRange("melee_damage_multiplier", 0.6, 0.0, 10.0);
+
+        SOUL_OF_BERSERKER_ATTACK_SPEED = SERVER_BUILDER
+                .comment(SOUL_OF_BERSERKER_ATTACK_SPEED_DESC)
+                .comment(SOUL_OF_BERSERKER_ATTACK_SPEED_DEFAULT)
+                .defineInRange("attack_speed_multiplier", 0.25, 0.0, 10.0);
+
+        SOUL_OF_BERSERKER_LIFESTEAL = SERVER_BUILDER
+                .comment(SOUL_OF_BERSERKER_LIFESTEAL_DESC)
+                .comment(SOUL_OF_BERSERKER_LIFESTEAL_DEFAULT)
+                .defineInRange("melee_lifesteal_amount", 0.05, 0.0, 1.0);
+
+        SERVER_BUILDER.pop();
+    }
+    private static void soulOfSniperConfig() {
+        SERVER_BUILDER.push(CATEGORY_SOUL_OF_SNIPER);
+
+        SOUL_OF_SNIPER_ARROW_DAMAGE_MULTIPLIER = SERVER_BUILDER
+                .comment(SOUL_OF_SNIPER_ARROW_DAMAGE_MULTIPLIER_DESC)
+                .defineInRange("arrow_damage_multiplier", 2.0, 0.0, 100.0);
+
+        SOUL_OF_SNIPER_PROJECTILE_SPEED_MULTIPLIER = SERVER_BUILDER
+                .comment(SOUL_OF_SNIPER_PROJECTILE_SPEED_MULTIPLIER_DESC)
+                .defineInRange("projectile_speed_multiplier", 1.25, 0.0, 10.0);
+
+        SOUL_OF_SNIPER_PIERCE_LEVEL = SERVER_BUILDER
+                .comment(SOUL_OF_SNIPER_PIERCE_LEVEL_DESC)
+                .defineInRange("pierce_level", 127, 0, 127);
+
+        SOUL_OF_SNIPER_SLOWNESS_DURATION = SERVER_BUILDER
+                .comment(SOUL_OF_SNIPER_SLOWNESS_DURATION_DESC)
+                .defineInRange("slowness_duration", 60, 0, 6000);
+
+        SOUL_OF_SNIPER_SLOWNESS_LEVEL = SERVER_BUILDER
+                .comment(SOUL_OF_SNIPER_SLOWNESS_LEVEL_DESC)
+                .defineInRange("slowness_level", 1, 0, 10);
+
+        SOUL_OF_SNIPER_NO_GRAVITY = SERVER_BUILDER
+                .comment(SOUL_OF_SNIPER_NO_GRAVITY_DESC)
+                .comment(SOUL_OF_SNIPER_NO_GRAVITY_DEFAULT)
+                .define("arrows_ignore_gravity", true);
+
+        SERVER_BUILDER.pop();
+    }
+    private static void soulOfTrawlerConfig() {
+        SERVER_BUILDER.push(CATEGORY_SOUL_OF_TRAWLER);
+        SOUL_OF_TRAWLER_AUTO_REEL = SERVER_BUILDER
+                .comment(SOUL_OF_TRAWLER_AUTO_REEL_DESC)
+                .comment(SOUL_OF_TRAWLER_AUTO_REEL_DEFAULT)
+                .define("auto_reel", true);
+        SOUL_OF_TRAWLER_BITE_TIME_REDUCTION = SERVER_BUILDER
+                .comment(SOUL_OF_TRAWLER_BITE_TIME_REDUCTION_DESC)
+                .comment(SOUL_OF_TRAWLER_BITE_TIME_REDUCTION_DEFAULT)
+                .defineInRange("bite_time_reduction", 1, 0, 5);
+        SOUL_OF_TRAWLER_EXTRA_LINES = SERVER_BUILDER
+                .comment(SOUL_OF_TRAWLER_EXTRA_LINES_DESC)
+                .defineInRange("SOUL_OF_TRAWLER_EXTRA_LINES", 5, 1, 10);
+
+        SERVER_BUILDER.pop();
+
+    }
     private static void generalSoulsConfig() {
         SERVER_BUILDER.comment(CATEGORY_DESC_SOULS).push(CATEGORY_SOULS);
+
         SOUL_OF_COLOSSUS_TOGGLE = SERVER_BUILDER
                 .define("Soul_Of_Colossus", true);
         SOUL_OF_FLIGHT_MASTERY_TOGGLE = SERVER_BUILDER
                 .define("Soul_Of_Flight_Mastery", true);
         SOUL_OF_SUPERSONIC_TOGGLE = SERVER_BUILDER
                 .define("Soul_Of_Supersonic", true);
+        SOUL_OF_ARCH_WIZARD_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Arch_Wizard", true);
+        SOUL_OF_BERSERKER_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Berserker", true);
+        SOUL_OF_CONJURIST_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Conjurist", true);
+        SOUL_OF_SNIPER_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Sniper", true);
+        SOUL_OF_TRAWLER_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_Trawler", true);
+        SOUL_OF_WORLD_SHAPER_TOGGLE = SERVER_BUILDER
+                .define("Soul_Of_World_Shaper", true);
+
         SERVER_BUILDER.pop();
     }
 

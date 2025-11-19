@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:lightning_rod"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:fishing_rod"
+    },
+    "S": {
+      "item": "minecraft:lead"
+    }
+  },
+  "pattern": [
+    "  A",
+    " RS",
+    "B S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:mechanics_fishing_rod"
+  }
+}

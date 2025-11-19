@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "minecraft:fishing_rod"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "  A",
+    " RS",
+    "B S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:fisher_of_souls_fishing_rod"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:breeze_rod"
+    },
+    "M": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "R": {
+      "item": "minecraft:breeze_rod"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "ARM",
+    "FBS",
+    "ARM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:eventide_bow"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "OCO",
+    "CEC",
+    "OCO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:ender_wings_elytra"
+  }
+}

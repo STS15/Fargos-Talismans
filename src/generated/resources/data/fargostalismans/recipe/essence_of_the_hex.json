@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "irons_spellbooks:legendary_ink"
+    },
+    "B": {
+      "item": "irons_spellbooks:protection_upgrade_orb"
+    },
+    "C": {
+      "item": "irons_spellbooks:cooldown_upgrade_orb"
+    },
+    "D": {
+      "item": "irons_spellbooks:mana_upgrade_orb"
+    },
+    "E": {
+      "item": "irons_spellbooks:dragonskin_spell_book"
+    }
+  },
+  "pattern": [
+    " E ",
+    "=D=",
+    "BAC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_hex"
+  }
+}

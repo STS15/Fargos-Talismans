@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "RER",
+    "RRR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:dusty_wings_elytra"
+  }
+}

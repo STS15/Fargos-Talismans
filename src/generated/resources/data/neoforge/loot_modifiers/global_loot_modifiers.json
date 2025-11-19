@@ -1,0 +1,13 @@
+{
+  "entries": [
+    "fargostalismans:compat_treasure_loot_modifier",
+    "fargostalismans:vanilla_generic_loot_modifier",
+    "fargostalismans:nether_loot_modifier",
+    "fargostalismans:compat_good_loot_modifier",
+    "fargostalismans:stronghold_library_modifier",
+    "fargostalismans:compat_generic_loot_modifier",
+    "fargostalismans:ancient_city_modifier",
+    "fargostalismans:end_city_modifier"
+  ],
+  "replace": false
+}

@@ -1,6 +1,7 @@
 package com.sts15.fargos.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.sts15.fargos.init.Config;
 import com.sts15.fargos.network.NetworkHandler;
 import com.sts15.fargos.network.TalismanType;
 import net.minecraft.ChatFormatting;
@@ -94,19 +95,14 @@ public class TalismanToggleScreen extends Screen {
         return nodes;
     }
 
-
-
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
 
         renderCustomBackground(guiGraphics);
-
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-
         drawHeader(guiGraphics);
-
         drawNodes(guiGraphics, mouseX, mouseY);
         drawScrollBar(guiGraphics);
     }
@@ -127,8 +123,7 @@ public class TalismanToggleScreen extends Screen {
         int borderColor = FastColor.ARGB32.color(255, 160, 160, 220);
         guiGraphics.fillGradient(x, y, x + 200, y + NODE_HEIGHT - 2, startColor, endColor);
         guiGraphics.renderOutline(x, y, 200, NODE_HEIGHT - 2, borderColor);
-        Component nameComponent = Component.translatable("screen.fargostalismans.node."+nodeType+".header")
-                .withStyle(ChatFormatting.BOLD);
+        Component nameComponent = Component.translatable("screen.fargostalismans.node."+nodeType+".header").withStyle(ChatFormatting.BOLD);
         guiGraphics.drawString(Minecraft.getInstance().font, nameComponent, x + 25, y + 5, FastColor.ARGB32.color(255, 240, 240, 255), true);
     }
 
@@ -156,9 +151,88 @@ public class TalismanToggleScreen extends Screen {
         drawCheckbox(guiGraphics, x + 170, y + 5, node.enabled());
         drawIcon(guiGraphics, x + 5, (y + (NODE_HEIGHT - 12) / 2) - 1, node);
         if (isHoveringNode(x, y, mouseX, mouseY)) {
-            guiGraphics.renderTooltip(Minecraft.getInstance().font, Component.translatable("item.fargostalismans.tooltip." + node.talismanName()), mouseX, mouseY);
+            Component tooltip = getDynamicTooltipFor(node.talismanName());
+            guiGraphics.renderTooltip(Minecraft.getInstance().font, tooltip, mouseX, mouseY);
         }
     }
+
+    private Component getDynamicTooltipFor(String talismanName) {
+        return switch (talismanName) {
+            case "diamond_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.diamond_talisman",
+                            (int) (Config.DIAMOND_TALISMAN_DAMAGE_REDUCTION.get() * 100));
+            case "iron_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.iron_talisman",
+                            (int) (Config.IRON_TALISMAN_DAMAGE_REDUCTION.get() * 100));
+            case "emerald_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.emerald_talisman",
+                            (int) (Config.EMERALD_TALISMAN_INCREASED_ILLAGER_DAMAGE.get() * 100));
+            case "apple_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.apple_talisman",
+                            String.format("%.1f", Config.APPLE_TALISMAN_HEAL_FACTOR.get() * 100));
+            case "cactus_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.cactus_talisman",
+                            (int) (Config.CACTUS_TALISMAN_REFLECTED_DAMAGE.get() * 100));
+            case "iron_golem_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.iron_golem_talisman",
+                            (int) (Config.IRON_GOLEM_TALISMAN_HEALTH_BOOST_MULTIPLIER.get() * 100));
+            case "architect_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.architect_talisman",
+                            Config.ARCHITECT_TALISMAN_REACH_DISTANCE.get());
+            case "fired_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.fired_talisman",
+                            (int) (Config.FIRED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "poisoned_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.poisoned_talisman",
+                            (int) (Config.POISONED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "withered_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.withered_talisman",
+                            (int) (Config.WITHERED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "blinded_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.blinded_talisman",
+                            (int) (Config.BLINDED_TALISMAN_DAMAGE_FACTOR.get() * 100));
+            case "fatigued_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.fatigued_talisman",
+                            (int) (Config.FATIGUED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "slowed_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.slowed_talisman",
+                            (int) (Config.SLOWED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "nauseated_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.nauseated_talisman",
+                            (int) (Config.NAUSEATED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "weakened_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.weakened_talisman",
+                            (int) (Config.WEAKENED_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "sun_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.sun_talisman",
+                            (int) (Config.SUN_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "true_sun_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.true_sun_talisman",
+                            (int) (Config.TRUE_SUN_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "storm_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.storm_talisman",
+                            (int) (Config.STORM_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "rain_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.rain_talisman",
+                            (int) (Config.RAIN_TALISMAN_INCREASED_SPEED.get() * 100));
+            case "snowy_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.snowy_talisman",
+                            (int) (Config.SNOWY_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            case "day_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.day_talisman",
+                            (int) (Config.DAY_TALISMAN_ADDITIONAL_DAMAGE.get() * 100));
+            case "night_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.night_talisman",
+                            (int) (Config.NIGHT_TALISMAN_INCREASED_ARMOR.get() * 100));
+            case "full_moon_talisman" ->
+                    Component.translatable("item.fargostalismans.tooltip.full_moon_talisman",
+                            (int) (Config.FULL_MOON_TALISMAN_INCREASED_DAMAGE.get() * 100));
+            default ->
+                    Component.translatable("item.fargostalismans.tooltip." + talismanName);
+        };
+    }
+
+
 
     private void drawCheckbox(GuiGraphics guiGraphics, int x, int y, boolean checked) {
         int outlineColor = FastColor.ARGB32.color(255, 220, 220, 255);
@@ -285,6 +359,14 @@ public class TalismanToggleScreen extends Screen {
             }
         }
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
+        int visibleHeight = WINDOW_HEIGHT - 40;
+        int maxScroll = Math.max(0, totalNodeHeight - visibleHeight);
+        scrollOffset = Mth.clamp(scrollOffset - (int)(scrollY * 10), 0, maxScroll);
+        return true;
     }
 
     private void toggleTalisman(TalismanNode node) {

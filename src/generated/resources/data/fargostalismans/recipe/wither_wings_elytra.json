@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
+  "pattern": [
+    "NWN",
+    "WEW",
+    "NWN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:wither_wings_elytra"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "M": {
+      "item": "minecraft:nether_star"
+    },
+    "S": {
+      "item": "minecraft:spore_blossom"
+    }
+  },
+  "pattern": [
+    "SMS",
+    "MEM",
+    "SMS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:astral_wings_elytra"
+  }
+}

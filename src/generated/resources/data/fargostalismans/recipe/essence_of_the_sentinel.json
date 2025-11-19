@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:brain_of_confusion"
+    },
+    "B": {
+      "item": "fargostalismans:charm_of_myths"
+    },
+    "C": {
+      "item": "fargostalismans:hand_warmer"
+    }
+  },
+  "pattern": [
+    "A  ",
+    "=B ",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_sentinel"
+  }
+}

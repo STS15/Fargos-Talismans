@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:gold_ingot"
+    },
+    "R": {
+      "item": "minecraft:fishing_rod"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "  A",
+    " RS",
+    "B S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:golden_fishing_rod"
+  }
+}

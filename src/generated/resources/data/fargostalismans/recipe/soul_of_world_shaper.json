@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_ultimate"
+    },
+    "1": {
+      "item": "fargostalismans:essence_of_the_artisan"
+    },
+    "2": {
+      "item": "fargostalismans:essence_of_the_mason"
+    },
+    "3": {
+      "item": "fargostalismans:essence_of_the_terraformer"
+    },
+    "4": {
+      "item": "fargostalismans:essence_of_the_sculptor"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "2#3",
+    " 4 "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:soul_of_world_shaper"
+  }
+}

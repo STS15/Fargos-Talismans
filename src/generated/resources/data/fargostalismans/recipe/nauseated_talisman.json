@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "M": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "P": {
+      "item": "minecraft:pufferfish"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "V": {
+      "item": "fargostalismans:nauseated_vial"
+    }
+  },
+  "pattern": [
+    "VFV",
+    "PBR",
+    "VMV"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:nauseated_talisman"
+  }
+}

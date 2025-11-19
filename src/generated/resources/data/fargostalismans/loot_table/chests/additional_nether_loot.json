@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.09,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "fargostalismans:talisman_base_advanced"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.06,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "fargostalismans:talisman_base_epic"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "fargostalismans:chests/additional_nether_loot"
+}

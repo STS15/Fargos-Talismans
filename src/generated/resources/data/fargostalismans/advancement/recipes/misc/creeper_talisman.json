@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:creeper_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:creeper_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:creeper_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:creeper_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:creeper_talisman"
+    ]
+  }
+}

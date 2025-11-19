@@ -12,6 +12,7 @@ import com.sts15.fargos.entity.attacks.targetLocked.TargetLockedRenderer;
 import com.sts15.fargos.entity.eridanus.*;
 import com.sts15.fargos.init.*;
 import com.sts15.fargos.items.ItemInit;
+import com.sts15.fargos.items.ModItemProperties;
 import com.sts15.fargos.loot.LootRegistry;
 import com.sts15.fargos.network.NetworkHandler;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
@@ -63,9 +64,7 @@ public class Fargos {
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
-    }
+    public void onServerStarting(ServerStartingEvent event) {}
 
     @SubscribeEvent
     public void onRegisterCommands(RegisterCommandsEvent event) {
@@ -86,6 +85,7 @@ public class Fargos {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             NeoForge.EVENT_BUS.register(FireUIRenderer.class);
+            event.enqueueWork(ModItemProperties::register);
         }
 
         @SubscribeEvent

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:vortex_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:vortex_bow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:vortex_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:vortex_bow"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:vortex_bow"
+    ]
+  }
+}

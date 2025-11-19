@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/blood_rain_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/blood_rain_bow_pulling_1"
+    }
+}

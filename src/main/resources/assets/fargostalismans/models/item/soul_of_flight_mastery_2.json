@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "fargostalismans:item/soul_of_flight_mastery_2"
-  }
-}

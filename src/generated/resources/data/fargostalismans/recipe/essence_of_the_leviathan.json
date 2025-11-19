@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:simple_fishing_rod"
+    },
+    "B": {
+      "item": "fargostalismans:fiberglass_fishing_rod"
+    },
+    "C": {
+      "item": "fargostalismans:fleshcatcher_fishing_rod"
+    }
+  },
+  "pattern": [
+    "A= ",
+    " B ",
+    "  C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_leviathan"
+  }
+}

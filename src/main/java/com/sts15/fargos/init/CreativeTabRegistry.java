@@ -27,7 +27,8 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.TALISMAN_BASE_LEGENDARY.get());
                 output.accept(ItemInit.TALISMAN_BASE_ULTIMATE.get());
                 output.accept(ItemInit.TALISMAN_BASE_GODLY.get());
-            	
+                output.accept(ItemInit.TALISMAN_BASE_ANCIENT.get());
+
                 // Add talismans
                 output.accept(ItemInit.AIR_TALISMAN.get());
                 output.accept(ItemInit.AMETHYST_TALISMAN.get());
@@ -98,23 +99,32 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.FORCE_OF_ENVIRONMENT.get());
 
                 // Add souls
-                output.accept(ItemInit.SOUL_OF_MINECRAFT.get());
+                output.accept(ItemInit.SOUL_OF_ARCH_WIZARD.get());
+                output.accept(ItemInit.SOUL_OF_BERSERKER.get());
                 output.accept(ItemInit.SOUL_OF_COLOSSUS.get());
+                output.accept(ItemInit.SOUL_OF_CONJURIST.get());
                 output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY.get());
+                output.accept(ItemInit.SOUL_OF_SNIPER.get());
                 output.accept(ItemInit.SOUL_OF_SUPERSONIC.get());
+                output.accept(ItemInit.SOUL_OF_TRAWLER.get());
+                output.accept(ItemInit.SOUL_OF_WORLD_SHAPER.get());
+                output.accept(ItemInit.SOUL_OF_MINECRAFT.get());
                 output.accept(ItemInit.SOUL_OF_DIMENSIONS.get());
-
-                output.accept(ItemInit.SOUL_OF_COLOSSUS_1.get());
-                output.accept(ItemInit.SOUL_OF_COLOSSUS_2.get());
-                output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY_1.get());
-                output.accept(ItemInit.SOUL_OF_FLIGHT_MASTERY_2.get());
-                output.accept(ItemInit.SOUL_OF_SUPERSONIC_1.get());
-                output.accept(ItemInit.SOUL_OF_SUPERSONIC_2.get());
+                output.accept(ItemInit.SOUL_OF_THE_UNIVERSE.get());
+                output.accept(ItemInit.SOUL_OF_ETERNITY.get());
 
                 output.accept(ItemInit.ERIDANUS_HELMET.get());
                 output.accept(ItemInit.ERIDANUS_CHESTPLATE.get());
                 output.accept(ItemInit.ERIDANUS_LEGGINGS.get());
                 output.accept(ItemInit.ERIDANUS_BOOTS.get());
+                output.accept(ItemInit.STYX_HELMET.get());
+                output.accept(ItemInit.STYX_CHESTPLATE.get());
+                output.accept(ItemInit.STYX_LEGGINGS.get());
+                output.accept(ItemInit.STYX_BOOTS.get());
+                output.accept(ItemInit.MUTANT_HELMET.get());
+                output.accept(ItemInit.MUTANT_CHESTPLATE.get());
+                output.accept(ItemInit.MUTANT_LEGGINGS.get());
+                output.accept(ItemInit.MUTANT_BOOTS.get());
 
                 output.accept(BlocksInit.PEDESTAL.get());
 
@@ -168,6 +178,71 @@ public class CreativeTabRegistry {
                 output.accept(ItemInit.VOLCANIC_ASH_ELYTRA.get());
                 output.accept(ItemInit.WITHER_WINGS_ELYTRA.get());
                 output.accept(ItemInit.WORM_SCARF.get());
+
+                output.accept(ItemInit.SIMPLE_FISHING_ROD.get());
+                output.accept(ItemInit.FIBERGLASS_FISHING_ROD.get());
+                output.accept(ItemInit.FLESHCATCHER_FISHING_ROD.get());
+                output.accept(ItemInit.FISHER_OF_SOULS_FISHING_ROD.get());
+                output.accept(ItemInit.REINFORCED_FISHING_ROD.get());
+                output.accept(ItemInit.CHUM_CASTER_FISHING_ROD.get());
+                output.accept(ItemInit.SCARAB_FISHING_ROD.get());
+                output.accept(ItemInit.MECHANICS_FISHING_ROD.get());
+                output.accept(ItemInit.HOTLINE_FISHING_ROD.get());
+                output.accept(ItemInit.GOLDEN_FISHING_ROD.get());
+                output.accept(ItemInit.SITTING_DUCKS_FISHING_ROD.get());
+                output.accept(ItemInit.STYX_CASTER_FISHING_ROD.get());
+
+                output.accept(ItemInit.SIMPLE_BOW.get());
+                output.accept(ItemInit.EVENTIDE_BOW.get());
+                output.accept(ItemInit.DAEDALUS_STORMBOW.get());
+                output.accept(ItemInit.HELLWING_BOW.get());
+                output.accept(ItemInit.TENDON_BOW.get());
+                output.accept(ItemInit.ICE_BOW.get());
+                output.accept(ItemInit.DEMON_BOW.get());
+                output.accept(ItemInit.SIMPLE_BOW.get());
+                output.accept(ItemInit.BLOOD_RAIN_BOW.get());
+                output.accept(ItemInit.MECHANICS_BOW.get());
+                output.accept(ItemInit.TSUNAMI_BOW.get());
+                output.accept(ItemInit.VORTEX_BOW.get());
+                output.accept(ItemInit.AERIAL_BANE_BOW.get());
+
+                output.accept(ItemInit.ESSENCE_OF_THE_TITAN.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_JUGGERNAUT.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_BEHEMOTH.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_SENTINEL.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_ZEPHYR.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_SKYRUNNER.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_HIGHWIND.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_SOARER.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_COMET.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_VELOCITY.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_KINETIC.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_WHIPLASH.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_ARCANA.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_ELDRITCH.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_MAGE.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_THAUMATURGE.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_RAVAGER.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_WARLORD.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_SAVAGE.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_WARMONGER.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_TOTEM.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_OCCULT.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_PHANTOM.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_HEX.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_LONGSHOT.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_DEADEYE.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_HAWK.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_MARKSMAN.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_LEVIATHAN.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_ANGLER.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_ABYSS.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_BRINE.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_ARTISAN.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_MASON.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_TERRAFORMER.get());
+                output.accept(ItemInit.ESSENCE_OF_THE_SCULPTOR.get());
+
             }).build());
 
     public static void register(IEventBus modEventBus) {

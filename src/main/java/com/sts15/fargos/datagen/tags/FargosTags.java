@@ -7,8 +7,15 @@ import net.minecraft.world.item.Item;
 
 public class FargosTags {
     public static class Items {
-        public static final TagKey<Item> CURIO_CHARM = makeItemTag(ResourceLocation.fromNamespaceAndPath("curios", "charm"));
 
+        public static final TagKey<Item> CURIO_CHARM =
+                makeItemTag(ResourceLocation.fromNamespaceAndPath("curios", "charm"));
+
+        public static final TagKey<Item> FISHING_ORGANIC =
+                makeItemTag(ResourceLocation.fromNamespaceAndPath("fargostalismans", "fishing_organic"));
+
+        public static final TagKey<Item> FISHING_ABOMINABLE =
+                makeItemTag(ResourceLocation.fromNamespaceAndPath("fargostalismans", "fishing_abominable"));
     }
 
     public static TagKey<Item> makeItemTag(ResourceLocation id) {

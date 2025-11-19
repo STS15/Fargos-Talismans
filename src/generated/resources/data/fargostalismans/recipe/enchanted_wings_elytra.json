@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:enchanting_table"
+    },
+    "E": {
+      "item": "minecraft:bookshelf"
+    },
+    "S": {
+      "item": "minecraft:elytra"
+    }
+  },
+  "pattern": [
+    "DED",
+    "ESE",
+    "DED"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:enchanted_wings_elytra"
+  }
+}

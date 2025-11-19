@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/tsunami_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/tsunami_bow_pulling_2"
+    }
+}

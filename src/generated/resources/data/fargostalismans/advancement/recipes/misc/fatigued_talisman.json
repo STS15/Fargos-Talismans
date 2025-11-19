@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:fatigued_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:fatigued_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:fatigued_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:fatigued_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:fatigued_talisman"
+    ]
+  }
+}

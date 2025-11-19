@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:nauseated_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:nauseated_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:nauseated_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:nauseated_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:nauseated_talisman"
+    ]
+  }
+}

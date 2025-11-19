@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:redstone"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:blaze_rod"
+    },
+    "R": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "ARS",
+    "FBS",
+    "ARS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:mechanics_bow"
+  }
+}

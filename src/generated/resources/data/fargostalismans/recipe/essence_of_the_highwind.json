@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:enchanted_wings_elytra"
+    },
+    "B": {
+      "item": "fargostalismans:phantom_wings_elytra"
+    },
+    "C": {
+      "item": "fargostalismans:oceans_fins_elytra"
+    }
+  },
+  "pattern": [
+    " =A",
+    "B  ",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_highwind"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:aerial_bane_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:aerial_bane_bow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:aerial_bane_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:aerial_bane_bow"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:aerial_bane_bow"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_normal"
+    },
+    "A": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "B": {
+      "item": "minecraft:spectral_arrow"
+    },
+    "D": {
+      "item": "minecraft:turtle_helmet"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "B#B",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:spectral_talisman"
+  }
+}

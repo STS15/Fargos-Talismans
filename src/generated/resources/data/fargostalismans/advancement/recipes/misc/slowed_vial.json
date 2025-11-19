@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:slowed_vial": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:slowed_vial"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:slowed_vial"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:slowed_vial"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:slowed_vial"
+    ]
+  }
+}

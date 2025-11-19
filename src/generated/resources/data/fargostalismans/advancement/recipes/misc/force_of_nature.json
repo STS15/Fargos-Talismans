@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:force_of_nature": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:force_of_nature"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:force_of_nature"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:force_of_nature"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:force_of_nature"
+    ]
+  }
+}

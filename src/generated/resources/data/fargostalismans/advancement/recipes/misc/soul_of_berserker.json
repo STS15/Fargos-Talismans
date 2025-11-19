@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:soul_of_berserker": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:soul_of_berserker"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:soul_of_berserker"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:soul_of_berserker"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:soul_of_berserker"
+    ]
+  }
+}

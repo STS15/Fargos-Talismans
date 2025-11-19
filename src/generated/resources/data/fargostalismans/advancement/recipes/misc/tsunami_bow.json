@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:tsunami_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:tsunami_bow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:tsunami_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:tsunami_bow"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:tsunami_bow"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/daedalus_stormbow",
+    "textures": {
+        "layer0": "fargostalismans:item/daedalus_stormbow_pulling_2"
+    }
+}

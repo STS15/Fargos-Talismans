@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "P": {
+      "item": "minecraft:pufferfish"
+    },
+    "S": {
+      "item": "minecraft:slime_ball"
+    },
+    "T": {
+      "item": "minecraft:turtle_scute"
+    },
+    "V": {
+      "item": "fargostalismans:fatigued_vial"
+    }
+  },
+  "pattern": [
+    "VSV",
+    "PFT",
+    "VSV"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:fatigued_talisman"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/ice_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/ice_bow_pulling_2"
+    }
+}

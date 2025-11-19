@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:simple_fishing_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:simple_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:simple_fishing_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:simple_fishing_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:simple_fishing_rod"
+    ]
+  }
+}

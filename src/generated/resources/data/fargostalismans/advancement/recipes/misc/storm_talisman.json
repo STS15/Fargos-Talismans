@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:storm_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:storm_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:storm_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:storm_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:storm_talisman"
+    ]
+  }
+}

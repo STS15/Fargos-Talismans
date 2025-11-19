@@ -24,6 +24,6 @@ public class EridanusArmorModel extends GeoModel<EridanusArmorItem> {
 
     @Override
     public ResourceLocation getAnimationResource(EridanusArmorItem animatable) {
-        return ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "animations/armor_animation.json");
+        return ResourceLocation.fromNamespaceAndPath(Fargos.MODID, "animations/armor_animation.animation.json");
     }
 }

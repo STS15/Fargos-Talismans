@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:oceans_fins_elytra": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:oceans_fins_elytra"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:oceans_fins_elytra"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:oceans_fins_elytra"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:oceans_fins_elytra"
+    ]
+  }
+}

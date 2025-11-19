@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "F": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "G": {
+      "item": "minecraft:ghast_tear"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "V": {
+      "item": "fargostalismans:weakened_vial"
+    }
+  },
+  "pattern": [
+    "VPV",
+    "GFG",
+    "VBV"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:weakened_talisman"
+  }
+}

@@ -3,9 +3,12 @@
   "package": "com.sts15.fargos.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractArrowAccessor",
     "AbstractFurnaceBlockEntityMixin",
     "BlockMixin",
     "EnderManMixin",
+    "FishingHookMixin",
+    "FishingRodItemMixin",
     "LivingEntityMixin",
     "MobMixin",
     "NearestAttackableTargetGoalMixin",
@@ -20,5 +23,7 @@
     "WitchMixin"
   ],
   "minVersion": "0.8",
-  "refmap": "mixins.fargostalismans.refmap.json"
+  "refmap": "mixins.fargostalismans.refmap.json",
+  "client": [
+  ]
 }

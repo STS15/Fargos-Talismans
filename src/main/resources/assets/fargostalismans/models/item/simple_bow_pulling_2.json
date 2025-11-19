@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/simple_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/simple_bow_pulling_2"
+    }
+}

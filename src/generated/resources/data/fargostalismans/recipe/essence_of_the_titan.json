@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:ankh_shield"
+    },
+    "B": {
+      "item": "fargostalismans:worm_scarf"
+    },
+    "C": {
+      "item": "fargostalismans:shiny_stone"
+    }
+  },
+  "pattern": [
+    "A =",
+    " B ",
+    "= C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_titan"
+  }
+}

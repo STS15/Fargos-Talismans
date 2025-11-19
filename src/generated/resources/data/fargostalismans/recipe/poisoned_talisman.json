@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "C": {
+      "item": "minecraft:cactus"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "P": {
+      "item": "minecraft:poisonous_potato"
+    },
+    "S": {
+      "item": "minecraft:spider_eye"
+    },
+    "V": {
+      "item": "fargostalismans:poisoned_vial"
+    }
+  },
+  "pattern": [
+    "VSV",
+    "FBP",
+    "VCV"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:poisoned_talisman"
+  }
+}

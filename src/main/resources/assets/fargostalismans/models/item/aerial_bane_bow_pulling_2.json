@@ -1,0 +1,6 @@
+{
+    "parent": "fargostalismans:item/aerial_bane_bow",
+    "textures": {
+        "layer0": "fargostalismans:item/aerial_bane_bow_pulling_2"
+    }
+}

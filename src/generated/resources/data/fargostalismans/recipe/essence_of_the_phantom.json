@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "irons_spellbooks:legendary_ink"
+    },
+    "B": {
+      "item": "irons_spellbooks:holy_upgrade_orb"
+    },
+    "C": {
+      "item": "irons_spellbooks:ender_upgrade_orb"
+    },
+    "D": {
+      "item": "irons_spellbooks:blood_upgrade_orb"
+    },
+    "E": {
+      "item": "irons_spellbooks:nature_upgrade_orb"
+    },
+    "F": {
+      "item": "irons_spellbooks:evocation_upgrade_orb"
+    },
+    "G": {
+      "item": "irons_spellbooks:cursed_doll_spell_book"
+    }
+  },
+  "pattern": [
+    "BC ",
+    "GAD",
+    "EF="
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_phantom"
+  }
+}

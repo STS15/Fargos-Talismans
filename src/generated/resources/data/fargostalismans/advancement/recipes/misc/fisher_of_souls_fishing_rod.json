@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:fisher_of_souls_fishing_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:fisher_of_souls_fishing_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:fisher_of_souls_fishing_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:fisher_of_souls_fishing_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:fisher_of_souls_fishing_rod"
+    ]
+  }
+}

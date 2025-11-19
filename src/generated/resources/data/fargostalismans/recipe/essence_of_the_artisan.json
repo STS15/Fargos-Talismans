@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "*": {
+      "item": "fargostalismans:architect_talisman"
+    },
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "minecraft:diamond_axe"
+    },
+    "B": {
+      "item": "minecraft:piston"
+    },
+    "H": {
+      "item": "minecraft:diamond_hoe"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "P": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "S": {
+      "item": "minecraft:diamond_shovel"
+    }
+  },
+  "pattern": [
+    "PBA",
+    "H*S",
+    "=N="
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_artisan"
+  }
+}

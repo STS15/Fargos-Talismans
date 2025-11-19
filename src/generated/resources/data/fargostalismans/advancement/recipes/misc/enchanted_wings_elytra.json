@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:enchanted_wings_elytra": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:enchanted_wings_elytra"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:enchanted_wings_elytra"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:enchanted_wings_elytra"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:enchanted_wings_elytra"
+    ]
+  }
+}

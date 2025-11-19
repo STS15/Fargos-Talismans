@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:blood_rain_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:blood_rain_bow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:blood_rain_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:blood_rain_bow"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:blood_rain_bow"
+    ]
+  }
+}

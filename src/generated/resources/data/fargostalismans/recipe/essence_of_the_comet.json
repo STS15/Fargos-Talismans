@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:blessed_apple"
+    },
+    "B": {
+      "item": "fargostalismans:brain_scrambler"
+    },
+    "C": {
+      "item": "fargostalismans:mechanical_cart"
+    }
+  },
+  "pattern": [
+    "A= ",
+    " B ",
+    "  C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_comet"
+  }
+}

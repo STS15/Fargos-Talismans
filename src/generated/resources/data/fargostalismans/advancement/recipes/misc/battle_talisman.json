@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:battle_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:battle_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:battle_talisman"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:battle_talisman"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:battle_talisman"
+    ]
+  }
+}

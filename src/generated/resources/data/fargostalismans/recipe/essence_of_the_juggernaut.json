@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "=": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "A": {
+      "item": "fargostalismans:bee_cloak"
+    },
+    "B": {
+      "item": "fargostalismans:star_veil"
+    },
+    "C": {
+      "item": "fargostalismans:pocket_mirror"
+    }
+  },
+  "pattern": [
+    "= A",
+    " B ",
+    "C ="
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:essence_of_the_juggernaut"
+  }
+}

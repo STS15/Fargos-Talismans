@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "F": {
+      "item": "minecraft:breeze_rod"
+    },
+    "M": {
+      "item": "fargostalismans:abominable_energy"
+    },
+    "R": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " RM",
+    "FBS",
+    " RM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:daedalus_stormbow"
+  }
+}

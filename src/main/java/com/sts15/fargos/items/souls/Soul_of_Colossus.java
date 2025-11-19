@@ -60,6 +60,21 @@ public class Soul_of_Colossus extends TalismanItem implements ICurioItem, Soul_o
                     .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
         }
 
+        tooltipComponents.add(Component.literal(""));
+        tooltipComponents.add(Component.literal("When worn as talisman:").withStyle(ChatFormatting.GOLD));
+
+        // Health Multiplier
+        double healthMult = Config.SOUL_OF_COLOSSUS_HEALTH_MULTIPLIER.get();
+        tooltipComponents.add(Component.literal("Increases max health")
+                .withStyle(ChatFormatting.BLUE)
+                .append(Component.literal(String.format(" [%.1fx]", healthMult)).withStyle(ChatFormatting.GRAY)));
+
+        // Removes negative effects
+        if (Config.SOUL_OF_COLOSSUS_REMOVE_NEGATIVE_EFFECTS.get()) {
+            tooltipComponents.add(Component.literal("Removes all negative potion effects")
+                    .withStyle(ChatFormatting.BLUE));
+        }
+
         if (Screen.hasShiftDown()) {
             if (Screen.hasShiftDown()) {
                 addTrinketTooltip(tooltipComponents, "ankh_shield", 0x4A90E2);

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "F": {
+      "item": "minecraft:poppy"
+    },
+    "O": {
+      "item": "minecraft:oak_leaves"
+    }
+  },
+  "pattern": [
+    "OFO",
+    "FEF",
+    "OFO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:forest_wings_elytra"
+  }
+}

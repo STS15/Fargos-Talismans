@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:bookshelf"
+    },
+    "B": {
+      "item": "minecraft:book"
+    },
+    "C": {
+      "item": "minecraft:writable_book"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "B#B",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:librarian_talisman"
+  }
+}

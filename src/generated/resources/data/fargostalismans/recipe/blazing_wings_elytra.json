@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "M": {
+      "item": "minecraft:magma_cream"
+    },
+    "R": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "MRM",
+    "RER",
+    "MRM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:blazing_wings_elytra"
+  }
+}

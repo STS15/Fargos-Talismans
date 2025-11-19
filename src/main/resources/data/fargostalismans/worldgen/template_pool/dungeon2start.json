@@ -6,7 +6,7 @@
       "weight": 5,
       "element": {
         "location": "fargostalismans:dungeon2/loot_room",
-        "processors": "minecraft:empty",
+        "processors": "fargostalismans:dungeon2_processor",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "R": {
+      "item": "minecraft:wither_rose"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    },
+    "V": {
+      "item": "fargostalismans:withered_vial"
+    },
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
+  "pattern": [
+    "VSV",
+    "WFW",
+    "VRV"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:withered_talisman"
+  }
+}

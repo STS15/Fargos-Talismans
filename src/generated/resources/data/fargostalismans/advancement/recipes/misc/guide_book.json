@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:guide_book": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:guide_book"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:guide_book"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:guide_book"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:guide_book"
+    ]
+  }
+}

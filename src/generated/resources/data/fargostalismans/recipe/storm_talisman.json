@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "B": {
+      "item": "minecraft:trident"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    },
+    "D": {
+      "item": "minecraft:lightning_rod"
+    },
+    "E": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "C#D",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:storm_talisman"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fargostalismans:daedalus_stormbow": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fargostalismans:daedalus_stormbow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fargostalismans:daedalus_stormbow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fargostalismans:daedalus_stormbow"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fargostalismans:daedalus_stormbow"
+    ]
+  }
+}

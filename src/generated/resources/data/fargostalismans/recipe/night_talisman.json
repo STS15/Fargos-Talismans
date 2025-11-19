@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "fargostalismans:talisman_base_epic"
+    },
+    "A": {
+      "item": "minecraft:end_stone"
+    },
+    "B": {
+      "item": "minecraft:blackstone"
+    },
+    "C": {
+      "item": "minecraft:obsidian"
+    },
+    "D": {
+      "item": "minecraft:diamond_chestplate"
+    },
+    "E": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "C#B",
+    "AEA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fargostalismans:night_talisman"
+  }
+}
