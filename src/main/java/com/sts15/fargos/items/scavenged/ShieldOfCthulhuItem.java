@@ -62,8 +62,14 @@ public class ShieldOfCthulhuItem extends TalismanItem implements ICurioItem, Shi
     @EventBusSubscriber(modid = Fargos.MODID)
     public static class Events {
 
+        // Retaliation (for example guardian thorns) can synchronously post another
+        // incoming-damage event before the shield's attack has completed.
+        private static final ThreadLocal<Boolean> APPLYING_SHIELD_DAMAGE =
+                ThreadLocal.withInitial(() -> false);
+
         @SubscribeEvent
         public static void onPlayerHit(LivingIncomingDamageEvent event) {
+            if (APPLYING_SHIELD_DAMAGE.get()) return;
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
             if (player.level().isClientSide) return;
 
@@ -91,7 +97,12 @@ public class ShieldOfCthulhuItem extends TalismanItem implements ICurioItem, Shi
             attacker.hurtMarked = true;
 
             float damage = 4.0F; // 2 hearts of damage
-            attacker.hurt(player.damageSources().playerAttack(player), damage);
+            APPLYING_SHIELD_DAMAGE.set(true);
+            try {
+                attacker.hurt(player.damageSources().playerAttack(player), damage);
+            } finally {
+                APPLYING_SHIELD_DAMAGE.remove();
+            }
         }
     }
 }
